@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>패스키(passkey)란 무엇인가 — 비밀번호가 사라지는 이유</title>
+      <link>https://pancoit.site/posts/passkey-passwordless-login</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/passkey-passwordless-login</guid>
+      <pubDate>Sat, 25 Jul 2026 23:25:00 GMT</pubDate>
+      <description>구글·애플·네이버가 밀고 있는 패스키를 초보 눈높이로 정리합니다. 비밀번호와 뭐가 다른지, 왜 피싱에 안 당하는지, 지금 뭘 하면 되는지까지.</description>
+    </item>
+    <item>
       <title>자바 입력받기 — Scanner로 대화하기</title>
       <link>https://pancoit.site/posts/java-scanner-input</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-scanner-input</guid>
