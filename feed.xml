@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 조건문 — 갈림길 만들기(IF·SWITCH)</title>
+      <link>https://pancoit.site/posts/java-if-switch</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-if-switch</guid>
+      <pubDate>Sun, 26 Jul 2026 22:35:00 GMT</pubDate>
+      <description>자바 조건문 if·else·switch를 왕초보 눈높이로 정리합니다. 갈림길 비유로 쉽게, switch에서 break를 빼먹어 줄줄이 실행되는 함정까지 짬짬이 읽기 좋게 담았습니다.</description>
+    </item>
+    <item>
       <title>자바 연산자 — 계산하고 비교하고 판단하기</title>
       <link>https://pancoit.site/posts/java-operators</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-operators</guid>
