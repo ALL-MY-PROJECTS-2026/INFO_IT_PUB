@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 연산자 — 계산하고 비교하고 판단하기</title>
+      <link>https://pancoit.site/posts/java-operators</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-operators</guid>
+      <pubDate>Sun, 26 Jul 2026 21:21:00 GMT</pubDate>
+      <description>자바 연산자를 왕초보 눈높이로 정리합니다. 산술·대입·비교·논리·증감·삼항을 일상 비유와 짧은 코드로, 초보가 늘 헷갈리는 = 와 == 함정까지 짬짬이 읽기 좋게 담았습니다.</description>
+    </item>
+    <item>
       <title>랜섬웨어가 달라졌습니다 — 이제 파일을 잠그지도 않습니다</title>
       <link>https://pancoit.site/posts/ransomware-double-extortion</link>
       <guid isPermaLink="true">https://pancoit.site/posts/ransomware-double-extortion</guid>
