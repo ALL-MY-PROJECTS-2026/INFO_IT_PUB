@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>랜섬웨어가 달라졌습니다 — 이제 파일을 잠그지도 않습니다</title>
+      <link>https://pancoit.site/posts/ransomware-double-extortion</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/ransomware-double-extortion</guid>
+      <pubDate>Sun, 26 Jul 2026 10:58:00 GMT</pubDate>
+      <description>요즘 랜섬웨어는 파일을 암호화하지 않고 데이터를 훔쳐 협박합니다. 무엇이 달라졌는지, 백업만으로 왜 부족한지, 지금 뭘 하면 되는지 초보 눈높이로 정리했습니다.</description>
+    </item>
+    <item>
       <title>패스키(passkey)란 무엇인가 — 비밀번호가 사라지는 이유</title>
       <link>https://pancoit.site/posts/passkey-passwordless-login</link>
       <guid isPermaLink="true">https://pancoit.site/posts/passkey-passwordless-login</guid>
