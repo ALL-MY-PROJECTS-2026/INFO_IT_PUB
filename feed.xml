@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 반복문 — 똑같은 일 여러 번(FOR·WHILE)</title>
+      <link>https://pancoit.site/posts/java-loops</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-loops</guid>
+      <pubDate>Mon, 27 Jul 2026 15:52:00 GMT</pubDate>
+      <description>자바 반복문 for·while을 왕초보 눈높이로 정리합니다. 횟수와 조건 비유로 쉽게, 증감식을 빼먹어 영원히 도는 무한루프 함정까지 짬짬이 읽기 좋게 담았습니다.</description>
+    </item>
+    <item>
       <title>딥페이크 — AI가 만든 가짜 얼굴·목소리, 어떻게 속지 않을까</title>
       <link>https://pancoit.site/posts/deepfake-scam</link>
       <guid isPermaLink="true">https://pancoit.site/posts/deepfake-scam</guid>
