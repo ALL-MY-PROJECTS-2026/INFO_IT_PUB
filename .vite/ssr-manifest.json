@@ -80,6 +80,7 @@
   "src/components/Breadcrumbs.tsx": [],
   "src/components/Footer.tsx": [],
   "src/components/Header.tsx": [],
+  "src/components/JavaRunner.tsx": [],
   "src/components/Layout.tsx": [],
   "src/components/PageDoc.tsx": [],
   "src/components/PostCard.tsx": [],
