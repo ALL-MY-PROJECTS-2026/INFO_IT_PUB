@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 기초 12문제로 복습 — JAVA1 총정리 — PANCO_IT</title>
+    <meta name="description" content="자바 기초 JAVA1 시즌(출력·변수·형변환·입력·연산자·조건문·반복문)을 12문제로 복습합니다. 초보가 자주 틀리는 함정 위주로 정리해 짬짬이 실력을 점검하기 좋습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-review" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 기초 12문제로 복습 — JAVA1 총정리 — PANCO_IT" />
+    <meta property="og:description" content="자바 기초 JAVA1 시즌(출력·변수·형변환·입력·연산자·조건문·반복문)을 12문제로 복습합니다. 초보가 자주 틀리는 함정 위주로 정리해 짬짬이 실력을 점검하기 좋습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-review" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-review-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-07-28T11:34" />
+    <meta property="article:modified_time" content="2026-07-28T11:34" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 기초 12문제로 복습 — JAVA1 총정리 — PANCO_IT" />
+    <meta name="twitter:description" content="자바 기초 JAVA1 시즌(출력·변수·형변환·입력·연산자·조건문·반복문)을 12문제로 복습합니다. 초보가 자주 틀리는 함정 위주로 정리해 짬짬이 실력을 점검하기 좋습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-review-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 기초 12문제로 복습 — JAVA1 총정리","description":"자바 기초 JAVA1 시즌(출력·변수·형변환·입력·연산자·조건문·반복문)을 12문제로 복습합니다. 초보가 자주 틀리는 함정 위주로 정리해 짬짬이 실력을 점검하기 좋습니다.","image":"https://pancoit.site/uploads/java-review-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-07-28T11:34","dateModified":"2026-07-28T11:34","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-review"},"keywords":"자바, JAVA, 기초, 문제, 복습"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 기초 12문제로 복습 — JAVA1 총정리","item":"https://pancoit.site/posts/java-review"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BOaNkidf.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-gyV0xapW.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BXqRYZff.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 기초 12문제로 복습 — JAVA1 총정리</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 기초 12문제로 복습 — JAVA1 총정리</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-07-28T11:34">2026년 7월 28일 11:34</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->기초</span><span class="tag">#<!-- -->문제</span><span class="tag">#<!-- -->복습</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="번호를 매긴 손글씨 체크리스트 — 복습 이미지" src="/uploads/java-review-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels · Pexels License (<a href="https://www.pexels.com/photo/1226398/" target="_blank" rel="noopener noreferrer">https://www.pexels.com/photo/1226398/</a>)</em></p>
+<p>여기까지 오셨다면 자바의 기초 한 바퀴를 다 도신 것입니다. 이번 편은 새 개념 없이 <strong>JAVA1 시즌 전체를 12문제로 점검</strong>합니다. 특히 초보가 실제로 자주 틀리는 함정 위주로 골랐습니다.</p>
+<h2 id="한눈에-보는-시즌-지도"><a href="#한눈에-보는-시즌-지도">한눈에 보는 시즌 지도</a></h2>
+<table><thead><tr><th>편</th><th>핵심</th><th>대표 함정</th></tr></thead><tbody><tr><td>1</td><td>출력(<code>main</code>·<code>println</code>)</td><td>세미콜론·따옴표</td></tr><tr><td>2</td><td>변수·자료형</td><td>정수 나눗셈(<code>10/3</code>=3)</td></tr><tr><td>3</td><td>형변환</td><td>강제 변환 소수점 잘림</td></tr><tr><td>4</td><td>입력(Scanner)</td><td><code>nextInt</code> 뒤 <code>nextLine</code> 엔터 삼킴</td></tr><tr><td>5</td><td>연산자</td><td><code>=</code>(대입) vs <code>==</code>(비교)</td></tr><tr><td>6</td><td>조건문</td><td><code>switch</code>의 <code>break</code> 누락</td></tr><tr><td>7</td><td>반복문</td><td>무한루프(증감식 누락)</td></tr></tbody></table>
+<p><img alt="초보가 넘어지는 6곳: 정수 나눗셈·엔터 삼킴·= 와 ==·break 누락·무한루프·형변환 잘림" src="/uploads/java-review-traps.png" loading="lazy"/></p>
+<p><em>이 여섯 함정만 몸에 익혀도 기초는 충분합니다.</em></p>
+<h2 id="12문제-셀프-점검"><a href="#12문제-셀프-점검">12문제 셀프 점검</a></h2>
+<p>아래 12문제를 직접 풀어 보세요. 정답은 눌러야 나옵니다. 12문제 중 몇 개를 맞히는지 세어 보면 좋습니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 4문제 + 4지선다 8문제</p><button class="quiz__btn">시작하기</button></div></div>
+<h2 id="채점-기준"><a href="#채점-기준">채점 기준</a></h2>
+<ul>
+<li><strong>10~12개</strong> — 기초가 탄탄합니다. 다음 시즌으로 가도 좋습니다.</li>
+<li><strong>7~9개</strong> — 대부분 이해했습니다. 틀린 편만 다시 훑어보세요.</li>
+<li><strong>6개 이하</strong> — 표의 &quot;대표 함정&quot;만 다시 읽어도 크게 오릅니다. 급할 것 없습니다.</li>
+</ul>
+<p><strong>이것만 기억하면 됩니다.</strong> 초보가 넘어지는 곳은 늘 비슷합니다 — 정수 나눗셈, 형변환 잘림, <code>=</code>와 <code>==</code>, <code>nextLine</code> 엔터 삼킴, <code>switch</code>의 <code>break</code>, 무한루프. 이 여섯 함정만 몸에 익혀도 기초는 충분합니다.</p>
+<hr/>
+<p><em>포켓코딩(JAVA1) 8편(시즌 완결) · 예제 출처: 강사 개인 GitHub 저장소. 다음 시즌: JAVA2 — 객체지향(클래스·메서드·상속)으로 이어집니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-loops"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 반복문 — 똑같은 일 여러 번(FOR·WHILE)</h3><p>자바 반복문 for·while을 왕초보 눈높이로 정리합니다. 횟수와 조건 비유로 쉽게, 증감식을 빼먹어 영원히 도는 무한루프 함정까지 짬짬이 읽기 좋게 담았습니다.</p><div class="post-card__meta"><time dateTime="2026-07-27T15:52">2026년 7월 27일 15:52</time><span>· <!-- -->자바, JAVA, for문</span></div></a><a class="post-card " href="/posts/java-if-switch"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 조건문 — 갈림길 만들기(IF·SWITCH)</h3><p>자바 조건문 if·else·switch를 왕초보 눈높이로 정리합니다. 갈림길 비유로 쉽게, switch에서 break를 빼먹어 줄줄이 실행되는 함정까지 짬짬이 읽기 좋게 담았습니다.</p><div class="post-card__meta"><time dateTime="2026-07-26T22:35">2026년 7월 26일 22:35</time><span>· <!-- -->자바, JAVA, if문</span></div></a><a class="post-card " href="/posts/java-operators"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 연산자 — 계산하고 비교하고 판단하기</h3><p>자바 연산자를 왕초보 눈높이로 정리합니다. 산술·대입·비교·논리·증감·삼항을 일상 비유와 짧은 코드로, 초보가 늘 헷갈리는 = 와 == 함정까지 짬짬이 읽기 좋게 담았습니다.</p><div class="post-card__meta"><time dateTime="2026-07-26T21:21">2026년 7월 26일 21:21</time><span>· <!-- -->자바, JAVA, 연산자</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
