@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>쿠키(cookie)란 무엇인가 — 웹사이트가 나를 기억하는 법 — PANCO_IT</title>
+    <meta name="description" content="웹사이트마다 뜨는 &quot;쿠키 허용&quot; 팝업. 쿠키가 대체 뭔지, 퍼스트파티와 서드파티 쿠키가 어떻게 다른지, 왜 서드파티 쿠키가 사라지는지 초보 눈높이로 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/web-cookies" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="쿠키(cookie)란 무엇인가 — 웹사이트가 나를 기억하는 법 — PANCO_IT" />
+    <meta property="og:description" content="웹사이트마다 뜨는 &quot;쿠키 허용&quot; 팝업. 쿠키가 대체 뭔지, 퍼스트파티와 서드파티 쿠키가 어떻게 다른지, 왜 서드파티 쿠키가 사라지는지 초보 눈높이로 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/web-cookies" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-cookies-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-07-28T17:13" />
+    <meta property="article:modified_time" content="2026-07-28T17:13" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="쿠키(cookie)란 무엇인가 — 웹사이트가 나를 기억하는 법 — PANCO_IT" />
+    <meta name="twitter:description" content="웹사이트마다 뜨는 &quot;쿠키 허용&quot; 팝업. 쿠키가 대체 뭔지, 퍼스트파티와 서드파티 쿠키가 어떻게 다른지, 왜 서드파티 쿠키가 사라지는지 초보 눈높이로 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-cookies-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"쿠키(cookie)란 무엇인가 — 웹사이트가 나를 기억하는 법","description":"웹사이트마다 뜨는 \"쿠키 허용\" 팝업. 쿠키가 대체 뭔지, 퍼스트파티와 서드파티 쿠키가 어떻게 다른지, 왜 서드파티 쿠키가 사라지는지 초보 눈높이로 정리했습니다.","image":"https://pancoit.site/uploads/itnews-cookies-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-07-28T17:13","dateModified":"2026-07-28T17:13","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/web-cookies"},"keywords":"쿠키, 프라이버시, 웹, 광고"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"쿠키(cookie)란 무엇인가 — 웹사이트가 나를 기억하는 법","item":"https://pancoit.site/posts/web-cookies"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DKgTRKuD.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-gyV0xapW.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DL3u-tkl.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">쿠키(cookie)란 무엇인가 — 웹사이트가 나를 기억하는 법</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">쿠키(cookie)란 무엇인가 — 웹사이트가 나를 기억하는 법</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-07-28T17:13">2026년 7월 28일 17:13</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->쿠키</span><span class="tag">#<!-- -->프라이버시</span><span class="tag">#<!-- -->웹</span><span class="tag">#<!-- -->광고</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="노트북 화면에 보안 자물쇠 아이콘" src="/uploads/itnews-cookies-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels · Pexels License (<a href="https://www.pexels.com/photo/4973899/" target="_blank" rel="noopener noreferrer">https://www.pexels.com/photo/4973899/</a>)</em></p>
+<p>사이트에 들어갈 때마다 <strong>&quot;쿠키를 허용하시겠습니까?&quot;</strong> 하는 팝업이 뜹니다. 매번 누르긴 하는데, 쿠키가 대체 뭘까요? 오늘은 이 쿠키를 처음 듣는 분도 이해할 수 있게 정리하겠습니다.</p>
+<h2 id="쿠키가-대체-뭔가요"><a href="#쿠키가-대체-뭔가요">쿠키가 대체 뭔가요?</a></h2>
+<p>쿠키는 <strong>웹사이트가 내 브라우저에 저장해 두는 작은 메모</strong>입니다. 다음에 다시 방문했을 때 나를 알아보게 하는 쪽지라고 보면 됩니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 단골 카페의 <strong>도장 쿠폰</strong>과 같습니다. 가게가 내 쿠폰에 도장을 찍어 두면, 다음에 갔을 때 &quot;몇 잔 드셨죠&quot;를 기억합니다. 쿠키도 사이트가 내 브라우저에 정보를 적어 두고, 다시 오면 그걸 읽어 <strong>로그인 상태나 장바구니</strong>를 기억합니다.</p>
+</blockquote>
+<h2 id="두-종류가-있습니다--퍼스트파티-vs-서드파티"><a href="#두-종류가-있습니다--퍼스트파티-vs-서드파티">두 종류가 있습니다 — 퍼스트파티 vs 서드파티</a></h2>
+<p>여기서 핵심은 <strong>누가 그 쿠키를 심었느냐</strong>입니다.</p>
+<p><img alt="퍼스트파티 쿠키(내가 방문한 사이트가 저장)와 서드파티 쿠키(광고사가 여러 사이트에서 추적)를 비교한 그림" src="/uploads/itnews-cookies-diagram.png" loading="lazy"/></p>
+<table><thead><tr><th>구분</th><th>퍼스트파티 쿠키</th><th>서드파티 쿠키</th></tr></thead><tbody><tr><td>심는 주체</td><td><strong>내가 방문한 그 사이트</strong></td><td>그 사이트에 얹힌 <strong>광고사(제3자)</strong></td></tr><tr><td>하는 일</td><td>로그인·장바구니·설정 기억</td><td>여러 사이트를 넘나들며 <strong>관심사 추적</strong></td></tr><tr><td>쓰임</td><td>사이트 편의</td><td><strong>맞춤 광고</strong></td></tr><tr><td>요즘 상태</td><td>대체로 유지</td><td><strong>차단·축소되는 중</strong></td></tr></tbody></table>
+<p>한 번 신발을 검색했더니 다른 사이트마다 신발 광고가 따라다닌 경험이 있으실 겁니다. 그게 바로 <strong>서드파티 쿠키</strong>가 나를 따라다닌 결과입니다.</p>
+<h2 id="왜-서드파티-쿠키가-사라지나요"><a href="#왜-서드파티-쿠키가-사라지나요">왜 서드파티 쿠키가 사라지나요?</a></h2>
+<p>&quot;사이트를 옮겨 다녀도 나를 추적한다&quot;는 점이 <strong>프라이버시 문제</strong>로 지적됐습니다. 그래서 사파리·파이어폭스는 이미 서드파티 쿠키를 상당 부분 막았고, 크롬도 이용자가 더 쉽게 통제하도록 바꾸는 방향으로 가고 있습니다. 광고 업계는 <strong>개별 추적 대신 관심사 그룹 단위</strong>로 바꾸는 새 방식을 준비하고 있습니다.</p>
+<h2 id="자주-하는-오해"><a href="#자주-하는-오해">자주 하는 오해</a></h2>
+<blockquote>
+<p><strong>짚고 갈 점</strong></p>
+<p><strong>① &quot;쿠키는 다 나쁘다&quot;?</strong> 아닙니다. <strong>퍼스트파티 쿠키</strong>는 로그인 유지처럼 편의 기능이라 없으면 오히려 불편합니다. 문제로 지적된 건 추적용 <strong>서드파티 쿠키</strong>입니다.</p>
+<p><strong>② &quot;쿠키가 바이러스다&quot;?</strong> 쿠키는 프로그램이 아니라 <strong>텍스트 메모</strong>라 그 자체로 기기를 감염시키지 않습니다.</p>
+<p><strong>③ &quot;쿠키를 지우면 다 해결&quot;?</strong> 지우면 추적 일부는 줄지만 <strong>로그인도 풀립니다.</strong> 삭제보다 브라우저의 <strong>추적 방지·쿠키 설정</strong>을 쓰는 편이 낫습니다.</p>
+</blockquote>
+<h2 id="그래서-나에게-무슨-의미인가요"><a href="#그래서-나에게-무슨-의미인가요">그래서 나에게 무슨 의미인가요?</a></h2>
+<ul>
+<li><strong>맞춤 광고가 조금씩 줄어듭니다</strong>(사이트 넘나드는 추적이 약해짐).</li>
+<li>브라우저 설정에서 <strong>서드파티 쿠키 차단·추적 방지</strong>를 켜면 프라이버시가 좋아집니다.</li>
+<li>로그인·장바구니가 자꾸 풀린다면, 쿠키를 통째로 막았을 수 있으니 <strong>퍼스트파티는 허용</strong>해 둡니다.</li>
+</ul>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>질문</th><th>답</th></tr></thead><tbody><tr><td>쿠키란</td><td>사이트가 브라우저에 남기는 작은 메모</td></tr><tr><td>퍼스트파티</td><td>방문한 사이트가 저장(편의)</td></tr><tr><td>서드파티</td><td>광고사가 추적(맞춤 광고), 축소 중</td></tr><tr><td>내 대응</td><td>추적 방지 켜기, 퍼스트파티는 허용</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 쿠키는 사이트가 나를 기억하는 쪽지입니다. 내 편의를 돕는 퍼스트파티는 두고, 나를 따라다니는 <strong>서드파티 추적만 브라우저 설정으로 줄이면</strong> 됩니다.</p>
+<hr/>
+<p><em>기준 시점: 2026년 7월. 서드파티 쿠키 정책은 브라우저·지역마다 다르고 계속 바뀌므로, 최신 내용은 각 브라우저 공식 안내를 확인하시기 바랍니다.</em></p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<p>쿠키·추적 방지 설정은 각 브라우저의 공식 안내를 참고했습니다.</p>
+<ul>
+<li><a href="https://privacysandbox.com" target="_blank" rel="noopener noreferrer">Google 프라이버시 샌드박스</a></li>
+<li><a href="https://www.mozilla.org" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+<li><a href="https://www.apple.com/safari/" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
+</ul>
+<p><em>이 글은 위 공식 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/on-device-ai"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">온디바이스 AI — 내 폰 안에서 도는 AI</h3><p>인터넷 없이도 폰 안에서 바로 도는 온디바이스 AI. 클라우드 AI와 뭐가 다른지, 왜 빨라지고 안전해지는지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-07-24T12:24">2026년 7월 24일 12:24</time><span>· <!-- -->AI, 온디바이스, 스마트폰</span></div></a><a class="post-card " href="/posts/deepfake-scam"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">딥페이크 — AI가 만든 가짜 얼굴·목소리, 어떻게 속지 않을까</h3><p>AI가 진짜 같은 가짜 영상·목소리를 만드는 딥페이크. 무엇인지, 왜 위험한지, 그리고 사기에 속지 않는 확인법까지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-07-27T14:00">2026년 7월 27일 14:00</time><span>· <!-- -->AI, 딥페이크, 보안</span></div></a><a class="post-card " href="/posts/ransomware-double-extortion"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">랜섬웨어가 달라졌습니다 — 이제 파일을 잠그지도 않습니다</h3><p>요즘 랜섬웨어는 파일을 암호화하지 않고 데이터를 훔쳐 협박합니다. 무엇이 달라졌는지, 백업만으로 왜 부족한지, 지금 뭘 하면 되는지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-07-26T10:58">2026년 7월 26일 10:58</time><span>· <!-- -->보안, 랜섬웨어, 데이터유출</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

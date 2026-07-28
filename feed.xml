@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>쿠키(cookie)란 무엇인가 — 웹사이트가 나를 기억하는 법</title>
+      <link>https://pancoit.site/posts/web-cookies</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/web-cookies</guid>
+      <pubDate>Tue, 28 Jul 2026 17:13:00 GMT</pubDate>
+      <description>웹사이트마다 뜨는 &quot;쿠키 허용&quot; 팝업. 쿠키가 대체 뭔지, 퍼스트파티와 서드파티 쿠키가 어떻게 다른지, 왜 서드파티 쿠키가 사라지는지 초보 눈높이로 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 기초 12문제로 복습 — JAVA1 총정리</title>
       <link>https://pancoit.site/posts/java-review</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-review</guid>
