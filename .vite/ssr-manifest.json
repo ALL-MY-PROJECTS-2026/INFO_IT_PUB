@@ -83,6 +83,7 @@
   "src/components/JavaRunner.tsx": [],
   "src/components/Layout.tsx": [],
   "src/components/PageDoc.tsx": [],
+  "src/components/Pagination.tsx": [],
   "src/components/PostCard.tsx": [],
   "src/components/PostRow.tsx": [],
   "src/components/Quiz.tsx": [],
