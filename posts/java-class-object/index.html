@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음) — PANCO_IT</title>
+    <meta name="description" content="자바 객체지향의 출발점인 클래스와 객체를 왕초보 눈높이로 정리합니다. 설계도와 실물 비유로 개념을 잡고, 필드·메서드·new를 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-class-object" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음) — PANCO_IT" />
+    <meta property="og:description" content="자바 객체지향의 출발점인 클래스와 객체를 왕초보 눈높이로 정리합니다. 설계도와 실물 비유로 개념을 잡고, 필드·메서드·new를 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-class-object" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-classes-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-07-29T11:20" />
+    <meta property="article:modified_time" content="2026-07-29T11:20" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음) — PANCO_IT" />
+    <meta name="twitter:description" content="자바 객체지향의 출발점인 클래스와 객체를 왕초보 눈높이로 정리합니다. 설계도와 실물 비유로 개념을 잡고, 필드·메서드·new를 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-classes-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음)","description":"자바 객체지향의 출발점인 클래스와 객체를 왕초보 눈높이로 정리합니다. 설계도와 실물 비유로 개념을 잡고, 필드·메서드·new를 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-classes-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-07-29T11:20","dateModified":"2026-07-29T11:20","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-class-object"},"keywords":"자바, JAVA, 클래스, 객체, 객체지향"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음)","item":"https://pancoit.site/posts/java-class-object"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BJW08Iwy.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-gyV0xapW.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BAWNYkHJ.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-07-29T11:20">2026년 7월 29일 11:20</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->클래스</span><span class="tag">#<!-- -->객체</span><span class="tag">#<!-- -->객체지향</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="클래스는 설계도, 객체는 실물이라는 비유를 담은 그림" src="/uploads/java-classes-hero.png" loading="lazy"/></p>
+<p><em>클래스는 틀(설계도), 객체는 그 틀로 찍어낸 실물입니다.</em></p>
+<p>JAVA1에서 출력·변수·조건문·반복문까지 기초 한 바퀴를 돌았습니다. 지금까지는 명령을 위에서 아래로 쭉 나열하는 방식이었습니다. 이번 JAVA2 시즌부터는 프로그램을 <strong>사물 단위로 묶어 다루는</strong> 객체지향으로 넘어갑니다. 그 첫 단추가 오늘의 주제, 클래스와 객체입니다.</p>
+<h2 id="클래스는-설계도-객체는-실물"><a href="#클래스는-설계도-객체는-실물">클래스는 설계도, 객체는 실물</a></h2>
+<p>가장 먼저 잡아야 할 그림은 이것 하나입니다. <strong>클래스는 설계도</strong>이고, <strong>객체는 그 설계도로 찍어낸 실물</strong>입니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 붕어빵 틀이 클래스라면, 그 틀로 구워 낸 붕어빵 하나하나가 객체입니다. 틀은 하나여도 붕어빵은 여러 개 나오듯, 클래스 하나로 객체를 얼마든지 만들 수 있습니다. 틀 자체는 먹을 수 없다는 점도 중요합니다. 실제로 쓰는 것은 언제나 찍어낸 실물(객체)입니다.</p>
+</blockquote>
+<h2 id="클래스-만들기--필드와-메서드"><a href="#클래스-만들기--필드와-메서드">클래스 만들기 — 필드와 메서드</a></h2>
+<p>클래스 안에는 두 가지를 담습니다. 객체가 <strong>가진 데이터</strong>(필드)와 객체가 <strong>하는 동작</strong>(메서드)입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    String name;                 </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 필드: 객체가 가진 데이터</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> bark</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {                </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 메서드: 객체가 하는 동작</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(name </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;가 멍멍 짖습니다.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p><code>Dog</code>라는 설계도에 &quot;이름을 가진다&quot;(<code>name</code>)와 &quot;짖는다&quot;(<code>bark</code>)를 적어 둔 것입니다. 아직 실물은 하나도 없습니다. 설계도만 그린 상태입니다.</p>
+<h2 id="객체-만들기--new로-찍어내기"><a href="#객체-만들기--new로-찍어내기">객체 만들기 — new로 찍어내기</a></h2>
+<p>설계도로 실물을 찍어내는 명령이 <code>new</code>입니다. 만든 객체는 변수에 담아 두고, <strong>점(.)</strong> 으로 그 안의 필드와 메서드를 꺼내 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Dog d </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 설계도(Dog)로 실물(객체) 하나 생성</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">d.name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;바둑이&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 필드에 값 넣기</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">d.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">bark</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 메서드 호출 → 바둑이가 멍멍 짖습니다.</span></span></code></pre>
+<p><img alt="객체를 쓰는 3단계: 클래스 정의, new로 생성, 점으로 사용" src="/uploads/java-classes-steps.png" loading="lazy"/></p>
+<p><em>정의하고(설계도), 찍어내고(new), 점으로 불러 씁니다.</em></p>
+<p>순서는 늘 같습니다. <strong>클래스를 정의</strong>하고, <code>new</code>로 <strong>객체를 생성</strong>하고, <code>.</code>으로 <strong>멤버를 사용</strong>합니다. 이 세 박자가 객체지향의 기본 리듬입니다.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>아래 코드를 그대로 돌려 보고, <code>name</code>을 바꾸거나 <code>bark()</code>를 한 번 더 호출해 결과가 어떻게 달라지는지 확인해 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">Dog 클래스와 객체</span></div><pre class="runner__code"><code>class Dog {
+  String name;
+  void bark() {
+      System.out.println(name + &quot;가 멍멍 짖습니다.&quot;);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+      Dog d = new Dog();
+      d.name = &quot;바둑이&quot;;
+      d.bark();
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button></div>
+<p>설계도(<code>Dog</code>) 하나로 <code>d2</code>, <code>d3</code>처럼 객체를 여러 개 만들어 각각 다른 이름을 넣어 보면, &quot;틀 하나로 실물 여러 개&quot;라는 말이 손에 잡힙니다.</p>
+<h2 id="단골-함정--new를-빼먹기"><a href="#단골-함정--new를-빼먹기">단골 함정 — new를 빼먹기</a></h2>
+<p>가장 자주 막히는 곳입니다. 변수를 선언만 하고 <code>new</code>로 객체를 만들지 않으면, 이름표만 있고 실물이 없어 사용할 수 없습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Dog d;        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이름표만 만든 상태 (실물 없음)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">d.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">bark</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 오류: 가리키는 객체가 없어 호출 불가</span></span></code></pre>
+<blockquote>
+<p><strong>규칙 —</strong> 객체는 반드시 <code>new</code>로 <strong>만들어서</strong> 변수에 연결해야 씁니다. 선언(<code>Dog d;</code>)은 &quot;상자를 놓은 것&quot;일 뿐이고, 그 안에 실물을 담는 일은 <code>new Dog()</code>가 합니다. 실행 중 &quot;가리키는 값이 없다&quot;는 오류가 난다면, 십중팔구 <code>new</code>를 빠뜨린 것입니다.</p>
+</blockquote>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>용어</th><th>뜻</th><th>비유</th></tr></thead><tbody><tr><td>클래스</td><td>데이터와 동작을 묶은 설계도</td><td>붕어빵 틀</td></tr><tr><td>객체</td><td>클래스로 만든 실물</td><td>붕어빵</td></tr><tr><td>필드</td><td>객체가 가진 데이터</td><td>붕어빵 속 재료</td></tr><tr><td>메서드</td><td>객체가 하는 동작</td><td>붕어빵이 하는 일</td></tr><tr><td>new</td><td>객체를 만드는 명령</td><td>틀로 굽기</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 클래스는 설계도, 객체는 실물입니다. 클래스 안에 <strong>필드(데이터)</strong> 와 <strong>메서드(동작)</strong> 를 담고, <code>new</code>로 객체를 만든 뒤 <code>.</code>으로 꺼내 씁니다. <code>new</code>를 빼먹으면 실물이 없어 쓸 수 없습니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA2) 1편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 메서드 — 코드에 이름을 붙여 재사용하기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-review"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 기초 12문제로 복습 — JAVA1 총정리</h3><p>자바 기초 JAVA1 시즌(출력·변수·형변환·입력·연산자·조건문·반복문)을 개념 퀴즈와 직접 푸는 실습 문제로 복습합니다. 브라우저에서 바로 코드를 고쳐 실행하며 자주 틀리는 함정을 몸에 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-07-28T11:34">2026년 7월 28일 11:34</time><span>· <!-- -->자바, JAVA, 기초</span></div></a><a class="post-card " href="/posts/java-loops"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 반복문 — 똑같은 일 여러 번(FOR·WHILE)</h3><p>자바 반복문 for·while을 왕초보 눈높이로 정리합니다. 횟수와 조건 비유로 쉽게, 증감식을 빼먹어 영원히 도는 무한루프 함정까지 짬짬이 읽기 좋게 담았습니다.</p><div class="post-card__meta"><time dateTime="2026-07-27T15:52">2026년 7월 27일 15:52</time><span>· <!-- -->자바, JAVA, for문</span></div></a><a class="post-card " href="/posts/java-if-switch"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 조건문 — 갈림길 만들기(IF·SWITCH)</h3><p>자바 조건문 if·else·switch를 왕초보 눈높이로 정리합니다. 갈림길 비유로 쉽게, switch에서 break를 빼먹어 줄줄이 실행되는 함정까지 짬짬이 읽기 좋게 담았습니다.</p><div class="post-card__meta"><time dateTime="2026-07-26T22:35">2026년 7월 26일 22:35</time><span>· <!-- -->자바, JAVA, if문</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
