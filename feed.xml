@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>2단계 인증(2FA)이란 — 비밀번호가 뚫려도 막는 두 번째 자물쇠</title>
+      <link>https://pancoit.site/posts/two-factor-auth</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/two-factor-auth</guid>
+      <pubDate>Wed, 29 Jul 2026 16:40:00 GMT</pubDate>
+      <description>로그인할 때 문자로 오는 인증번호, 왜 필요할까요. 2단계 인증(2FA)이 무엇인지, 비밀번호만으로 왜 부족한지, SMS·인증앱·보안키 중 뭐가 안전한지 초보 눈높이로 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음)</title>
       <link>https://pancoit.site/posts/java-class-object</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-class-object</guid>

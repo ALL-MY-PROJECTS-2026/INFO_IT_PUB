@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>2단계 인증(2FA)이란 — 비밀번호가 뚫려도 막는 두 번째 자물쇠 — PANCO_IT</title>
+    <meta name="description" content="로그인할 때 문자로 오는 인증번호, 왜 필요할까요. 2단계 인증(2FA)이 무엇인지, 비밀번호만으로 왜 부족한지, SMS·인증앱·보안키 중 뭐가 안전한지 초보 눈높이로 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/two-factor-auth" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="2단계 인증(2FA)이란 — 비밀번호가 뚫려도 막는 두 번째 자물쇠 — PANCO_IT" />
+    <meta property="og:description" content="로그인할 때 문자로 오는 인증번호, 왜 필요할까요. 2단계 인증(2FA)이 무엇인지, 비밀번호만으로 왜 부족한지, SMS·인증앱·보안키 중 뭐가 안전한지 초보 눈높이로 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/two-factor-auth" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-2fa-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-07-29T16:40" />
+    <meta property="article:modified_time" content="2026-07-29T16:40" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="2단계 인증(2FA)이란 — 비밀번호가 뚫려도 막는 두 번째 자물쇠 — PANCO_IT" />
+    <meta name="twitter:description" content="로그인할 때 문자로 오는 인증번호, 왜 필요할까요. 2단계 인증(2FA)이 무엇인지, 비밀번호만으로 왜 부족한지, SMS·인증앱·보안키 중 뭐가 안전한지 초보 눈높이로 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-2fa-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"2단계 인증(2FA)이란 — 비밀번호가 뚫려도 막는 두 번째 자물쇠","description":"로그인할 때 문자로 오는 인증번호, 왜 필요할까요. 2단계 인증(2FA)이 무엇인지, 비밀번호만으로 왜 부족한지, SMS·인증앱·보안키 중 뭐가 안전한지 초보 눈높이로 정리했습니다.","image":"https://pancoit.site/uploads/itnews-2fa-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-07-29T16:40","dateModified":"2026-07-29T16:40","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/two-factor-auth"},"keywords":"보안, 2단계인증, 2FA, 계정보안"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"2단계 인증(2FA)이란 — 비밀번호가 뚫려도 막는 두 번째 자물쇠","item":"https://pancoit.site/posts/two-factor-auth"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CdFv2q5Y.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-gyV0xapW.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BAWNYkHJ.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">2단계 인증(2FA)이란 — 비밀번호가 뚫려도 막는 두 번째 자물쇠</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">2단계 인증(2FA)이란 — 비밀번호가 뚫려도 막는 두 번째 자물쇠</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-07-29T16:40">2026년 7월 29일 16:40</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->보안</span><span class="tag">#<!-- -->2단계인증</span><span class="tag">#<!-- -->2FA</span><span class="tag">#<!-- -->계정보안</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="스마트폰의 인증 코드가 자물쇠를 여는 2단계 인증 개념 그림" src="/uploads/itnews-2fa-hero.png" loading="lazy"/></p>
+<p><em>비밀번호 다음에 인증 코드로 한 번 더 확인하는 것이 2단계 인증입니다.</em></p>
+<p>로그인 버튼을 눌렀더니 &quot;인증번호를 입력하세요&quot;라는 문자가 옵니다. 조금 귀찮게 느껴지지만, 사실 이 한 단계가 내 계정을 지키는 가장 확실한 자물쇠입니다. 오늘은 이 2단계 인증(2FA)이 무엇이고 왜 필요한지, 처음 듣는 분도 이해할 수 있게 정리하겠습니다.</p>
+<h2 id="2단계-인증이-뭔가요"><a href="#2단계-인증이-뭔가요">2단계 인증이 뭔가요?</a></h2>
+<p>2단계 인증은 로그인할 때 <strong>비밀번호 말고 한 가지를 더 확인</strong>하는 방식입니다. 영어로 2FA(Two-Factor Authentication)라고 부릅니다. 아는 것(비밀번호)에 더해, 내가 가진 것(폰으로 오는 코드)이나 나 자신(지문·얼굴)을 한 번 더 확인하는 것입니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 현관문에 자물쇠가 하나 더 달린 것과 같습니다. 도둑이 열쇠 하나(비밀번호)를 복사했더라도, 두 번째 자물쇠(인증 코드)가 없으면 들어올 수 없습니다. 은행 앱에서 이체할 때 비밀번호 다음에 OTP 번호를 한 번 더 넣는 것도 같은 원리입니다.</p>
+</blockquote>
+<h2 id="왜-비밀번호만으로는-부족한가요"><a href="#왜-비밀번호만으로는-부족한가요">왜 비밀번호만으로는 부족한가요?</a></h2>
+<p>비밀번호는 생각보다 쉽게 새어 나갑니다. 다른 사이트가 해킹당해 내 비밀번호가 통째로 유출되기도 하고, 여러 사이트에 같은 비밀번호를 쓰다가 한 곳이 뚫리면 나머지도 줄줄이 열립니다. 가짜 로그인 화면에 속아 직접 입력해 버리는 경우(피싱)도 흔합니다.</p>
+<p><img alt="비밀번호만 쓸 때와 2단계 인증을 더했을 때를 비교한 그림" src="/uploads/itnews-2fa-diagram.png" loading="lazy"/></p>
+<p>문제는, 비밀번호가 새는 순간 <strong>그것만이 유일한 문</strong>이라는 점입니다. 2단계 인증을 켜 두면, 남이 비밀번호를 알아내도 두 번째 확인을 통과하지 못해 로그인이 막힙니다. 실제로 낯선 곳에서 로그인 시도가 있으면 &quot;본인이 맞나요?&quot;라는 알림이 오는데, 이게 바로 두 번째 자물쇠가 작동하는 순간입니다.</p>
+<h2 id="2단계-인증의-3가지-방식"><a href="#2단계-인증의-3가지-방식">2단계 인증의 3가지 방식</a></h2>
+<p>두 번째 확인을 받는 방법은 크게 셋입니다. 편의성과 안전성이 조금씩 다릅니다.</p>
+<table><thead><tr><th>방식</th><th>어떻게</th><th>특징</th></tr></thead><tbody><tr><td><strong>문자(SMS)</strong></td><td>문자로 온 인증번호 입력</td><td>가장 흔하고 쉬움. 다만 문자 가로채기에 상대적으로 취약</td></tr><tr><td><strong>인증 앱(OTP)</strong></td><td>앱이 30초마다 바꿔 주는 코드</td><td>문자보다 안전. 인터넷 없이도 작동</td></tr><tr><td><strong>보안키·생체</strong></td><td>지문·얼굴, 또는 물리 보안키</td><td>가장 안전. 피싱에도 강함</td></tr></tbody></table>
+<p>인증 앱은 구글 OTP, 마이크로소프트 인증 앱처럼 무료로 받을 수 있고, 한 번 등록하면 30초마다 새 숫자가 뜹니다. 이 숫자를 로그인 때 입력하는 방식입니다.</p>
+<h2 id="어떤-방식이-더-안전한가요"><a href="#어떤-방식이-더-안전한가요">어떤 방식이 더 안전한가요?</a></h2>
+<p>안전한 순서로 보면 <strong>보안키·생체 &gt; 인증 앱 &gt; 문자(SMS)</strong> 입니다. 문자는 가장 쓰기 쉽지만, 번호를 가로채거나 유심을 복제하는 수법에 상대적으로 약합니다. 그래서 이왕이면 <strong>인증 앱</strong>을 쓰는 편이 낫고, 중요한 계정(금융·이메일)일수록 보안키나 생체 인증까지 고려하면 좋습니다.</p>
+<p>다만 여기서 오해하지 말아야 할 게 있습니다. <strong>문자 인증이라도 아무것도 안 쓰는 것보다는 훨씬 안전합니다.</strong> 가장 안전한 방식만 고집하다 아예 안 켜는 것보다, 지금 당장 켤 수 있는 방식부터 켜는 것이 먼저입니다.</p>
+<h2 id="자주-하는-오해"><a href="#자주-하는-오해">자주 하는 오해</a></h2>
+<blockquote>
+<p><strong>짚고 갈 점</strong></p>
+<p><strong>① &quot;귀찮기만 하다&quot;?</strong> 처음 등록할 때와 낯선 기기에서 로그인할 때만 한 번씩 확인합니다. 늘 쓰던 폰에서는 대부분 건너뛰게 설정할 수 있어, 실제 번거로움은 크지 않습니다.</p>
+<p><strong>② &quot;나는 해킹당할 일 없다&quot;?</strong> 대부분의 계정 탈취는 나를 노려서가 아니라, 다른 곳에서 유출된 비밀번호를 자동으로 대입해 일어납니다. 특정인이 아니어도 누구나 대상이 됩니다.</p>
+<p><strong>③ &quot;2단계면 100% 안전&quot;?</strong> 크게 안전해지지만 완벽은 아닙니다. 인증 코드를 남에게 불러 주거나 가짜 사이트에 입력하면 뚫릴 수 있으니, <strong>코드는 누구에게도 알려 주지 않는 것</strong>이 원칙입니다.</p>
+</blockquote>
+<h2 id="그래서-뭘-하면-되나요"><a href="#그래서-뭘-하면-되나요">그래서 뭘 하면 되나요?</a></h2>
+<ul>
+<li><strong>중요한 계정부터 켜세요.</strong> 이메일, 금융, 그리고 네이버·카카오·구글처럼 다른 서비스의 열쇠가 되는 계정이 우선입니다.</li>
+<li><strong>가능하면 인증 앱</strong>으로 설정하세요. 문자만 가능하면 문자라도 켜는 게 낫습니다.</li>
+<li><strong>백업 코드를 저장해 두세요.</strong> 폰을 잃어버렸을 때 로그인할 수 있는 비상 열쇠입니다.</li>
+<li><strong>인증 코드는 누구에게도 알려 주지 마세요.</strong> &quot;인증번호 불러 달라&quot;는 연락은 대부분 사기입니다.</li>
+</ul>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>질문</th><th>답</th></tr></thead><tbody><tr><td>2단계 인증이란</td><td>비밀번호 다음에 한 번 더 확인하는 것</td></tr><tr><td>왜 필요한가</td><td>비밀번호가 새도 계정을 지켜 줌</td></tr><tr><td>어떤 방식</td><td>문자 &lt; 인증 앱 &lt; 보안키·생체</td></tr><tr><td>뭘 하면 되나</td><td>중요한 계정부터, 이왕이면 인증 앱으로</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 2단계 인증은 비밀번호라는 첫 번째 자물쇠에 두 번째 자물쇠를 더하는 것입니다. 비밀번호는 언젠가 샐 수 있으니, <strong>이메일과 금융 계정만이라도 지금 2단계 인증을 켜 두면</strong> 계정 탈취의 대부분을 막을 수 있습니다.</p>
+<hr/>
+<p><em>기준 시점: 2026년 7월. 서비스별 설정 위치와 지원 방식은 계속 바뀌므로, 실제 설정은 각 서비스의 공식 보안 안내를 확인하시기 바랍니다.</em></p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<p>2단계 인증 설정과 방식은 각 서비스의 공식 안내를 참고했습니다.</p>
+<ul>
+<li><a href="https://safety.google/authentication/" target="_blank" rel="noopener noreferrer">Google 2단계 인증</a></li>
+<li><a href="https://www.microsoft.com/security" target="_blank" rel="noopener noreferrer">Microsoft 계정 보안</a></li>
+<li><a href="https://www.boho.or.kr" target="_blank" rel="noopener noreferrer">KISA 보호나라</a></li>
+</ul>
+<p><em>이 글은 위 공식 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/deepfake-scam"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">딥페이크 — AI가 만든 가짜 얼굴·목소리, 어떻게 속지 않을까</h3><p>AI가 진짜 같은 가짜 영상·목소리를 만드는 딥페이크. 무엇인지, 왜 위험한지, 그리고 사기에 속지 않는 확인법까지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-07-27T14:00">2026년 7월 27일 14:00</time><span>· <!-- -->AI, 딥페이크, 보안</span></div></a><a class="post-card " href="/posts/ransomware-double-extortion"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">랜섬웨어가 달라졌습니다 — 이제 파일을 잠그지도 않습니다</h3><p>요즘 랜섬웨어는 파일을 암호화하지 않고 데이터를 훔쳐 협박합니다. 무엇이 달라졌는지, 백업만으로 왜 부족한지, 지금 뭘 하면 되는지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-07-26T10:58">2026년 7월 26일 10:58</time><span>· <!-- -->보안, 랜섬웨어, 데이터유출</span></div></a><a class="post-card " href="/posts/passkey-passwordless-login"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">패스키(passkey)란 무엇인가 — 비밀번호가 사라지는 이유</h3><p>구글·애플·네이버가 밀고 있는 패스키를 초보 눈높이로 정리합니다. 비밀번호와 뭐가 다른지, 왜 피싱에 안 당하는지, 지금 뭘 하면 되는지까지.</p><div class="post-card__meta"><time dateTime="2026-07-25T23:25">2026년 7월 25일 23:25</time><span>· <!-- -->보안, 인증, 패스키</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

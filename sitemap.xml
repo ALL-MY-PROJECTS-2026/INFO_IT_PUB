@@ -111,6 +111,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/two-factor-auth</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/web-cookies</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
