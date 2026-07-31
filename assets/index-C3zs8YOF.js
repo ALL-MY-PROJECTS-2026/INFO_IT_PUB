@@ -1215,36 +1215,46 @@ while (i < 3) {
 `,s.jsx(e.p,{children:"글에 대한 질문, 오류 제보, 제휴·협업 문의는 아래 이메일로 연락해 주시기 바랍니다. 확인 후 최대한 빠르게 답변드리겠습니다."}),`
 `,s.jsx(e.h2,{id:"이메일",children:s.jsx(e.a,{href:"#이메일",children:"이메일"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.a,{href:"mailto:jwg135790@gmail.com",children:"jwg135790@gmail.com"})}),`
-`,s.jsx("p",{className:"muted",children:"※ 스팸 방지를 위해 문의 폼 대신 이메일을 사용합니다."})]})}function nr(n={}){const{wrapper:e}={...h(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(ys,{...n})}):ys(n)}const rr=Object.freeze(Object.defineProperty({__proto__:null,default:nr,frontmatter:er},Symbol.toStringTag,{value:"Module"})),ir={title:"개인정보처리방침",description:"PANCO_IT 개인정보처리방침"};function fs(n){const e={a:"a",h1:"h1",h2:"h2",li:"li",p:"p",ul:"ul",...h(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.h1,{id:"개인정보처리방침",children:s.jsx(e.a,{href:"#개인정보처리방침",children:"개인정보처리방침"})}),`
-`,s.jsx("p",{className:"muted",children:"최종 개정일: 2026년 7월 22일"}),`
-`,s.jsx(e.p,{children:'PANCO_IT(이하 "사이트")는 「개인정보 보호법」 제30조에 따라 이용자의 개인정보를 보호하고 관련 고충을 처리하기 위하여 다음과 같이 개인정보처리방침을 수립·공개합니다.'}),`
-`,s.jsx(e.h2,{id:"1-수집하는-개인정보-항목",children:s.jsx(e.a,{href:"#1-수집하는-개인정보-항목",children:"1. 수집하는 개인정보 항목"})}),`
+`,s.jsx("p",{className:"muted",children:"※ 스팸 방지를 위해 문의 폼 대신 이메일을 사용합니다."})]})}function nr(n={}){const{wrapper:e}={...h(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(ys,{...n})}):ys(n)}const rr=Object.freeze(Object.defineProperty({__proto__:null,default:nr,frontmatter:er},Symbol.toStringTag,{value:"Module"})),ir={title:"개인정보처리방침",description:"PANCO_IT 개인정보처리방침"};function fs(n){const e={a:"a",h1:"h1",h2:"h2",li:"li",p:"p",strong:"strong",ul:"ul",...h(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.h1,{id:"개인정보처리방침",children:s.jsx(e.a,{href:"#개인정보처리방침",children:"개인정보처리방침"})}),`
+`,s.jsx("p",{className:"muted",children:"최종 개정일: 2026년 7월 31일"}),`
+`,s.jsx(e.p,{children:'PANCO_IT(pancoit.site, 이하 "사이트")는 「개인정보 보호법」 제30조에 따라 이용자의 개인정보를 보호하고 관련 고충을 처리하기 위하여 다음과 같이 개인정보처리방침을 수립·공개합니다.'}),`
+`,s.jsx(e.p,{children:"본 사이트는 회원가입 없이 누구나 이용할 수 있는 정적 블로그로, 이용자로부터 개인정보를 직접 입력받는 절차(회원가입, 댓글, 문의 폼 등)를 운영하지 않습니다."}),`
+`,s.jsx(e.h2,{id:"1-수집하는-개인정보-항목-및-수집-방법",children:s.jsx(e.a,{href:"#1-수집하는-개인정보-항목-및-수집-방법",children:"1. 수집하는 개인정보 항목 및 수집 방법"})}),`
 `,s.jsxs(e.ul,{children:[`
-`,s.jsx(e.li,{children:"자동 수집: 쿠키, 접속 IP, 브라우저·기기 정보, 방문 기록(웹 로그)"}),`
-`,s.jsx(e.li,{children:"문의 시: 이메일 주소 및 이용자가 자발적으로 제공한 내용"}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"자동 수집"}),": 사이트 이용 과정에서 Google Analytics를 통해 쿠키, 접속 IP(익명화 처리), 브라우저·기기·화면 정보, 방문 페이지 및 체류 시간 등 이용 기록이 자동으로 수집됩니다."]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"이메일 문의 시"}),": 이용자가 문의 페이지에 안내된 이메일로 연락하는 경우, 보내는 사람의 이메일 주소와 이용자가 자발적으로 작성한 내용이 수집됩니다."]}),`
 `]}),`
 `,s.jsx(e.h2,{id:"2-수집이용-목적",children:s.jsx(e.a,{href:"#2-수집이용-목적",children:"2. 수집·이용 목적"})}),`
 `,s.jsxs(e.ul,{children:[`
-`,s.jsx(e.li,{children:"서비스(콘텐츠) 제공 및 이용 통계 분석"}),`
-`,s.jsx(e.li,{children:"광고 게재 및 맞춤형 광고 제공"}),`
-`,s.jsx(e.li,{children:"문의 응대"}),`
+`,s.jsx(e.li,{children:"콘텐츠 제공 및 사이트 개선을 위한 방문 통계 분석"}),`
+`,s.jsx(e.li,{children:"광고 게재(Google AdSense)"}),`
+`,s.jsx(e.li,{children:"문의 응대 및 오류 제보 처리"}),`
 `]}),`
 `,s.jsx(e.h2,{id:"3-보유이용-기간",children:s.jsx(e.a,{href:"#3-보유이용-기간",children:"3. 보유·이용 기간"})}),`
-`,s.jsx(e.p,{children:"수집 목적 달성 시 지체 없이 파기하며, 관련 법령에 따라 보존이 필요한 경우 그 기간 동안 보관합니다."}),`
-`,s.jsx(e.h2,{id:"4-제3자-제공-및-광고분석-도구-쿠키",children:s.jsx(e.a,{href:"#4-제3자-제공-및-광고분석-도구-쿠키",children:"4. 제3자 제공 및 광고·분석 도구 (쿠키)"})}),`
-`,s.jsx(e.p,{children:"본 사이트는 Google AdSense 및 Google Analytics 등 제3자 서비스를 사용할 수 있으며, 이들 서비스는 쿠키를 통해 이용자 정보를 수집·처리할 수 있습니다. Google은 광고 쿠키를 사용하여 이용자의 방문 기록에 기반한 광고를 게재합니다. 이용자는 Google 광고 설정에서 맞춤 광고를 비활성화할 수 있습니다."}),`
-`,s.jsx(e.h2,{id:"5-처리-위탁",children:s.jsx(e.a,{href:"#5-처리-위탁",children:"5. 처리 위탁"})}),`
-`,s.jsx(e.p,{children:"현재 개인정보 처리를 외부에 별도로 위탁하지 않습니다. 위탁이 발생할 경우 본 방침을 통해 고지합니다."}),`
+`,s.jsxs(e.ul,{children:[`
+`,s.jsx(e.li,{children:"방문 통계 데이터: Google Analytics의 데이터 보존 설정에 따라 보관 후 자동 삭제됩니다."}),`
+`,s.jsx(e.li,{children:"이메일 문의: 문의 처리 완료 후 지체 없이 파기합니다. 다만 관련 법령에 따라 보존이 필요한 경우 해당 기간 동안 보관합니다."}),`
+`]}),`
+`,s.jsx(e.h2,{id:"4-광고분석-도구-및-쿠키-제3자-서비스",children:s.jsx(e.a,{href:"#4-광고분석-도구-및-쿠키-제3자-서비스",children:"4. 광고·분석 도구 및 쿠키 (제3자 서비스)"})}),`
+`,s.jsx(e.p,{children:"본 사이트는 다음의 Google 서비스를 사용하며, 이들 서비스는 쿠키를 통해 이용자 정보를 수집·처리할 수 있습니다."}),`
+`,s.jsxs(e.ul,{children:[`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"Google Analytics 4"}),": 방문 통계 분석 도구입니다. 수집된 데이터는 통계 목적으로만 사용되며, 특정 개인을 식별하는 데 사용되지 않습니다. ",s.jsx(e.a,{href:"https://tools.google.com/dlpage/gaoptout?hl=ko",children:"Google Analytics 옵트아웃 브라우저 부가기능"}),"을 설치하면 수집을 거부할 수 있습니다."]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"Google AdSense"}),": Google은 광고 쿠키를 사용하여 이용자의 이전 방문 기록에 기반한 광고를 게재할 수 있습니다. 이용자는 ",s.jsx(e.a,{href:"https://adssettings.google.com/",children:"Google 광고 설정"}),"에서 맞춤 광고를 비활성화할 수 있으며, ",s.jsx(e.a,{href:"https://www.aboutads.info/",children:"www.aboutads.info"}),"에서 제3자 광고 쿠키 사용을 거부할 수 있습니다."]}),`
+`]}),`
+`,s.jsxs(e.p,{children:["Google의 개인정보 처리에 관한 자세한 내용은 ",s.jsx(e.a,{href:"https://policies.google.com/privacy?hl=ko",children:"Google 개인정보처리방침"})," 및 ",s.jsx(e.a,{href:"https://policies.google.com/technologies/ads?hl=ko",children:"Google 광고 정책"}),"을 참고하시기 바랍니다."]}),`
+`,s.jsx(e.h2,{id:"5-개인정보의-제3자-제공-및-처리-위탁",children:s.jsx(e.a,{href:"#5-개인정보의-제3자-제공-및-처리-위탁",children:"5. 개인정보의 제3자 제공 및 처리 위탁"})}),`
+`,s.jsx(e.p,{children:"사이트는 이용자의 개인정보를 외부에 판매하거나 제공하지 않으며, 별도의 처리 위탁 계약을 맺고 있지 않습니다. 위 4항의 Google 서비스는 각자의 개인정보처리방침에 따라 데이터를 처리합니다."}),`
 `,s.jsx(e.h2,{id:"6-정보주체의-권리",children:s.jsx(e.a,{href:"#6-정보주체의-권리",children:"6. 정보주체의 권리"})}),`
-`,s.jsx(e.p,{children:"이용자는 언제든지 자신의 개인정보에 대한 열람·정정·삭제·처리정지를 요청할 수 있습니다."}),`
+`,s.jsx(e.p,{children:"이용자는 언제든지 자신의 개인정보에 대한 열람·정정·삭제·처리정지를 아래 연락처를 통해 요청할 수 있으며, 사이트는 지체 없이 조치합니다."}),`
 `,s.jsx(e.h2,{id:"7-쿠키의-설치운영-및-거부",children:s.jsx(e.a,{href:"#7-쿠키의-설치운영-및-거부",children:"7. 쿠키의 설치·운영 및 거부"})}),`
-`,s.jsx(e.p,{children:"이용자는 웹 브라우저 설정을 통해 쿠키 저장을 거부하거나 삭제할 수 있습니다. 다만 쿠키 저장을 거부할 경우 일부 서비스 이용에 제한이 있을 수 있습니다."}),`
+`,s.jsx(e.p,{children:"이용자는 웹 브라우저의 설정(예: 크롬 → 설정 → 개인 정보 보호 및 보안 → 쿠키)을 통해 쿠키 저장을 거부하거나 삭제할 수 있습니다. 쿠키 저장을 거부해도 사이트의 글을 읽는 데에는 제한이 없습니다."}),`
 `,s.jsx(e.h2,{id:"8-개인정보-보호책임자",children:s.jsx(e.a,{href:"#8-개인정보-보호책임자",children:"8. 개인정보 보호책임자"})}),`
 `,s.jsxs(e.ul,{children:[`
 `,s.jsx(e.li,{children:"책임자: PANCO_IT 운영자"}),`
 `,s.jsxs(e.li,{children:["연락처: ",s.jsx(e.a,{href:"mailto:jwg135790@gmail.com",children:"jwg135790@gmail.com"})]}),`
 `]}),`
-`,s.jsx("p",{className:"muted",children:"※ 본 방침은 예시 템플릿이며, 실제 데이터 수집 실태와 일치하도록 수정 후 사용하시기 바랍니다. EU/EEA·영국 방문자가 있는 경우 Google의 EU 사용자 동의 정책에 따라 별도의 동의(CMP) 도구가 필요할 수 있습니다."})]})}function lr(n={}){const{wrapper:e}={...h(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(fs,{...n})}):fs(n)}const cr=Object.freeze(Object.defineProperty({__proto__:null,default:lr,frontmatter:ir},Symbol.toStringTag,{value:"Module"})),dr={title:"이용약관",description:"PANCO_IT 이용약관"};function bs(n){const e={a:"a",h1:"h1",h2:"h2",p:"p",...h(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.h1,{id:"이용약관",children:s.jsx(e.a,{href:"#이용약관",children:"이용약관"})}),`
+`,s.jsx(e.h2,{id:"9-개인정보처리방침의-변경",children:s.jsx(e.a,{href:"#9-개인정보처리방침의-변경",children:"9. 개인정보처리방침의 변경"})}),`
+`,s.jsx(e.p,{children:"본 방침의 내용이 추가·삭제·수정되는 경우, 시행 전에 본 페이지를 통해 고지합니다."})]})}function lr(n={}){const{wrapper:e}={...h(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(fs,{...n})}):fs(n)}const cr=Object.freeze(Object.defineProperty({__proto__:null,default:lr,frontmatter:ir},Symbol.toStringTag,{value:"Module"})),dr={title:"이용약관",description:"PANCO_IT 이용약관"};function bs(n){const e={a:"a",h1:"h1",h2:"h2",p:"p",...h(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.h1,{id:"이용약관",children:s.jsx(e.a,{href:"#이용약관",children:"이용약관"})}),`
 `,s.jsx("p",{className:"muted",children:"최종 개정일: 2026년 7월 22일"}),`
 `,s.jsx(e.h2,{id:"1-목적",children:s.jsx(e.a,{href:"#1-목적",children:"1. 목적"})}),`
 `,s.jsx(e.p,{children:'본 약관은 PANCO_IT(이하 "사이트")가 제공하는 콘텐츠 및 서비스의 이용 조건을 규정합니다.'}),`
