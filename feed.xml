@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>VPN이란 무엇인가 — 인터넷에 '전용 통로'를 만드는 법</title>
+      <link>https://pancoit.site/posts/what-is-vpn</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/what-is-vpn</guid>
+      <pubDate>Fri, 31 Jul 2026 15:00:00 GMT</pubDate>
+      <description>공용 와이파이가 위험하다고 하면 꼭 나오는 VPN. VPN이 대체 뭔지, 어떻게 데이터를 암호화해 지키는지, 언제 쓰면 좋고 무엇을 조심해야 하는지 초보 눈높이로 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 생성자 — 객체를 만들 때 처음 값을 채우는 법(CONSTRUCTOR)</title>
       <link>https://pancoit.site/posts/java-constructor</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-constructor</guid>
