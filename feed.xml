@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 생성자 — 객체를 만들 때 처음 값을 채우는 법(CONSTRUCTOR)</title>
+      <link>https://pancoit.site/posts/java-constructor</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-constructor</guid>
+      <pubDate>Fri, 31 Jul 2026 11:00:00 GMT</pubDate>
+      <description>자바 생성자를 왕초보 눈높이로 정리합니다. new로 객체를 만드는 순간 자동으로 초기값을 채우는 원리, this의 쓰임, 기본 생성자 함정까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>자바 메서드 — 코드에 이름을 붙여 재사용하기(METHOD)</title>
       <link>https://pancoit.site/posts/java-methods</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-methods</guid>
