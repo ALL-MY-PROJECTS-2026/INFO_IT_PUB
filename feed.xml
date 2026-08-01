@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 캡슐화 — 필드를 숨기고 안전하게 다루는 법(PRIVATE·GETTER·SETTER)</title>
+      <link>https://pancoit.site/posts/java-encapsulation</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-encapsulation</guid>
+      <pubDate>Sat, 01 Aug 2026 10:47:00 GMT</pubDate>
+      <description>자바 캡슐화를 왕초보 눈높이로 정리합니다. private로 필드를 잠그는 이유, getter와 setter로 공식 통로를 내는 법, setter에서 잘못된 값을 걸러내는 요령까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>VPN이란 무엇인가 — 인터넷에 '전용 통로'를 만드는 법</title>
       <link>https://pancoit.site/posts/what-is-vpn</link>
       <guid isPermaLink="true">https://pancoit.site/posts/what-is-vpn</guid>

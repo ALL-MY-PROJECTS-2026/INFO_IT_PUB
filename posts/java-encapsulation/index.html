@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 캡슐화 — 필드를 숨기고 안전하게 다루는 법(PRIVATE·GETTER·SETTER) — PANCO_IT</title>
+    <meta name="description" content="자바 캡슐화를 왕초보 눈높이로 정리합니다. private로 필드를 잠그는 이유, getter와 setter로 공식 통로를 내는 법, setter에서 잘못된 값을 걸러내는 요령까지 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-encapsulation" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 캡슐화 — 필드를 숨기고 안전하게 다루는 법(PRIVATE·GETTER·SETTER) — PANCO_IT" />
+    <meta property="og:description" content="자바 캡슐화를 왕초보 눈높이로 정리합니다. private로 필드를 잠그는 이유, getter와 setter로 공식 통로를 내는 법, setter에서 잘못된 값을 걸러내는 요령까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-encapsulation" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-encapsulation-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-01T10:47" />
+    <meta property="article:modified_time" content="2026-08-01T10:47" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 캡슐화 — 필드를 숨기고 안전하게 다루는 법(PRIVATE·GETTER·SETTER) — PANCO_IT" />
+    <meta name="twitter:description" content="자바 캡슐화를 왕초보 눈높이로 정리합니다. private로 필드를 잠그는 이유, getter와 setter로 공식 통로를 내는 법, setter에서 잘못된 값을 걸러내는 요령까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-encapsulation-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 캡슐화 — 필드를 숨기고 안전하게 다루는 법(PRIVATE·GETTER·SETTER)","description":"자바 캡슐화를 왕초보 눈높이로 정리합니다. private로 필드를 잠그는 이유, getter와 setter로 공식 통로를 내는 법, setter에서 잘못된 값을 걸러내는 요령까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-encapsulation-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-01T10:47","dateModified":"2026-08-01T10:47","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-encapsulation"},"keywords":"자바, JAVA, 캡슐화, private, getter, setter"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 캡슐화 — 필드를 숨기고 안전하게 다루는 법(PRIVATE·GETTER·SETTER)","item":"https://pancoit.site/posts/java-encapsulation"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CM4Riq4P.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-gyV0xapW.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-aVFRZfC-.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 캡슐화 — 필드를 숨기고 안전하게 다루는 법(PRIVATE·GETTER·SETTER)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 캡슐화 — 필드를 숨기고 안전하게 다루는 법(PRIVATE·GETTER·SETTER)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-01T10:47">2026년 8월 1일 10:47</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->캡슐화</span><span class="tag">#<!-- -->private</span><span class="tag">#<!-- -->getter</span><span class="tag">#<!-- -->setter</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="필드를 전부 공개했을 때와 private으로 숨기고 통로만 열었을 때를 비교한 그림" src="/uploads/java-encapsulation-hero.png" loading="lazy"/></p>
+<p><em>만지는 문을 하나로 좁히면, 잘못된 값이 들어오는 길도 하나로 좁혀집니다.</em></p>
+<p>3편에서 생성자로 객체의 초기값을 한 번에 채웠습니다. 그런데 만든 뒤가 문제입니다. 지금 구조라면 아무 데서나 <code>d.age = -5;</code>라고 써도 막을 방법이 없습니다. 나이가 음수인 강아지가 생겨도 자바는 아무 말도 하지 않습니다. 이 문을 잠그는 것이 오늘의 주제, 캡슐화입니다.</p>
+<h2 id="캡슐화가-뭔가요"><a href="#캡슐화가-뭔가요">캡슐화가 뭔가요?</a></h2>
+<p>캡슐화는 <strong>필드를 밖에서 직접 못 만지게 숨기고, 공식 통로(메서드)로만 다루게</strong> 묶는 것입니다. 알약 캡슐이 가루약을 감싸듯, 데이터를 클래스 안에 감춥니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 자판기와 같습니다. 우리는 동전을 넣고 버튼을 누를 뿐, 자판기 문을 열고 음료를 직접 꺼내지 않습니다. 내부는 잠겨 있고, 정해진 통로(투입구·버튼·배출구)만 열려 있죠. 그래서 돈을 안 넣고 가져가는 일을 기계가 막을 수 있습니다. 캡슐화가 클래스에 해 주는 일이 정확히 이것입니다.</p>
+</blockquote>
+<h2 id="private--밖에서-못-만지게-잠그기"><a href="#private--밖에서-못-만지게-잠그기">private — 밖에서 못 만지게 잠그기</a></h2>
+<p>잠그는 방법은 간단합니다. 필드 앞에 **<code>private</code>**를 붙입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> String name;   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이 클래스 안에서만 접근 가능</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> age;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p><code>private</code>가 붙은 필드는 <strong>그 클래스 안에서만</strong> 쓸 수 있습니다. 밖에서 직접 만지려 하면 컴파일 오류가 납니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Dog d </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;바둑이&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">d.age </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> -</span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 오류: age has private access in Dog</span></span></code></pre>
+<p>지금까지 별말 없이 쓰던 <code>d.age = 3</code> 같은 코드가 이제 막히는 것입니다. 문이 잠겼으니, 다음은 공식 통로를 낼 차례입니다.</p>
+<h2 id="getter와-setter--공식-통로-내기"><a href="#getter와-setter--공식-통로-내기">getter와 setter — 공식 통로 내기</a></h2>
+<p>잠근 필드를 읽고 쓸 수 있게, <strong>public 메서드 두 개</strong>를 만들어 줍니다. 읽는 쪽을 getter, 쓰는 쪽을 setter라고 부릅니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> age;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> getAge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {          </span><span style="color:#6A737D;--shiki-dark:#6A737D">// getter: 값을 읽는 통로</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> age;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> setAge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> age</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {  </span><span style="color:#6A737D;--shiki-dark:#6A737D">// setter: 값을 바꾸는 통로</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.age </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> age;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>이름은 관례로 <strong><code>get</code> / <code>set</code> 뒤에 필드명을 첫 글자만 대문자로</strong> 붙입니다(<code>age</code> → <code>getAge</code>, <code>setAge</code>). 자바 세계 어디서나 통하는 약속이라, 이 규칙대로 지어야 다른 코드·도구와 잘 맞물립니다.</p>
+<p><img alt="캡슐화 3단계: private으로 잠그고, getter와 setter로 통로를 내고, 통로에서 검사한다" src="/uploads/java-encapsulation-steps.png" loading="lazy"/></p>
+<p><em>그림 1. 잠그고(private), 통로를 내고(getter·setter), 통로에서 검사합니다.</em></p>
+<h2 id="setter에서-검사하기--캡슐화의-진짜-힘"><a href="#setter에서-검사하기--캡슐화의-진짜-힘">setter에서 검사하기 — 캡슐화의 진짜 힘</a></h2>
+<p>&quot;직접 접근을 막고 메서드로 우회하는 게 무슨 이득이지?&quot; 싶을 수 있습니다. 이득은 <strong>통로에서 값을 검사할 수 있다</strong>는 데 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> setAge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> age) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (age </span><span style="color:#D73A49;--shiki-dark:#F97583">&lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;나이는 0보다 작을 수 없습니다&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;               </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 잘못된 값은 거부</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">    this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.age </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> age;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>이제 <code>d.setAge(-5)</code>를 불러도 나이는 바뀌지 않습니다. 필드로 들어오는 문이 setter 하나뿐이니, <strong>여기 한 곳만 지키면 이상한 값이 아예 못 들어옵니다.</strong> 필드가 public이었다면 값을 바꾸는 코드가 백 군데여도 전부 믿어야 했을 것입니다.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>아래 코드를 돌려 보세요. <code>setAge(-5)</code>가 거부되는 것을 확인한 뒤, 검사 조건을 <code>age &gt; 30</code> 거부로 바꿔 보거나 <code>name</code>에도 getter를 만들어 보면 좋습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">캡슐화: private 필드와 검사하는 setter</span></div><pre class="runner__code"><code>class Dog {
+  private String name;
+  private int age;
+  Dog(String name, int age) {
+      this.name = name;
+      setAge(age);              // 생성 시에도 같은 검사를 거침
+  }
+  public int getAge() {
+      return age;
+  }
+  public void setAge(int age) {
+      if (age &lt; 0) {
+          System.out.println(&quot;나이는 0보다 작을 수 없습니다&quot;);
+          return;
+      }
+      this.age = age;
+  }
+  void info() {
+      System.out.println(name + &quot; (&quot; + age + &quot;살)&quot;);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+      Dog d = new Dog(&quot;바둑이&quot;, 3);
+      d.info();          // 바둑이 (3살)
+      d.setAge(-5);      // 나이는 0보다 작을 수 없습니다
+      d.info();          // 바둑이 (3살) — 값이 지켜짐
+      d.setAge(4);
+      d.info();          // 바둑이 (4살)
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<h2 id="단골-함정--private인데-직접-만지려-한다"><a href="#단골-함정--private인데-직접-만지려-한다">단골 함정 — private인데 직접 만지려 한다</a></h2>
+<p><code>private</code>를 붙인 뒤에도 습관처럼 <code>d.age = 5;</code>라고 쓰면 <strong>컴파일 오류</strong>가 납니다. &quot;age has private access&quot;라는 메시지가 보이면, 필드를 직접 만진 곳을 찾아 <code>d.setAge(5)</code>처럼 통로로 바꾸면 됩니다.</p>
+<p>하나 더. getter와 setter를 만들 때 이름을 <code>age()</code> 나 <code>changeAge()</code>처럼 마음대로 지으면 문법 오류는 아니지만 <strong>관례가 깨져</strong> 다른 사람과 도구가 알아보지 못합니다. <code>get</code>·<code>set</code> + 첫 글자 대문자, 이 틀을 지키는 것이 좋습니다.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>캡슐화</td><td>필드를 숨기고 공식 통로(메서드)로만 다루게 묶는 것</td></tr><tr><td>private</td><td>그 클래스 안에서만 접근 가능(밖에서 직접 접근 시 컴파일 오류)</td></tr><tr><td>getter</td><td>값을 읽는 통로, 이름은 <code>get필드명()</code></td></tr><tr><td>setter</td><td>값을 바꾸는 통로, 이름은 <code>set필드명(값)</code> — 여기서 값 검사</td></tr><tr><td>public</td><td>어디서나 접근 가능(통로 메서드에 붙임)</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 캡슐화는 <strong>잠그고(private), 통로를 내고(getter·setter), 통로에서 검사하는</strong> 것입니다. 필드로 들어오는 문을 하나로 좁히면, 잘못된 값을 막는 일도 그 한 곳에서 끝납니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA2) 4편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 배열 — 값 여러 개를 한 줄로 세우는 법.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-constructor"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 생성자 — 객체를 만들 때 처음 값을 채우는 법(CONSTRUCTOR)</h3><p>자바 생성자를 왕초보 눈높이로 정리합니다. new로 객체를 만드는 순간 자동으로 초기값을 채우는 원리, this의 쓰임, 기본 생성자 함정까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-07-31T11:00">2026년 7월 31일 11:00</time><span>· <!-- -->자바, JAVA, 생성자</span></div></a><a class="post-card " href="/posts/java-methods"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 — 코드에 이름을 붙여 재사용하기(METHOD)</h3><p>자바 메서드를 왕초보 눈높이로 정리합니다. 반복되는 코드를 이름 붙여 묶고, 매개변수로 값을 받아 반환값으로 돌려주는 원리를 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-07-30T15:50">2026년 7월 30일 15:50</time><span>· <!-- -->자바, JAVA, 메서드</span></div></a><a class="post-card " href="/posts/java-class-object"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음)</h3><p>자바 객체지향의 출발점인 클래스와 객체를 왕초보 눈높이로 정리합니다. 설계도와 실물 비유로 개념을 잡고, 필드·메서드·new를 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-07-29T11:20">2026년 7월 29일 11:20</time><span>· <!-- -->자바, JAVA, 클래스</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
