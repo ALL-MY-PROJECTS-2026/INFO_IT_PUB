@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>회사에 AI 에이전트가 들어오면 내 일은 어떻게 바뀔까</title>
+      <link>https://pancoit.site/posts/ai-agent-at-work</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/ai-agent-at-work</guid>
+      <pubDate>Sun, 02 Aug 2026 14:47:00 GMT</pubDate>
+      <description>회사들이 AI 에이전트를 업무에 도입하기 시작했습니다. 에이전트가 실제로 맡게 되는 일, 사람에게 남는 일, 흔한 오해와 지금 준비할 것까지 직장인 눈높이로 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 배열 — 값 여러 개를 한 줄로 세우는 법(ARRAY·인덱스·length)</title>
       <link>https://pancoit.site/posts/java-array</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-array</guid>
