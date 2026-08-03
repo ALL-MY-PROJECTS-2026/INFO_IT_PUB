@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 static — 객체 없이 쓰는 공용 멤버(STATIC)</title>
+      <link>https://pancoit.site/posts/java-static</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-static</guid>
+      <pubDate>Mon, 03 Aug 2026 10:00:00 GMT</pubDate>
+      <description>자바 static을 왕초보 눈높이로 정리합니다. 객체마다 따로인 인스턴스 멤버와 달리, 클래스에 딱 하나뿐인 공용 멤버를 객체 없이 쓰는 원리를 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>회사에 AI 에이전트가 들어오면 내 일은 어떻게 바뀔까</title>
       <link>https://pancoit.site/posts/ai-agent-at-work</link>
       <guid isPermaLink="true">https://pancoit.site/posts/ai-agent-at-work</guid>
