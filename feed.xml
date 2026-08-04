@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 상속 — 기존 클래스를 물려받아 확장하기(INHERITANCE·EXTENDS)</title>
+      <link>https://pancoit.site/posts/java-inheritance</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-inheritance</guid>
+      <pubDate>Tue, 04 Aug 2026 09:30:00 GMT</pubDate>
+      <description>자바 상속을 왕초보 눈높이로 정리합니다. extends로 부모 클래스의 필드·메서드를 물려받고, super와 오버라이딩으로 확장하는 원리를 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>비밀번호 관리자란 — 수십 개 비밀번호를 하나로 관리하는 법</title>
       <link>https://pancoit.site/posts/password-manager</link>
       <guid isPermaLink="true">https://pancoit.site/posts/password-manager</guid>
