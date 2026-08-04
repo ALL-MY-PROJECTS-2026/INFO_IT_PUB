@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>클라우드란 무엇인가 — 내 파일이 '어딘가의 컴퓨터'에 저장되는 원리</title>
+      <link>https://pancoit.site/posts/what-is-cloud</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/what-is-cloud</guid>
+      <pubDate>Tue, 04 Aug 2026 17:00:00 GMT</pubDate>
+      <description>사진 백업도, 구글 드라이브도, 넷플릭스도 다 클라우드입니다. 클라우드가 대체 무엇인지, 내 파일이 어디에 저장되는지, 장단점과 안전하게 쓰는 법까지 초보 눈높이로 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 상속 — 기존 클래스를 물려받아 확장하기(INHERITANCE·EXTENDS)</title>
       <link>https://pancoit.site/posts/java-inheritance</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-inheritance</guid>

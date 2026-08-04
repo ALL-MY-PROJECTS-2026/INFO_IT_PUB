@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>클라우드란 무엇인가 — 내 파일이 '어딘가의 컴퓨터'에 저장되는 원리 — PANCO_IT</title>
+    <meta name="description" content="사진 백업도, 구글 드라이브도, 넷플릭스도 다 클라우드입니다. 클라우드가 대체 무엇인지, 내 파일이 어디에 저장되는지, 장단점과 안전하게 쓰는 법까지 초보 눈높이로 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/what-is-cloud" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="클라우드란 무엇인가 — 내 파일이 '어딘가의 컴퓨터'에 저장되는 원리 — PANCO_IT" />
+    <meta property="og:description" content="사진 백업도, 구글 드라이브도, 넷플릭스도 다 클라우드입니다. 클라우드가 대체 무엇인지, 내 파일이 어디에 저장되는지, 장단점과 안전하게 쓰는 법까지 초보 눈높이로 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/what-is-cloud" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-cloud-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-04T17:00" />
+    <meta property="article:modified_time" content="2026-08-04T17:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="클라우드란 무엇인가 — 내 파일이 '어딘가의 컴퓨터'에 저장되는 원리 — PANCO_IT" />
+    <meta name="twitter:description" content="사진 백업도, 구글 드라이브도, 넷플릭스도 다 클라우드입니다. 클라우드가 대체 무엇인지, 내 파일이 어디에 저장되는지, 장단점과 안전하게 쓰는 법까지 초보 눈높이로 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-cloud-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"클라우드란 무엇인가 — 내 파일이 '어딘가의 컴퓨터'에 저장되는 원리","description":"사진 백업도, 구글 드라이브도, 넷플릭스도 다 클라우드입니다. 클라우드가 대체 무엇인지, 내 파일이 어디에 저장되는지, 장단점과 안전하게 쓰는 법까지 초보 눈높이로 정리했습니다.","image":"https://pancoit.site/uploads/itnews-cloud-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-04T17:00","dateModified":"2026-08-04T17:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/what-is-cloud"},"keywords":"클라우드, 저장, 백업, IT기초"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"클라우드란 무엇인가 — 내 파일이 '어딘가의 컴퓨터'에 저장되는 원리","item":"https://pancoit.site/posts/what-is-cloud"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-D00t0V_C.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">클라우드란 무엇인가 — 내 파일이 &#x27;어딘가의 컴퓨터&#x27;에 저장되는 원리</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">클라우드란 무엇인가 — 내 파일이 &#x27;어딘가의 컴퓨터&#x27;에 저장되는 원리</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-04T17:00">2026년 8월 4일 17:00</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->클라우드</span><span class="tag">#<!-- -->저장</span><span class="tag">#<!-- -->백업</span><span class="tag">#<!-- -->IT기초</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="클라우드에 저장된 파일을 폰·노트북·태블릿에서 함께 여는 개념 그림" src="/uploads/itnews-cloud-hero.png" loading="lazy"/></p>
+<p><em>클라우드에 저장해 두면, 폰·노트북·태블릿 어디서나 같은 파일을 엽니다.</em></p>
+<p>&quot;사진이 자동으로 클라우드에 백업됐어요&quot;, &quot;파일은 클라우드에 있어요&quot;라는 말, 자주 듣습니다. 그런데 클라우드가 대체 어디일까요. 하늘 어딘가일 리는 없고요. 오늘은 이 클라우드를 처음 듣는 분도 이해할 수 있게 정리하겠습니다.</p>
+<h2 id="클라우드가-뭔가요"><a href="#클라우드가-뭔가요">클라우드가 뭔가요?</a></h2>
+<p>클라우드(Cloud)는 <strong>내 파일이나 프로그램을 내 기기가 아니라 &#x27;인터넷 너머에 있는 다른 컴퓨터&#x27;에 저장해 두고, 필요할 때 꺼내 쓰는 방식</strong>입니다. 그 &#x27;다른 컴퓨터&#x27;는 어느 회사가 운영하는 거대한 서버(데이터센터)입니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 짐을 집에만 두면 집에서만 쓸 수 있습니다. 그런데 <strong>창고에 맡겨 두면</strong>, 어디에 있든 필요할 때 찾아 쓸 수 있죠. 클라우드가 바로 그 창고입니다. 내 파일을 인터넷 너머 창고에 두고, 폰에서도 노트북에서도 꺼내 쓰는 것입니다.</p>
+</blockquote>
+<h2 id="어떻게-작동하나요"><a href="#어떻게-작동하나요">어떻게 작동하나요?</a></h2>
+<p>내가 사진을 클라우드에 올리면, 그 사진은 인터넷을 타고 <strong>회사의 데이터센터 서버에 저장</strong>됩니다. 그 서버는 24시간 켜져 있고, 전 세계 어디서든 인터넷만 있으면 접속할 수 있습니다.</p>
+<p><img alt="내 기기에만 저장할 때와 클라우드에 저장할 때를 비교한 그림" src="/uploads/itnews-cloud-diagram.png" loading="lazy"/></p>
+<p>그래서 두 가지가 편해집니다. 첫째, <strong>어느 기기에서나</strong> 같은 파일을 봅니다. 폰으로 찍은 사진이 노트북에서도 바로 보이죠. 둘째, <strong>기기를 잃어도 파일은 안전</strong>합니다. 폰이 고장 나거나 바뀌어도, 클라우드에 있으니 새 기기에서 그대로 불러옵니다. 파일이 &#x27;기기&#x27;가 아니라 &#x27;계정&#x27;에 묶이는 셈입니다.</p>
+<h2 id="사실-우리는-이미-쓰고-있습니다"><a href="#사실-우리는-이미-쓰고-있습니다">사실 우리는 이미 쓰고 있습니다</a></h2>
+<p>클라우드는 특별한 게 아니라, 이미 일상에서 쓰고 있습니다.</p>
+<ul>
+<li><strong>사진 백업</strong>: 아이클라우드·구글 포토가 사진을 자동으로 클라우드에 올려 둡니다.</li>
+<li><strong>문서·파일</strong>: 구글 드라이브, 네이버 마이박스에 올린 파일이 클라우드에 있습니다.</li>
+<li><strong>스트리밍</strong>: 넷플릭스·유튜브 영상도 내 기기에 없고, 클라우드 서버에서 그때그때 받아 봅니다.</li>
+<li><strong>메신저·메일</strong>: 카톡 대화 백업이나 웹메일도 서버(클라우드)에 저장됩니다.</li>
+</ul>
+<p>&#x27;다운로드해서 내 기기에 두는&#x27; 방식에서, &#x27;클라우드에 두고 필요할 때 불러 쓰는&#x27; 방식으로 넘어온 것입니다.</p>
+<h2 id="장점과-단점"><a href="#장점과-단점">장점과 단점</a></h2>
+<ul>
+<li><strong>장점</strong>: 어느 기기서나 접근, 자동 백업으로 분실 걱정↓, 저장 용량을 유연하게 늘림, 여러 사람과 공유가 쉬움.</li>
+<li><strong>단점</strong>: 인터넷이 없으면 접근이 어렵고, 내 파일을 남의 서버에 맡기니 보안·프라이버시가 중요하며, 용량이 커지면 요금이 들 수 있습니다.</li>
+</ul>
+<h2 id="자주-하는-오해"><a href="#자주-하는-오해">자주 하는 오해</a></h2>
+<blockquote>
+<p><strong>짚고 갈 점</strong></p>
+<p><strong>① &quot;클라우드는 하늘 어딘가에 떠 있다&quot;?</strong> 아닙니다. 실제로는 어느 회사가 운영하는 **건물 안의 서버(데이터센터)**입니다. &#x27;구름&#x27;은 비유일 뿐, 물리적인 컴퓨터에 저장됩니다.</p>
+<p><strong>② &quot;클라우드에 올리면 내 것이 아니게 되나요?&quot;</strong> 소유와 권리는 그대로 내 것입니다. 다만 &#x27;보관 장소&#x27;가 내 기기에서 회사 서버로 바뀔 뿐입니다. 서비스 약관과 개인정보 처리 방식은 확인하는 게 좋습니다.</p>
+<p><strong>③ &quot;클라우드는 무조건 안전하다&quot;?</strong> 대체로 안정적이지만 완벽하진 않습니다. 계정이 뚫리면 클라우드 파일도 노출되니, 비밀번호와 2단계 인증이 중요합니다.</p>
+</blockquote>
+<h2 id="안전하게-쓰는-법"><a href="#안전하게-쓰는-법">안전하게 쓰는 법</a></h2>
+<ul>
+<li><strong>계정에 2단계 인증을 켜세요.</strong> 클라우드 보안의 핵심은 결국 계정 보안입니다.</li>
+<li><strong>정말 중요한 파일은 이중 백업.</strong> 클라우드 하나만 믿기보다, 외장 저장장치에도 사본을 둡니다.</li>
+<li><strong>민감한 자료는 신중히.</strong> 신분증·금융 정보 같은 건 올리기 전에 한 번 더 생각합니다.</li>
+<li><strong>공유 링크 관리.</strong> 파일을 링크로 공유했다면, 필요 없어진 링크는 정리합니다.</li>
+</ul>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>질문</th><th>답</th></tr></thead><tbody><tr><td>클라우드란</td><td>인터넷 너머 서버에 파일을 두고 꺼내 쓰는 방식</td></tr><tr><td>어디에 저장되나</td><td>회사의 데이터센터 서버(물리적 컴퓨터)</td></tr><tr><td>왜 편한가</td><td>어디서나 접근 + 기기 잃어도 안전</td></tr><tr><td>조심할 점</td><td>인터넷 필요, 계정 보안이 곧 파일 보안</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 클라우드는 내 파일을 &#x27;인터넷 너머의 컴퓨터&#x27;에 두고 어디서나 꺼내 쓰는 창고입니다. 사진 백업부터 넷플릭스까지 이미 쓰고 있죠. 편리한 만큼 **계정 보안(비밀번호·<a href="/posts/two-factor-auth">2단계 인증</a>)**이 곧 파일의 안전이라는 점만 챙기면 됩니다.</p>
+<hr/>
+<p><em>기준 시점: 2026년 8월. 서비스별 용량·요금·정책은 계속 바뀌므로, 이용 전 각 서비스의 공식 안내를 확인하시기 바랍니다.</em></p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<p>클라우드의 개념과 저장 방식은 아래 공개 자료를 참고했습니다.</p>
+<ul>
+<li><a href="https://support.google.com/drive" target="_blank" rel="noopener noreferrer">Google 드라이브 고객센터</a></li>
+<li><a href="https://support.apple.com/icloud/" target="_blank" rel="noopener noreferrer">Apple 지원 — iCloud</a></li>
+<li><a href="https://www.cloudflare.com/learning/" target="_blank" rel="noopener noreferrer">Cloudflare Learning Center</a></li>
+</ul>
+<p><em>이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/ransomware-double-extortion"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">랜섬웨어가 달라졌습니다 — 이제 파일을 잠그지도 않습니다</h3><p>요즘 랜섬웨어는 파일을 암호화하지 않고 데이터를 훔쳐 협박합니다. 무엇이 달라졌는지, 백업만으로 왜 부족한지, 지금 뭘 하면 되는지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-07-26T10:58">2026년 7월 26일 10:58</time><span>· <!-- -->보안, 랜섬웨어, 데이터유출</span></div></a><a class="post-card " href="/posts/password-manager"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">비밀번호 관리자란 — 수십 개 비밀번호를 하나로 관리하는 법</h3><p>사이트마다 비밀번호를 다르게 쓰라는데 그걸 어떻게 다 외울까요. 비밀번호 관리자가 무엇인지, 왜 재사용이 위험한지, 안전하게 쓰는 법까지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-03T12:30">2026년 8월 3일 12:30</time><span>· <!-- -->보안, 비밀번호관리자, 패스워드매니저</span></div></a><a class="post-card " href="/posts/ai-agent-at-work"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">회사에 AI 에이전트가 들어오면 내 일은 어떻게 바뀔까</h3><p>회사들이 AI 에이전트를 업무에 도입하기 시작했습니다. 에이전트가 실제로 맡게 되는 일, 사람에게 남는 일, 흔한 오해와 지금 준비할 것까지 직장인 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-02T14:47">2026년 8월 2일 14:47</time><span>· <!-- -->AI, AI에이전트, 업무자동화</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
