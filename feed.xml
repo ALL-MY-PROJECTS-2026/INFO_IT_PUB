@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 다형성 — 하나의 타입으로 여러 객체를 다루기(POLYMORPHISM)</title>
+      <link>https://pancoit.site/posts/java-polymorphism</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-polymorphism</guid>
+      <pubDate>Wed, 05 Aug 2026 09:40:00 GMT</pubDate>
+      <description>자바 다형성을 왕초보 눈높이로 정리합니다. 부모 타입 하나로 여러 자식 객체를 담고, 같은 메서드 호출이 객체에 따라 다르게 동작하는 원리를 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>클라우드란 무엇인가 — 내 파일이 '어딘가의 컴퓨터'에 저장되는 원리</title>
       <link>https://pancoit.site/posts/what-is-cloud</link>
       <guid isPermaLink="true">https://pancoit.site/posts/what-is-cloud</guid>
