@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>내 계정이 털렸는지 확인하는 법 — 개인정보 유출 대응 3단계</title>
+      <link>https://pancoit.site/posts/check-account-breach</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/check-account-breach</guid>
+      <pubDate>Wed, 05 Aug 2026 13:00:00 GMT</pubDate>
+      <description>대형 유출 사고 뉴스, 남 일이 아닙니다. 내 이메일·비밀번호가 유출됐는지 안전하게 확인하는 법과, 털렸을 때 지금 바로 해야 할 대응 3단계를 초보 눈높이로 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 다형성 — 하나의 타입으로 여러 객체를 다루기(POLYMORPHISM)</title>
       <link>https://pancoit.site/posts/java-polymorphism</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-polymorphism</guid>
