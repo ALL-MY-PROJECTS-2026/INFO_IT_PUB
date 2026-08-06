@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 객체지향 12문제로 복습 — JAVA2 총정리</title>
+      <link>https://pancoit.site/posts/java2-review</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java2-review</guid>
+      <pubDate>Thu, 06 Aug 2026 10:00:00 GMT</pubDate>
+      <description>자바 객체지향 JAVA2 시즌(클래스·메서드·생성자·캡슐화·배열·static·상속·다형성)을 개념 퀴즈와 직접 푸는 실습 문제로 복습합니다. 브라우저에서 바로 코드를 고쳐 실행하며 자주 틀리는 함정을 몸에 익힙니다.</description>
+    </item>
+    <item>
       <title>내 계정이 털렸는지 확인하는 법 — 개인정보 유출 대응 3단계</title>
       <link>https://pancoit.site/posts/check-account-breach</link>
       <guid isPermaLink="true">https://pancoit.site/posts/check-account-breach</guid>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 객체지향 12문제로 복습 — JAVA2 총정리 — PANCO_IT</title>
+    <meta name="description" content="자바 객체지향 JAVA2 시즌(클래스·메서드·생성자·캡슐화·배열·static·상속·다형성)을 개념 퀴즈와 직접 푸는 실습 문제로 복습합니다. 브라우저에서 바로 코드를 고쳐 실행하며 자주 틀리는 함정을 몸에 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java2-review" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 객체지향 12문제로 복습 — JAVA2 총정리 — PANCO_IT" />
+    <meta property="og:description" content="자바 객체지향 JAVA2 시즌(클래스·메서드·생성자·캡슐화·배열·static·상속·다형성)을 개념 퀴즈와 직접 푸는 실습 문제로 복습합니다. 브라우저에서 바로 코드를 고쳐 실행하며 자주 틀리는 함정을 몸에 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java2-review" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java2-review-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-06T10:00" />
+    <meta property="article:modified_time" content="2026-08-06T10:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 객체지향 12문제로 복습 — JAVA2 총정리 — PANCO_IT" />
+    <meta name="twitter:description" content="자바 객체지향 JAVA2 시즌(클래스·메서드·생성자·캡슐화·배열·static·상속·다형성)을 개념 퀴즈와 직접 푸는 실습 문제로 복습합니다. 브라우저에서 바로 코드를 고쳐 실행하며 자주 틀리는 함정을 몸에 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java2-review-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 객체지향 12문제로 복습 — JAVA2 총정리","description":"자바 객체지향 JAVA2 시즌(클래스·메서드·생성자·캡슐화·배열·static·상속·다형성)을 개념 퀴즈와 직접 푸는 실습 문제로 복습합니다. 브라우저에서 바로 코드를 고쳐 실행하며 자주 틀리는 함정을 몸에 익힙니다.","image":"https://pancoit.site/uploads/java2-review-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-06T10:00","dateModified":"2026-08-06T10:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java2-review"},"keywords":"자바, JAVA, 객체지향, 복습, 문제"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 객체지향 12문제로 복습 — JAVA2 총정리","item":"https://pancoit.site/posts/java2-review"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-x4HxxVUn.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 객체지향 12문제로 복습 — JAVA2 총정리</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 객체지향 12문제로 복습 — JAVA2 총정리</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-06T10:00">2026년 8월 6일 10:00</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->객체지향</span><span class="tag">#<!-- -->복습</span><span class="tag">#<!-- -->문제</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="객체지향 3기둥(캡슐화·상속·다형성)을 정리한 이미지" src="/uploads/java2-review-hero.png" loading="lazy"/></p>
+<p><em>JAVA2는 클래스·객체에서 시작해 캡슐화·상속·다형성으로 이어지는 여정이었습니다.</em></p>
+<p>여기까지 오셨다면 자바 객체지향의 한 바퀴를 다 도신 것입니다. 이번 편은 새 개념 없이 <strong>JAVA2 시즌 전체를 점검</strong>합니다. 먼저 개념을 퀴즈로 확인하고, 그다음 <strong>직접 코드를 고쳐 실행하는 실습 문제</strong>를 풉니다.</p>
+<h2 id="한눈에-보는-java2-시즌"><a href="#한눈에-보는-java2-시즌">한눈에 보는 JAVA2 시즌</a></h2>
+<table><thead><tr><th>편</th><th>핵심</th><th>대표 함정</th></tr></thead><tbody><tr><td>1. 클래스·객체</td><td>설계도와 실물</td><td><code>new</code> 빼먹기</td></tr><tr><td>2. 메서드</td><td>이름 붙여 재사용</td><td>호출 시 괄호 <code>()</code></td></tr><tr><td>3. 생성자</td><td><code>new</code> 때 초기화</td><td>반환타입 쓰면 메서드가 됨</td></tr><tr><td>4. 캡슐화</td><td>private + getter/setter</td><td>private 직접 접근</td></tr><tr><td>5. 배열</td><td>값 여러 개, 인덱스</td><td>범위 밖(0 ~ length−1)</td></tr><tr><td>6. static</td><td>공용 멤버</td><td>인스턴스 필드 직접 사용</td></tr><tr><td>7. 상속</td><td><code>extends</code>로 물려받기</td><td>is-a 아닌데 상속</td></tr><tr><td>8. 다형성</td><td>같은 호출, 다른 동작</td><td>부모 타입으로 자식 메서드</td></tr></tbody></table>
+<p><img alt="JAVA2에서 자주 틀리는 5대 함정" src="/uploads/java2-review-traps.png" loading="lazy"/></p>
+<p><em>그림 1. new·생성자·인덱스·static·자식 메서드 — 이 다섯만 조심하면 됩니다.</em></p>
+<h2 id="1단계--개념-빠른-점검"><a href="#1단계--개념-빠른-점검">1단계 — 개념 빠른 점검</a></h2>
+<p>먼저 개념을 퀴즈로 확인합니다. 해설에 <strong>몇 편 내용인지</strong> 표시해 두었으니, 헷갈리는 부분은 그 편으로 돌아가 보세요. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 4문제 + 4지선다 8문제</p><button class="quiz__btn">시작하기</button></div></div>
+<h2 id="2단계--직접-풀어-보기"><a href="#2단계--직접-풀어-보기">2단계 — 직접 풀어 보기</a></h2>
+<p>이제 눈으로 읽는 대신 <strong>직접 고쳐 실행</strong>해 봅니다. 각 문제의 편집기에서 코드를 바꿔 돌려 보고, 아래 &#x27;정답 보기&#x27;로 확인하세요. 편집기 헤더의 <strong>크게 보기</strong>를 누르면 넓게 볼 수 있습니다.</p>
+<h3 id="문제-1-출력-예측하기-배열length"><a href="#문제-1-출력-예측하기-배열length">문제 1. 출력 예측하기 (배열·length)</a></h3>
+<p>돌리기 전에 결과를 예측해 보세요. 그다음 실행해 맞는지 확인합니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 1</span></div><pre class="runner__code"><code>public class Main {
+  public static void main(String[] args) {
+      int[] nums = {10, 20, 30};
+      System.out.println(nums.length);
+      System.out.println(nums[0]);
+      System.out.println(nums[nums.length - 1]);
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><strong>3 / 10 / 30</strong> 입니다. <code>length</code>는 칸의 개수(3), <code>nums[0]</code>은 첫 칸(인덱스 0), 마지막 칸은 <code>length − 1</code>인 인덱스 2입니다. 인덱스는 <strong>0부터</strong> 시작한다는 걸 기억하세요.</p></details>
+<h3 id="문제-2-생성자-완성하기"><a href="#문제-2-생성자-완성하기">문제 2. 생성자 완성하기</a></h3>
+<p>지금은 컴파일 오류가 납니다. 생성자 안을 채워 이름과 나이가 담기게 하세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 2</span></div><pre class="runner__code"><code>class Dog {
+  String name;
+  int age;
+  Dog(String name, int age) {
+      // 여기 두 줄을 채우세요
+  }
+  void info() { System.out.println(name + &quot; (&quot; + age + &quot;살)&quot;); }
+}
+
+public class Main {
+  public static void main(String[] args) {
+      Dog d = new Dog(&quot;바둑이&quot;, 3);
+      d.info();
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><code>this.name = name;</code> 와 <code>this.age = age;</code> 를 넣으면 됩니다. 매개변수와 필드 이름이 같을 때, <strong><code>this.name</code>은 이 객체의 필드</strong>를 가리킵니다. 실행하면 <code>바둑이 (3살)</code>이 출력됩니다.</p></details>
+<h3 id="문제-3-다형성-결과-예측하기"><a href="#문제-3-다형성-결과-예측하기">문제 3. 다형성 결과 예측하기</a></h3>
+<p>부모 타입 변수에 자식을 담았습니다. 출력을 예측해 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 3</span></div><pre class="runner__code"><code>class Animal {
+  void sound() { System.out.println(&quot;동물이 소리를 냅니다.&quot;); }
+}
+class Cat extends Animal {
+  @Override
+  void sound() { System.out.println(&quot;야옹~&quot;); }
+}
+
+public class Main {
+  public static void main(String[] args) {
+      Animal a = new Cat();
+      a.sound();
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><strong>야옹~</strong> 입니다. <code>a</code>의 선언 타입은 <code>Animal</code>이지만, 실제로 담긴 객체가 <code>Cat</code>이라 <strong>Cat의 오버라이딩된 sound</strong>가 실행됩니다. 이것이 다형성입니다.</p></details>
+<h3 id="문제-4-static-카운터"><a href="#문제-4-static-카운터">문제 4. static 카운터</a></h3>
+<p><code>static</code>으로 공유되는 값이 어떻게 바뀌는지 예측해 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 4</span></div><pre class="runner__code"><code>class Car {
+  static int count = 0;
+  Car() { count++; }
+}
+
+public class Main {
+  public static void main(String[] args) {
+      new Car();
+      new Car();
+      System.out.println(Car.count);
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><strong>2</strong> 입니다. <code>count</code>는 <code>static</code>이라 모든 <code>Car</code>가 <strong>하나를 공유</strong>합니다. 객체를 만들 때마다 생성자에서 1씩 늘어, 두 번 만들면 2가 됩니다. 객체 없이 <code>Car.count</code>로 접근하는 것도 확인하세요.</p></details>
+<h3 id="문제-5-캡슐화로-잘못된-값-막기"><a href="#문제-5-캡슐화로-잘못된-값-막기">문제 5. 캡슐화로 잘못된 값 막기</a></h3>
+<p><code>setAge</code>에 음수를 막는 한 줄을 넣어, −5를 넣어도 나이가 바뀌지 않게 하세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 5</span></div><pre class="runner__code"><code>class Person {
+  private int age = 0;
+  public int getAge() { return age; }
+  public void setAge(int age) {
+      // 음수면 무시하도록 한 줄 추가
+      this.age = age;
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+      Person p = new Person();
+      p.setAge(-5);
+      System.out.println(p.getAge());
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><code>this.age = age;</code> 앞에 <code>if (age &lt; 0) return;</code> 를 넣으면 됩니다. 그러면 −5는 걸러져 나이가 그대로 0으로 유지됩니다. 이렇게 <strong>필드를 private으로 숨기고 setter에서 검증</strong>하는 것이 캡슐화의 핵심입니다.</p></details>
+<h2 id="이것만-기억하면-됩니다"><a href="#이것만-기억하면-됩니다">이것만 기억하면 됩니다</a></h2>
+<p>JAVA2에서 자주 막히는 <strong>5대 함정</strong>을 다시 짚습니다.</p>
+<ul>
+<li><strong>new 누락</strong>: 객체는 <code>new</code>로 만들어야 씁니다(1편).</li>
+<li><strong>생성자 반환타입</strong>: 생성자엔 반환타입을 쓰지 않습니다(3편).</li>
+<li><strong>인덱스 범위</strong>: 인덱스는 0부터, 마지막은 <code>length − 1</code>(5편).</li>
+<li><strong>static ↔ 인스턴스</strong>: static 메서드에선 인스턴스 필드를 바로 못 씁니다(6편).</li>
+<li><strong>자식 고유 메서드</strong>: 부모 타입 변수로는 자식만의 메서드를 못 부릅니다(8편).</li>
+</ul>
+<p>12문제 중 9개 이상 맞고 실습 문제를 스스로 고쳤다면, 객체지향 기초는 충분히 다진 것입니다. 헷갈린 부분만 해당 편으로 돌아가 다시 보면 됩니다. 수고하셨습니다.</p>
+<hr/>
+<p><em>포켓코딩(JAVA2) 9편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 시즌: JAVA3 — 예외 처리(try·catch)로 오류에 대비하기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-review"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 기초 12문제로 복습 — JAVA1 총정리</h3><p>자바 기초 JAVA1 시즌(출력·변수·형변환·입력·연산자·조건문·반복문)을 개념 퀴즈와 직접 푸는 실습 문제로 복습합니다. 브라우저에서 바로 코드를 고쳐 실행하며 자주 틀리는 함정을 몸에 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-07-28T11:34">2026년 7월 28일 11:34</time><span>· <!-- -->자바, JAVA, 기초</span></div></a><a class="post-card " href="/posts/java-polymorphism"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 다형성 — 하나의 타입으로 여러 객체를 다루기(POLYMORPHISM)</h3><p>자바 다형성을 왕초보 눈높이로 정리합니다. 부모 타입 하나로 여러 자식 객체를 담고, 같은 메서드 호출이 객체에 따라 다르게 동작하는 원리를 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-05T09:40">2026년 8월 5일 09:40</time><span>· <!-- -->자바, JAVA, 다형성</span></div></a><a class="post-card " href="/posts/java-class-object"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음)</h3><p>자바 객체지향의 출발점인 클래스와 객체를 왕초보 눈높이로 정리합니다. 설계도와 실물 비유로 개념을 잡고, 필드·메서드·new를 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-07-29T11:20">2026년 7월 29일 11:20</time><span>· <!-- -->자바, JAVA, 클래스</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
