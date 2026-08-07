@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH) — PANCO_IT</title>
+    <meta name="description" content="자바 예외 처리를 입문자 눈높이로 정리합니다. 오류가 나면 왜 프로그램이 통째로 멈추는지, try-catch-finally로 어떻게 안전망을 치는지 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-exception" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH) — PANCO_IT" />
+    <meta property="og:description" content="자바 예외 처리를 입문자 눈높이로 정리합니다. 오류가 나면 왜 프로그램이 통째로 멈추는지, try-catch-finally로 어떻게 안전망을 치는지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-exception" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-exception-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-07T12:00" />
+    <meta property="article:modified_time" content="2026-08-07T12:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH) — PANCO_IT" />
+    <meta name="twitter:description" content="자바 예외 처리를 입문자 눈높이로 정리합니다. 오류가 나면 왜 프로그램이 통째로 멈추는지, try-catch-finally로 어떻게 안전망을 치는지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-exception-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH)","description":"자바 예외 처리를 입문자 눈높이로 정리합니다. 오류가 나면 왜 프로그램이 통째로 멈추는지, try-catch-finally로 어떻게 안전망을 치는지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-exception-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-07T12:00","dateModified":"2026-08-07T12:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-exception"},"keywords":"자바, JAVA, 예외처리, try-catch, 오류"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH)","item":"https://pancoit.site/posts/java-exception"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CKoBT-wk.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-07T12:00">2026년 8월 7일 12:00</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->예외처리</span><span class="tag">#<!-- -->try-catch</span><span class="tag">#<!-- -->오류</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="예외 처리가 없을 때와 try-catch를 쓸 때를 비교한 그림" src="/uploads/java-exception-hero.png" loading="lazy"/></p>
+<p><em>예외 처리는 오류가 나도 프로그램이 죽지 않게 받쳐 주는 안전망입니다.</em></p>
+<p>JAVA3 시즌에 오신 것을 환영합니다. 기초(JAVA1)와 객체지향(JAVA2)을 지나, 이제 <strong>실전에서 꼭 필요한 고급 주제</strong>로 들어갑니다. 첫 주제는 예외 처리입니다. 배열에서 없는 칸을 읽거나 0으로 나눌 때 프로그램이 통째로 멈추는 걸 본 적 있으시죠. 그 &quot;멈춤&quot;에 대비하는 법을 배웁니다.</p>
+<h2 id="예외가-뭔가요"><a href="#예외가-뭔가요">예외가 뭔가요?</a></h2>
+<p>예외(Exception)는 <strong>프로그램 실행 중에 일어나는 예상 밖의 문제</strong>입니다. 문법이 틀린 게 아니라, 문법은 맞는데 <strong>실행하다 보니</strong> 곤란한 상황을 만난 것입니다.</p>
+<p>지금까지 만난 것들이 전부 예외였습니다.</p>
+<ul>
+<li><code>10 / 0</code> — 0으로 나누기 (<code>ArithmeticException</code>)</li>
+<li><code>nums[5]</code> — 5칸 배열의 없는 칸 읽기 (<code>ArrayIndexOutOfBoundsException</code>)</li>
+<li><code>new</code> 없이 객체 사용 — 실물 없는 이름표 (<code>NullPointerException</code>)</li>
+</ul>
+<blockquote>
+<p><strong>쉽게 —</strong> 자동차의 에어백과 같습니다. 사고(예외)가 안 나는 게 최선이지만, 났을 때 **에어백(catch)**이 있으면 탑승자(프로그램)는 살아남습니다. 에어백이 없으면 사고 한 번에 끝나는 것이고요. 예외 처리는 &quot;사고가 나도 살아남게&quot; 만드는 안전 장치입니다.</p>
+</blockquote>
+<h2 id="처리하지-않으면-어떻게-되나요"><a href="#처리하지-않으면-어떻게-되나요">처리하지 않으면 어떻게 되나요?</a></h2>
+<p>예외가 나는 순간, 자바는 프로그램을 <strong>그 자리에서 강제 종료</strong>합니다. 뒤에 남은 코드는 실행되지 않습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[] nums </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">20</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">30</span><span style="color:#24292E;--shiki-dark:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(nums[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]);          </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 여기서 예외 발생 → 종료</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이 줄은 실행 안 됨&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span></code></pre>
+<p>연습 코드라면 다시 실행하면 그만이지만, 실제 서비스라면 사용자 화면이 통째로 꺼지는 셈입니다. 그래서 &quot;오류가 날 수 있는 곳&quot;에는 안전망을 쳐 둡니다.</p>
+<h2 id="try-catch--시도하고-붙잡는다"><a href="#try-catch--시도하고-붙잡는다">try-catch — 시도하고, 붙잡는다</a></h2>
+<p>안전망의 기본 구조는 두 블록입니다. <strong><code>try</code> 안에 오류가 날 수 있는 코드</strong>를 넣고, <strong><code>catch</code>에서 예외를 붙잡아</strong> 대신할 동작을 정합니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">try</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[] nums </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">20</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">30</span><span style="color:#24292E;--shiki-dark:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(nums[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]);       </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 예외 발생!</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">} </span><span style="color:#D73A49;--shiki-dark:#F97583">catch</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (ArrayIndexOutOfBoundsException </span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;없는 칸입니다. 인덱스를 확인하세요.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;프로그램은 계속 진행됩니다.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span></code></pre>
+<p>예외가 나면 <code>try</code>의 남은 부분을 건너뛰고 <code>catch</code>로 점프합니다. 그리고 중요한 것 — <strong>프로그램이 죽지 않고 다음 코드로 이어집니다.</strong> <code>catch</code> 괄호의 <code>e</code>에는 무슨 일이 났는지 정보가 담겨 있어, <code>e.getMessage()</code>로 원인을 확인할 수도 있습니다.</p>
+<p><img alt="try, catch, finally 세 블록의 역할" src="/uploads/java-exception-flow.png" loading="lazy"/></p>
+<p><em>그림 1. try(시도) → 예외가 나면 catch(붙잡기) → finally(항상 마무리).</em></p>
+<h2 id="finally--나든-안-나든-항상"><a href="#finally--나든-안-나든-항상">finally — 나든 안 나든, 항상</a></h2>
+<p><code>finally</code> 블록은 <strong>예외가 나든 안 나든 반드시 실행</strong>됩니다. 파일 닫기, 연결 정리처럼 &quot;무슨 일이 있어도 해야 하는 마무리&quot;를 넣는 자리입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">try</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#D73A49;--shiki-dark:#F97583"> /</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 예외 발생</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">} </span><span style="color:#D73A49;--shiki-dark:#F97583">catch</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (ArithmeticException </span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;0으로는 나눌 수 없습니다.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">} </span><span style="color:#D73A49;--shiki-dark:#F97583">finally</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;마무리 작업은 항상 실행됩니다.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>정리하면 세 박자입니다. <strong>try(시도) → catch(붙잡기) → finally(항상 마무리).</strong> catch와 finally는 상황에 맞게 골라 쓰되, try 혼자서는 못 쓰고 둘 중 하나는 함께해야 합니다.</p>
+<h2 id="단골-함정--붙잡고-아무것도-안-하기"><a href="#단골-함정--붙잡고-아무것도-안-하기">단골 함정 — 붙잡고 아무것도 안 하기</a></h2>
+<p>예외 처리에서 가장 흔한 나쁜 습관이 있습니다. <strong>catch 블록을 비워 두는 것</strong>입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">try</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> result </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 10</span><span style="color:#D73A49;--shiki-dark:#F97583"> /</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">} </span><span style="color:#D73A49;--shiki-dark:#F97583">catch</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (ArithmeticException </span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    // 아무것도 안 함 ← 최악의 습관</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>이러면 프로그램은 안 죽지만, <strong>문제가 생겼다는 사실 자체가 조용히 사라집니다.</strong> 어디서 뭐가 잘못됐는지 아무도 모르게 되죠. 병원 경보기를 꺼 버리는 것과 같습니다. catch에서는 최소한 <strong>무슨 일이 났는지 알리거나(메시지·로그), 대신할 동작을 정해야</strong> 합니다.</p>
+<p>또 하나, 예외 처리는 만능이 아닙니다. 애초에 <code>nums.length</code>로 범위를 확인하고, <code>0</code>인지 검사하고 나누는 <strong>예방이 먼저</strong>입니다. try-catch는 &quot;예방으로 못 막는 상황&quot;을 위한 마지막 안전망으로 쓰는 것이 좋은 설계입니다.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>아래 코드를 돌려 보고, 배열 인덱스를 바꾸거나 나누는 수를 0이 아닌 값으로 바꿔 흐름이 어떻게 달라지는지 확인해 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">try-catch-finally 안전망</span></div><pre class="runner__code"><code>public class Main {
+  public static void main(String[] args) {
+      int[] nums = {10, 20, 30};
+
+      try {
+          System.out.println(nums[5]);   // 없는 칸 → 예외 발생
+      } catch (ArrayIndexOutOfBoundsException e) {
+          System.out.println(&quot;없는 칸입니다: &quot; + e.getMessage());
+      } finally {
+          System.out.println(&quot;finally는 항상 실행됩니다.&quot;);
+      }
+
+      System.out.println(&quot;프로그램은 계속 진행됩니다.&quot;);
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>키워드</th><th>역할</th></tr></thead><tbody><tr><td>예외</td><td>실행 중 만나는 예상 밖의 문제(0 나누기·범위 밖 등)</td></tr><tr><td>try</td><td>오류가 날 수 있는 코드를 감싸는 블록</td></tr><tr><td>catch</td><td>예외를 붙잡아 대신할 동작 실행</td></tr><tr><td>finally</td><td>예외 여부와 상관없이 항상 실행</td></tr><tr><td>나쁜 습관</td><td>catch 비워 두기(문제를 조용히 삼킴)</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 예외는 실행 중의 사고이고, 처리하지 않으면 프로그램이 그 자리에서 죽습니다. <strong>try로 감싸고 catch로 붙잡아</strong> 대신할 동작을 정하면 프로그램이 계속 살아갑니다. 단, catch를 비워 두면 문제를 숨기는 꼴이 되니, 반드시 알리거나 대응하세요.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA3) 1편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 여러 예외 다루기 — 다중 catch와 예외 던지기(throw).</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java2-review"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 객체지향 12문제로 복습 — JAVA2 총정리</h3><p>자바 객체지향 JAVA2 시즌(클래스·메서드·생성자·캡슐화·배열·static·상속·다형성)을 개념 퀴즈와 직접 푸는 실습 문제로 복습합니다. 브라우저에서 바로 코드를 고쳐 실행하며 자주 틀리는 함정을 몸에 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-06T10:00">2026년 8월 6일 10:00</time><span>· <!-- -->자바, JAVA, 객체지향</span></div></a><a class="post-card " href="/posts/java-polymorphism"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 다형성 — 하나의 타입으로 여러 객체를 다루기(POLYMORPHISM)</h3><p>자바 다형성을 왕초보 눈높이로 정리합니다. 부모 타입 하나로 여러 자식 객체를 담고, 같은 메서드 호출이 객체에 따라 다르게 동작하는 원리를 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-05T09:40">2026년 8월 5일 09:40</time><span>· <!-- -->자바, JAVA, 다형성</span></div></a><a class="post-card " href="/posts/java-inheritance"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 상속 — 기존 클래스를 물려받아 확장하기(INHERITANCE·EXTENDS)</h3><p>자바 상속을 왕초보 눈높이로 정리합니다. extends로 부모 클래스의 필드·메서드를 물려받고, super와 오버라이딩으로 확장하는 원리를 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-04T09:30">2026년 8월 4일 09:30</time><span>· <!-- -->자바, JAVA, 상속</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

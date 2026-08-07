@@ -91,6 +91,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/java-exception</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/java-hello-world</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>

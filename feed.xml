@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH)</title>
+      <link>https://pancoit.site/posts/java-exception</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-exception</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 GMT</pubDate>
+      <description>자바 예외 처리를 입문자 눈높이로 정리합니다. 오류가 나면 왜 프로그램이 통째로 멈추는지, try-catch-finally로 어떻게 안전망을 치는지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>국비 지원 IT 교육으로 개발자 취업 준비하기 — 내일배움카드·K-디지털트레이닝</title>
       <link>https://pancoit.site/posts/gov-it-training-2026</link>
       <guid isPermaLink="true">https://pancoit.site/posts/gov-it-training-2026</guid>
