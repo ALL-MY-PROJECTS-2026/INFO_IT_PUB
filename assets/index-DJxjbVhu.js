@@ -101,7 +101,7 @@ import{r as x,a as de,L as D,N as he,u as X,O as te,R as q,b as Xs,c as Hs,d as 
 `]}),`
 `,s.jsx(e.h2,{id:"한-장-정리",children:s.jsx(e.a,{href:"#한-장-정리",children:"한 장 정리"})}),`
 `,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"질문"}),s.jsx(e.th,{children:"답"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"AI 에이전트란"}),s.jsx(e.td,{children:"목표를 주면 스스로 여러 단계로 일을 끝내는 AI"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"챗봇과 차이"}),s.jsx(e.td,{children:"답만 하느냐 vs 직접 실행하느냐"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"지금 상태"}),s.jsx(e.td,{children:"기업 도입 시작(2026), 아직 사람 확인 필요"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"나에게"}),s.jsx(e.td,{children:"잡무 위임 가능, 단 결과 확인은 필수"})]})]})]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"이것만 기억하면 됩니다."})," 챗봇은 안내데스크, 에이전트는 비서입니다. 에이전트는 도구를 직접 써서 일을 끝내지만, 아직은 사람의 목표 설정과 확인이 필요합니다."]}),`
+`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"이것만 기억하면 됩니다."})," 챗봇은 안내데스크, 에이전트는 비서입니다. 에이전트는 도구를 직접 써서 일을 끝내지만, 아직은 사람의 목표 설정과 확인이 필요합니다. 작은 일부터 맡겨 보며 감을 익혀 두면, 앞으로 늘어날 에이전트 도구들을 자연스럽게 다루게 됩니다."]}),`
 `,s.jsx(e.hr,{}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"기준 시점: 2026년 7월. AI 에이전트는 빠르게 발전 중이라, 실제 도구의 능력·한계는 서비스마다 다릅니다."})}),`
 `,s.jsx(e.h2,{id:"참고-자료",children:s.jsx(e.a,{href:"#참고-자료",children:"참고 자료"})}),`
@@ -1929,7 +1929,7 @@ AI 전용 칩(NPU)은 같은 계산을 일반 칩보다 `,s.jsx(e.strong,{childr
 `,s.jsxs(e.p,{children:["참고로 ",s.jsx(e.strong,{children:"시크릿(사생활 보호) 모드"}),"는 흔히 오해하는 지점입니다. 시크릿 모드는 창을 닫을 때 그 세션의 쿠키·방문 기록을 지워 줄 뿐, ",s.jsx(e.strong,{children:"쓰는 동안의 추적까지 막아 주지는 않습니다."}),' "기록이 안 남는 것"과 "추적이 안 되는 것"은 다른 문제라, 추적을 줄이려면 위의 차단 설정을 쓰는 것이 맞습니다.']}),`
 `,s.jsx(e.h2,{id:"한-장-정리",children:s.jsx(e.a,{href:"#한-장-정리",children:"한 장 정리"})}),`
 `,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"질문"}),s.jsx(e.th,{children:"답"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"쿠키란"}),s.jsx(e.td,{children:"사이트가 브라우저에 남기는 작은 메모"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"퍼스트파티"}),s.jsx(e.td,{children:"방문한 사이트가 저장(편의)"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"서드파티"}),s.jsx(e.td,{children:"광고사가 추적(맞춤 광고), 축소 중"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"내 대응"}),s.jsx(e.td,{children:"추적 방지 켜기, 퍼스트파티는 허용"})]})]})]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"이것만 기억하면 됩니다."})," 쿠키는 사이트가 나를 기억하는 쪽지입니다. 내 편의를 돕는 퍼스트파티는 두고, 나를 따라다니는 ",s.jsx(e.strong,{children:"서드파티 추적만 브라우저 설정으로 줄이면"})," 됩니다."]}),`
+`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"이것만 기억하면 됩니다."})," 쿠키는 사이트가 나를 기억하는 쪽지입니다. 내 편의를 돕는 퍼스트파티는 두고, 나를 따라다니는 ",s.jsx(e.strong,{children:"서드파티 추적만 브라우저 설정으로 줄이면"})," 됩니다. 오늘 5분 설정 점검이면 충분합니다."]}),`
 `,s.jsx(e.hr,{}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"기준 시점: 2026년 7월. 서드파티 쿠키 정책은 브라우저·지역마다 다르고 계속 바뀌므로, 최신 내용은 각 브라우저 공식 안내를 확인하시기 바랍니다."})}),`
 `,s.jsx(e.h2,{id:"참고-자료",children:s.jsx(e.a,{href:"#참고-자료",children:"참고 자료"})}),`
