@@ -96,6 +96,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/java-generic</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/java-hello-world</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>

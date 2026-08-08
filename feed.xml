@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 제네릭 — 타입을 나중에 정하는 틀 만들기(GENERIC)</title>
+      <link>https://pancoit.site/posts/java-generic</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-generic</guid>
+      <pubDate>Sun, 09 Aug 2026 08:40:00 GMT</pubDate>
+      <description>자바 제네릭을 입문자 눈높이로 정리합니다. 타입만 다른 클래스를 여러 개 만들지 않는 법, 꺾쇠 안의 T가 무엇인지, extends로 타입 범위를 제한하는 법까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>자바 다중 catch와 예외 던지기 — 여러 오류를 골라서 처리하기(THROW·THROWS)</title>
       <link>https://pancoit.site/posts/java-multi-catch-throw</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-multi-catch-throw</guid>
