@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 다중 catch와 예외 던지기 — 여러 오류를 골라서 처리하기(THROW·THROWS)</title>
+      <link>https://pancoit.site/posts/java-multi-catch-throw</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-multi-catch-throw</guid>
+      <pubDate>Sat, 08 Aug 2026 10:20:00 GMT</pubDate>
+      <description>자바에서 여러 종류의 예외를 나눠 처리하는 다중 catch, 그리고 예외를 직접 일으키는 throw와 처리를 넘기는 throws를 입문자 눈높이로 정리합니다. catch 순서 함정까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH)</title>
       <link>https://pancoit.site/posts/java-exception</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-exception</guid>
