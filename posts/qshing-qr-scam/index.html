@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기 — PANCO_IT</title>
+    <meta name="description" content="QR코드 위에 가짜 스티커를 덧붙이는 큐싱 수법을, 실제로 일어나는 순서대로 따라가며 정리했습니다. QR이 유독 위험한 이유와 찍기 전 3초 점검법, 이미 찍었을 때의 대응까지 담았습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/qshing-qr-scam" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기 — PANCO_IT" />
+    <meta property="og:description" content="QR코드 위에 가짜 스티커를 덧붙이는 큐싱 수법을, 실제로 일어나는 순서대로 따라가며 정리했습니다. QR이 유독 위험한 이유와 찍기 전 3초 점검법, 이미 찍었을 때의 대응까지 담았습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/qshing-qr-scam" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-qshing-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-09T13:10" />
+    <meta property="article:modified_time" content="2026-08-09T13:10" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기 — PANCO_IT" />
+    <meta name="twitter:description" content="QR코드 위에 가짜 스티커를 덧붙이는 큐싱 수법을, 실제로 일어나는 순서대로 따라가며 정리했습니다. QR이 유독 위험한 이유와 찍기 전 3초 점검법, 이미 찍었을 때의 대응까지 담았습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-qshing-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기","description":"QR코드 위에 가짜 스티커를 덧붙이는 큐싱 수법을, 실제로 일어나는 순서대로 따라가며 정리했습니다. QR이 유독 위험한 이유와 찍기 전 3초 점검법, 이미 찍었을 때의 대응까지 담았습니다.","image":"https://pancoit.site/uploads/itnews-qshing-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-09T13:10","dateModified":"2026-08-09T13:10","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/qshing-qr-scam"},"keywords":"보안, 큐싱, QR코드, 피싱, 스미싱"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기","item":"https://pancoit.site/posts/qshing-qr-scam"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BnymgD38.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-09T13:10">2026년 8월 9일 13:10</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->보안</span><span class="tag">#<!-- -->큐싱</span><span class="tag">#<!-- -->QR코드</span><span class="tag">#<!-- -->피싱</span><span class="tag">#<!-- -->스미싱</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="원래 붙어 있던 QR과 그 위에 덧붙인 가짜 QR 스티커를 비교한 그림" src="/uploads/itnews-qshing-hero.png" loading="lazy"/></p>
+<p><em>큐싱은 QR코드 위에 가짜를 덧붙여 다른 곳으로 보내는 수법입니다.</em></p>
+<p>주차장을 나서려는데 정산기 옆에 안내문이 붙어 있습니다. &quot;간편 결제는 QR로.&quot; 뒤차가 기다리고 있어 마음이 급합니다. 폰을 들어 찍고, 열린 화면에서 카드 정보를 넣습니다. 몇 초 걸리지 않았습니다.</p>
+<p>여기까지는 아주 평범한 하루입니다. 문제는 그 QR을 <strong>주차장 업체가 붙인 게 아닐 수도 있다</strong>는 데 있습니다. 오늘은 이 장면을 처음부터 되감아 가며, 무엇이 어떻게 어긋나는지 따라가 보겠습니다.</p>
+<h2 id="그-스티커는-누가-붙였을까"><a href="#그-스티커는-누가-붙였을까">그 스티커는 누가 붙였을까</a></h2>
+<p>큐싱(Qshing)은 QR코드와 피싱을 합친 말입니다. 정상 QR코드 <strong>위에 가짜 QR 스티커를 덧붙여</strong> 엉뚱한 곳으로 보내는 수법이죠. 문자로 낚는 스미싱의 QR 버전이라고 보면 이해가 빠릅니다.</p>
+<p>수법이 단순한 만큼 준비물도 단순합니다. 스티커 한 장과, 붙일 자리 하나. 정산기·키오스크·공유 킥보드·자전거 거치대처럼 <strong>사람이 급하게 찍고 지나가는 자리</strong>가 표적이 됩니다. 해외에서는 가짜 주차위반 딱지에 QR을 넣어 뿌린 사례도 보고됐습니다.</p>
+<p>되감아 보면 앞의 장면에서 어긋난 지점은 딱 하나였습니다. 화면에 뜬 주소를 확인하지 않고 넘어간 것. 그 3초가 전부입니다.</p>
+<h2 id="qr이-문자보다-위험한-이유"><a href="#qr이-문자보다-위험한-이유">QR이 문자보다 위험한 이유</a></h2>
+<p>이상한 문자를 받으면 우리는 대개 링크 주소를 훑어봅니다. 낯선 주소면 손이 멈추죠. 그런데 QR에는 그 방어선이 없습니다.</p>
+<p><strong>QR코드는 사람이 읽을 수 없습니다.</strong> 검고 흰 네모 안에 무슨 주소가 들었는지 눈으로는 알 길이 없죠. 스미싱 문자에서는 최소한 의심할 재료가 화면에 보이지만, QR은 찍기 전까지 아무 정보도 주지 않습니다.</p>
+<p>여기에 두 가지가 겹칩니다. 하나는 <strong>QR은 안전하다는 인상</strong>입니다. 식당 메뉴판, 백신 접종 증명, 간편 결제까지 공공기관과 대기업이 오래 써 온 방식이라 경계심이 낮습니다. 다른 하나는 <strong>찍는 순간의 조급함</strong>입니다. 주차장 출구, 계산대 앞, 킥보드 앞에서 우리는 대체로 서두르고 있습니다.</p>
+<p>정리하면 큐싱은 기술적으로 정교해서 위험한 게 아닙니다. <strong>확인할 수 없는 매체 + 안전하다는 인상 + 급한 상황</strong>이 겹치는 자리를 노리는 것뿐입니다.</p>
+<h2 id="찍고-나면-무엇을-요구하나"><a href="#찍고-나면-무엇을-요구하나">찍고 나면 무엇을 요구하나</a></h2>
+<p>가짜 QR이 열어 주는 화면은 대체로 셋 중 하나입니다.</p>
+<p><strong>첫째, 앱을 깔라고 합니다.</strong> &quot;전용 앱에서 결제하세요&quot;, &quot;설치 후 조회 가능합니다&quot; 같은 안내와 함께 설치 파일을 내려받게 합니다. 이렇게 깔린 악성 앱은 문자와 연락처를 읽거나 화면을 들여다볼 수 있어 피해가 가장 큽니다.</p>
+<p><strong>둘째, 로그인하라고 합니다.</strong> 진짜와 거의 똑같이 생긴 가짜 화면에서 아이디와 비밀번호를 입력받습니다. 계정을 그대로 넘겨주는 셈이죠. 이 대목에서 <a href="/posts/two-factor-auth/">2단계 인증</a>이 걸려 있으면 비밀번호가 넘어가도 한 겹이 더 남습니다.</p>
+<p><strong>셋째, 결제 정보를 넣으라고 합니다.</strong> 주차 요금, 배송비, 과태료처럼 <strong>금액이 작은 명목</strong>을 씁니다. 소액이면 덜 의심하고 넘어가기 때문입니다.</p>
+<p>세 갈래가 달라 보이지만 요구하는 것은 같습니다. 지금 이 자리에서, 확인 없이, 무언가를 넘기라는 것입니다.</p>
+<h2 id="요즘-어디에-붙나"><a href="#요즘-어디에-붙나">요즘 어디에 붙나</a></h2>
+<p>보고된 자리에는 공통점이 있습니다. <strong>주인이 자리를 지키지 않는 곳</strong>입니다. 카페 카운터의 QR은 직원이 늘 보고 있어 스티커를 덧붙이기 어렵지만, 아래 같은 곳은 그렇지 않습니다.</p>
+<ul>
+<li><strong>공유 킥보드·자전거</strong>: 거치대에 세워 둔 채 아무도 지켜보지 않고, 이용자는 대개 급합니다.</li>
+<li><strong>무인 정산기·키오스크</strong>: 주차장 출구나 무인 매장처럼 사람이 없는 자리입니다.</li>
+<li><strong>길에 붙은 안내문·전단</strong>: 원본이 무엇이었는지 확인할 방법이 없습니다.</li>
+<li><strong>가짜 과태료·주차위반 딱지</strong>: 해외에서 실제로 뿌려진 사례가 있습니다. 놀란 마음에 급히 찍게 만드는 것이 노림수입니다.</li>
+</ul>
+<p>반대로 종이 청구서, 공식 앱 안의 QR, 매장 직원이 직접 보여 주는 화면 속 QR은 상대적으로 안전합니다. <strong>덧붙일 수 있는 물리적 표면이 없기 때문</strong>입니다. 이 기준 하나로도 위험한 QR과 덜 위험한 QR이 꽤 갈립니다.</p>
+<h2 id="스미싱과는-뭐가-다른가"><a href="#스미싱과는-뭐가-다른가">스미싱과는 뭐가 다른가</a></h2>
+<p><a href="/posts/smishing-scam/">스미싱</a>을 알고 계시다면 큐싱은 그 사촌쯤으로 이해하면 됩니다. 다만 실무적으로 갈리는 지점이 있습니다.</p>
+<table><thead><tr><th>항목</th><th>스미싱(문자)</th><th>큐싱(QR)</th></tr></thead><tbody><tr><td>전달 경로</td><td>문자·메신저로 옴</td><td>내가 직접 찍으러 감</td></tr><tr><td>링크 확인</td><td>주소가 화면에 보임</td><td>찍기 전엔 안 보임</td></tr><tr><td>흔적</td><td>발신번호가 남음</td><td>스티커 외엔 단서 없음</td></tr><tr><td>차단</td><td>스팸 차단으로 일부 걸러짐</td><td>사전 차단이 어려움</td></tr></tbody></table>
+<p>가장 큰 차이는 <strong>내가 먼저 다가간다</strong>는 점입니다. 스미싱은 모르는 번호에서 오니 경계심이 켜지지만, 큐싱은 내가 필요해서 찍는 것이라 의심 자체가 잘 생기지 않습니다. 그래서 문자 차단 같은 자동 방어가 통하지 않고, 찍는 순간의 습관에 기댈 수밖에 없습니다.</p>
+<h2 id="찍기-전-3초-이것만-보세요"><a href="#찍기-전-3초-이것만-보세요">찍기 전 3초, 이것만 보세요</a></h2>
+<p>방어법은 의외로 아날로그에 가깝습니다.</p>
+<p><img alt="큐싱 점검 3단계: 스티커를 만져 보고, 주소를 보고, 요구를 본다" src="/uploads/itnews-qshing-check.png" loading="lazy"/></p>
+<p><em>셋 중 하나라도 걸리면 찍지 않는 것이 가장 확실합니다.</em></p>
+<p><strong>하나, 손으로 만져 봅니다.</strong> 큐싱은 물리적으로 덧붙이는 수법이라 흔적이 남습니다. 모서리가 들뜨거나, 스티커가 겹쳐 있거나, 인쇄물 위에 유독 그 부분만 재질이 다르면 그 자리에서 중단합니다.</p>
+<p><strong>둘, 열리기 전 주소를 봅니다.</strong> 요즘 폰 카메라는 QR을 인식하면 주소를 먼저 띄웁니다. 그 주소가 그 기관의 도메인이 맞는지 봅니다. 낯선 단어가 섞였거나 주소가 짧게 줄여져 어디로 가는지 모르겠다면 열지 않습니다.</p>
+<p><strong>셋, 요구를 봅니다.</strong> 열린 화면이 앱 설치를 권하거나 로그인·결제 정보를 요구하면 거기서 끝냅니다. 정상적인 안내 페이지는 보통 정보를 보여줄 뿐 무언가를 받아 가려 하지 않습니다.</p>
+<p>가장 확실한 방법은 따로 있습니다. <strong>QR을 건너뛰고 공식 앱이나 검색으로 직접 들어가는 것</strong>입니다. 주차 요금이든 과태료든, 해당 기관 앱에서 조회하면 스티커를 믿을 필요가 없어집니다. 저는 이 습관 하나가 위의 세 가지 점검보다 실효가 크다고 봅니다. 급한 순간에 판단하는 대신, 판단할 일 자체를 없애기 때문입니다.</p>
+<h2 id="이미-찍었다면-순서대로"><a href="#이미-찍었다면-순서대로">이미 찍었다면 순서대로</a></h2>
+<p>찍었다고 다 피해가 나는 것은 아닙니다. <strong>화면만 열고 아무것도 입력하지 않았다면</strong> 대개는 그것으로 끝납니다. 다만 무언가를 넘겼다면 순서가 중요합니다.</p>
+<ol>
+<li><strong>인터넷을 끊습니다.</strong> 앱을 설치했다면 비행기 모드로 바꿔 통신을 차단하고, 설치된 앱을 지웁니다.</li>
+<li><strong>비밀번호를 바꿉니다.</strong> 입력한 계정은 물론, 같은 비밀번호를 쓰던 다른 서비스까지 함께 바꿉니다. 이 상황이 <a href="/posts/password-manager/">비밀번호 관리자</a>가 필요한 대표적인 이유입니다.</li>
+<li><strong>결제를 막습니다.</strong> 카드 정보를 넣었다면 카드사에 연락해 정지·재발급을 요청합니다.</li>
+<li><strong>신고합니다.</strong> 한국인터넷진흥원 상담센터(국번 없이 118)에 문의하고, 금전 피해가 있으면 경찰(112)과 해당 금융회사에 지급정지를 요청합니다.</li>
+</ol>
+<p>순서를 이렇게 잡는 이유는 <strong>번지는 것을 먼저 막고, 그다음 되돌리기 위해서</strong>입니다. 신고부터 하려다 그사이 악성 앱이 계속 도는 경우가 적지 않습니다.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>질문</th><th>답</th></tr></thead><tbody><tr><td>큐싱이란</td><td>QR코드 위에 가짜를 덧붙여 다른 곳으로 보내는 수법</td></tr><tr><td>왜 위험한가</td><td>주소를 눈으로 확인할 수 없고, 급한 자리에 붙음</td></tr><tr><td>무엇을 노리나</td><td>악성 앱 설치, 가짜 로그인, 결제 정보</td></tr><tr><td>찍기 전 점검</td><td>스티커 상태 · 열기 전 주소 · 설치·로그인 요구</td></tr><tr><td>가장 확실한 법</td><td>QR 대신 공식 앱·검색으로 직접 접속</td></tr><tr><td>당했다면</td><td>통신 차단 → 비밀번호 변경 → 카드 정지 → 118 신고</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 큐싱은 정교한 해킹이 아니라 <strong>스티커 한 장</strong>으로 이뤄집니다. 그래서 방어도 거창하지 않습니다. 붙어 있는 QR을 한 번 만져 보고, 열리기 전 주소를 보고, 급하면 아예 공식 앱으로 돌아가는 것. 이 세 가지면 대부분 피해 갑니다.</p>
+<hr/>
+<p><em>기준 시점: 2026년 8월. 사기 수법과 신고 절차는 계속 바뀌므로, 실제 피해가 의심되면 아래 공식 창구의 최신 안내를 확인하시기 바랍니다.</em></p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<p>큐싱의 수법과 대응 절차는 아래 공개 자료를 참고했습니다.</p>
+<ul>
+<li><a href="https://www.boho.or.kr" target="_blank" rel="noopener noreferrer">KISA 보호나라</a></li>
+<li><a href="https://www.police.go.kr" target="_blank" rel="noopener noreferrer">경찰청</a></li>
+<li><a href="https://www.fss.or.kr" target="_blank" rel="noopener noreferrer">금융감독원 보이스피싱 지킴이</a></li>
+</ul>
+<p><em>이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/smishing-scam"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">스미싱(smishing)이란 — 문자 한 통으로 계좌가 털리는 수법과 예방법</h3><p>택배·부고·기관을 사칭한 문자 사기, 스미싱. 어떤 수법으로 개인정보와 돈을 빼가는지, 정상 문자와 어떻게 구별하는지, 눌렀다면 어떻게 대응하는지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-07-30T11:10">2026년 7월 30일 11:10</time><span>· <!-- -->보안, 스미싱, 문자사기</span></div></a><a class="post-card " href="/posts/check-account-breach"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">내 계정이 털렸는지 확인하는 법 — 개인정보 유출 대응 3단계</h3><p>대형 유출 사고 뉴스, 남 일이 아닙니다. 내 이메일·비밀번호가 유출됐는지 안전하게 확인하는 법과, 털렸을 때 지금 바로 해야 할 대응 3단계를 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-05T13:00">2026년 8월 5일 13:00</time><span>· <!-- -->보안, 개인정보유출, 계정보안</span></div></a><a class="post-card " href="/posts/password-manager"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">비밀번호 관리자란 — 수십 개 비밀번호를 하나로 관리하는 법</h3><p>사이트마다 비밀번호를 다르게 쓰라는데 그걸 어떻게 다 외울까요. 비밀번호 관리자가 무엇인지, 왜 재사용이 위험한지, 안전하게 쓰는 법까지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-03T12:30">2026년 8월 3일 12:30</time><span>· <!-- -->보안, 비밀번호관리자, 패스워드매니저</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기</title>
+      <link>https://pancoit.site/posts/qshing-qr-scam</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/qshing-qr-scam</guid>
+      <pubDate>Sun, 09 Aug 2026 13:10:00 GMT</pubDate>
+      <description>QR코드 위에 가짜 스티커를 덧붙이는 큐싱 수법을, 실제로 일어나는 순서대로 따라가며 정리했습니다. QR이 유독 위험한 이유와 찍기 전 3초 점검법, 이미 찍었을 때의 대응까지 담았습니다.</description>
+    </item>
+    <item>
       <title>자바 제네릭 — 타입을 나중에 정하는 틀 만들기(GENERIC)</title>
       <link>https://pancoit.site/posts/java-generic</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-generic</guid>
