@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION)</title>
+      <link>https://pancoit.site/posts/java-collections</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-collections</guid>
+      <pubDate>Mon, 10 Aug 2026 17:58:00 GMT</pubDate>
+      <description>자바 컬렉션을 입문자 눈높이로 정리합니다. 배열과 무엇이 다른지, List·Set·Map을 언제 골라 쓰는지, 없는 키를 꺼내면 왜 null이 나오는지까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>EU는 미뤘고 한국은 시행 중입니다 — AI 기본법 반년, 달라진 것들</title>
       <link>https://pancoit.site/posts/ai-basic-act-korea</link>
       <guid isPermaLink="true">https://pancoit.site/posts/ai-basic-act-korea</guid>

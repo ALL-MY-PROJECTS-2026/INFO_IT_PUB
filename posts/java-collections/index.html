@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION) — PANCO_IT</title>
+    <meta name="description" content="자바 컬렉션을 입문자 눈높이로 정리합니다. 배열과 무엇이 다른지, List·Set·Map을 언제 골라 쓰는지, 없는 키를 꺼내면 왜 null이 나오는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-collections" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION) — PANCO_IT" />
+    <meta property="og:description" content="자바 컬렉션을 입문자 눈높이로 정리합니다. 배열과 무엇이 다른지, List·Set·Map을 언제 골라 쓰는지, 없는 키를 꺼내면 왜 null이 나오는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-collections" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-collection-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-10T17:58" />
+    <meta property="article:modified_time" content="2026-08-10T17:58" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION) — PANCO_IT" />
+    <meta name="twitter:description" content="자바 컬렉션을 입문자 눈높이로 정리합니다. 배열과 무엇이 다른지, List·Set·Map을 언제 골라 쓰는지, 없는 키를 꺼내면 왜 null이 나오는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-collection-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION)","description":"자바 컬렉션을 입문자 눈높이로 정리합니다. 배열과 무엇이 다른지, List·Set·Map을 언제 골라 쓰는지, 없는 키를 꺼내면 왜 null이 나오는지까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-collection-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-10T17:58","dateModified":"2026-08-10T17:58","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-collections"},"keywords":"자바, JAVA, 컬렉션, ArrayList, HashMap"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION)","item":"https://pancoit.site/posts/java-collections"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DTwh6r3T.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-10T17:58">2026년 8월 10일 17:58</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->컬렉션</span><span class="tag">#<!-- -->ArrayList</span><span class="tag">#<!-- -->HashMap</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="List는 순서대로, Set은 중복 없이, Map은 키-값 짝으로 담는 세 가지 그릇 비교" src="/uploads/java-collection-hero.png" loading="lazy"/></p>
+<p><em>담는 방식이 다른 세 가지 그릇입니다. 상황에 맞는 그릇을 고르는 것이 오늘의 목표입니다.</em></p>
+<p>출석부 프로그램을 만든다고 해봅시다. 학생을 배열에 담으려니 첫 줄부터 막힙니다. <code>new String[30]</code> — 그런데 전학생이 와서 31명이 되면요? 배열은 <strong>크기를 한 번 정하면 끝</strong>이라 늘릴 수 없습니다. 더 큰 배열을 새로 만들어 옮겨 담는 수밖에 없죠. 매번 이 짓을 할 수는 없습니다. 자바가 준비해 둔 해결책이 오늘의 주제, 컬렉션입니다.</p>
+<h2 id="배열의-한계에서-출발합니다"><a href="#배열의-한계에서-출발합니다">배열의 한계에서 출발합니다</a></h2>
+<p>JAVA2에서 배운 배열은 훌륭한 도구지만 두 가지가 불편합니다.</p>
+<p>첫째, 방금 본 것처럼 <strong>크기가 고정</strong>입니다. 몇 개를 담을지 미리 알아야 하는데, 실전에서는 모르는 경우가 더 많습니다. 둘째, <strong>중간을 지우면 빈칸이 남습니다.</strong> 3번 학생이 전학 가면 그 칸을 비워 두거나, 뒤의 학생들을 한 칸씩 직접 당겨 와야 합니다.</p>
+<p>컬렉션(Collection)은 이 불편을 해결한 <strong>크기가 저절로 변하는 그릇</strong>입니다. <code>java.util</code> 패키지에 들어 있고, 담으면 늘어나고 지우면 알아서 당겨집니다.</p>
+<p><img alt="배열과 컬렉션 비교 — 크기 고정 대 자동 증가" src="/uploads/java-collection-vs.png" loading="lazy"/></p>
+<p><em>그림 1. 몇 개 담을지 모른다면 컬렉션이 답입니다.</em></p>
+<p>한 가지 눈에 익은 문법이 보일 겁니다. 컬렉션은 전부 꺾쇠로 타입을 정합니다. <code>ArrayList&lt;String&gt;</code> — 지난 편에서 배운 <strong>제네릭</strong>이 바로 여기서 쓰입니다. 그릇은 하나인데 담을 재료를 쓸 때 정하는 것, 낯익은 구조죠. 그래서 기본형은 못 담고 <code>int</code> 대신 <code>Integer</code> 같은 래퍼 클래스를 쓴다는 규칙도 그대로 따라옵니다.</p>
+<h2 id="list--순서대로-줄-세우는-그릇"><a href="#list--순서대로-줄-세우는-그릇">List — 순서대로 줄 세우는 그릇</a></h2>
+<p>가장 많이 쓰는 컬렉션입니다. <strong>넣은 순서가 유지되고, 중복을 허용하며, 번호(인덱스)로 꺼냅니다.</strong> 배열과 성격이 가장 비슷해서 &quot;늘어나는 배열&quot;로 이해하면 됩니다. 대표 구현이 <code>ArrayList</code>입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.util.ArrayList;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">ArrayList&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; names </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ArrayList&lt;&gt;();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">names.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 담기</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">names.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">names.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 중복도 그대로 들어감</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(names.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">get</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 철수 (0번부터 셈)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(names.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 3</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">names.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">remove</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);                      </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 0번 삭제 → 뒤가 알아서 당겨짐</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(names.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">get</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 영희</span></span></code></pre>
+<p>배열과 문법을 비교해 보면, <code>nums[0]</code>이 <code>get(0)</code>으로, <code>nums.length</code>가 <code>size()</code>로 바뀌었습니다. 대괄호 대신 <strong>메서드로 다룬다</strong>는 것이 컬렉션의 공통점입니다.</p>
+<h2 id="set--겹치면-안-되는-그릇"><a href="#set--겹치면-안-되는-그릇">Set — 겹치면 안 되는 그릇</a></h2>
+<p>Set은 <strong>중복을 자동으로 걸러냅니다.</strong> 같은 값을 두 번 넣어도 한 번만 저장됩니다. 대신 순서를 기억하지 않습니다. 대표 구현이 <code>HashSet</code>입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.util.HashSet;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">HashSet&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; visitors </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> HashSet&lt;&gt;();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">visitors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">visitors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">visitors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이미 있음 → 조용히 무시</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(visitors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">size</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());          </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 2</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(visitors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">contains</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)); </span><span style="color:#6A737D;--shiki-dark:#6A737D">// true</span></span></code></pre>
+<p>&quot;오늘 우리 매장에 다녀간 사람&quot;을 세는 상황을 떠올려 보세요. 철수가 세 번 방문해도 방문자는 한 명입니다. 이렇게 <strong>&quot;있냐 없냐&quot;만 중요하고 몇 번째인지는 상관없을 때</strong> Set을 씁니다. 번호로 꺼내는 <code>get(0)</code>이 아예 없다는 점도 특징입니다. 순서가 없으니 &quot;0번째&quot;라는 개념 자체가 없는 것이죠.</p>
+<h2 id="map--이름표를-붙여-담는-그릇"><a href="#map--이름표를-붙여-담는-그릇">Map — 이름표를 붙여 담는 그릇</a></h2>
+<p>Map은 값 하나만 담지 않고 <strong>키(이름표)와 값을 짝으로</strong> 담습니다. 꺼낼 때는 번호가 아니라 이름표로 꺼냅니다. 대표 구현이 <code>HashMap</code>입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.util.HashMap;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">HashMap&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; scores </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> HashMap&lt;&gt;();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">scores.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">put</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">85</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 키 &quot;철수&quot;에 값 85를 짝지어 담기</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">scores.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">put</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">92</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(scores.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">get</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 92 — 이름표로 바로 꺼냄</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">scores.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">put</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">90</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);                   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 같은 키에 다시 put → 덮어씀</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(scores.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">get</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 90</span></span></code></pre>
+<p>전화번호부가 정확히 이 구조입니다. 이름(키)으로 번호(값)를 찾지, &quot;37번째 연락처&quot;로 찾지 않죠. 그리고 꺾쇠 안에 타입이 <strong>두 개</strong>인 것을 눈여겨보세요. <code>HashMap&lt;String, Integer&gt;</code> — 지난 편 마지막에 본 <code>Couple&lt;M, W&gt;</code>처럼 타입 자리가 두 개인 제네릭입니다. 키는 중복될 수 없어서, 같은 키로 다시 넣으면 새 값으로 <strong>덮어씁니다.</strong></p>
+<h2 id="어느-그릇을-골라야-하나요"><a href="#어느-그릇을-골라야-하나요">어느 그릇을 골라야 하나요?</a></h2>
+<p>세 가지를 배우고 나면 반드시 이 질문이 옵니다. 고르는 기준은 의외로 단순합니다.</p>
+<table><thead><tr><th>상황</th><th>그릇</th><th>이유</th></tr></thead><tbody><tr><td>순서가 중요하다, 번호로 꺼낸다</td><td><strong>List</strong></td><td>넣은 순서 유지, <code>get(번호)</code></td></tr><tr><td>중복이 있으면 안 된다</td><td><strong>Set</strong></td><td>겹치는 값 자동 제거</td></tr><tr><td>이름표로 찾고 싶다</td><td><strong>Map</strong></td><td>키로 값을 바로 꺼냄</td></tr></tbody></table>
+<p>출석부처럼 순서가 필요하면 List, 방문자 집계처럼 중복만 거르면 Set, 성적표처럼 &quot;누구의 점수&quot;를 찾으면 Map입니다. 셋을 섞어 쓰는 경우도 흔합니다. 아래 실행 예제가 바로 그 상황입니다.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>한 반의 출석 기록으로 세 그릇을 한 번에 써 봅니다. 마지막 줄에서 <strong>없는 이름표를 꺼내면</strong> 무엇이 나오는지 꼭 확인해 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">출석부로 익히는 세 그릇</span></div><pre class="runner__code"><code>import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.HashMap;
+
+public class Main {
+  public static void main(String[] args) {
+      // List: 찍힌 순서 그대로 (지각 확인용, 중복 OK)
+      ArrayList&lt;String&gt; tapLog = new ArrayList&lt;&gt;();
+      tapLog.add(&quot;철수&quot;); tapLog.add(&quot;영희&quot;);
+      tapLog.add(&quot;철수&quot;);                       // 두 번 찍음
+      System.out.println(&quot;출입 기록: &quot; + tapLog);
+
+      // Set: 실제 출석한 사람 (중복 자동 제거)
+      HashSet&lt;String&gt; attended = new HashSet&lt;&gt;(tapLog);
+      System.out.println(&quot;출석 인원: &quot; + attended.size() + &quot;명&quot;);
+
+      // Map: 이름 → 찍은 횟수
+      HashMap&lt;String, Integer&gt; count = new HashMap&lt;&gt;();
+      for (String name : tapLog) {
+          Integer c = count.get(name);          // 처음이면 null
+          count.put(name, c == null ? 1 : c + 1);
+      }
+      System.out.println(&quot;철수 횟수: &quot; + count.get(&quot;철수&quot;));
+
+      System.out.println(&quot;민수 횟수: &quot; + count.get(&quot;민수&quot;)); // 없는 키 → ?
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>new HashSet&lt;&gt;(tapLog)</code>처럼 List를 통째로 넣어 중복만 걸러내는 것도 실무에서 자주 쓰는 요령입니다.</p>
+<h2 id="단골-함정--없는-키를-꺼내면-null이-옵니다"><a href="#단골-함정--없는-키를-꺼내면-null이-옵니다">단골 함정 — 없는 키를 꺼내면 null이 옵니다</a></h2>
+<p>방금 실행에서 봤듯, Map에서 <strong>없는 키를 <code>get</code>하면 오류가 나는 게 아니라 <code>null</code>이 조용히 돌아옵니다.</strong> 이 null을 모르고 계산에 쓰는 순간 <code>NullPointerException</code>이 터집니다. 1편에서 배운 그 예외가 여기서 가장 자주 나옵니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Integer c </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> count.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">get</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;민수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// null</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> total </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> c </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;               </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 실행 중 NullPointerException!</span></span></code></pre>
+<p>그래서 Map을 읽을 때는 위 예제처럼 <strong>null 확인을 먼저</strong> 하거나, <code>count.getOrDefault(&quot;민수&quot;, 0)</code>처럼 없을 때 쓸 기본값을 함께 주는 습관을 들입니다.</p>
+<p>하나 더. Set과 Map은 <strong>출력 순서가 넣은 순서와 다를 수 있습니다.</strong> <code>[철수, 영희]</code>로 넣었는데 <code>[영희, 철수]</code>로 나와도 고장이 아닙니다. 애초에 순서를 기억하지 않는 그릇이니, 순서가 필요하면 처음부터 List를 골라야 합니다.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>List</th><th>Set</th><th>Map</th></tr></thead><tbody><tr><td>담는 방식</td><td>순서대로</td><td>중복 없이</td><td>키-값 짝으로</td></tr><tr><td>중복</td><td>허용</td><td>자동 제거</td><td>키는 불가(덮어씀)</td></tr><tr><td>꺼내기</td><td><code>get(번호)</code></td><td><code>contains(값)</code></td><td><code>get(키)</code></td></tr><tr><td>대표 구현</td><td><code>ArrayList</code></td><td><code>HashSet</code></td><td><code>HashMap</code></td></tr><tr><td>쓰는 상황</td><td>출석부·목록</td><td>방문자 집계</td><td>성적표·전화번호부</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 컬렉션은 <strong>크기가 저절로 변하는 그릇</strong>이고, 고르는 기준은 세 마디입니다. 순서가 필요하면 List, 중복을 거르려면 Set, 이름표로 찾으려면 Map. 그리고 Map의 <code>get</code>은 없는 키에 <strong>null</strong>을 돌려준다는 것, 이것이 오늘의 함정이었습니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA3) 4편 · 다음 편: 래퍼 클래스와 날짜 — 기본형을 감싸고 시간을 다루기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-generic"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 제네릭 — 타입을 나중에 정하는 틀 만들기(GENERIC)</h3><p>자바 제네릭을 입문자 눈높이로 정리합니다. 타입만 다른 클래스를 여러 개 만들지 않는 법, 꺾쇠 안의 T가 무엇인지, extends로 타입 범위를 제한하는 법까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-09T08:40">2026년 8월 9일 08:40</time><span>· <!-- -->자바, JAVA, 제네릭</span></div></a><a class="post-card " href="/posts/java-multi-catch-throw"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 다중 catch와 예외 던지기 — 여러 오류를 골라서 처리하기(THROW·THROWS)</h3><p>자바에서 여러 종류의 예외를 나눠 처리하는 다중 catch, 그리고 예외를 직접 일으키는 throw와 처리를 넘기는 throws를 입문자 눈높이로 정리합니다. catch 순서 함정까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-08T10:20">2026년 8월 8일 10:20</time><span>· <!-- -->자바, JAVA, 예외처리</span></div></a><a class="post-card " href="/posts/java-exception"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 예외 처리 — 프로그램이 죽지 않게 대비하기(TRY·CATCH)</h3><p>자바 예외 처리를 입문자 눈높이로 정리합니다. 오류가 나면 왜 프로그램이 통째로 멈추는지, try-catch-finally로 어떻게 안전망을 치는지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-07T12:00">2026년 8월 7일 12:00</time><span>· <!-- -->자바, JAVA, 예외처리</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
