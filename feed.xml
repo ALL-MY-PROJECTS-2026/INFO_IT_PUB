@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 다중 catch와 throw — 예외마다 다르게 대응하기(MULTI-CATCH·THROW)</title>
+      <link>https://pancoit.site/posts/java-multi-catch</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-multi-catch</guid>
+      <pubDate>Mon, 10 Aug 2026 09:50:00 GMT</pubDate>
+      <description>자바 다중 catch와 throw를 입문자 눈높이로 정리합니다. 예외 종류마다 다르게 대응하는 법, catch 순서의 함정, 직접 예외를 던지는 throw까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기</title>
       <link>https://pancoit.site/posts/qshing-qr-scam</link>
       <guid isPermaLink="true">https://pancoit.site/posts/qshing-qr-scam</guid>
