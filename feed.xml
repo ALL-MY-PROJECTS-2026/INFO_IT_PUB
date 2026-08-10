@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>EU는 미뤘고 한국은 시행 중입니다 — AI 기본법 반년, 달라진 것들</title>
+      <link>https://pancoit.site/posts/ai-basic-act-korea</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/ai-basic-act-korea</guid>
+      <pubDate>Mon, 10 Aug 2026 17:40:00 GMT</pubDate>
+      <description>2026년 7월 말 EU가 고위험 AI 규제를 2027년 12월로 미루는 사이, 한국의 AI 기본법은 시행 반년을 맞았습니다. 생성형 AI 표시 의무와 고영향 AI 관리가 무엇인지, 두 법이 어떻게 다른지, 지금 무엇을 챙겨야 하는지 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 다중 catch와 throw — 예외마다 다르게 대응하기(MULTI-CATCH·THROW)</title>
       <link>https://pancoit.site/posts/java-multi-catch</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-multi-catch</guid>
