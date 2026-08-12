@@ -196,6 +196,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/npm-supply-chain-2026</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/on-device-ai</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
