@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O) — PANCO_IT</title>
+    <meta name="description" content="자바 파일 입출력을 입문자 눈높이로 정리합니다. 파일에 쓰고 읽는 법, 반드시 닫아야 하는 이유와 try-with-resources, 덮어쓰기와 이어쓰기의 차이, 한글이 깨지는 이유까지 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-file-io" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O) — PANCO_IT" />
+    <meta property="og:description" content="자바 파일 입출력을 입문자 눈높이로 정리합니다. 파일에 쓰고 읽는 법, 반드시 닫아야 하는 이유와 try-with-resources, 덮어쓰기와 이어쓰기의 차이, 한글이 깨지는 이유까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-file-io" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-fileio-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-12T12:20" />
+    <meta property="article:modified_time" content="2026-08-12T12:20" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O) — PANCO_IT" />
+    <meta name="twitter:description" content="자바 파일 입출력을 입문자 눈높이로 정리합니다. 파일에 쓰고 읽는 법, 반드시 닫아야 하는 이유와 try-with-resources, 덮어쓰기와 이어쓰기의 차이, 한글이 깨지는 이유까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-fileio-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O)","description":"자바 파일 입출력을 입문자 눈높이로 정리합니다. 파일에 쓰고 읽는 법, 반드시 닫아야 하는 이유와 try-with-resources, 덮어쓰기와 이어쓰기의 차이, 한글이 깨지는 이유까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-fileio-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-12T12:20","dateModified":"2026-08-12T12:20","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-file-io"},"keywords":"자바, JAVA, 파일입출력, FileIO, try-with-resources"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O)","item":"https://pancoit.site/posts/java-file-io"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-B7hjUnKo.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-12T12:20">2026년 8월 12일 12:20</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->파일입출력</span><span class="tag">#<!-- -->FileIO</span><span class="tag">#<!-- -->try-with-resources</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="메모리는 책상 위, 파일은 서랍 속에 비유해 휘발성과 영구 보관을 비교한 그림" src="/uploads/java-fileio-hero.png" loading="lazy"/></p>
+<p><em>프로그램이 끝나면 책상 위는 치워집니다. 서랍에 넣어 둔 것만 남습니다.</em></p>
+<p>지난 다섯 편으로 만든 프로그램에는 공통점이 하나 있습니다. <strong>끄면 전부 사라진다</strong>는 것입니다. 4편에서 만든 출석부에 스무 명을 넣어도, 프로그램을 다시 켜면 빈 목록입니다. 컬렉션은 메모리에 있고, 메모리는 프로그램이 끝나는 순간 반납되기 때문입니다.</p>
+<p>그래서 오늘은 <strong>남기는 법</strong>을 배웁니다. 파일에 쓰고, 다시 읽어 오는 것. 여기까지 하면 비로소 &quot;어제 입력한 것이 오늘도 있는&quot; 프로그램이 됩니다.</p>
+<h2 id="책상과-서랍"><a href="#책상과-서랍">책상과 서랍</a></h2>
+<p>메모리와 파일의 관계는 책상과 서랍에 가깝습니다.</p>
+<p><strong>메모리</strong>는 책상 위입니다. 손이 바로 닿아 빠르지만, 퇴근하면 정리됩니다. 지금까지 쓴 변수·배열·컬렉션이 전부 여기 있었습니다.</p>
+<p><strong>파일</strong>은 서랍입니다. 꺼내는 데 한 단계가 더 필요해 느리지만, 문을 닫고 나가도 그대로 있습니다. 메모장으로 열리는 <code>.txt</code>, 설정을 담은 <code>.json</code>, 사진 <code>.jpg</code> — 전부 파일입니다.</p>
+<p>프로그램이 데이터를 다루는 흐름은 결국 <strong>서랍에서 꺼내 책상에서 일하고 다시 서랍에 넣는</strong> 반복입니다. 그 꺼내고 넣는 일을 자바에서는 <strong>입출력(I/O, Input/Output)</strong> 이라고 부릅니다.</p>
+<h2 id="파일에-쓰기--한-줄이면-됩니다"><a href="#파일에-쓰기--한-줄이면-됩니다">파일에 쓰기 — 한 줄이면 됩니다</a></h2>
+<p>예전 자바 책에는 파일에 글자 하나 쓰려고 클래스를 세 개씩 겹쳐 쓰는 코드가 나옵니다. 요즘은 <code>Files</code> 클래스가 짧은 길을 마련해 두었습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.nio.file.Files;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.nio.file.Path;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Path path </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Path.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;memo.txt&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 다룰 파일을 가리킴</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Files.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">writeString</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(path, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;첫 줄입니다.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 쓰기 (없으면 새로 만듦)</span></span></code></pre>
+<p><code>Path</code>는 <strong>파일의 주소</strong>입니다. 아직 파일을 여는 것도, 만드는 것도 아니고 &quot;이 자리&quot;를 가리키기만 합니다. 실제로 만들고 쓰는 것은 <code>Files.writeString</code>입니다.</p>
+<p>주의할 점이 하나 있습니다. <code>writeString</code>은 기본이 <strong>덮어쓰기</strong>입니다. 같은 파일에 두 번 쓰면 앞의 내용은 사라집니다. 이어서 붙이고 싶다면 옵션을 하나 더 줍니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.nio.file.StandardOpenOption;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Files.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">writeString</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(path, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;둘째 줄입니다.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, StandardOpenOption.APPEND);</span></span></code></pre>
+<p><code>APPEND</code>는 &quot;뒤에 이어 붙여라&quot;는 뜻입니다. 로그처럼 계속 쌓아야 하는 파일에 씁니다.</p>
+<h2 id="파일에서-읽기"><a href="#파일에서-읽기">파일에서 읽기</a></h2>
+<p>읽는 쪽도 짝이 되는 메서드가 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">String all </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Files.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">readString</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(path);              </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 통째로 한 덩어리</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; lines </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Files.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">readAllLines</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(path);    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 줄 단위로 나눠서</span></span></code></pre>
+<p>둘 중에는 <strong>줄 단위</strong>가 훨씬 자주 쓰입니다. 4편에서 배운 <code>List</code>로 돌아오니, 반복문으로 한 줄씩 처리하면 됩니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (String line </span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Files.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">readAllLines</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(path)) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;읽음: &quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> line);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>여기서 초보가 자주 놓치는 것 하나. <strong>읽으려는 파일이 없으면 예외가 납니다.</strong> <code>NoSuchFileException</code>이 터지죠. 1편에서 배운 try-catch가 필요한 대표적인 자리입니다. 아니면 미리 확인할 수도 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (Files.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">exists</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(path)) { </span><span style="color:#6A737D;--shiki-dark:#6A737D">/* 읽기 */</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> }</span></span></code></pre>
+<h2 id="반드시-닫아야-합니다"><a href="#반드시-닫아야-합니다">반드시 닫아야 합니다</a></h2>
+<p><code>Files.writeString</code> 같은 짧은 길은 자바가 알아서 열고 닫아 줍니다. 그런데 파일이 커지거나 한 줄씩 다뤄야 하면 <strong>직접 열고 닫는</strong> 방식을 씁니다. 이때가 중요합니다.</p>
+<p><img alt="파일을 다루는 세 걸음 — 열기, 주고받기, 닫기" src="/uploads/java-fileio-steps.png" loading="lazy"/></p>
+<p><em>그림 1. 셋째를 빼먹으면 내용이 파일에 남지 않습니다.</em></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">BufferedWriter w </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Files.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">newBufferedWriter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(path);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">w.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">write</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;한 줄 씁니다.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 닫지 않으면? 파일이 비어 있을 수 있습니다</span></span></code></pre>
+<p>왜 그럴까요. 성능 때문에 자바는 글자를 쓸 때마다 디스크로 보내지 않고 <strong>버퍼</strong>라는 임시 공간에 모읍니다. 어느 정도 차면 한 번에 내보내죠. 그런데 닫지 않고 프로그램이 끝나면, 버퍼에 남아 있던 글자는 <strong>디스크에 도착하지 못한 채 사라집니다.</strong> 코드에 오류가 없는데 파일만 비어 있는 상황이 이렇게 생깁니다.</p>
+<p>그래서 닫는 것이 필수인데, 사람은 잊습니다. 자바는 이를 위해 문법을 하나 마련해 두었습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">try</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (BufferedWriter w </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Files.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">newBufferedWriter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(path)) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    w.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">write</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;한 줄 씁니다.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    w.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">newLine</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 여기서 자동으로 닫힙니다 — 중간에 예외가 나도 닫힙니다</span></span></code></pre>
+<p>괄호 안에서 자원을 여는 이 문법을 <strong>try-with-resources</strong>라고 부릅니다. 블록을 벗어나는 순간 자바가 대신 닫아 줍니다. 중간에 예외가 터져 빠져나가도 닫아 준다는 점이 특히 중요합니다. 1편의 <code>finally</code>로 직접 닫던 코드를 이 문법이 대체했다고 보면 됩니다.</p>
+<h2 id="단골-함정--한글이-깨집니다"><a href="#단골-함정--한글이-깨집니다">단골 함정 — 한글이 깨집니다</a></h2>
+<p>파일에 쓴 한글이 <code>?????</code>나 <code>ì•ˆë…•</code>처럼 보인 적이 있다면, 원인은 대개 <strong>인코딩</strong>입니다.</p>
+<p>컴퓨터는 글자를 숫자로 바꿔 저장하는데, 그 변환표가 여러 개입니다. UTF-8로 적어 놓고 다른 표로 읽으면 엉뚱한 글자가 나옵니다. 한글이 특히 잘 깨지는 이유는 영어와 달리 표마다 값이 다르기 때문입니다.</p>
+<p>다행히 <code>Files.writeString</code>과 <code>readString</code>은 <strong>기본이 UTF-8</strong>입니다. 요즘 표준이라 대부분 그대로 두면 됩니다. 다만 옛 코드에서 쓰는 <code>FileWriter</code>는 운영체제 설정을 따라가서, 윈도우에서는 다른 표가 잡히기도 합니다. 명시하는 습관이 안전합니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.nio.charset.StandardCharsets;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Files.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">writeString</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(path, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;안녕하세요&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, StandardCharsets.UTF_8);</span></span></code></pre>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>메모를 파일에 쌓고 다시 읽어 오는 프로그램입니다. <strong>두 번 실행해 보세요.</strong> 두 번째 실행에서 앞서 쓴 줄이 그대로 남아 있는지가 오늘의 핵심입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">메모를 파일에 남기고 다시 읽기</span></div><pre class="runner__code"><code>import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.util.List;
+
+public class Main {
+  public static void main(String[] args) {
+      Path path = Path.of(&quot;memo.txt&quot;);
+
+      try {
+          // 1. 처음이면 새로 만들고, 있으면 그대로 둡니다
+          if (!Files.exists(path)) {
+              Files.writeString(path, &quot;== 메모장 ==\n&quot;);
+              System.out.println(&quot;파일을 새로 만들었습니다.&quot;);
+          }
+
+          // 2. 이어쓰기 — APPEND 가 없으면 앞의 내용이 지워집니다
+          Files.writeString(path, &quot;오늘 배운 것: 파일 입출력\n&quot;,
+                            StandardOpenOption.APPEND);
+
+          // 3. try-with-resources 로 한 줄 더 (자동으로 닫힘)
+          try (BufferedWriter w = Files.newBufferedWriter(path,
+                   StandardOpenOption.APPEND)) {
+              w.write(&quot;닫는 것은 자바가 대신 합니다.&quot;);
+              w.newLine();
+          }
+
+          // 4. 줄 단위로 읽어 오기
+          System.out.println(&quot;--- 파일 내용 ---&quot;);
+          List&lt;String&gt; lines = Files.readAllLines(path);
+          for (int i = 0; i &lt; lines.size(); i++) {
+              System.out.println((i + 1) + &quot;: &quot; + lines.get(i));
+          }
+          System.out.println(&quot;총 &quot; + lines.size() + &quot;줄&quot;);
+
+      } catch (IOException e) {
+          System.out.println(&quot;파일을 다루다 문제가 생겼습니다: &quot; + e.getMessage());
+      }
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>catch (IOException e)</code>가 전체를 감싸고 있는 것을 눈여겨보세요. 파일 작업은 <strong>디스크가 가득 찼거나, 권한이 없거나, 경로가 틀리는</strong> 등 내 코드 밖의 이유로 실패할 수 있습니다. 그래서 자바는 파일 관련 메서드에 예외 처리를 강제합니다. 2편에서 배운 <code>throws</code>가 왜 필요한지 여기서 실감하게 됩니다.</p>
+<blockquote>
+<p>온라인 실행기에 따라 파일 만들기를 막아 두는 경우가 있습니다. <code>catch</code> 쪽 메시지가 보인다면 코드가 틀린 것이 아니라 그 환경의 제약이니, 내 컴퓨터에서 다시 돌려 보시기 바랍니다.</p>
+</blockquote>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>하고 싶은 일</th><th>코드</th></tr></thead><tbody><tr><td>파일 가리키기</td><td><code>Path.of(&quot;memo.txt&quot;)</code></td></tr><tr><td>통째로 쓰기 (덮어씀)</td><td><code>Files.writeString(path, 글자)</code></td></tr><tr><td>이어서 쓰기</td><td><code>Files.writeString(path, 글자, StandardOpenOption.APPEND)</code></td></tr><tr><td>통째로 읽기</td><td><code>Files.readString(path)</code></td></tr><tr><td>줄 단위로 읽기</td><td><code>Files.readAllLines(path)</code> → <code>List&lt;String&gt;</code></td></tr><tr><td>있는지 확인</td><td><code>Files.exists(path)</code></td></tr><tr><td>자동으로 닫기</td><td><code>try (자원 선언) { ... }</code></td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 파일 작업은 <strong>열고 · 주고받고 · 닫는</strong> 세 걸음이고, 셋째를 빼먹으면 내용이 남지 않습니다. <code>try-with-resources</code>가 그 셋째를 대신해 줍니다. 그리고 덮어쓰기가 기본이라, 쌓아야 할 때는 <code>APPEND</code>를 잊지 마세요.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA3) 6편 · 다음 편: 스레드 — 여러 일을 동시에 시키기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-wrapper-date"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 래퍼 클래스와 날짜 — 기본형을 감싸고 시간을 다루기(WRAPPER·DATE)</h3><p>자바 래퍼 클래스와 날짜 API를 입문자 눈높이로 정리합니다. int와 Integer가 왜 따로 있는지, 오토박싱이 무엇인지, == 비교가 128부터 어긋나는 이유, LocalDate로 디데이를 계산하는 법까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-11T10:25">2026년 8월 11일 10:25</time><span>· <!-- -->자바, JAVA, 래퍼클래스</span></div></a><a class="post-card " href="/posts/java-collections"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION)</h3><p>자바 컬렉션을 입문자 눈높이로 정리합니다. 배열과 무엇이 다른지, List·Set·Map을 언제 골라 쓰는지, 없는 키를 꺼내면 왜 null이 나오는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-10T17:58">2026년 8월 10일 17:58</time><span>· <!-- -->자바, JAVA, 컬렉션</span></div></a><a class="post-card " href="/posts/java-generic"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 제네릭 — 타입을 나중에 정하는 틀 만들기(GENERIC)</h3><p>자바 제네릭을 입문자 눈높이로 정리합니다. 타입만 다른 클래스를 여러 개 만들지 않는 법, 꺾쇠 안의 T가 무엇인지, extends로 타입 범위를 제한하는 법까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-09T08:40">2026년 8월 9일 08:40</time><span>· <!-- -->자바, JAVA, 제네릭</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

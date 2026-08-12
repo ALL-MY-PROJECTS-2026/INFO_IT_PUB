@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O)</title>
+      <link>https://pancoit.site/posts/java-file-io</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-file-io</guid>
+      <pubDate>Wed, 12 Aug 2026 12:20:00 GMT</pubDate>
+      <description>자바 파일 입출력을 입문자 눈높이로 정리합니다. 파일에 쓰고 읽는 법, 반드시 닫아야 하는 이유와 try-with-resources, 덮어쓰기와 이어쓰기의 차이, 한글이 깨지는 이유까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>폰 하나 잃으면 사진 3만 장이 사라집니다 — 백업, 어디에 어떻게 둘까</title>
       <link>https://pancoit.site/posts/backup-321-rule</link>
       <guid isPermaLink="true">https://pancoit.site/posts/backup-321-rule</guid>
