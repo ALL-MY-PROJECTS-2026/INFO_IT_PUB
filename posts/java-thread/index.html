@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED) — PANCO_IT</title>
+    <meta name="description" content="자바 스레드를 입문자 눈높이로 정리합니다. 순차 실행과 동시 실행의 차이, Runnable로 스레드 만드는 법, start와 run의 함정, 공유 변수가 어긋나는 이유와 synchronized까지 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-thread" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED) — PANCO_IT" />
+    <meta property="og:description" content="자바 스레드를 입문자 눈높이로 정리합니다. 순차 실행과 동시 실행의 차이, Runnable로 스레드 만드는 법, start와 run의 함정, 공유 변수가 어긋나는 이유와 synchronized까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-thread" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-thread-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-13T15:00" />
+    <meta property="article:modified_time" content="2026-08-13T15:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED) — PANCO_IT" />
+    <meta name="twitter:description" content="자바 스레드를 입문자 눈높이로 정리합니다. 순차 실행과 동시 실행의 차이, Runnable로 스레드 만드는 법, start와 run의 함정, 공유 변수가 어긋나는 이유와 synchronized까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-thread-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED)","description":"자바 스레드를 입문자 눈높이로 정리합니다. 순차 실행과 동시 실행의 차이, Runnable로 스레드 만드는 법, start와 run의 함정, 공유 변수가 어긋나는 이유와 synchronized까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-thread-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-13T15:00","dateModified":"2026-08-13T15:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-thread"},"keywords":"자바, JAVA, 스레드, thread, synchronized"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED)","item":"https://pancoit.site/posts/java-thread"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-675Cj1VC.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-13T15:00">2026년 8월 13일 15:00</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->스레드</span><span class="tag">#<!-- -->thread</span><span class="tag">#<!-- -->synchronized</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="스레드 없이 순차로 처리할 때와 스레드로 동시에 처리할 때를 비교한 그림" src="/uploads/java-thread-hero.png" loading="lazy"/></p>
+<p><em>스레드는 프로그램 안에서 일을 나눠 맡는 또 다른 일꾼입니다.</em></p>
+<p>6편에서 파일을 읽고 썼습니다. 그런데 파일이 아주 크면 어떻게 될까요. 읽는 동안 프로그램이 통째로 멈춰 버립니다. 다운로드가 끝날 때까지 버튼도 안 눌리는 앱, 한 번쯤 겪어 보셨을 겁니다. <strong>일을 나눠서 동시에 시키는 것</strong>, 그게 오늘의 주제인 스레드입니다.</p>
+<h2 id="지금까지는-한-줄로-서-있었습니다"><a href="#지금까지는-한-줄로-서-있었습니다">지금까지는 한 줄로 서 있었습니다</a></h2>
+<p>지금까지 쓴 코드는 전부 위에서 아래로, 한 줄씩 차례대로 실행됐습니다. 앞 작업이 끝나야 뒤 작업이 시작되죠.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i </span><span style="color:#D73A49;--shiki-dark:#F97583">&lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;작업1...&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    Thread.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sleep</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">500</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);          </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 0.5초 쉬기</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i </span><span style="color:#D73A49;--shiki-dark:#F97583">&lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;작업2...&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    Thread.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sleep</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">500</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 작업1이 다 끝난 뒤에야 작업2 시작 → 총 5초</span></span></code></pre>
+<p><code>Thread.sleep(500)</code>은 0.5초 멈추라는 뜻입니다. 이 코드는 작업1을 2.5초 동안 하고, 그다음 작업2를 2.5초 동안 합니다. 합쳐서 5초죠. 두 작업이 서로 상관없는 일이라면 굳이 기다릴 이유가 없는데도 말입니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 은행 창구가 하나뿐인 상황과 같습니다. 앞사람 업무가 끝나야 내 차례가 오죠. 스레드는 <strong>창구를 하나 더 여는 것</strong>입니다. 손님이 둘로 나뉘어 동시에 처리되니 전체 시간이 줄어듭니다.</p>
+</blockquote>
+<h2 id="스레드-만들기--일감과-일꾼"><a href="#스레드-만들기--일감과-일꾼">스레드 만들기 — 일감과 일꾼</a></h2>
+<p>자바에서 스레드를 만드는 방법은 두 단계입니다. <strong>할 일을 <code>Runnable</code>로 정의</strong>하고, 그걸 <strong><code>Thread</code>에 실어 보내는</strong> 것입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Task</span><span style="color:#D73A49;--shiki-dark:#F97583"> implements</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Runnable</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> String name;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    Task</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) { </span><span style="color:#005CC5;--shiki-dark:#79B8FF">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name; }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Override</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> run</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {                    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이 안이 스레드가 할 일</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i </span><span style="color:#D73A49;--shiki-dark:#F97583">&lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(name </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;...&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">            try</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Thread.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sleep</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">500</span><span style="color:#24292E;--shiki-dark:#E1E4E8">); } </span><span style="color:#D73A49;--shiki-dark:#F97583">catch</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (InterruptedException </span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) { }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Thread t1 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Thread</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Task</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;작업1&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Thread t2 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Thread</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Task</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;작업2&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">start</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t2.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">start</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 작업1과 작업2가 번갈아 출력됨 → 총 2.5초 안팎</span></span></code></pre>
+<p><code>Runnable</code>은 <strong>일감</strong>, <code>Thread</code>는 그 일감을 들고 뛰는 <strong>일꾼</strong>이라고 보면 됩니다. <code>run()</code> 안에 적은 것이 그 스레드가 할 일이고요.</p>
+<p>여기서 중요한 변화가 하나 있습니다. 출력 순서가 <strong>실행할 때마다 달라집니다.</strong> 어느 스레드가 먼저 차례를 받을지는 운영체제가 정하기 때문입니다. 순서가 보장되지 않는다는 점이 스레드를 쓸 때 가장 먼저 받아들여야 할 성질입니다.</p>
+<h2 id="단골-함정--start와-run은-다릅니다"><a href="#단골-함정--start와-run은-다릅니다">단골 함정 — start와 run은 다릅니다</a></h2>
+<p>입문자가 거의 반드시 한 번은 밟는 지점입니다. 시작할 때 <code>run()</code>을 부르면 어떻게 될까요.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">run</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 스레드가 안 생김! 그냥 메서드 호출</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">start</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();  </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 새 스레드에서 실행</span></span></code></pre>
+<p><code>run()</code>을 직접 부르면 <strong>새 스레드가 만들어지지 않고</strong>, 지금 스레드에서 그냥 메서드 하나를 실행할 뿐입니다. 결과적으로 순차 실행이 되어 버리죠. 오류도 안 나서 알아채기 어렵습니다.</p>
+<p>구분하는 방법은 간단합니다. <strong>새 일꾼을 부르는 명령은 <code>start()</code> 하나뿐</strong>입니다. <code>run()</code>은 그 일꾼이 도착해서 실제로 하는 일이고요. 코드가 동시에 안 돌아가는 것 같으면 이 자리부터 확인하면 됩니다.</p>
+<h2 id="같이-만지면-숫자가-샙니다"><a href="#같이-만지면-숫자가-샙니다">같이 만지면 숫자가 샙니다</a></h2>
+<p>스레드가 둘 이상이면 새로운 문제가 생깁니다. <strong>같은 변수를 여러 스레드가 동시에 고칠 때</strong>입니다.</p>
+<p><img alt="자물쇠 없이 공유 변수를 고칠 때와 synchronized로 잠갔을 때 비교" src="/uploads/java-thread-sync.png" loading="lazy"/></p>
+<p><em>그림 1. 공유하는 값이 있으면 한 번에 하나씩 들어가도록 자물쇠를 채워야 합니다.</em></p>
+<p><code>counter++</code>는 한 덩어리처럼 보이지만 실제로는 <strong>읽고, 더하고, 저장하는</strong> 세 동작입니다. 두 스레드가 동시에 이 일을 하면 이런 일이 벌어집니다.</p>
+<ol>
+<li>스레드A가 counter를 읽습니다. 값은 10.</li>
+<li>그 순간 스레드B도 counter를 읽습니다. 역시 10.</li>
+<li>A가 11을 저장합니다.</li>
+<li>B도 11을 저장합니다.</li>
+</ol>
+<p>두 번 더했는데 결과는 11입니다. 하나가 사라졌죠. 이런 상태를 <strong>경쟁 상태</strong>(race condition)라고 부릅니다. 10만 번쯤 반복하면 수백 개가 어긋나는데, 실행할 때마다 결과가 달라 원인을 찾기도 어렵습니다.</p>
+<h2 id="synchronized--한-번에-한-명만"><a href="#synchronized--한-번에-한-명만">synchronized — 한 번에 한 명만</a></h2>
+<p>해결책은 <strong>한 번에 한 스레드만 들어가게</strong> 막는 것입니다. <code>synchronized</code> 블록이 그 자물쇠 역할을 합니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">private</span><span style="color:#D73A49;--shiki-dark:#F97583"> static</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> counter </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">private</span><span style="color:#D73A49;--shiki-dark:#F97583"> static</span><span style="color:#D73A49;--shiki-dark:#F97583"> final</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Object lock </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Object</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 자물쇠로 쓸 객체</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> run</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i </span><span style="color:#D73A49;--shiki-dark:#F97583">&lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 100000</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; i</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        synchronized</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (lock) {        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이 안은 한 번에 한 스레드만</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            counter</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p><code>synchronized (lock)</code> 블록에 들어간 스레드가 나올 때까지 다른 스레드는 문 앞에서 기다립니다. 그래서 값이 어긋나지 않습니다. 대신 기다리는 시간만큼 느려지므로, <strong>꼭 필요한 범위만 최소로 감싸는</strong> 것이 요령입니다. 반복문 전체를 감싸면 결국 순차 실행과 다를 게 없어집니다.</p>
+<p>하나 더. 여러 스레드가 끝날 때까지 기다리려면 <code>join()</code>을 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">start</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t2.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">start</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">join</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// t1이 끝날 때까지 메인 스레드가 대기</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t2.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">join</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;최종 값: &quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> counter);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이제 정확한 값</span></span></code></pre>
+<p><code>join()</code> 없이 바로 결과를 출력하면, 스레드들이 아직 일하는 중이라 엉뚱한 값이 찍힙니다.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>아래 코드를 두세 번 돌려 보세요. 출력 순서가 매번 달라지는 것을 확인할 수 있습니다. 그다음 <code>synchronized</code> 줄을 주석 처리하고 다시 돌려 최종 값이 어떻게 되는지 비교해 보시기 바랍니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">스레드와 synchronized</span></div><pre class="runner__code"><code>class Counter implements Runnable {
+  static int counter = 0;
+  static final Object lock = new Object();
+  private String name;
+  Counter(String name) { this.name = name; }
+
+  public void run() {
+      for (int i = 0; i &lt; 10000; i++) {
+          synchronized (lock) {      // 이 줄과 짝 괄호를 지우면 값이 어긋납니다
+              counter++;
+          }
+      }
+      System.out.println(name + &quot; 완료&quot;);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) throws InterruptedException {
+      Thread t1 = new Thread(new Counter(&quot;작업1&quot;));
+      Thread t2 = new Thread(new Counter(&quot;작업2&quot;));
+
+      t1.start();                    // run()이 아니라 start()
+      t2.start();
+
+      t1.join();                     // 둘 다 끝날 때까지 대기
+      t2.join();
+
+      System.out.println(&quot;최종 값: &quot; + Counter.counter);   // 20000이어야 정상
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>스레드</td><td>프로그램 안에서 일을 나눠 맡는 실행 흐름</td></tr><tr><td>만들기</td><td><code>Runnable</code>로 할 일 정의 → <code>Thread</code>에 실어 <code>start()</code></td></tr><tr><td>start vs run</td><td><code>start()</code>만 새 스레드 생성, <code>run()</code>은 그냥 메서드 호출</td></tr><tr><td>경쟁 상태</td><td>여러 스레드가 같은 변수를 동시에 고쳐 값이 어긋남</td></tr><tr><td>synchronized</td><td>한 번에 한 스레드만 들어가게 잠금 (범위는 최소로)</td></tr><tr><td>join</td><td>그 스레드가 끝날 때까지 기다림</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 스레드는 <strong>창구를 하나 더 여는 것</strong>이라 전체 시간이 줄지만, 순서가 보장되지 않습니다. 새 스레드는 <code>start()</code>로만 시작되고, 여러 스레드가 <strong>같은 값을 만지면 반드시 잠가야</strong> 합니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA3) 7편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 네트워크 — 소켓으로 두 프로그램 연결하기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-file-io"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O)</h3><p>자바 파일 입출력을 입문자 눈높이로 정리합니다. 파일에 쓰고 읽는 법, 반드시 닫아야 하는 이유와 try-with-resources, 덮어쓰기와 이어쓰기의 차이, 한글이 깨지는 이유까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-12T12:20">2026년 8월 12일 12:20</time><span>· <!-- -->자바, JAVA, 파일입출력</span></div></a><a class="post-card " href="/posts/java-wrapper-date"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 래퍼 클래스와 날짜 — 기본형을 감싸고 시간을 다루기(WRAPPER·DATE)</h3><p>자바 래퍼 클래스와 날짜 API를 입문자 눈높이로 정리합니다. int와 Integer가 왜 따로 있는지, 오토박싱이 무엇인지, == 비교가 128부터 어긋나는 이유, LocalDate로 디데이를 계산하는 법까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-11T10:25">2026년 8월 11일 10:25</time><span>· <!-- -->자바, JAVA, 래퍼클래스</span></div></a><a class="post-card " href="/posts/java-collections"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 컬렉션 — List·Set·Map, 데이터 담는 세 가지 그릇(COLLECTION)</h3><p>자바 컬렉션을 입문자 눈높이로 정리합니다. 배열과 무엇이 다른지, List·Set·Map을 언제 골라 쓰는지, 없는 키를 꺼내면 왜 null이 나오는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-10T17:58">2026년 8월 10일 17:58</time><span>· <!-- -->자바, JAVA, 컬렉션</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
