@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 네트워크 — 소켓으로 두 프로그램 연결하기(SOCKET)</title>
+      <link>https://pancoit.site/posts/java-socket</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-socket</guid>
+      <pubDate>Tue, 18 Aug 2026 08:00:00 GMT</pubDate>
+      <description>자바 소켓 통신을 입문자 눈높이로 정리합니다. IP와 포트가 무엇인지, 서버와 클라이언트 코드가 어떻게 다른지, accept가 멈추는 이유와 여러 명을 받으려면 왜 스레드가 필요한지까지 예제로 익힙니다.</description>
+    </item>
+    <item>
       <title>자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED)</title>
       <link>https://pancoit.site/posts/java-thread</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-thread</guid>
