@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지 — PANCO_IT</title>
+    <meta name="description" content="광고 차단, 번역, 쿠폰 자동 적용. 편해서 깔아 둔 브라우저 확장프로그램이 실제로 무엇을 볼 수 있는지, 웹스토어에 있으면 안전한지, 지금 무엇을 점검하면 되는지 질문에 답하는 형식으로 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/browser-extension-risk" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지 — PANCO_IT" />
+    <meta property="og:description" content="광고 차단, 번역, 쿠폰 자동 적용. 편해서 깔아 둔 브라우저 확장프로그램이 실제로 무엇을 볼 수 있는지, 웹스토어에 있으면 안전한지, 지금 무엇을 점검하면 되는지 질문에 답하는 형식으로 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/browser-extension-risk" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-ext-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-18T20:00" />
+    <meta property="article:modified_time" content="2026-08-18T20:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지 — PANCO_IT" />
+    <meta name="twitter:description" content="광고 차단, 번역, 쿠폰 자동 적용. 편해서 깔아 둔 브라우저 확장프로그램이 실제로 무엇을 볼 수 있는지, 웹스토어에 있으면 안전한지, 지금 무엇을 점검하면 되는지 질문에 답하는 형식으로 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-ext-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지","description":"광고 차단, 번역, 쿠폰 자동 적용. 편해서 깔아 둔 브라우저 확장프로그램이 실제로 무엇을 볼 수 있는지, 웹스토어에 있으면 안전한지, 지금 무엇을 점검하면 되는지 질문에 답하는 형식으로 정리했습니다.","image":"https://pancoit.site/uploads/itnews-ext-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-18T20:00","dateModified":"2026-08-18T20:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/browser-extension-risk"},"keywords":"보안, 브라우저, 확장프로그램, 크롬, 개인정보"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지","item":"https://pancoit.site/posts/browser-extension-risk"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BogpzMpl.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-18T20:00">2026년 8월 18일 20:00</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->보안</span><span class="tag">#<!-- -->브라우저</span><span class="tag">#<!-- -->확장프로그램</span><span class="tag">#<!-- -->크롬</span><span class="tag">#<!-- -->개인정보</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="설치할 때 뜨는 한 줄짜리 권한 문구가 실제로 허락하는 범위를 비교한 그림" src="/uploads/itnews-ext-hero.png" loading="lazy"/></p>
+<p><em>확장프로그램은 브라우저 안에서 나와 같은 화면을 봅니다.</em></p>
+<p>광고 차단, 번역, 쿠폰 자동 적용, 화면 캡처. 브라우저에 하나쯤은 깔려 있을 겁니다. 편하니까요. 그런데 이 편리한 도구가 최근 몇 년 사이 공격자들이 가장 좋아하는 통로가 됐습니다.</p>
+<p>이번에는 자주 나오는 질문에 하나씩 답하는 방식으로 정리해 보겠습니다. 읽고 나면 브라우저 설정을 한 번 열어 보고 싶어지실 겁니다.</p>
+<h2 id="q1-확장프로그램이-위험할-게-있나요"><a href="#q1-확장프로그램이-위험할-게-있나요">Q1. 확장프로그램이 위험할 게 있나요?</a></h2>
+<p>브라우저 안에서 <strong>내가 보는 것을 똑같이 볼 수 있기</strong> 때문입니다.</p>
+<p>앱은 보통 자기 화면 안에서만 놉니다. 그런데 확장프로그램은 브라우저 위에 얹혀 동작하므로, 내가 은행 사이트를 열면 그 화면을, 검색어를 입력하면 그 글자를 함께 볼 수 있는 위치에 있습니다. 권한을 어디까지 줬느냐에 따라 달라지지만, 구조 자체가 그렇습니다.</p>
+<p>규모도 작지 않습니다. 2026년에 확인된 사례 중에는 한 그룹이 <strong>430만 대 분량의 브라우저를 감염</strong>시켜 검색 결과를 가로채고 원격 조작 통로를 심어 둔 캠페인이 있었고, 크롬 웹스토어에서 악성 확장 <strong>737개</strong>가 한꺼번에 유포된 사례도 보고됐습니다.</p>
+<h2 id="q2-설치할-때-제가-뭘-허락한-건가요"><a href="#q2-설치할-때-제가-뭘-허락한-건가요">Q2. 설치할 때 제가 뭘 허락한 건가요?</a></h2>
+<p>설치 직전에 뜨는 그 한 줄이 핵심입니다. 가장 흔한 문구는 &quot;방문하는 모든 웹사이트의 <strong>데이터 읽기 및 변경</strong>&quot;입니다.</p>
+<p>짧아서 가볍게 느껴지지만, 풀어 쓰면 이렇습니다.</p>
+<ul>
+<li>은행·쇼핑몰을 포함해 <strong>내가 여는 모든 페이지의 내용</strong>을 읽을 수 있습니다.</li>
+<li>로그인을 유지해 주는 <a href="/posts/web-cookies/">쿠키</a>를 볼 수 있습니다. 쿠키를 가져가면 비밀번호 없이도 내 계정에 들어갈 수 있습니다.</li>
+<li>내가 입력한 글자와 검색어를 읽을 수 있습니다.</li>
+<li><strong>페이지 내용을 바꿔치기</strong>할 수도 있습니다. 화면에 보이는 계좌번호를 슬쩍 바꾸는 일도 원리상 가능합니다.</li>
+</ul>
+<p>번역 확장에 이 권한이 필요한 건 자연스럽습니다. 페이지 글자를 읽어야 번역하니까요. 문제는 <strong>계산기나 테마 같은 단순한 도구가 같은 권한을 요구할 때</strong>입니다. 하는 일에 비해 요구가 과하면 그때 멈춰야 합니다.</p>
+<h2 id="q3-공식-웹스토어에-있으면-검증된-것-아닌가요"><a href="#q3-공식-웹스토어에-있으면-검증된-것-아닌가요">Q3. 공식 웹스토어에 있으면 검증된 것 아닌가요?</a></h2>
+<p>아쉽지만 그렇게 보기 어렵습니다. 스토어 심사는 명백한 악성코드를 걸러 내지만, <strong>나중에 나빠지는 경우</strong>까지 막지는 못합니다.</p>
+<p>2026년에 드러난 사례가 이걸 잘 보여 줍니다. 유튜브 광고 차단 용도로 <strong>1000만 회 넘게 설치되고 스토어 추천 배지까지 받은</strong> 확장프로그램에서, 개발자가 원격으로 자바스크립트를 밀어 넣어 실행할 수 있는 경로가 발견됐습니다. 설치 수와 배지는 인기의 증거이지 안전의 증거가 아니라는 뜻입니다.</p>
+<p>이건 <a href="/posts/npm-supply-chain-2026/">npm 공급망 공격</a>과 뿌리가 같습니다. 개발자가 남의 코드를 가져다 쓰듯, 우리도 남이 만든 코드를 브라우저에 들여놓고 있는 것이니까요. 다른 점은 대상이 개발자가 아니라 <strong>평범한 사용자</strong>라는 것뿐입니다.</p>
+<h2 id="q4-잘-쓰던-게-갑자기-나빠지기도-하나요"><a href="#q4-잘-쓰던-게-갑자기-나빠지기도-하나요">Q4. 잘 쓰던 게 갑자기 나빠지기도 하나요?</a></h2>
+<p>바로 그게 이 문제의 고약한 지점입니다. 경로가 두 가지입니다.</p>
+<p><strong>첫째, 주인이 바뀝니다.</strong> 사용자가 많은 확장은 좋은 인수 대상입니다. 개발자에게 돈을 주고 사들인 뒤 다음 업데이트에 광고 삽입이나 데이터 수집 기능을 얹으면, 기존 사용자 전원에게 자동으로 배포됩니다. 우리는 아무것도 누르지 않았는데 말입니다.</p>
+<p><strong>둘째, 잠복해 있다 켜집니다.</strong> 처음에는 얌전히 동작하다가, 설치 수가 충분히 쌓인 뒤 원격 신호를 받아 동작을 바꾸는 방식입니다. 심사를 통과할 때는 정말로 깨끗했으니 잡히지 않습니다.</p>
+<p>그래서 &quot;설치할 때 안전했다&quot;는 사실이 지금도 안전하다는 보장이 되지 못합니다. 확장프로그램은 <strong>한 번 결정하고 끝나는 게 아니라 계속 신뢰를 갱신해야 하는 대상</strong>에 가깝습니다.</p>
+<h2 id="q5-ai-기능을-쓰는데도-상관이-있나요"><a href="#q5-ai-기능을-쓰는데도-상관이-있나요">Q5. AI 기능을 쓰는데도 상관이 있나요?</a></h2>
+<p>2026년에 새로 생긴 위험 지점이 여기입니다. 브라우저에 AI 사이드패널이 들어오면서, 이 대화 통로 자체를 노리는 시도가 나왔습니다.</p>
+<p>실제로 크롬의 네트워크 규칙 처리 방식을 이용해 <strong>AI 사이드패널로 오가는 내용을 가로채고 자체 스크립트를 끼워 넣을 수 있는 결함</strong>(CVE-2026-0628)이 보고됐고, 널리 쓰이는 AI 보조 확장 몇 종에서도 브라우저 세션을 장악할 수 있는 취약점이 발견됐습니다.</p>
+<p>AI에게는 평소 검색보다 더 사적인 것을 털어놓기 쉽습니다. 회사 자료를 붙여 넣거나 고민을 적기도 하죠. 그 통로가 확장프로그램에 노출될 수 있다는 점은 새로 생긴 고려 사항입니다. 저는 AI 보조 확장을 고를 때만큼은 <strong>기능보다 만든 곳을 먼저 보는 편이 낫다</strong>고 봅니다.</p>
+<h2 id="q6-그럼-지금-뭘-해야-하나요"><a href="#q6-그럼-지금-뭘-해야-하나요">Q6. 그럼 지금 뭘 해야 하나요?</a></h2>
+<p>거창하지 않습니다. 5분이면 됩니다.</p>
+<p><img alt="확장프로그램 점검 3단계: 목록 열기, 안 쓰는 것 삭제, 권한 좁히기" src="/uploads/itnews-ext-check.png" loading="lazy"/></p>
+<p><em>지운 확장프로그램은 다시는 나를 볼 수 없습니다.</em></p>
+<p><strong>하나, 목록을 엽니다.</strong> 브라우저 설정에서 확장프로그램 관리 화면으로 들어갑니다. 대부분 생각보다 많이 깔려 있고, 이름조차 낯선 것이 한둘 나옵니다.</p>
+<p><strong>둘, 안 쓰는 것을 지웁니다.</strong> 최근에 쓴 기억이 없으면 삭제합니다. 사용 중지만 해 두는 것보다 <strong>삭제가 확실</strong>합니다. 아쉬우면 나중에 다시 깔면 됩니다. 이 한 가지가 다른 무엇보다 효과가 큽니다.</p>
+<p><strong>셋, 권한을 좁힙니다.</strong> 남긴 것들은 사이트 접근 설정을 <strong>클릭할 때만</strong>으로 바꿉니다. 항상 지켜보는 대신 내가 부를 때만 동작하게 하는 것이라, 편의는 거의 그대로면서 노출은 크게 줄어듭니다.</p>
+<h2 id="q7-앞으로-고를-때-기준이-있나요"><a href="#q7-앞으로-고를-때-기준이-있나요">Q7. 앞으로 고를 때 기준이 있나요?</a></h2>
+<p>네 가지만 보면 대부분 걸러집니다.</p>
+<ul>
+<li><strong>꼭 필요한가.</strong> 웹사이트로 되는 일이면 굳이 확장을 들이지 않습니다. 가장 안전한 확장은 설치하지 않은 확장입니다.</li>
+<li><strong>권한이 하는 일에 맞는가.</strong> 계산기가 모든 사이트를 읽겠다면 이유가 없습니다.</li>
+<li><strong>누가 만들었나.</strong> 개발자와 회사가 분명하고, 개인정보 처리방침이 있는지 봅니다.</li>
+<li><strong>최근에 관리되고 있나.</strong> 몇 년째 업데이트가 없는 확장은 취약점이 방치돼 있을 수 있습니다.</li>
+</ul>
+<p>리뷰 수와 별점은 후순위입니다. 앞서 본 것처럼 1000만 설치에 추천 배지를 단 확장에서도 문제가 나왔으니까요.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>질문</th><th>답</th></tr></thead><tbody><tr><td>왜 위험한가</td><td>브라우저 안에서 내 화면·쿠키·입력을 볼 수 있는 위치</td></tr><tr><td>그 권한의 뜻</td><td>모든 페이지 읽기 + 내용 변경까지</td></tr><tr><td>스토어 심사</td><td>최초 심사는 통과, 나중에 나빠지는 것은 못 막음</td></tr><tr><td>나빠지는 경로</td><td>인수 후 업데이트 / 잠복 후 원격 활성화</td></tr><tr><td>2026년 새 위험</td><td>AI 사이드패널 통로를 노린 가로채기</td></tr><tr><td>오늘 할 일</td><td>목록 열기 → 안 쓰는 것 삭제 → 권한을 클릭 시로</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 확장프로그램은 <strong>브라우저 안에 들여놓은 남의 코드</strong>입니다. 설치 수나 배지가 안전을 보장하지 않고, 어제 안전했다고 오늘도 안전한 것이 아닙니다. 가장 확실한 방어는 <strong>안 쓰는 것을 지우는 것</strong>이고, 남긴 것은 클릭할 때만 동작하게 좁혀 두면 됩니다.</p>
+<hr/>
+<p><em>기준 시점: 2026년 8월. 취약점과 사례는 계속 갱신되므로, 구체적인 대응은 아래 공식 창구의 최신 안내를 확인하시기 바랍니다.</em></p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<p>확장프로그램 위협 사례와 대응은 아래 공개 자료를 참고했습니다.</p>
+<ul>
+<li><a href="https://www.boho.or.kr" target="_blank" rel="noopener noreferrer">KISA 보호나라</a></li>
+<li><a href="https://developer.chrome.com/docs/webstore/program-policies" target="_blank" rel="noopener noreferrer">Chrome 웹 스토어 정책</a></li>
+<li><a href="https://support.mozilla.org" target="_blank" rel="noopener noreferrer">Mozilla 지원 문서</a></li>
+</ul>
+<p><em>이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/npm-supply-chain-2026"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">내가 짜지도 않은 코드가 내 컴퓨터를 텁니다 — 2026년, 여섯 번 뚫린 공급망</h3><p>2026년 3월 axios부터 8월 keyv까지, 널리 쓰이는 오픈소스 꾸러미가 여섯 차례 손을 탔습니다. 공급망 공격이 무엇인지, 왜 코드가 아니라 사람이 뚫렸는지, 그리고 지금 무엇을 확인해야 하는지 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-12T15:55">2026년 8월 12일 15:55</time><span>· <!-- -->보안, 오픈소스, 공급망공격</span></div></a><a class="post-card " href="/posts/qshing-qr-scam"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">주차장에서 QR 한 번 찍었을 뿐인데 — 큐싱(QR 피싱) 따라가 보기</h3><p>QR코드 위에 가짜 스티커를 덧붙이는 큐싱 수법을, 실제로 일어나는 순서대로 따라가며 정리했습니다. QR이 유독 위험한 이유와 찍기 전 3초 점검법, 이미 찍었을 때의 대응까지 담았습니다.</p><div class="post-card__meta"><time dateTime="2026-08-09T13:10">2026년 8월 9일 13:10</time><span>· <!-- -->보안, 큐싱, QR코드</span></div></a><a class="post-card " href="/posts/check-account-breach"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">내 계정이 털렸는지 확인하는 법 — 개인정보 유출 대응 3단계</h3><p>대형 유출 사고 뉴스, 남 일이 아닙니다. 내 이메일·비밀번호가 유출됐는지 안전하게 확인하는 법과, 털렸을 때 지금 바로 해야 할 대응 3단계를 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-05T13:00">2026년 8월 5일 13:00</time><span>· <!-- -->보안, 개인정보유출, 계정보안</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

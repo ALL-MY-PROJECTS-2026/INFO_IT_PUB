@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지</title>
+      <link>https://pancoit.site/posts/browser-extension-risk</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/browser-extension-risk</guid>
+      <pubDate>Tue, 18 Aug 2026 20:00:00 GMT</pubDate>
+      <description>광고 차단, 번역, 쿠폰 자동 적용. 편해서 깔아 둔 브라우저 확장프로그램이 실제로 무엇을 볼 수 있는지, 웹스토어에 있으면 안전한지, 지금 무엇을 점검하면 되는지 질문에 답하는 형식으로 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 네트워크 — 소켓으로 두 프로그램 연결하기(SOCKET)</title>
       <link>https://pancoit.site/posts/java-socket</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-socket</guid>
