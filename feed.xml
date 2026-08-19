@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT)</title>
+      <link>https://pancoit.site/posts/java-chat</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-chat</guid>
+      <pubDate>Wed, 19 Aug 2026 10:30:00 GMT</pubDate>
+      <description>8편의 소켓과 7편의 스레드를 합쳐 실제로 대화가 오가는 채팅 프로그램을 만듭니다. 왜 받기와 보내기를 스레드로 나눠야 하는지, 상대가 나갔을 때 어떻게 처리하는지까지 정리했습니다.</description>
+    </item>
+    <item>
       <title>크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지</title>
       <link>https://pancoit.site/posts/browser-extension-risk</link>
       <guid isPermaLink="true">https://pancoit.site/posts/browser-extension-risk</guid>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT) — PANCO_IT</title>
+    <meta name="description" content="8편의 소켓과 7편의 스레드를 합쳐 실제로 대화가 오가는 채팅 프로그램을 만듭니다. 왜 받기와 보내기를 스레드로 나눠야 하는지, 상대가 나갔을 때 어떻게 처리하는지까지 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-chat" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT) — PANCO_IT" />
+    <meta property="og:description" content="8편의 소켓과 7편의 스레드를 합쳐 실제로 대화가 오가는 채팅 프로그램을 만듭니다. 왜 받기와 보내기를 스레드로 나눠야 하는지, 상대가 나갔을 때 어떻게 처리하는지까지 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-chat" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-chat-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-19T10:30" />
+    <meta property="article:modified_time" content="2026-08-19T10:30" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT) — PANCO_IT" />
+    <meta name="twitter:description" content="8편의 소켓과 7편의 스레드를 합쳐 실제로 대화가 오가는 채팅 프로그램을 만듭니다. 왜 받기와 보내기를 스레드로 나눠야 하는지, 상대가 나갔을 때 어떻게 처리하는지까지 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-chat-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT)","description":"8편의 소켓과 7편의 스레드를 합쳐 실제로 대화가 오가는 채팅 프로그램을 만듭니다. 왜 받기와 보내기를 스레드로 나눠야 하는지, 상대가 나갔을 때 어떻게 처리하는지까지 정리했습니다.","image":"https://pancoit.site/uploads/java-chat-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-19T10:30","dateModified":"2026-08-19T10:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-chat"},"keywords":"자바, JAVA, 채팅, 소켓, 스레드"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT)","item":"https://pancoit.site/posts/java-chat"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CxtL6gVx.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-19T10:30">2026년 8월 19일 10:30</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->채팅</span><span class="tag">#<!-- -->소켓</span><span class="tag">#<!-- -->스레드</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="한 스레드로 만들 때와 받기·보내기 스레드를 나눌 때를 비교한 그림" src="/uploads/java-chat-hero.png" loading="lazy"/></p>
+<p><em>8편의 소켓과 7편의 스레드를 합치면 채팅이 됩니다.</em></p>
+<p>8편에서 두 프로그램을 연결했습니다. 다만 서버가 인사말 한 줄을 보내고 끝이었죠. 진짜 채팅은 그렇지 않습니다. <strong>양쪽이 아무 때나, 계속</strong> 말을 주고받아야 합니다. 오늘은 지금까지 배운 것을 합쳐 그 구조를 만들어 봅니다.</p>
+<h2 id="한-줄씩-주고받으면-되지-않나요"><a href="#한-줄씩-주고받으면-되지-않나요">한 줄씩 주고받으면 되지 않나요?</a></h2>
+<p>처음에는 이렇게 생각하기 쉽습니다. 받고, 보내고, 다시 받고, 보내고. 그런데 이 방식으로는 채팅이 안 됩니다.</p>
+<p>이유는 8편에서 본 <strong>블로킹</strong> 때문입니다. <code>readUTF()</code>는 상대가 뭔가 보낼 때까지 그 자리에서 멈춥니다. 그러니 받기를 기다리는 동안에는 내가 말을 걸 수 없습니다. 반대로 내가 입력하는 동안에는 상대 메시지를 받지 못하고요.</p>
+<p>결국 &quot;네가 말하면 내가 듣고, 내가 말하면 네가 듣는&quot; 무전기가 됩니다. 한쪽이 말하지 않으면 다른 쪽은 영원히 기다리는 상태가 되죠. 우리가 아는 채팅과는 다릅니다.</p>
+<h2 id="역할을-둘로-나눕니다"><a href="#역할을-둘로-나눕니다">역할을 둘로 나눕니다</a></h2>
+<p>해법은 7편에서 배운 것입니다. <strong>받는 일과 보내는 일을 각각 다른 스레드에 맡기면</strong> 됩니다.</p>
+<p>받기 스레드는 오로지 듣기만 합니다. <code>readUTF()</code>에서 멈춰 있어도 상관없습니다. 그동안 보내기 스레드가 따로 돌면서 키보드 입력을 받아 보내면 되니까요. 서로 방해하지 않습니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 전화 통화와 같습니다. 내 귀는 계속 듣고 있고, 내 입은 언제든 말할 수 있죠. 귀와 입이 각각 따로 움직이기 때문에 대화가 됩니다. 스레드를 둘로 나눈다는 건 프로그램에 귀와 입을 따로 달아 주는 일입니다.</p>
+</blockquote>
+<p><img alt="메시지 한 줄이 입력에서 상대 화면까지 가는 4단계" src="/uploads/java-chat-flow.png" loading="lazy"/></p>
+<p><em>그림 1. 서버와 클라이언트가 거울처럼 같은 구조를 갖습니다.</em></p>
+<h2 id="받기-스레드"><a href="#받기-스레드">받기 스레드</a></h2>
+<p>듣는 쪽부터 만듭니다. 하는 일은 단순합니다. 계속 읽고, 읽은 것을 화면에 뿌립니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> RecvThread</span><span style="color:#D73A49;--shiki-dark:#F97583"> implements</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Runnable</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> DataInputStream din;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    RecvThread</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(DataInputStream </span><span style="color:#E36209;--shiki-dark:#FFAB70">din</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) { </span><span style="color:#005CC5;--shiki-dark:#79B8FF">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.din </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> din; }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Override</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> run</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        while</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">            try</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                String recv </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> din.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">readUTF</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();       </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 올 때까지 대기</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">                if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (recv.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">equals</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;q&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)) {            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 종료 약속</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;상대가 나갔습니다.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">                    break</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;[상대] &quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> recv);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            } </span><span style="color:#D73A49;--shiki-dark:#F97583">catch</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (EOFException </span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연결이 끊어졌습니다.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">                break</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            } </span><span style="color:#D73A49;--shiki-dark:#F97583">catch</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (Exception </span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">                break</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p><code>while (true)</code>로 계속 도는 것이 핵심입니다. 한 번 받고 끝나는 게 아니라 <strong>대화가 끝날 때까지 계속 듣습니다.</strong></p>
+<h2 id="보내기-스레드"><a href="#보내기-스레드">보내기 스레드</a></h2>
+<p>말하는 쪽도 같은 모양입니다. 키보드에서 한 줄 읽어 그대로 보냅니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> SendThread</span><span style="color:#D73A49;--shiki-dark:#F97583"> implements</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Runnable</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> DataOutputStream dout;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    SendThread</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(DataOutputStream </span><span style="color:#E36209;--shiki-dark:#FFAB70">dout</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) { </span><span style="color:#005CC5;--shiki-dark:#79B8FF">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.dout </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> dout; }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Override</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> run</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        Scanner sc </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Scanner</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(System.in);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        while</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            String msg </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> sc.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">nextLine</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 입력 대기</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">            try</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                dout.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">writeUTF</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(msg);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                dout.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">flush</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">                if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (msg.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">equals</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;q&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)) </span><span style="color:#D73A49;--shiki-dark:#F97583">break</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 나도 종료</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            } </span><span style="color:#D73A49;--shiki-dark:#F97583">catch</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (Exception </span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">                break</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>여기서도 <code>nextLine()</code>이 입력을 기다리며 멈춥니다. 하지만 받기 스레드가 따로 돌고 있으니, 내가 입력하는 중에도 상대 메시지는 계속 화면에 뜹니다.</p>
+<h2 id="둘을-붙여-실행합니다"><a href="#둘을-붙여-실행합니다">둘을 붙여 실행합니다</a></h2>
+<p>서버 쪽 조립입니다. 8편에서 만든 연결에 스레드 둘을 얹으면 끝입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">ServerSocket server </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> ServerSocket</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">9000</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;접속을 기다립니다&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Socket client </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> server.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">accept</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;접속: &quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> client.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getInetAddress</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">DataInputStream din </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> DataInputStream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(client.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getInputStream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">DataOutputStream dout </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> DataOutputStream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(client.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getOutputStream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Thread t1 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Thread</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> RecvThread</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(din));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 귀</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Thread t2 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Thread</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> SendThread</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(dout));  </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 입</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">start</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t2.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">start</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">join</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();                                     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 둘 다 끝날 때까지</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t2.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">join</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">client.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">close</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">server.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">close</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;종료합니다&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span></code></pre>
+<p>클라이언트 쪽은 첫 줄만 다릅니다. <code>new ServerSocket(9000)</code>과 <code>accept()</code> 대신 <code>new Socket(&quot;localhost&quot;, 9000)</code>으로 접속하고, 나머지 스레드 조립은 <strong>완전히 똑같습니다.</strong> 서버든 클라이언트든 연결만 되고 나면 대등한 관계라 그렇습니다.</p>
+<h2 id="끝낼-때를-정해-둡니다"><a href="#끝낼-때를-정해-둡니다">끝낼 때를 정해 둡니다</a></h2>
+<p>채팅에서 의외로 손이 많이 가는 부분이 종료입니다. 두 가지를 대비해야 합니다.</p>
+<p><strong>첫째, 사용자가 스스로 나갈 때.</strong> 위 코드는 q를 입력하면 끝나도록 약속을 정해 뒀습니다. 이런 약속을 <strong>프로토콜</strong>이라고 부릅니다. 거창한 말 같지만 &quot;이 글자가 오면 이렇게 하자&quot;는 규칙일 뿐입니다.</p>
+<p><strong>둘째, 상대가 갑자기 사라질 때.</strong> 상대 프로그램이 강제 종료되면 <code>readUTF()</code>는 더 읽을 게 없어 <code>EOFException</code>을 던집니다. 이걸 잡지 않으면 오류 메시지가 쏟아지죠. 1편과 2편에서 배운 예외 처리가 여기서 쓰입니다. 잡아서 &quot;연결이 끊어졌습니다&quot;라고 알리고 반복문을 빠져나오면 깔끔합니다.</p>
+<h2 id="왜-한-스레드로는-안-되는지-직접-보기"><a href="#왜-한-스레드로는-안-되는지-직접-보기">왜 한 스레드로는 안 되는지 직접 보기</a></h2>
+<p>실제 채팅은 프로그램 두 개를 각각 실행해야 해서 브라우저에서는 돌려볼 수 없습니다. 대신 <strong>한 스레드일 때와 두 스레드일 때가 어떻게 다른지</strong>는 확인할 수 있습니다. 아래를 돌려 보고 출력 순서를 눈여겨보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">한 스레드 vs 두 스레드</span></div><pre class="runner__code"><code>public class Main {
+  // 받기 흉내: 0.3초마다 메시지가 도착한다고 가정
+  static void receiving() {
+      for (int i = 1; i &lt;= 3; i++) {
+          try { Thread.sleep(300); } catch (Exception e) { }
+          System.out.println(&quot;[상대] 메시지 &quot; + i);
+      }
+  }
+  // 보내기 흉내: 0.3초마다 내가 한 줄 친다고 가정
+  static void sending() {
+      for (int i = 1; i &lt;= 3; i++) {
+          try { Thread.sleep(300); } catch (Exception e) { }
+          System.out.println(&quot;[나] 답장 &quot; + i);
+      }
+  }
+
+  public static void main(String[] args) throws InterruptedException {
+      System.out.println(&quot;=== 한 스레드 (받기 끝나야 보내기) ===&quot;);
+      receiving();
+      sending();
+
+      System.out.println();
+      System.out.println(&quot;=== 두 스레드 (동시에) ===&quot;);
+      Thread t1 = new Thread(new Runnable() {
+          public void run() { receiving(); }
+      });
+      Thread t2 = new Thread(new Runnable() {
+          public void run() { sending(); }
+      });
+      t1.start();
+      t2.start();
+      t1.join();
+      t2.join();
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p>앞쪽은 상대 메시지 3개가 다 끝난 뒤에야 내 답장이 나옵니다. 뒤쪽은 둘이 섞여 나오죠. <strong>이 차이가 곧 무전기와 채팅의 차이</strong>입니다.</p>
+<h2 id="단골-함정"><a href="#단골-함정">단골 함정</a></h2>
+<p><strong>join을 빼먹는 것.</strong> 스레드를 시작해 놓고 바로 <code>close()</code>를 부르면, 아직 대화 중인데 통로가 닫혀 버립니다. 두 스레드가 끝난 뒤에 닫아야 합니다.</p>
+<p><strong>flush를 빼먹는 것.</strong> 6편과 8편에서 본 그대로입니다. 보냈다고 생각했는데 버퍼에 고여 있으면 상대는 아무것도 못 받고 계속 기다립니다. 채팅이 먹통이 되는 흔한 원인입니다.</p>
+<p><strong>서버를 나중에 켜는 것.</strong> 8편에서 본 순서 그대로, 받는 쪽이 먼저 켜져 있어야 합니다.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>왜 스레드 둘</td><td>받기가 멈춰 있어도 보내기가 따로 돌아야 대화가 됨</td></tr><tr><td>받기 스레드</td><td><code>while</code>로 계속 <code>readUTF()</code>, 받은 것 출력</td></tr><tr><td>보내기 스레드</td><td><code>while</code>로 계속 입력받아 <code>writeUTF()</code> 후 <code>flush()</code></td></tr><tr><td>서버·클라이언트</td><td>연결 방법만 다르고 스레드 구조는 동일</td></tr><tr><td>종료 약속</td><td>특정 글자가 오면 종료 — 이런 규칙이 프로토콜</td></tr><tr><td>끊김 대비</td><td><code>EOFException</code>을 잡아 안내 후 반복문 종료</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 채팅은 <strong>소켓(8편)으로 통로를 만들고, 스레드(7편)로 귀와 입을 따로 다는 것</strong>입니다. 한 스레드로는 받는 동안 보낼 수 없어 무전기가 되고, 둘로 나누면 비로소 대화가 됩니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA3) 9편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 데이터베이스 연결 — JDBC로 자바와 DB 잇기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-socket"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 네트워크 — 소켓으로 두 프로그램 연결하기(SOCKET)</h3><p>자바 소켓 통신을 입문자 눈높이로 정리합니다. IP와 포트가 무엇인지, 서버와 클라이언트 코드가 어떻게 다른지, accept가 멈추는 이유와 여러 명을 받으려면 왜 스레드가 필요한지까지 예제로 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-18T08:00">2026년 8월 18일 08:00</time><span>· <!-- -->자바, JAVA, 네트워크</span></div></a><a class="post-card " href="/posts/java-thread"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED)</h3><p>자바 스레드를 입문자 눈높이로 정리합니다. 순차 실행과 동시 실행의 차이, Runnable로 스레드 만드는 법, start와 run의 함정, 공유 변수가 어긋나는 이유와 synchronized까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-13T15:00">2026년 8월 13일 15:00</time><span>· <!-- -->자바, JAVA, 스레드</span></div></a><a class="post-card " href="/posts/java-file-io"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 파일 입출력 — 껐다 켜도 남게 만들기(FILE I/O)</h3><p>자바 파일 입출력을 입문자 눈높이로 정리합니다. 파일에 쓰고 읽는 법, 반드시 닫아야 하는 이유와 try-with-resources, 덮어쓰기와 이어쓰기의 차이, 한글이 깨지는 이유까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-12T12:20">2026년 8월 12일 12:20</time><span>· <!-- -->자바, JAVA, 파일입출력</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
