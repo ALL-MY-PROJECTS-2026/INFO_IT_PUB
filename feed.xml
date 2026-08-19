@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>윈도우 10 지원 끝났는데 그냥 써도 되나 — 1년이 더 생겼습니다</title>
+      <link>https://pancoit.site/posts/windows10-eol-esu</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/windows10-eol-esu</guid>
+      <pubDate>Wed, 19 Aug 2026 19:20:00 GMT</pubDate>
+      <description>2025년 10월 지원이 끝난 윈도우 10, 지금 쓰는 PC를 어떻게 해야 할까요. 확장 보안 업데이트(ESU)가 2027년까지 연장된 배경과 무료로 받는 조건, ESU·업그레이드·교체 세 갈래를 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT)</title>
       <link>https://pancoit.site/posts/java-chat</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-chat</guid>
