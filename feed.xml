@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 JDBC — 데이터베이스에 말 거는 법(CONNECTION·PREPAREDSTATEMENT)</title>
+      <link>https://pancoit.site/posts/java-jdbc</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-jdbc</guid>
+      <pubDate>Thu, 20 Aug 2026 16:40:00 GMT</pubDate>
+      <description>자바에서 데이터베이스를 다루는 JDBC를 입문자 눈높이로 정리합니다. 연결 4단계, Connection·PreparedStatement·ResultSet 세 객체의 역할, 닫는 순서, 그리고 물음표 하나가 막아 주는 SQL 인젝션까지 짚습니다.</description>
+    </item>
+    <item>
       <title>윈도우 10 지원 끝났는데 그냥 써도 되나 — 1년이 더 생겼습니다</title>
       <link>https://pancoit.site/posts/windows10-eol-esu</link>
       <guid isPermaLink="true">https://pancoit.site/posts/windows10-eol-esu</guid>

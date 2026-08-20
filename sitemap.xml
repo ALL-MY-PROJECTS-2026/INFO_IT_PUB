@@ -146,6 +146,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/java-jdbc</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/java-loops</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
