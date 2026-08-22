@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 640" width="1520" height="640" role="img" aria-label="트랜잭션 - 전부 성공하거나 전부 취소되거나">
+  <rect width="1520" height="640" fill="#f8fafc"/>
+  <style>
+    .t{font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif}
+    .h{font-size:52px;font-weight:800;fill:#0f172a}
+    .s{font-size:26px;fill:#475569}
+    .lb{font-size:27px;font-weight:700;fill:#0f172a}
+    .sm{font-size:22px;fill:#475569}
+    .tag{font-size:25px;font-weight:800}
+  </style>
+  <text class="t h" x="76" y="96">트랜잭션 — 여러 작업을 하나로 묶기</text>
+  <text class="t s" x="78" y="146">중간에 실패하면 앞의 것까지 통째로 되돌립니다</text>
+
+  <!-- 성공 케이스 -->
+  <rect x="76" y="196" width="640" height="360" rx="20" fill="#ffffff" stroke="#bbf7d0" stroke-width="3"/>
+  <rect x="76" y="196" width="640" height="66" rx="20" fill="#dcfce7"/>
+  <rect x="76" y="240" width="640" height="22" fill="#dcfce7"/>
+  <text class="t tag" x="108" y="240" fill="#15803d">✔ 전부 성공 → COMMIT</text>
+
+  <rect x="112" y="296" width="568" height="60" rx="12" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text class="t lb" x="140" y="334">1) 내 계좌에서 1만 원 출금</text>
+  <rect x="112" y="368" width="568" height="60" rx="12" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text class="t lb" x="140" y="406">2) 친구 계좌에 1만 원 입금</text>
+  <rect x="112" y="446" width="568" height="72" rx="12" fill="#16a34a"/>
+  <text class="t tag" x="140" y="491" fill="#ffffff">commit() — 확정 저장</text>
+
+  <!-- 실패 케이스 -->
+  <rect x="804" y="196" width="640" height="360" rx="20" fill="#ffffff" stroke="#fecaca" stroke-width="3"/>
+  <rect x="804" y="196" width="640" height="66" rx="20" fill="#fee2e2"/>
+  <rect x="804" y="240" width="640" height="22" fill="#fee2e2"/>
+  <text class="t tag" x="836" y="240" fill="#b91c1c">✕ 중간 실패 → ROLLBACK</text>
+
+  <rect x="840" y="296" width="568" height="60" rx="12" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+  <text class="t lb" x="868" y="334">1) 내 계좌에서 1만 원 출금</text>
+  <rect x="840" y="368" width="568" height="60" rx="12" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+  <text class="t lb" x="868" y="406" fill="#b91c1c">2) 입금 중 오류 발생 ✕</text>
+  <rect x="840" y="446" width="568" height="72" rx="12" fill="#dc2626"/>
+  <text class="t tag" x="868" y="491" fill="#ffffff">rollback() — 출금도 없던 일로</text>
+
+  <text class="t sm" x="78" y="600">돈이 사라지는 사고를 막는 장치입니다. 절반만 반영되는 상태를 아예 만들지 않습니다.</text>
+</svg>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK) — PANCO_IT</title>
+    <meta name="description" content="계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-transaction" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK) — PANCO_IT" />
+    <meta property="og:description" content="계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-transaction" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-transaction-hero.svg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-22T15:25" />
+    <meta property="article:modified_time" content="2026-08-22T15:25" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK) — PANCO_IT" />
+    <meta name="twitter:description" content="계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-transaction-hero.svg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)","description":"계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다.","image":"https://pancoit.site/uploads/java-transaction-hero.svg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-22T15:25","dateModified":"2026-08-22T15:25","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-transaction"},"keywords":"자바, JAVA, 트랜잭션, JDBC, 데이터베이스"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)","item":"https://pancoit.site/posts/java-transaction"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-foE-dq8k.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-22T15:25">2026년 8월 22일 15:25</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->트랜잭션</span><span class="tag">#<!-- -->JDBC</span><span class="tag">#<!-- -->데이터베이스</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="트랜잭션: 전부 성공하면 커밋, 중간에 실패하면 롤백" src="/uploads/java-transaction-hero.svg" loading="lazy"/></p>
+<p><em>중간에 실패하면 앞의 작업까지 통째로 되돌립니다.</em></p>
+<p>10편에서 JDBC로 데이터베이스에 말을 걸었습니다. 이제 한 가지 상황을 생각해 봅시다.</p>
+<p>친구에게 1만 원을 이체합니다. 순서는 이렇죠. <strong>내 계좌에서 1만 원을 빼고</strong>, <strong>친구 계좌에 1만 원을 넣습니다.</strong> 그런데 첫 번째는 성공했는데 두 번째에서 오류가 났다면 어떻게 될까요.</p>
+<p>내 돈은 사라졌는데 친구는 못 받았습니다. 1만 원이 세상에서 증발한 것입니다.</p>
+<p>이런 사고를 막는 장치가 오늘의 주제, <strong>트랜잭션</strong>입니다.</p>
+<h2 id="트랜잭션이-뭔가요"><a href="#트랜잭션이-뭔가요">트랜잭션이 뭔가요?</a></h2>
+<p>트랜잭션(Transaction)은 <strong>여러 작업을 하나의 덩어리로 묶는 것</strong>입니다.</p>
+<p>묶어 놓으면 규칙이 하나 생깁니다.</p>
+<blockquote>
+<p><strong>전부 성공하거나, 전부 없던 일이 되거나.</strong> 절반만 반영되는 상태는 만들지 않는다.</p>
+</blockquote>
+<p>이체에서 출금과 입금을 한 덩어리로 묶으면, 입금이 실패하는 순간 출금도 자동으로 취소됩니다. 돈이 증발할 수 없게 되는 것이죠.</p>
+<h2 id="사실-지금까지는-매번-저장되고-있었습니다"><a href="#사실-지금까지는-매번-저장되고-있었습니다">사실 지금까지는 매번 저장되고 있었습니다</a></h2>
+<p>10편에서 <code>executeUpdate()</code>를 부를 때마다 결과가 바로 DB에 저장됐습니다. 따로 저장 버튼을 누른 적이 없는데도요.</p>
+<p>JDBC는 기본값이 **자동 커밋(auto commit)**이기 때문입니다. 한 줄 실행할 때마다 곧바로 확정 저장합니다.</p>
+<p>편하지만 이체에서는 문제가 됩니다. 출금이 이미 확정 저장돼 버려서 되돌릴 방법이 없거든요. 그래서 묶고 싶을 때는 <strong>자동 커밋을 먼저 꺼야</strong> 합니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">conn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setAutoCommit</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">false</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이제부터 내가 확정할 때까지 저장 보류</span></span></code></pre>
+<h2 id="확정은-commit-취소는-rollback"><a href="#확정은-commit-취소는-rollback">확정은 commit, 취소는 rollback</a></h2>
+<p>자동 커밋을 끄면 두 개의 스위치가 내 손에 들어옵니다.</p>
+<table><thead><tr><th>메서드</th><th>뜻</th><th>언제</th></tr></thead><tbody><tr><td><code>conn.commit()</code></td><td>지금까지 한 작업을 <strong>확정 저장</strong></td><td>전부 성공했을 때</td></tr><tr><td><code>conn.rollback()</code></td><td>지금까지 한 작업을 <strong>전부 취소</strong></td><td>하나라도 실패했을 때</td></tr></tbody></table>
+<p><code>commit()</code>을 부르기 전까지 변경 내용은 임시 상태입니다. 연필로 써 두었다가 <code>commit()</code>에서 볼펜으로 덧쓰는 셈이고, <code>rollback()</code>은 연필 자국을 지우개로 지우는 것입니다.</p>
+<p><img alt="트랜잭션 코드 흐름: 자동커밋 끄기 → 작업 → 커밋 또는 롤백" src="/uploads/java-transaction-flow.svg" loading="lazy"/></p>
+<p><em>그림 1. 순서만 외우면 됩니다 — 끄고, 하고, 확정하거나 되돌리기.</em></p>
+<h2 id="이체-코드로-보기"><a href="#이체-코드로-보기">이체 코드로 보기</a></h2>
+<p>계좌이체를 트랜잭션으로 묶으면 이렇게 됩니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Connection conn </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> null</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">try</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    conn </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> DriverManager.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getConnection</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(URL, USER, PW);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    conn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setAutoCommit</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">false</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);                    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// ① 자동 저장 끄기</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    // ② 출금</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    PreparedStatement ps1 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> conn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">prepareStatement</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">        &quot;UPDATE account SET balance = balance - ? WHERE id = ?&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ps1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setInt</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">10000</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ps1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setString</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;나&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ps1.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">executeUpdate</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    // ③ 입금</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    PreparedStatement ps2 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> conn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">prepareStatement</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">        &quot;UPDATE account SET balance = balance + ? WHERE id = ?&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ps2.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setInt</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">10000</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ps2.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setString</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;친구&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ps2.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">executeUpdate</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    conn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">commit</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();                                </span><span style="color:#6A737D;--shiki-dark:#6A737D">// ④ 둘 다 성공 → 확정</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이체 완료&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">} </span><span style="color:#D73A49;--shiki-dark:#F97583">catch</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (SQLException </span><span style="color:#E36209;--shiki-dark:#FFAB70">e</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (conn </span><span style="color:#D73A49;--shiki-dark:#F97583">!=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> null</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) conn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">rollback</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// ⑤ 하나라도 실패 → 전부 취소</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이체 실패, 원상복구했습니다&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">} </span><span style="color:#D73A49;--shiki-dark:#F97583">finally</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (conn </span><span style="color:#D73A49;--shiki-dark:#F97583">!=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> null</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        conn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setAutoCommit</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);                 </span><span style="color:#6A737D;--shiki-dark:#6A737D">// ⑥ 원래대로 돌려놓기</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        conn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">close</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>핵심은 <strong><code>rollback()</code>이 <code>catch</code> 안에 있다</strong>는 점입니다. 예외가 나야 되돌릴 일이 생기니 당연한 자리인데, 처음에는 <code>commit()</code> 옆에 나란히 쓰는 실수가 잦습니다.</p>
+<h2 id="직접-확인해-보기"><a href="#직접-확인해-보기">직접 확인해 보기</a></h2>
+<p>DB 없이도 원리는 그대로 볼 수 있습니다. 아래 코드는 트랜잭션을 흉내 낸 것입니다. <strong>입금 도중 일부러 오류를 내고</strong>, 되돌리기 전후의 잔액을 비교합니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">트랜잭션 흉내내기</span></div><pre class="runner__code"><code>public class Main {
+  static int 내잔액 = 50000;
+  static int 친구잔액 = 10000;
+
+  public static void main(String[] args) {
+      // 시작 전 상태를 기억해 둡니다 (이게 rollback 지점 역할)
+      int 백업내잔액 = 내잔액;
+      int 백업친구잔액 = 친구잔액;
+
+      System.out.println(&quot;[시작] 나=&quot; + 내잔액 + &quot; 친구=&quot; + 친구잔액);
+
+      try {
+          내잔액 -= 10000;                  // 출금 성공
+          System.out.println(&quot;출금 완료 → 나=&quot; + 내잔액);
+
+          if (true) throw new RuntimeException(&quot;입금 중 오류!&quot;);  // 일부러 실패
+
+          친구잔액 += 10000;
+      } catch (RuntimeException e) {
+          내잔액 = 백업내잔액;               // rollback
+          친구잔액 = 백업친구잔액;
+          System.out.println(&quot;실패: &quot; + e.getMessage() + &quot; → 되돌립니다&quot;);
+      }
+
+      System.out.println(&quot;[끝] 나=&quot; + 내잔액 + &quot; 친구=&quot; + 친구잔액);
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>결과 해설 보기</summary><p>출금으로 잔액이 40000까지 내려갔다가, 되돌린 뒤 <strong>다시 50000</strong>이 됩니다. 돈이 사라지지 않았죠.</p><p><code>throw new RuntimeException(...)</code> 줄을 지우고 다시 실행해 보세요. 이번엔 되돌리지 않고 끝까지 가서 <strong>나=40000, 친구=20000</strong>이 됩니다. 이게 <code>commit()</code>까지 간 경우입니다.</p><p>실제 DB에서는 이 백업·복구를 우리가 짜지 않아도 <code>rollback()</code> 한 줄이 알아서 해 줍니다.</p></details>
+<h2 id="어디까지-묶어야-할까요"><a href="#어디까지-묶어야-할까요">어디까지 묶어야 할까요</a></h2>
+<p>&quot;그럼 다 묶으면 좋은 거 아닌가요?&quot; 싶지만 그렇지 않습니다.</p>
+<p>트랜잭션이 열려 있는 동안 DB는 그 데이터를 <strong>다른 사람이 못 건드리게 잠급니다.</strong> 길게 열어 두면 다른 요청들이 줄을 서서 기다리게 되죠.</p>
+<p>기준은 간단합니다. <strong>&quot;같이 성공하거나 같이 실패해야 하는 것&quot;만 한 묶음으로.</strong> 이체라면 출금과 입금 둘뿐입니다. 그 사이에 이메일 발송이나 오래 걸리는 계산을 끼워 넣지 마세요.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>트랜잭션</td><td>여러 작업을 하나로 묶는 단위</td></tr><tr><td>원칙</td><td>전부 성공 아니면 전부 취소</td></tr><tr><td><code>setAutoCommit(false)</code></td><td>자동 저장 끄기 — 묶기의 시작</td></tr><tr><td><code>commit()</code></td><td>확정 저장</td></tr><tr><td><code>rollback()</code></td><td>전부 취소 — <strong>catch 안에서</strong></td></tr><tr><td><code>finally</code></td><td><code>setAutoCommit(true)</code> 복구 후 <code>close()</code></td></tr><tr><td>범위</td><td>같이 성패해야 하는 것만 짧게</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 자동 저장을 끄고, 작업들을 실행하고, 성공하면 <code>commit</code>, 실패하면 <code>rollback</code>. 그리고 되돌리는 코드는 반드시 <code>catch</code> 안에 둡니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA3) 11편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: JAVA3 총정리 — 예외부터 트랜잭션까지 문제로 복습.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-jdbc"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 JDBC — 데이터베이스에 말 거는 법(CONNECTION·PREPAREDSTATEMENT)</h3><p>자바에서 데이터베이스를 다루는 JDBC를 입문자 눈높이로 정리합니다. 연결 4단계, Connection·PreparedStatement·ResultSet 세 객체의 역할, 닫는 순서, 그리고 물음표 하나가 막아 주는 SQL 인젝션까지 짚습니다.</p><div class="post-card__meta"><time dateTime="2026-08-20T16:40">2026년 8월 20일 16:40</time><span>· <!-- -->자바, JAVA, JDBC</span></div></a><a class="post-card " href="/posts/java-chat"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 채팅 프로그램 만들기 — 소켓과 스레드를 합치면(CHAT)</h3><p>8편의 소켓과 7편의 스레드를 합쳐 실제로 대화가 오가는 채팅 프로그램을 만듭니다. 왜 받기와 보내기를 스레드로 나눠야 하는지, 상대가 나갔을 때 어떻게 처리하는지까지 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-19T10:30">2026년 8월 19일 10:30</time><span>· <!-- -->자바, JAVA, 채팅</span></div></a><a class="post-card " href="/posts/java-socket"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 네트워크 — 소켓으로 두 프로그램 연결하기(SOCKET)</h3><p>자바 소켓 통신을 입문자 눈높이로 정리합니다. IP와 포트가 무엇인지, 서버와 클라이언트 코드가 어떻게 다른지, accept가 멈추는 이유와 여러 명을 받으려면 왜 스레드가 필요한지까지 예제로 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-18T08:00">2026년 8월 18일 08:00</time><span>· <!-- -->자바, JAVA, 네트워크</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
