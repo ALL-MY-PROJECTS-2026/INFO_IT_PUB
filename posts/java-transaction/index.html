@@ -40,15 +40,15 @@
     <meta property="og:title" content="자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK) — PANCO_IT" />
     <meta property="og:description" content="계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다." />
     <meta property="og:url" content="https://pancoit.site/posts/java-transaction" />
-    <meta property="og:image" content="https://pancoit.site/uploads/java-transaction-hero.svg" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-transaction-hero.png" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="article:published_time" content="2026-08-22T15:25" />
     <meta property="article:modified_time" content="2026-08-22T15:25" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK) — PANCO_IT" />
     <meta name="twitter:description" content="계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다." />
-    <meta name="twitter:image" content="https://pancoit.site/uploads/java-transaction-hero.svg" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)","description":"계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다.","image":"https://pancoit.site/uploads/java-transaction-hero.svg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-22T15:25","dateModified":"2026-08-22T15:25","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-transaction"},"keywords":"자바, JAVA, 트랜잭션, JDBC, 데이터베이스"}</script>
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-transaction-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)","description":"계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다.","image":"https://pancoit.site/uploads/java-transaction-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-22T15:25","dateModified":"2026-08-22T15:25","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-transaction"},"keywords":"자바, JAVA, 트랜잭션, JDBC, 데이터베이스"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)","item":"https://pancoit.site/posts/java-transaction"}]}</script>
     <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
     <script>
@@ -60,12 +60,12 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-foE-dq8k.js"></script>
+    <script type="module" crossorigin src="/assets/index-BQgkvXyS.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
   </head>
   <body>
-    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-22T15:25">2026년 8월 22일 15:25</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->트랜잭션</span><span class="tag">#<!-- -->JDBC</span><span class="tag">#<!-- -->데이터베이스</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="트랜잭션: 전부 성공하면 커밋, 중간에 실패하면 롤백" src="/uploads/java-transaction-hero.svg" loading="lazy"/></p>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-22T15:25">2026년 8월 22일 15:25</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->트랜잭션</span><span class="tag">#<!-- -->JDBC</span><span class="tag">#<!-- -->데이터베이스</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="트랜잭션: 전부 성공하면 커밋, 중간에 실패하면 롤백" src="/uploads/java-transaction-hero.png" loading="lazy"/></p>
 <p><em>중간에 실패하면 앞의 작업까지 통째로 되돌립니다.</em></p>
 <p>10편에서 JDBC로 데이터베이스에 말을 걸었습니다. 이제 한 가지 상황을 생각해 봅시다.</p>
 <p>친구에게 1만 원을 이체합니다. 순서는 이렇죠. <strong>내 계좌에서 1만 원을 빼고</strong>, <strong>친구 계좌에 1만 원을 넣습니다.</strong> 그런데 첫 번째는 성공했는데 두 번째에서 오류가 났다면 어떻게 될까요.</p>
@@ -80,14 +80,14 @@
 <p>이체에서 출금과 입금을 한 덩어리로 묶으면, 입금이 실패하는 순간 출금도 자동으로 취소됩니다. 돈이 증발할 수 없게 되는 것이죠.</p>
 <h2 id="사실-지금까지는-매번-저장되고-있었습니다"><a href="#사실-지금까지는-매번-저장되고-있었습니다">사실 지금까지는 매번 저장되고 있었습니다</a></h2>
 <p>10편에서 <code>executeUpdate()</code>를 부를 때마다 결과가 바로 DB에 저장됐습니다. 따로 저장 버튼을 누른 적이 없는데도요.</p>
-<p>JDBC는 기본값이 **자동 커밋(auto commit)**이기 때문입니다. 한 줄 실행할 때마다 곧바로 확정 저장합니다.</p>
+<p>JDBC는 기본값이 <strong>자동 커밋</strong>(auto commit)이기 때문입니다. 한 줄 실행할 때마다 곧바로 확정 저장합니다.</p>
 <p>편하지만 이체에서는 문제가 됩니다. 출금이 이미 확정 저장돼 버려서 되돌릴 방법이 없거든요. 그래서 묶고 싶을 때는 <strong>자동 커밋을 먼저 꺼야</strong> 합니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">conn.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setAutoCommit</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">false</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이제부터 내가 확정할 때까지 저장 보류</span></span></code></pre>
 <h2 id="확정은-commit-취소는-rollback"><a href="#확정은-commit-취소는-rollback">확정은 commit, 취소는 rollback</a></h2>
 <p>자동 커밋을 끄면 두 개의 스위치가 내 손에 들어옵니다.</p>
 <table><thead><tr><th>메서드</th><th>뜻</th><th>언제</th></tr></thead><tbody><tr><td><code>conn.commit()</code></td><td>지금까지 한 작업을 <strong>확정 저장</strong></td><td>전부 성공했을 때</td></tr><tr><td><code>conn.rollback()</code></td><td>지금까지 한 작업을 <strong>전부 취소</strong></td><td>하나라도 실패했을 때</td></tr></tbody></table>
 <p><code>commit()</code>을 부르기 전까지 변경 내용은 임시 상태입니다. 연필로 써 두었다가 <code>commit()</code>에서 볼펜으로 덧쓰는 셈이고, <code>rollback()</code>은 연필 자국을 지우개로 지우는 것입니다.</p>
-<p><img alt="트랜잭션 코드 흐름: 자동커밋 끄기 → 작업 → 커밋 또는 롤백" src="/uploads/java-transaction-flow.svg" loading="lazy"/></p>
+<p><img alt="트랜잭션 코드 흐름: 자동커밋 끄기 → 작업 → 커밋 또는 롤백" src="/uploads/java-transaction-flow.png" loading="lazy"/></p>
 <p><em>그림 1. 순서만 외우면 됩니다 — 끄고, 하고, 확정하거나 되돌리기.</em></p>
 <h2 id="이체-코드로-보기"><a href="#이체-코드로-보기">이체 코드로 보기</a></h2>
 <p>계좌이체를 트랜잭션으로 묶으면 이렇게 됩니다.</p>
