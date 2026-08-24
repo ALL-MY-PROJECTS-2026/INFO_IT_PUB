@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 심화 12문제로 복습 — JAVA3 총정리</title>
+      <link>https://pancoit.site/posts/java3-review</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java3-review</guid>
+      <pubDate>Mon, 24 Aug 2026 16:40:00 GMT</pubDate>
+      <description>자바 심화 JAVA3 시즌(예외·제네릭·컬렉션·파일 입출력·스레드·소켓·JDBC·트랜잭션)을 개념 퀴즈와 직접 고쳐 실행하는 실습 문제로 복습합니다. catch 순서, flush, 닫는 순서처럼 자주 막히는 지점을 한 번에 점검합니다.</description>
+    </item>
+    <item>
       <title>자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)</title>
       <link>https://pancoit.site/posts/java-transaction</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-transaction</guid>
