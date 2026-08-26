@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA) — PANCO_IT</title>
+    <meta name="description" content="자바 람다식을 입문자 눈높이로 정리합니다. 익명 클래스가 왜 장황했는지, 화살표로 어디까지 줄일 수 있는지, 중괄호를 쓰면 왜 return을 빠뜨리는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-lambda" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA) — PANCO_IT" />
+    <meta property="og:description" content="자바 람다식을 입문자 눈높이로 정리합니다. 익명 클래스가 왜 장황했는지, 화살표로 어디까지 줄일 수 있는지, 중괄호를 쓰면 왜 return을 빠뜨리는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-lambda" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-lambda-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-26T10:32" />
+    <meta property="article:modified_time" content="2026-08-26T10:32" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA) — PANCO_IT" />
+    <meta name="twitter:description" content="자바 람다식을 입문자 눈높이로 정리합니다. 익명 클래스가 왜 장황했는지, 화살표로 어디까지 줄일 수 있는지, 중괄호를 쓰면 왜 return을 빠뜨리는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-lambda-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA)","description":"자바 람다식을 입문자 눈높이로 정리합니다. 익명 클래스가 왜 장황했는지, 화살표로 어디까지 줄일 수 있는지, 중괄호를 쓰면 왜 return을 빠뜨리는지까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-lambda-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-26T10:32","dateModified":"2026-08-26T10:32","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-lambda"},"keywords":"자바, JAVA, 람다, lambda, 람다식, 함수형"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA)","item":"https://pancoit.site/posts/java-lambda"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BOhU6V9e.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cn41aTez.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-26T10:32">2026년 8월 26일 10:32</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->람다</span><span class="tag">#<!-- -->lambda</span><span class="tag">#<!-- -->람다식</span><span class="tag">#<!-- -->함수형</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="익명 클래스로 쓴 코드와 람다식으로 쓴 코드를 나란히 비교한 그림" src="/uploads/java-lambda-hero.png" loading="lazy"/></p>
+<p><em>왼쪽과 오른쪽은 완전히 같은 일을 합니다. 람다는 군더더기를 지운 표기법입니다.</em></p>
+<p>JAVA3에서 예외부터 트랜잭션까지, 자바로 프로그램을 굴리는 데 필요한 도구를 훑었습니다. 이번 JAVA4 시즌은 결이 조금 다릅니다. <strong>새 기능을 배우는 것이 아니라, 이미 할 줄 아는 일을 훨씬 짧게 쓰는 법</strong>을 배웁니다. 자바 8에서 들어온 람다와 스트림이 그 주인공이고, 오늘은 그 출발점인 람다식입니다.</p>
+<h2 id="다섯-줄이-한-줄이-되는-순간"><a href="#다섯-줄이-한-줄이-되는-순간">다섯 줄이 한 줄이 되는 순간</a></h2>
+<p>먼저 결론부터 보겠습니다. 두 숫자를 더하는 기능을 코드에 넘겨야 한다고 해봅시다. 예전 방식은 이렇습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Calculator add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Calculator</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Override</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> calculate</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">};</span></span></code></pre>
+<p>람다식으로 쓰면 이렇게 됩니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Calculator add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b;</span></span></code></pre>
+<p>다섯 줄이 한 줄이 되었습니다. 중요한 건 짧아졌다는 사실 자체가 아닙니다. <strong>실제로 하려던 일은 <code>a + b</code> 하나뿐이었는데, 나머지 네 줄은 그 한 줄을 전달하기 위한 포장지</strong>였다는 점입니다. 람다는 그 포장지를 걷어냅니다.</p>
+<h2 id="그-포장지는-왜-필요했나"><a href="#그-포장지는-왜-필요했나">그 포장지는 왜 필요했나</a></h2>
+<p>JAVA2에서 인터페이스를 배웠습니다. 인터페이스는 &quot;이런 메서드를 만들어라&quot;는 약속이고, 그 약속을 지키는 클래스를 따로 만들어 썼죠.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">interface</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Calculator</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> calculate</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>그런데 더하기 한 번 하자고 클래스 파일을 새로 만드는 건 과합니다. 그래서 자바는 <strong>이름 없이 그 자리에서 만들어 쓰고 버리는</strong> 익명 클래스를 제공했습니다. 위의 <code>new Calculator() { ... }</code>가 바로 그것입니다.</p>
+<p>문제는 익명 클래스도 여전히 장황하다는 데 있었습니다. 인터페이스 이름을 다시 적고, 메서드 이름과 반환형과 매개변수 타입을 전부 다시 적어야 합니다. 그런데 잘 보면 <strong>그 정보는 전부 인터페이스에 이미 적혀 있습니다.</strong> 컴파일러가 알고 있는 것을 사람이 한 번 더 받아 적는 셈이죠.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 택배 송장과 같습니다. 받는 사람 주소가 이미 시스템에 등록돼 있는데, 송장에 그 주소를 손으로 다시 옮겨 적으라고 하는 상황입니다. 람다는 &quot;이미 아는 건 적지 말고 <strong>내용물만</strong> 넣으세요&quot;로 바꾼 것입니다.</p>
+</blockquote>
+<h2 id="화살표가-하는-일"><a href="#화살표가-하는-일">화살표가 하는 일</a></h2>
+<p>람다식의 문법은 화살표 하나가 전부입니다. 왼쪽에 받을 값, 오른쪽에 할 일을 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b; }</span></span></code></pre>
+<p>왼쪽 괄호는 매개변수, 오른쪽 중괄호는 메서드 본문입니다. 익명 클래스에서 <code>public int calculate</code>라는 <strong>이름표만 떼어낸 모양</strong>이라고 보면 정확합니다. 이름을 뗄 수 있는 이유는 뒤에서 설명하겠습니다.</p>
+<p>여기서 더 줄일 수 있습니다. 그리고 이 생략 규칙이 초보자를 가장 많이 헷갈리게 만드는 지점입니다.</p>
+<h2 id="어디까지-줄일-수-있나"><a href="#어디까지-줄일-수-있나">어디까지 줄일 수 있나</a></h2>
+<p>생략은 세 번 일어납니다. 각각 조건이 다르니 하나씩 보겠습니다.</p>
+<p><img alt="람다식 축약 4단계: 기본형, 타입 생략, 괄호 생략, 중괄호 생략" src="/uploads/java-lambda-steps.png" loading="lazy"/></p>
+<p><em>그림 1. 왼쪽에서 오른쪽으로 갈수록 짧아지지만, 2단계와 3단계는 조건이 붙습니다.</em></p>
+<p><strong>첫째, 매개변수 타입을 생략합니다.</strong> 인터페이스에 <code>int calculate(int a, int b)</code>라고 적혀 있으니 컴파일러는 두 값이 <code>int</code>라는 걸 이미 압니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">(a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b; }</span></span></code></pre>
+<p><strong>둘째, 매개변수가 하나뿐이면 괄호도 생략합니다.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">name </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(name); }</span></span></code></pre>
+<p>단, 이건 <strong>개수가 정확히 하나일 때만</strong> 됩니다. 둘 이상이면 괄호를 반드시 씁니다. 하나도 없을 때는 빈 괄호 <code>()</code>를 그대로 둡니다.</p>
+<p><strong>셋째, 할 일이 식 하나뿐이면 중괄호와 <code>return</code>을 함께 생략합니다.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">(a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b</span></span></code></pre>
+<p>이 세 번째가 앞의 두 개와 성격이 다릅니다. 앞의 둘은 &quot;적어도 되고 안 적어도 되는&quot; 선택이지만, 세 번째는 <strong>중괄호와 <code>return</code>이 한 몸</strong>이라는 규칙입니다. 이 점이 바로 오늘의 함정으로 이어집니다.</p>
+<h2 id="단골-함정--중괄호를-열었으면-return을-써야-합니다"><a href="#단골-함정--중괄호를-열었으면-return을-써야-합니다">단골 함정 — 중괄호를 열었으면 return을 써야 합니다</a></h2>
+<p>가장 자주 나오는 컴파일 오류입니다. 중괄호를 쓰면서 <code>return</code>을 빠뜨리는 경우죠.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Calculator add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b; };        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 컴파일 오류</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Calculator add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b; }; </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Calculator add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b;             </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상</span></span></code></pre>
+<p>첫 줄이 왜 오류일까요. 중괄호를 여는 순간 그 안은 <strong>일반적인 메서드 본문</strong>이 됩니다. 메서드 본문에서 값을 돌려주려면 <code>return</code>을 써야 하죠. <code>a + b;</code>는 계산만 하고 버리는 문장이라 돌려주는 값이 없고, <code>calculate</code>는 <code>int</code>를 돌려주기로 약속했으니 약속 위반이 됩니다.</p>
+<p>반대로 중괄호가 없으면 자바는 그 식의 결과를 <strong>자동으로 돌려주는 것으로 해석</strong>합니다. 그래서 <code>return</code>을 쓰면 안 됩니다.</p>
+<p>한 가지 더 있습니다. 타입을 적으면서 괄호를 생략하는 것은 <strong>안 됩니다.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">String s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()      </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 컴파일 오류</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">(String s) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()             </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상</span></span></code></pre>
+<p>정리하면 이렇습니다. <strong>타입을 적을 거면 괄호도 적고, 중괄호를 열 거면 <code>return</code>도 쓴다.</strong> 둘 다 &quot;반만 생략&quot;이 안 되는 짝입니다.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>사칙연산을 람다로 만들어 봅니다. 네 가지가 각각 다른 축약 단계로 쓰여 있으니 비교하며 읽어 보시기 바랍니다. 실행한 뒤 <code>mul</code> 줄에서 <code>return</code>을 지우고 다시 돌려 보면 위의 함정을 직접 확인할 수 있습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">람다로 만든 사칙연산</span></div><pre class="runner__code"><code>interface Calculator {
+  int calculate(int a, int b);       // 추상 메서드 하나
+}
+
+public class Main {
+  public static void main(String[] args) {
+      Calculator add = (a, b) -&gt; a + b;                 // 가장 짧은 형태
+      Calculator sub = (int a, int b) -&gt; a - b;         // 타입을 다 적은 형태
+      Calculator mul = (a, b) -&gt; { return a * b; };     // 중괄호 + return
+      Calculator div = (a, b) -&gt; {                      // 여러 줄도 가능
+          if (b == 0) {
+              System.out.println(&quot;0으로는 나눌 수 없습니다&quot;);
+              return 0;
+          }
+          return a / b;
+      };
+
+      System.out.println(&quot;더하기: &quot; + add.calculate(10, 20));
+      System.out.println(&quot;빼기  : &quot; + sub.calculate(30, 10));
+      System.out.println(&quot;곱하기: &quot; + mul.calculate(10, 20));
+      System.out.println(&quot;나누기: &quot; + div.calculate(100, 5));
+      System.out.println(&quot;나누기: &quot; + div.calculate(100, 0));
+
+      // Calculator bad = (a, b) -&gt; { a + b; };   // 주석을 풀면 컴파일 오류
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<h2 id="아무-인터페이스에나-되는-것은-아닙니다"><a href="#아무-인터페이스에나-되는-것은-아닙니다">아무 인터페이스에나 되는 것은 아닙니다</a></h2>
+<p>여기서 당연한 의문이 생깁니다. 람다식에는 메서드 이름이 없는데, 자바는 어느 메서드를 구현한 것인지 어떻게 알까요.</p>
+<p>답은 단순합니다. <strong>고를 필요가 없기 때문</strong>입니다. 람다를 쓸 수 있는 인터페이스는 <strong>추상 메서드가 정확히 하나뿐</strong>이어야 합니다. 하나뿐이니 이름을 적지 않아도 헷갈릴 일이 없죠.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">interface</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Calculator</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> calculate</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 추상 메서드 1개 → 람다 가능</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">interface</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Broken</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> calculate</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> reset</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();                   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 2개 → 람다 대입 불가</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>이렇게 추상 메서드가 하나뿐인 인터페이스를 <strong>함수형 인터페이스</strong>라고 부릅니다. 이름은 거창하지만 조건은 이 하나가 전부입니다. 다음 편에서 이 인터페이스를 직접 만들고, <code>@FunctionalInterface</code>로 실수를 막는 법을 다룹니다.</p>
+<h2 id="컬렉션에서-진가가-나옵니다"><a href="#컬렉션에서-진가가-나옵니다">컬렉션에서 진가가 나옵니다</a></h2>
+<p>지금까지는 인터페이스를 직접 만들어 썼지만, 사실 자바가 이미 만들어 둔 곳이 훨씬 많습니다. JAVA3 4편에서 배운 컬렉션이 대표적입니다.</p>
+<p><code>List</code>의 <code>forEach</code>와 <code>sort</code>는 <strong>할 일을 람다로 받습니다.</strong> 특히 <code>sort</code>를 보면 람다의 쓸모가 분명해집니다. 정렬 기준은 상황마다 다른데, 기준마다 클래스를 만들 수는 없으니 <strong>기준 자체를 값처럼 넘기는</strong> 것이죠.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">컬렉션에 람다 넘기기</span></div><pre class="runner__code"><code>import java.util.ArrayList;
+import java.util.List;
+
+class Person {
+  private String name;
+  private int age;
+
+  Person(String name, int age) {
+      this.name = name;
+      this.age = age;
+  }
+  public int getAge() { return age; }
+  public String getName() { return name; }
+
+  @Override
+  public String toString() { return name + &quot; (&quot; + age + &quot;세)&quot;; }
+}
+
+public class Main {
+  public static void main(String[] args) {
+      List&lt;Person&gt; list = new ArrayList&lt;&gt;();
+      list.add(new Person(&quot;홍길동&quot;, 55));
+      list.add(new Person(&quot;남길동&quot;, 45));
+      list.add(new Person(&quot;서길동&quot;, 35));
+
+      System.out.println(&quot;[입력한 순서]&quot;);
+      list.forEach(p -&gt; System.out.println(p));
+
+      list.sort((a, b) -&gt; b.getAge() - a.getAge());   // 나이 내림차순
+      System.out.println(&quot;[나이 많은 순]&quot;);
+      list.forEach(p -&gt; System.out.println(p));
+
+      list.sort((a, b) -&gt; a.getName().compareTo(b.getName()));   // 이름 오름차순
+      System.out.println(&quot;[이름 가나다순]&quot;);
+      list.forEach(p -&gt; System.out.println(p));
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>sort</code>에 넘긴 람다를 눈여겨보시기 바랍니다. <code>b.getAge() - a.getAge()</code>는 <strong>뒤 사람이 더 나이가 많으면 양수</strong>가 되고, 자바는 그 부호를 보고 순서를 정합니다. 기준을 바꾸고 싶으면 람다만 갈아 끼우면 됩니다. 클래스를 새로 만들 필요도, 기존 코드를 고칠 필요도 없습니다.</p>
+<p><strong>여기까지가 람다의 본질입니다.</strong> 지금까지 자바에서 넘길 수 있는 것은 값과 객체뿐이었는데, 람다부터는 <strong>&quot;할 일&quot;을 넘길 수 있게 되었습니다.</strong></p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>람다식</td><td>추상 메서드 하나짜리 인터페이스의 구현을 화살표로 줄여 쓴 것</td></tr><tr><td>기본 문법</td><td><code>(매개변수) -&gt; { 할 일 }</code></td></tr><tr><td>타입 생략</td><td>항상 가능 (컴파일러가 추론)</td></tr><tr><td>괄호 생략</td><td>매개변수가 <strong>정확히 1개</strong>일 때만</td></tr><tr><td>중괄호 생략</td><td>할 일이 <strong>식 하나</strong>일 때, <code>return</code>도 함께 생략</td></tr><tr><td>쓸 수 있는 곳</td><td>추상 메서드가 1개인 인터페이스(함수형 인터페이스)</td></tr><tr><td>대표 활용</td><td><code>list.forEach(...)</code>, <code>list.sort(...)</code></td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 람다는 새로운 기능이 아니라 <strong>짧게 쓰는 표기법</strong>입니다. 익명 클래스에서 컴파일러가 이미 아는 정보를 지운 결과이고, 지울 수 있는 이유는 추상 메서드가 하나뿐이기 때문입니다. 그리고 생략에는 짝이 있습니다. <strong>타입을 적으면 괄호도 적고, 중괄호를 열면 <code>return</code>도 씁니다.</strong></p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>문법 자체보다 생략 조건에서 많이 틀립니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA4) 1편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java3-review"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 심화 12문제로 복습 — JAVA3 총정리</h3><p>자바 심화 JAVA3 시즌(예외·제네릭·컬렉션·파일 입출력·스레드·소켓·JDBC·트랜잭션)을 개념 퀴즈와 직접 고쳐 실행하는 실습 문제로 복습합니다. catch 순서, flush, 닫는 순서처럼 자주 막히는 지점을 한 번에 점검합니다.</p><div class="post-card__meta"><time dateTime="2026-08-24T16:40">2026년 8월 24일 16:40</time><span>· <!-- -->자바, JAVA, 심화</span></div></a><a class="post-card " href="/posts/java-transaction"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)</h3><p>계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다.</p><div class="post-card__meta"><time dateTime="2026-08-22T15:25">2026년 8월 22일 15:25</time><span>· <!-- -->자바, JAVA, 트랜잭션</span></div></a><a class="post-card " href="/posts/java-jdbc"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 JDBC — 데이터베이스에 말 거는 법(CONNECTION·PREPAREDSTATEMENT)</h3><p>자바에서 데이터베이스를 다루는 JDBC를 입문자 눈높이로 정리합니다. 연결 4단계, Connection·PreparedStatement·ResultSet 세 객체의 역할, 닫는 순서, 그리고 물음표 하나가 막아 주는 SQL 인젝션까지 짚습니다.</p><div class="post-card__meta"><time dateTime="2026-08-20T16:40">2026년 8월 20일 16:40</time><span>· <!-- -->자바, JAVA, JDBC</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
