@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>AI가 알려준 그 라이브러리, 세상에 없는 이름일 수 있습니다 — PANCO_IT</title>
+    <meta name="description" content="AI에게 코드를 물으면 다섯 번에 한 번꼴로 존재하지 않는 라이브러리 이름을 알려 줍니다. 공격자가 그 빈 이름을 미리 등록해 두는 슬롭스쿼팅이 무엇인지, 왜 오타 노리기보다 위험한지, 설치 전 30초로 막는 법까지 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/slopsquatting-ai-package" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="AI가 알려준 그 라이브러리, 세상에 없는 이름일 수 있습니다 — PANCO_IT" />
+    <meta property="og:description" content="AI에게 코드를 물으면 다섯 번에 한 번꼴로 존재하지 않는 라이브러리 이름을 알려 줍니다. 공격자가 그 빈 이름을 미리 등록해 두는 슬롭스쿼팅이 무엇인지, 왜 오타 노리기보다 위험한지, 설치 전 30초로 막는 법까지 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/slopsquatting-ai-package" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-slop-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-27T17:14" />
+    <meta property="article:modified_time" content="2026-08-27T17:14" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI가 알려준 그 라이브러리, 세상에 없는 이름일 수 있습니다 — PANCO_IT" />
+    <meta name="twitter:description" content="AI에게 코드를 물으면 다섯 번에 한 번꼴로 존재하지 않는 라이브러리 이름을 알려 줍니다. 공격자가 그 빈 이름을 미리 등록해 두는 슬롭스쿼팅이 무엇인지, 왜 오타 노리기보다 위험한지, 설치 전 30초로 막는 법까지 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-slop-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI가 알려준 그 라이브러리, 세상에 없는 이름일 수 있습니다","description":"AI에게 코드를 물으면 다섯 번에 한 번꼴로 존재하지 않는 라이브러리 이름을 알려 줍니다. 공격자가 그 빈 이름을 미리 등록해 두는 슬롭스쿼팅이 무엇인지, 왜 오타 노리기보다 위험한지, 설치 전 30초로 막는 법까지 정리했습니다.","image":"https://pancoit.site/uploads/itnews-slop-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-27T17:14","dateModified":"2026-08-27T17:14","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/slopsquatting-ai-package"},"keywords":"보안, AI, 공급망공격, 슬롭스쿼팅, 오픈소스, 개발"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"AI가 알려준 그 라이브러리, 세상에 없는 이름일 수 있습니다","item":"https://pancoit.site/posts/slopsquatting-ai-package"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DqMbxIRw.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">AI가 알려준 그 라이브러리, 세상에 없는 이름일 수 있습니다</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">AI가 알려준 그 라이브러리, 세상에 없는 이름일 수 있습니다</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-27T17:14">2026년 8월 27일 17:14</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->보안</span><span class="tag">#<!-- -->AI</span><span class="tag">#<!-- -->공급망공격</span><span class="tag">#<!-- -->슬롭스쿼팅</span><span class="tag">#<!-- -->오픈소스</span><span class="tag">#<!-- -->개발</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="코드가 빼곡히 표시된 모니터 화면" src="/uploads/itnews-slop-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels (pexels.com) · Pexels License</em></p>
+<p>퇴근 30분 전, 파일 업로드 기능을 하나 붙여야 합니다. AI에게 물었더니 코드가 술술 나옵니다. 맨 윗줄에 낯선 라이브러리 이름이 하나 보이지만 이름이 그럴듯하니 의심할 이유가 없습니다. 설치 명령을 붙여 넣습니다. <strong>성공.</strong> 오류도 경고도 없습니다.</p>
+<p>여기서 이미 끝났을 수도 있습니다. 그 이름이 <strong>일주일 전까지 세상에 없던 이름</strong>이고, 누군가 그 빈자리를 미리 채워 뒀다면요.</p>
+<h2 id="없는-이름을-자신-있게-알려-줍니다"><a href="#없는-이름을-자신-있게-알려-줍니다">없는 이름을 자신 있게 알려 줍니다</a></h2>
+<p>AI가 사실이 아닌 것을 그럴듯하게 말하는 현상을 환각(hallucination)이라고 부릅니다. 보통은 틀린 날짜나 없는 논문 제목 정도를 떠올리지만, 코드에서도 똑같이 일어납니다. <strong>존재하지 않는 라이브러리 이름을 지어내는 것</strong>이죠.</p>
+<p>문제는 이 환각이 유독 안 들킨다는 점입니다. 틀린 날짜는 검색 한 번이면 드러나지만, 라이브러리 이름은 <strong>개발자가 원래 다 알지 못합니다.</strong> 세상에 수백만 개가 있고 매일 새로 생기니까요. <code>python-imageutils</code> 같은 이름이 나오면 &quot;아, 그런 게 있나 보다&quot; 하고 넘어가는 편이 자연스럽습니다.</p>
+<p>그리고 이름이 진짜와 닮아 있습니다. 연구진이 확인해 보니 환각으로 나온 이름의 <strong>38%가 실제 패키지와 문자열이 어느 정도 비슷</strong>했습니다. 사람 눈으로 걸러 내라는 요구가 애초에 무리인 셈입니다.</p>
+<h2 id="오타를-노리던-수법의-후속편입니다"><a href="#오타를-노리던-수법의-후속편입니다">오타를 노리던 수법의 후속편입니다</a></h2>
+<p>이 위험을 이해하려면 원래 있던 수법을 먼저 봐야 합니다.</p>
+<p>오픈소스 생태계에는 <strong>타이포스쿼팅(typosquatting)</strong> 이라는 오래된 공격이 있습니다. 유명한 라이브러리 이름에서 글자 하나를 바꾼 이름을 미리 등록해 두는 것이죠. <code>requests</code>를 설치하려다 <code>reqeusts</code>라고 잘못 치는 사람을 노립니다. 손가락이 미끄러지길 기다리는 함정입니다.</p>
+<p><strong>슬롭스쿼팅(slopsquatting)</strong> 은 여기서 기다리는 대상만 바꿉니다. 사람의 오타가 아니라 <strong>AI의 환각</strong>을 기다립니다. AI가 지어낼 법한 이름을 미리 등록해 두고, 그 이름을 그대로 설치하는 사람을 기다리는 것이죠.</p>
+<p>이름은 &quot;AI slop(AI가 쏟아내는 저질 결과물)&quot;과 typosquatting을 합친 말입니다. 파이썬 소프트웨어 재단(PSF)의 보안 연구자 <strong>세스 라슨(Seth Larson)이 2025년 4월에 처음 제안</strong>했고, 이후 개발자 커뮤니티에서 굳어졌습니다.</p>
+<p><img alt="슬롭스쿼팅이 성립하는 3단계와 끊는 지점" src="/uploads/itnews-slop-flow.png" loading="lazy"/></p>
+<p><em>AI의 환각, 공격자의 선점, 개발자의 설치가 맞물려야 성립합니다.</em></p>
+<p>둘의 차이가 중요합니다. 오타는 <strong>사람마다 다르게</strong> 납니다. <code>reqeusts</code>로 틀리는 사람도 있고 <code>requsets</code>로 틀리는 사람도 있으니, 공격자 입장에서는 어느 이름을 사둘지 도박입니다. 그런데 AI의 환각은 다릅니다. <strong>여러 사람이 비슷한 질문을 하면 비슷한 가짜 이름이 나옵니다.</strong> 표적이 흩어지지 않고 한곳에 모이는 것이죠.</p>
+<h2 id="다섯-개-중-하나는-없는-이름이었습니다"><a href="#다섯-개-중-하나는-없는-이름이었습니다">다섯 개 중 하나는 없는 이름이었습니다</a></h2>
+<p>감으로 하는 이야기가 아닙니다. 텍사스대 샌안토니오·버지니아공대·오클라호마대 연구진이 이 현상을 대규모로 측정했습니다. 논문 제목은 「We Have a Package for You!」이고, 2024년 6월 사전공개본이 나온 뒤 <strong>2025년 USENIX 보안 심포지엄에 정식 발표</strong>됐습니다.</p>
+<p>규모부터 보겠습니다. <strong>LLM 16종</strong>에게 파이썬과 자바스크립트 코드를 짓게 해 <strong>코드 샘플 57만 6천 건</strong>을 모았고, 거기서 언급된 패키지 이름 <strong>223만 건</strong>을 하나하나 실제로 존재하는지 대조했습니다.</p>
+<p><img alt="환각 비율 19.7%, 고유 가짜 이름 20만 개, 재현율 58%를 정리한 숫자 카드" src="/uploads/itnews-slop-stats.png" loading="lazy"/></p>
+<p><em>세 숫자 중 마지막이 가장 무겁습니다.</em></p>
+<p>결과는 이렇습니다.</p>
+<table><thead><tr><th>항목</th><th>수치</th></tr></thead><tbody><tr><td>존재하지 않은 패키지 이름</td><td>44만 건 (<strong>19.7%</strong>)</td></tr><tr><td>서로 다른 가짜 이름의 종류</td><td><strong>205,474개</strong></td></tr><tr><td>상용 모델 환각률</td><td>최소 <strong>5.2%</strong></td></tr><tr><td>오픈소스 모델 환각률</td><td>최소 <strong>21.7%</strong></td></tr></tbody></table>
+<p>다섯 번에 한 번꼴입니다. 다만 모델에 따라 편차가 큽니다. 성적이 가장 좋았던 GPT-4 터보는 <strong>3.59%</strong> 였고, CodeLlama 계열은 출력의 <strong>3분의 1 이상</strong>에서 없는 이름을 만들어 냈습니다. 무료로 돌리는 작은 모델일수록 위험이 커진다는 뜻이라, 비용을 아끼려는 선택이 보안 비용으로 되돌아올 수 있습니다.</p>
+<h2 id="같은-질문에-같은-헛것을-봅니다"><a href="#같은-질문에-같은-헛것을-봅니다">같은 질문에 같은 헛것을 봅니다</a></h2>
+<p>앞의 숫자들보다 훨씬 중요한 발견이 따로 있습니다. <strong>환각이 매번 랜덤하지 않다</strong>는 것입니다.</p>
+<p>연구진은 가짜 이름이 나왔던 질문 500개를 골라 똑같이 열 번씩 다시 물었습니다. 그랬더니 <strong>43%는 열 번 모두 같은 가짜 이름</strong>을 내놨고, <strong>58%는 열 번 안에 최소 한 번 이상</strong> 같은 이름이 다시 나왔습니다.</p>
+<p>이 한 줄이 왜 결정적일까요. 공격자 입장에서 생각해 보면 분명해집니다. 매번 다른 가짜 이름이 나온다면 20만 개를 다 사둘 수는 없으니 공격이 성립하지 않습니다. 그런데 <strong>자주 반복되는 이름 몇 개만 골라 등록해 두면</strong>, 앞으로 같은 질문을 할 수많은 개발자가 그 이름으로 걸어 들어옵니다. 덫을 놓고 기다리기만 하면 되는 구조가 만들어지는 것이죠.</p>
+<p>정리하면 위험의 정체는 &quot;AI가 가끔 틀린다&quot;가 아닙니다. <strong>AI가 일관되게 같은 방식으로 틀린다</strong>는 쪽입니다.</p>
+<h2 id="다만-아직-실제-피해는-확인되지-않았습니다"><a href="#다만-아직-실제-피해는-확인되지-않았습니다">다만, 아직 실제 피해는 확인되지 않았습니다</a></h2>
+<p>여기서 균형을 잡고 가겠습니다. 이 이야기는 <strong>가능성에 대한 경고</strong>이지 지금 벌어지고 있는 사건 보도가 아닙니다.</p>
+<p><strong>2026년 7월 기준으로 슬롭스쿼팅을 이용한 실제 공격이 확인된 사례는 보고되지 않았습니다.</strong> 자주 인용되는 사례는 보안 연구자 바르 라냐도가 2023년에 진행한 <strong>실증 실험</strong>입니다. AI가 반복해서 추천하던 없는 이름(<code>huggingface-cli</code>)을 직접 비어 있는 상태로 등록해 두었더니, <strong>석 달 만에 3만 회 넘게 다운로드</strong>됐습니다. 악성 코드는 넣지 않았고, &quot;이런 방식이 실제로 통한다&quot;는 것을 보여 준 실험이었습니다.</p>
+<p>저는 이 구분이 중요하다고 봅니다. 실제 피해가 없다고 무시할 일도 아니고, 당장 큰일 난 것처럼 겁먹을 일도 아닙니다. <strong>경로는 열려 있고 비용도 낮은데 아직 아무도 크게 쓰지 않은 상태</strong>, 그게 지금입니다. 그리고 이런 상태는 보통 오래가지 않습니다.</p>
+<p>이 사이트에서 앞서 다룬 <a href="/posts/npm-supply-chain-2026">npm 공급망 공격</a>이 좋은 참고가 됩니다. 그때는 개발자의 계정을 뺏어 진짜 패키지에 악성 코드를 심는 방식이었습니다. 사람을 뚫어야 했으니 품이 들었죠. 슬롭스쿼팅은 그럴 필요조차 없습니다. <strong>아무도 등록하지 않은 이름을 그냥 등록하면 끝</strong>입니다.</p>
+<h2 id="설치-전-30초면-끊깁니다"><a href="#설치-전-30초면-끊깁니다">설치 전 30초면 끊깁니다</a></h2>
+<p>앞의 그림에서 봤듯 이 공격은 세 단계가 모두 맞물려야 성립합니다. 그리고 <strong>3번(개발자가 설치하는 순간)에서 끊는 것이 가장 쉽습니다.</strong></p>
+<p><strong>개발자라면 이렇게 합니다.</strong></p>
+<ol>
+<li>AI가 알려준 라이브러리 이름은 <strong>설치 전에 공식 저장소에서 검색</strong>합니다. 파이썬은 pypi.org, 자바스크립트는 npmjs.com입니다.</li>
+<li>검색 결과가 나왔다면 <strong>최초 배포일, 다운로드 수, 저장소 링크</strong>를 봅니다. 며칠 전에 처음 올라왔고 다운로드가 적고 깃허브 링크가 없다면 일단 멈춥니다.</li>
+<li>이름이 <strong>널리 쓰이는 라이브러리와 미묘하게 다르다면</strong> 특히 의심합니다. 원래 쓰려던 것의 정확한 이름을 공식 문서에서 다시 확인하는 편이 빠릅니다.</li>
+<li>팀 단위라면 <strong>의존성 목록을 사람이 리뷰</strong>하도록 규칙을 둡니다. AI가 짠 코드에서 새 라이브러리가 추가됐다면 그 줄만큼은 눈으로 봅니다.</li>
+<li><code>package-lock.json</code>이나 <code>requirements.txt</code>처럼 <strong>버전을 고정하는 파일을 커밋</strong>해 두면, 나중에 같은 이름이 다른 내용으로 바뀌는 상황을 줄일 수 있습니다.</li>
+</ol>
+<p><strong>개발자가 아니라면</strong> 직접 할 일은 많지 않습니다. 다만 알아 둘 것은 있습니다. 요즘 앱과 서비스는 남이 만든 부품 수백 개를 조립해 만듭니다. 그중 하나가 오염되면 사용자에게까지 내려옵니다. 그래서 <strong>앱과 운영체제 업데이트를 미루지 않는 것</strong>이 여전히 가장 확실한 방어입니다.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>질문</th><th>답</th></tr></thead><tbody><tr><td>슬롭스쿼팅이 뭔가요</td><td>AI가 지어낸 없는 라이브러리 이름을 공격자가 미리 등록해 두는 공격</td></tr><tr><td>왜 생기나요</td><td>AI가 코드를 지을 때 존재하지 않는 패키지를 추천하기 때문</td></tr><tr><td>얼마나 자주요</td><td>추천 패키지의 19.7%가 실재하지 않았습니다 (LLM 16종 측정)</td></tr><tr><td>왜 위험한가요</td><td>같은 질문에 같은 가짜 이름이 반복돼, 공격자가 표적을 예측할 수 있습니다</td></tr><tr><td>실제 피해가 있었나요</td><td>2026년 7월 기준 확인된 공격 사례는 없습니다. 실증 실험만 있었습니다</td></tr><tr><td>어떻게 막나요</td><td>설치 전에 공식 저장소에서 이름·배포일·다운로드 수를 확인합니다</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong></p>
+<p>첫째, AI가 알려준 라이브러리 이름은 <strong>코드가 아니라 추천</strong>입니다. 실행 전에 실재하는지 확인해야 합니다.</p>
+<p>둘째, 위험한 것은 AI가 틀린다는 사실이 아니라 <strong>같은 방식으로 반복해서 틀린다</strong>는 점입니다.</p>
+<p>셋째, 막는 비용이 아주 쌉니다. <strong>공식 저장소에서 이름 한 번 검색하는 30초</strong>면 이 공격은 성립하지 않습니다.</p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>Joseph Spracklen 외, <a href="https://arxiv.org/abs/2406.10279" target="_blank" rel="noopener noreferrer">We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs</a>, arXiv:2406.10279 (v1 2024-06-12, v3 2025-03-02 · USENIX Security 2025 발표) — 19.7%·205,474개·재현율 통계의 원자료</li>
+<li>SecurityWeek, <a href="https://www.securityweek.com/ai-hallucinations-create-a-new-software-supply-chain-threat/" target="_blank" rel="noopener noreferrer">AI Hallucinations Create a New Software Supply Chain Threat</a> (2025-04-14)</li>
+<li>ITWorld Korea, <a href="https://www.itworld.co.kr/article/3962145/ai-%ED%99%98%EA%B0%81%EC%9D%98-%EA%B0%80%EC%A7%9C-%EC%B6%94%EC%B2%9C-%EB%B3%B4%EC%95%88-%EC%9C%84%ED%98%91%EC%9C%BC%EB%A1%9C-%EB%8C%80%EB%91%90.html" target="_blank" rel="noopener noreferrer">&#x27;AI 환각의 가짜 추천&#x27; 보안 위협으로 대두</a> (2025-04-15)</li>
+<li>Wikipedia, <a href="https://en.wikipedia.org/wiki/Slopsquatting" target="_blank" rel="noopener noreferrer">Slopsquatting</a> — 용어 제안 시점, 2026년 7월 기준 실제 공격 사례 여부</li>
+</ul>
+<p><em>본문의 수치는 위 연구 시점 기준이며, 모델이 갱신되면 환각률은 달라질 수 있습니다. 특정 도구나 모델을 비방할 의도는 없습니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/npm-supply-chain-2026"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">내가 짜지도 않은 코드가 내 컴퓨터를 텁니다 — 2026년, 여섯 번 뚫린 공급망</h3><p>2026년 3월 axios부터 8월 keyv까지, 널리 쓰이는 오픈소스 꾸러미가 여섯 차례 손을 탔습니다. 공급망 공격이 무엇인지, 왜 코드가 아니라 사람이 뚫렸는지, 그리고 지금 무엇을 확인해야 하는지 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-12T15:55">2026년 8월 12일 15:55</time><span>· <!-- -->보안, 오픈소스, 공급망공격</span></div></a><a class="post-card " href="/posts/deepfake-scam"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">딥페이크 — AI가 만든 가짜 얼굴·목소리, 어떻게 속지 않을까</h3><p>AI가 진짜 같은 가짜 영상·목소리를 만드는 딥페이크. 무엇인지, 왜 위험한지, 그리고 사기에 속지 않는 확인법까지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-07-27T14:00">2026년 7월 27일 14:00</time><span>· <!-- -->AI, 딥페이크, 보안</span></div></a><a class="post-card " href="/posts/ai-browser-risk"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">AI가 대신 장을 봐 주는 브라우저 — 그 페이지에 적힌 글까지 함께 읽습니다</h3><p>시키면 알아서 검색하고 담아 주는 AI 브라우저가 늘고 있습니다. 편한 만큼 새로 생긴 위험이 무엇인지, 왜 간단히 막기 어려운지, 그리고 지금 쓴다면 어디까지 맡기면 되는지 장면을 따라가며 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-20T22:30">2026년 8월 20일 22:30</time><span>· <!-- -->AI브라우저, AI에이전트, 프롬프트인젝션</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

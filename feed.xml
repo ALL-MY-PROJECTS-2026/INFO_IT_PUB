@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>AI가 알려준 그 라이브러리, 세상에 없는 이름일 수 있습니다</title>
+      <link>https://pancoit.site/posts/slopsquatting-ai-package</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/slopsquatting-ai-package</guid>
+      <pubDate>Thu, 27 Aug 2026 08:14:00 GMT</pubDate>
+      <description>AI에게 코드를 물으면 다섯 번에 한 번꼴로 존재하지 않는 라이브러리 이름을 알려 줍니다. 공격자가 그 빈 이름을 미리 등록해 두는 슬롭스쿼팅이 무엇인지, 왜 오타 노리기보다 위험한지, 설치 전 30초로 막는 법까지 정리했습니다.</description>
+    </item>
+    <item>
       <title>자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP)</title>
       <link>https://pancoit.site/posts/java-stream-basic</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-stream-basic</guid>
