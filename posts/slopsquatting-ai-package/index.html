@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-DqMbxIRw.js"></script>
+    <script type="module" crossorigin src="/assets/index-AvI3fD0P.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
   </head>
@@ -78,8 +78,8 @@
 <p>오픈소스 생태계에는 <strong>타이포스쿼팅(typosquatting)</strong> 이라는 오래된 공격이 있습니다. 유명한 라이브러리 이름에서 글자 하나를 바꾼 이름을 미리 등록해 두는 것이죠. <code>requests</code>를 설치하려다 <code>reqeusts</code>라고 잘못 치는 사람을 노립니다. 손가락이 미끄러지길 기다리는 함정입니다.</p>
 <p><strong>슬롭스쿼팅(slopsquatting)</strong> 은 여기서 기다리는 대상만 바꿉니다. 사람의 오타가 아니라 <strong>AI의 환각</strong>을 기다립니다. AI가 지어낼 법한 이름을 미리 등록해 두고, 그 이름을 그대로 설치하는 사람을 기다리는 것이죠.</p>
 <p>이름은 &quot;AI slop(AI가 쏟아내는 저질 결과물)&quot;과 typosquatting을 합친 말입니다. 파이썬 소프트웨어 재단(PSF)의 보안 연구자 <strong>세스 라슨(Seth Larson)이 2025년 4월에 처음 제안</strong>했고, 이후 개발자 커뮤니티에서 굳어졌습니다.</p>
-<p><img alt="슬롭스쿼팅이 성립하는 3단계와 끊는 지점" src="/uploads/itnews-slop-flow.png" loading="lazy"/></p>
-<p><em>AI의 환각, 공격자의 선점, 개발자의 설치가 맞물려야 성립합니다.</em></p>
+<p><img alt="AI가 알려준 없는 패키지 이름이 공개 저장소에서 빈 자리로 남아 있고, 공격자가 그 이름을 먼저 등록해 설치가 가능해지는 과정" src="/uploads/itnews-slop-flow-v2.png" loading="lazy"/></p>
+<p><em>같은 이름 하나가 세 곳을 지나며 덫이 됩니다. 비어 있던 자리를 공격자가 채우는 순간 설치는 성공합니다.</em></p>
 <p>둘의 차이가 중요합니다. 오타는 <strong>사람마다 다르게</strong> 납니다. <code>reqeusts</code>로 틀리는 사람도 있고 <code>requsets</code>로 틀리는 사람도 있으니, 공격자 입장에서는 어느 이름을 사둘지 도박입니다. 그런데 AI의 환각은 다릅니다. <strong>여러 사람이 비슷한 질문을 하면 비슷한 가짜 이름이 나옵니다.</strong> 표적이 흩어지지 않고 한곳에 모이는 것이죠.</p>
 <h2 id="다섯-개-중-하나는-없는-이름이었습니다"><a href="#다섯-개-중-하나는-없는-이름이었습니다">다섯 개 중 하나는 없는 이름이었습니다</a></h2>
 <p>감으로 하는 이야기가 아닙니다. 텍사스대 샌안토니오·버지니아공대·오클라호마대 연구진이 이 현상을 대규모로 측정했습니다. 논문 제목은 「We Have a Package for You!」이고, 2024년 6월 사전공개본이 나온 뒤 <strong>2025년 USENIX 보안 심포지엄에 정식 발표</strong>됐습니다.</p>
@@ -100,7 +100,7 @@
 <p>저는 이 구분이 중요하다고 봅니다. 실제 피해가 없다고 무시할 일도 아니고, 당장 큰일 난 것처럼 겁먹을 일도 아닙니다. <strong>경로는 열려 있고 비용도 낮은데 아직 아무도 크게 쓰지 않은 상태</strong>, 그게 지금입니다. 그리고 이런 상태는 보통 오래가지 않습니다.</p>
 <p>이 사이트에서 앞서 다룬 <a href="/posts/npm-supply-chain-2026">npm 공급망 공격</a>이 좋은 참고가 됩니다. 그때는 개발자의 계정을 뺏어 진짜 패키지에 악성 코드를 심는 방식이었습니다. 사람을 뚫어야 했으니 품이 들었죠. 슬롭스쿼팅은 그럴 필요조차 없습니다. <strong>아무도 등록하지 않은 이름을 그냥 등록하면 끝</strong>입니다.</p>
 <h2 id="설치-전-30초면-끊깁니다"><a href="#설치-전-30초면-끊깁니다">설치 전 30초면 끊깁니다</a></h2>
-<p>앞의 그림에서 봤듯 이 공격은 세 단계가 모두 맞물려야 성립합니다. 그리고 <strong>3번(개발자가 설치하는 순간)에서 끊는 것이 가장 쉽습니다.</strong></p>
+<p>앞의 그림에서 봤듯 이 공격은 AI의 환각, 공격자의 선점, 개발자의 설치가 <strong>모두 맞물려야</strong> 성립합니다. 앞의 둘은 우리가 어쩌지 못하지만 마지막 하나는 우리 손에 있습니다. <strong>설치하는 순간에서 끊는 것이 가장 쉽고 확실합니다.</strong></p>
 <p><strong>개발자라면 이렇게 합니다.</strong></p>
 <ol>
 <li>AI가 알려준 라이브러리 이름은 <strong>설치 전에 공식 저장소에서 검색</strong>합니다. 파이썬은 pypi.org, 자바스크립트는 npmjs.com입니다.</li>

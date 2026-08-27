@@ -3833,8 +3833,8 @@ AI 전용 칩(NPU)은 같은 계산을 일반 칩보다 `,s.jsx(e.strong,{childr
 `,s.jsxs(e.p,{children:["오픈소스 생태계에는 ",s.jsx(e.strong,{children:"타이포스쿼팅(typosquatting)"})," 이라는 오래된 공격이 있습니다. 유명한 라이브러리 이름에서 글자 하나를 바꾼 이름을 미리 등록해 두는 것이죠. ",s.jsx(e.code,{children:"requests"}),"를 설치하려다 ",s.jsx(e.code,{children:"reqeusts"}),"라고 잘못 치는 사람을 노립니다. 손가락이 미끄러지길 기다리는 함정입니다."]}),`
 `,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"슬롭스쿼팅(slopsquatting)"})," 은 여기서 기다리는 대상만 바꿉니다. 사람의 오타가 아니라 ",s.jsx(e.strong,{children:"AI의 환각"}),"을 기다립니다. AI가 지어낼 법한 이름을 미리 등록해 두고, 그 이름을 그대로 설치하는 사람을 기다리는 것이죠."]}),`
 `,s.jsxs(e.p,{children:['이름은 "AI slop(AI가 쏟아내는 저질 결과물)"과 typosquatting을 합친 말입니다. 파이썬 소프트웨어 재단(PSF)의 보안 연구자 ',s.jsx(e.strong,{children:"세스 라슨(Seth Larson)이 2025년 4월에 처음 제안"}),"했고, 이후 개발자 커뮤니티에서 굳어졌습니다."]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-slop-flow.png",alt:"슬롭스쿼팅이 성립하는 3단계와 끊는 지점"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"AI의 환각, 공격자의 선점, 개발자의 설치가 맞물려야 성립합니다."})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-slop-flow-v2.png",alt:"AI가 알려준 없는 패키지 이름이 공개 저장소에서 빈 자리로 남아 있고, 공격자가 그 이름을 먼저 등록해 설치가 가능해지는 과정"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"같은 이름 하나가 세 곳을 지나며 덫이 됩니다. 비어 있던 자리를 공격자가 채우는 순간 설치는 성공합니다."})}),`
 `,s.jsxs(e.p,{children:["둘의 차이가 중요합니다. 오타는 ",s.jsx(e.strong,{children:"사람마다 다르게"})," 납니다. ",s.jsx(e.code,{children:"reqeusts"}),"로 틀리는 사람도 있고 ",s.jsx(e.code,{children:"requsets"}),"로 틀리는 사람도 있으니, 공격자 입장에서는 어느 이름을 사둘지 도박입니다. 그런데 AI의 환각은 다릅니다. ",s.jsx(e.strong,{children:"여러 사람이 비슷한 질문을 하면 비슷한 가짜 이름이 나옵니다."})," 표적이 흩어지지 않고 한곳에 모이는 것이죠."]}),`
 `,s.jsx(e.h2,{id:"다섯-개-중-하나는-없는-이름이었습니다",children:s.jsx(e.a,{href:"#다섯-개-중-하나는-없는-이름이었습니다",children:"다섯 개 중 하나는 없는 이름이었습니다"})}),`
 `,s.jsxs(e.p,{children:["감으로 하는 이야기가 아닙니다. 텍사스대 샌안토니오·버지니아공대·오클라호마대 연구진이 이 현상을 대규모로 측정했습니다. 논문 제목은 「We Have a Package for You!」이고, 2024년 6월 사전공개본이 나온 뒤 ",s.jsx(e.strong,{children:"2025년 USENIX 보안 심포지엄에 정식 발표"}),"됐습니다."]}),`
@@ -3855,7 +3855,7 @@ AI 전용 칩(NPU)은 같은 계산을 일반 칩보다 `,s.jsx(e.strong,{childr
 `,s.jsxs(e.p,{children:["저는 이 구분이 중요하다고 봅니다. 실제 피해가 없다고 무시할 일도 아니고, 당장 큰일 난 것처럼 겁먹을 일도 아닙니다. ",s.jsx(e.strong,{children:"경로는 열려 있고 비용도 낮은데 아직 아무도 크게 쓰지 않은 상태"}),", 그게 지금입니다. 그리고 이런 상태는 보통 오래가지 않습니다."]}),`
 `,s.jsxs(e.p,{children:["이 사이트에서 앞서 다룬 ",s.jsx(e.a,{href:"/posts/npm-supply-chain-2026",children:"npm 공급망 공격"}),"이 좋은 참고가 됩니다. 그때는 개발자의 계정을 뺏어 진짜 패키지에 악성 코드를 심는 방식이었습니다. 사람을 뚫어야 했으니 품이 들었죠. 슬롭스쿼팅은 그럴 필요조차 없습니다. ",s.jsx(e.strong,{children:"아무도 등록하지 않은 이름을 그냥 등록하면 끝"}),"입니다."]}),`
 `,s.jsx(e.h2,{id:"설치-전-30초면-끊깁니다",children:s.jsx(e.a,{href:"#설치-전-30초면-끊깁니다",children:"설치 전 30초면 끊깁니다"})}),`
-`,s.jsxs(e.p,{children:["앞의 그림에서 봤듯 이 공격은 세 단계가 모두 맞물려야 성립합니다. 그리고 ",s.jsx(e.strong,{children:"3번(개발자가 설치하는 순간)에서 끊는 것이 가장 쉽습니다."})]}),`
+`,s.jsxs(e.p,{children:["앞의 그림에서 봤듯 이 공격은 AI의 환각, 공격자의 선점, 개발자의 설치가 ",s.jsx(e.strong,{children:"모두 맞물려야"})," 성립합니다. 앞의 둘은 우리가 어쩌지 못하지만 마지막 하나는 우리 손에 있습니다. ",s.jsx(e.strong,{children:"설치하는 순간에서 끊는 것이 가장 쉽고 확실합니다."})]}),`
 `,s.jsx(e.p,{children:s.jsx(e.strong,{children:"개발자라면 이렇게 합니다."})}),`
 `,s.jsxs(e.ol,{children:[`
 `,s.jsxs(e.li,{children:["AI가 알려준 라이브러리 이름은 ",s.jsx(e.strong,{children:"설치 전에 공식 저장소에서 검색"}),"합니다. 파이썬은 pypi.org, 자바스크립트는 npmjs.com입니다."]}),`
