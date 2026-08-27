@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE) — PANCO_IT</title>
+    <meta name="description" content="람다를 쓰려면 먼저 그 람다가 들어갈 자리가 있어야 합니다. 추상 메서드 하나짜리 인터페이스를 직접 만들고 @FunctionalInterface로 실수를 막는 법, 그리고 자바가 미리 준비해 둔 Supplier·Consumer·Function·Predicate까지 브라우저에서 실행하며 정리합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-functional-interface" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE) — PANCO_IT" />
+    <meta property="og:description" content="람다를 쓰려면 먼저 그 람다가 들어갈 자리가 있어야 합니다. 추상 메서드 하나짜리 인터페이스를 직접 만들고 @FunctionalInterface로 실수를 막는 법, 그리고 자바가 미리 준비해 둔 Supplier·Consumer·Function·Predicate까지 브라우저에서 실행하며 정리합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-functional-interface" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-functional-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-26T21:10" />
+    <meta property="article:modified_time" content="2026-08-26T21:10" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE) — PANCO_IT" />
+    <meta name="twitter:description" content="람다를 쓰려면 먼저 그 람다가 들어갈 자리가 있어야 합니다. 추상 메서드 하나짜리 인터페이스를 직접 만들고 @FunctionalInterface로 실수를 막는 법, 그리고 자바가 미리 준비해 둔 Supplier·Consumer·Function·Predicate까지 브라우저에서 실행하며 정리합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-functional-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE)","description":"람다를 쓰려면 먼저 그 람다가 들어갈 자리가 있어야 합니다. 추상 메서드 하나짜리 인터페이스를 직접 만들고 @FunctionalInterface로 실수를 막는 법, 그리고 자바가 미리 준비해 둔 Supplier·Consumer·Function·Predicate까지 브라우저에서 실행하며 정리합니다.","image":"https://pancoit.site/uploads/java-functional-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-26T21:10","dateModified":"2026-08-26T21:10","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-functional-interface"},"keywords":"자바, JAVA, 함수형인터페이스, 람다, Predicate"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE)","item":"https://pancoit.site/posts/java-functional-interface"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-VssHLXXr.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-26T21:10">2026년 8월 26일 21:10</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->함수형인터페이스</span><span class="tag">#<!-- -->람다</span><span class="tag">#<!-- -->Predicate</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="함수형 인터페이스는 자리, 람다식은 그 자리에 끼우는 값이라는 관계를 비교한 그림" src="/uploads/java-functional-hero.png" loading="lazy"/></p>
+<p><em>람다는 혼자 떠다닐 수 없습니다. 들어갈 자리가 먼저 있어야 합니다.</em></p>
+<p>1편에서 다섯 줄짜리 익명 클래스가 한 줄 람다로 줄어드는 것을 봤습니다. 그리고 마지막에 조건 하나가 붙었죠. <strong>추상 메서드가 딱 하나인 인터페이스</strong>여야 한다는 것.</p>
+<p>오늘은 그 인터페이스를 직접 만들어 봅니다. 그리고 만들다 보면 곧 알게 됩니다. <strong>대부분은 만들 필요조차 없다</strong>는 것을요.</p>
+<h2 id="람다에는-타입이-없습니다"><a href="#람다에는-타입이-없습니다">람다에는 타입이 없습니다</a></h2>
+<p>먼저 짚고 갈 것이 있습니다. 이 코드는 컴파일되지 않습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">var</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> f </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b;   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 오류</span></span></code></pre>
+<p>이상하죠. 람다식만 보면 무슨 일을 하는지 뻔한데 왜 안 될까요.</p>
+<p>자바는 <strong>모든 값에 타입이 있어야</strong> 하는 언어입니다. <code>10</code>은 <code>int</code>, <code>&quot;안녕&quot;</code>은 <code>String</code>입니다. 그런데 <code>(a, b) -&gt; a + b</code>는 그 자체로는 타입이 없습니다. <code>a</code>가 정수인지 실수인지, 결과를 무엇으로 돌려주는지 적혀 있지 않으니까요.</p>
+<p>그래서 자바는 <strong>람다가 들어갈 자리를 보고</strong> 타입을 알아냅니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Calculator add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b;</span></span></code></pre>
+<p>왼쪽에 <code>Calculator</code>가 있으니 &quot;아, <code>calculate(int, int)</code>를 구현하는 거구나&quot; 하고 판단합니다. 이 자리 역할을 하는 것이 <strong>함수형 인터페이스</strong>입니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 람다는 열쇠고, 함수형 인터페이스는 자물쇠입니다. 열쇠만 들고 있으면 아무 일도 못 합니다. 어느 자물쇠에 꽂을지가 정해져야 비로소 의미가 생깁니다.</p>
+</blockquote>
+<h2 id="직접-만들어-보기"><a href="#직접-만들어-보기">직접 만들어 보기</a></h2>
+<p>조건은 하나뿐입니다. <strong>추상 메서드가 정확히 하나.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">interface</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Greeter</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    String </span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);      </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 추상 메서드 1개</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>이제 이 자리에 람다를 끼울 수 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Greeter formal </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;님, 안녕하십니까&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Greeter casual </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;아, 안녕!&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(formal.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;우균&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 우균님, 안녕하십니까</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(casual.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;우균&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 우균아, 안녕!</span></span></code></pre>
+<p>같은 자리에 다른 동작을 끼워 넣었습니다. <strong>인사하는 방식 자체를 값처럼 주고받은</strong> 셈입니다. 1편에서 말한 &quot;메서드를 값처럼 넘긴다&quot;가 이런 모습입니다.</p>
+<h2 id="functionalinterface--실수를-미리-막습니다"><a href="#functionalinterface--실수를-미리-막습니다">@FunctionalInterface — 실수를 미리 막습니다</a></h2>
+<p>여기서 사고가 하나 납니다. 몇 달 뒤 누군가 이 인터페이스에 메서드를 하나 더 붙였다고 해봅시다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">interface</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Greeter</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    String </span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> reset</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();                   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 누가 추가함</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>이 순간 <code>Greeter</code>는 함수형 인터페이스가 아니게 되고, <strong>이 인터페이스를 쓰던 모든 람다가 한꺼번에 깨집니다.</strong> 정작 오류는 인터페이스가 아니라 람다를 쓴 파일들에서 납니다. 원인을 찾기 성가신 유형이죠.</p>
+<p>이걸 막는 표시가 <code>@FunctionalInterface</code>입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">@</span><span style="color:#D73A49;--shiki-dark:#F97583">FunctionalInterface</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">interface</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Greeter</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    String </span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>이렇게 붙여 두면 <strong>추상 메서드를 두 개 이상 만드는 순간 인터페이스 쪽에서 바로 오류</strong>가 납니다. 사고가 퍼지기 전에 진원지에서 잡히는 겁니다.</p>
+<p>붙이지 않아도 람다는 동작합니다. 하지만 &quot;이건 람다용 자리&quot;라는 의도를 코드에 남기는 것이라 붙이는 편이 좋습니다. JAVA2에서 배운 <code>@Override</code>와 성격이 같습니다. 없어도 되지만 있으면 실수를 잡아 주죠.</p>
+<h2 id="하나만-세면-됩니다--추상-메서드"><a href="#하나만-세면-됩니다--추상-메서드">하나만 세면 됩니다 — 추상 메서드</a></h2>
+<p>주의할 점이 있습니다. &quot;메서드가 하나&quot;가 아니라 <strong>&quot;추상 메서드가 하나&quot;</strong> 입니다. 아래는 메서드가 셋이지만 여전히 함수형 인터페이스입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">@</span><span style="color:#D73A49;--shiki-dark:#F97583">FunctionalInterface</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">interface</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Greeter</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    String </span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);                      </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 추상 1개 — 이것만 셈</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    default</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> String </span><span style="color:#6F42C1;--shiki-dark:#B392F0">greetAll</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, String </span><span style="color:#E36209;--shiki-dark:#FFAB70">b</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// default는 몸통이 있음</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a) </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot; / &quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(b);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    static</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Greeter </span><span style="color:#6F42C1;--shiki-dark:#B392F0">simple</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {                       </span><span style="color:#6A737D;--shiki-dark:#6A737D">// static도 제외</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;안녕, &quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p><code>default</code>와 <code>static</code> 메서드는 <strong>이미 몸통이 있어서</strong> 람다가 구현할 대상이 아닙니다. 그래서 세지 않습니다. 자바가 기존 인터페이스에 기능을 덧붙이면서도 람다를 유지할 수 있었던 것이 이 규칙 덕분입니다.</p>
+<h2 id="그런데-대부분은-만들-필요가-없습니다"><a href="#그런데-대부분은-만들-필요가-없습니다">그런데 대부분은 만들 필요가 없습니다</a></h2>
+<p>여기까지 만들어 놓고 보면 허무한 사실을 만납니다. <code>Greeter</code> 같은 것을 매번 만들 필요가 없다는 것. 자바가 자주 쓰는 모양을 미리 준비해 뒀거든요.</p>
+<p><img alt="Supplier, Consumer, Function, Predicate 네 가지를 주고받는 방향으로 구분한 그림" src="/uploads/java-functional-std.png" loading="lazy"/></p>
+<p><em>그림 1. 무엇을 받고 무엇을 주는지, 그 방향만 보면 구분됩니다.</em></p>
+<table><thead><tr><th>이름</th><th>받는 것</th><th>주는 것</th><th>메서드</th></tr></thead><tbody><tr><td><code>Supplier</code></td><td>없음</td><td>값</td><td><code>get()</code></td></tr><tr><td><code>Consumer</code></td><td>값</td><td>없음</td><td><code>accept()</code></td></tr><tr><td><code>Function</code></td><td>값</td><td>바꾼 값</td><td><code>apply()</code></td></tr><tr><td><code>Predicate</code></td><td>값</td><td><code>true</code>/<code>false</code></td><td><code>test()</code></td></tr></tbody></table>
+<p>코드로 보면 이렇습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.util.function.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Supplier&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; now </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> () </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;지금은 밤입니다&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Consumer&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; print </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Function&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; twice </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Predicate&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; isEven </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">print.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">accept</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(now.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">get</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());              </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 지금은 밤입니다</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(twice.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">apply</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">7</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 14</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(isEven.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">test</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">7</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// false</span></span></code></pre>
+<p>이름이 어려워 보여도 뜻은 그대로입니다. <strong>Supplier는 공급자</strong>라 달라는 대로 주고, <strong>Consumer는 소비자</strong>라 받아서 쓰고 끝냅니다. <strong>Function은 변환기</strong>, <strong>Predicate는 판단기</strong>입니다.</p>
+<p>값이 두 개 필요하면 <code>BiFunction</code>처럼 앞에 <code>Bi</code>가 붙은 형제들이 있고, 받은 것과 같은 타입으로 돌려줄 때 쓰는 <code>UnaryOperator</code>도 있습니다. 이름의 규칙만 알아 두면 나머지는 필요할 때 찾아 쓰면 됩니다.</p>
+<h2 id="predicate가-특히-자주-보입니다"><a href="#predicate가-특히-자주-보입니다">Predicate가 특히 자주 보입니다</a></h2>
+<p>넷 중에서도 실제로 가장 자주 마주치는 것은 <code>Predicate</code>입니다. <strong>거르는 일</strong>이 프로그래밍에서 워낙 흔하기 때문입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; nums </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ArrayList&lt;&gt;(List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">6</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">nums.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">removeIf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> !=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);       </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 홀수를 제거</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(nums);             </span><span style="color:#6A737D;--shiki-dark:#6A737D">// [2, 4, 6]</span></span></code></pre>
+<p><code>removeIf</code>가 받는 것이 바로 <code>Predicate</code>입니다. 조건을 <strong>값으로 넘겨</strong> 컬렉션이 알아서 걸러 내게 하는 것이죠. 다음 편에서 다룰 스트림도 이 방식을 그대로 씁니다.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>네 가지를 한 번에 확인해 봅니다. 각 줄이 무엇을 받고 무엇을 주는지 보면서 돌려 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">함수형 인터페이스 네 가지</span></div><pre class="runner__code"><code>import java.util.function.*;
+import java.util.*;
+
+public class Main {
+  @FunctionalInterface
+  interface Greeter {
+      String greet(String name);
+  }
+
+  public static void main(String[] args) {
+      // 직접 만든 자리
+      Greeter formal = name -&gt; name + &quot;님, 안녕하십니까&quot;;
+      Greeter casual = name -&gt; name + &quot;아, 안녕!&quot;;
+      System.out.println(formal.greet(&quot;우균&quot;));
+      System.out.println(casual.greet(&quot;우균&quot;));
+      System.out.println();
+
+      // 자바가 준비해 둔 넷
+      Supplier&lt;String&gt; supplier = () -&gt; &quot;공급자가 만든 값&quot;;
+      Consumer&lt;String&gt; consumer = s -&gt; System.out.println(&quot;소비자가 받음: &quot; + s);
+      Function&lt;Integer, Integer&gt; function = n -&gt; n * 2;
+      Predicate&lt;Integer&gt; predicate = n -&gt; n % 2 == 0;
+
+      consumer.accept(supplier.get());
+      System.out.println(&quot;변환기 7 -&gt; &quot; + function.apply(7));
+      System.out.println(&quot;판단기 7은 짝수? &quot; + predicate.test(7));
+      System.out.println();
+
+      // Predicate를 조건으로 넘기기
+      List&lt;Integer&gt; nums = new ArrayList&lt;&gt;(List.of(1, 2, 3, 4, 5, 6));
+      nums.removeIf(n -&gt; n % 2 != 0);
+      System.out.println(&quot;홀수 제거: &quot; + nums);
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>Greeter</code>를 하나 더 만들어 다른 인사말을 넣어 보거나, <code>predicate</code>의 조건을 <code>n &gt; 3</code>으로 바꿔 보면 감이 더 옵니다.</p>
+<h2 id="단골-함정"><a href="#단골-함정">단골 함정</a></h2>
+<p><strong>첫째, 추상 메서드를 두 개 만드는 것.</strong> 가장 흔합니다. <code>@FunctionalInterface</code>를 붙여 두면 인터페이스 파일에서 바로 걸립니다.</p>
+<p><strong>둘째, 제네릭 타입을 빠뜨리는 것.</strong> <code>Function twice = n -&gt; n * 2;</code> 처럼 쓰면 타입 정보가 없어 컴파일 오류나 형변환 문제가 생깁니다. JAVA3 3편에서 본 제네릭 그대로, <code>Function&lt;Integer, Integer&gt;</code>처럼 <strong>받을 타입과 줄 타입을 적어야</strong> 합니다.</p>
+<p><strong>셋째, Consumer에 값을 돌려주게 하는 것.</strong> <code>Consumer</code>는 반환형이 <code>void</code>입니다. <code>s -&gt; s.length()</code>처럼 값을 돌려주는 람다는 여기 들어갈 수 없습니다. 돌려주고 싶다면 <code>Function</code>을 써야 합니다.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>함수형 인터페이스</td><td>추상 메서드가 <strong>정확히 하나</strong>인 인터페이스</td></tr><tr><td>왜 필요한가</td><td>람다에는 타입이 없어 들어갈 자리가 필요함</td></tr><tr><td><code>@FunctionalInterface</code></td><td>추상 메서드가 늘면 인터페이스에서 바로 오류</td></tr><tr><td><code>default</code>·<code>static</code></td><td>몸통이 있어 개수에서 제외</td></tr><tr><td>Supplier / Consumer</td><td>주기만 / 받기만</td></tr><tr><td>Function / Predicate</td><td>바꿔서 주기 / 참·거짓 판단</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 함수형 인터페이스는 <strong>람다가 들어갈 자리</strong>입니다. 조건은 추상 메서드 하나뿐이고, <code>@FunctionalInterface</code>를 붙이면 나중에 누가 실수로 늘리는 것을 막아 줍니다. 그리고 자주 쓰는 자리는 이미 <code>java.util.function</code>에 만들어져 있으니, <strong>먼저 찾아보고 없을 때 만드는</strong> 순서가 좋습니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA4) 2편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 스트림 — 컬렉션을 흐름으로 다루기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-lambda"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA)</h3><p>자바 람다식을 입문자 눈높이로 정리합니다. 익명 클래스가 왜 장황했는지, 화살표로 어디까지 줄일 수 있는지, 중괄호를 쓰면 왜 return을 빠뜨리는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-26T10:32">2026년 8월 26일 10:32</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-stream-basic"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP)</h3><p>자바 스트림을 입문자 눈높이로 정리합니다. for문과 무엇이 다른지, filter와 map이 앞 편의 Predicate·Function과 어떻게 이어지는지, 최종 연산을 빠뜨리면 왜 아무 일도 일어나지 않는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-27T16:04">2026년 8월 27일 16:04</time><span>· <!-- -->자바, JAVA, 스트림</span></div></a><a class="post-card " href="/posts/java3-review"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 심화 12문제로 복습 — JAVA3 총정리</h3><p>자바 심화 JAVA3 시즌(예외·제네릭·컬렉션·파일 입출력·스레드·소켓·JDBC·트랜잭션)을 개념 퀴즈와 직접 고쳐 실행하는 실습 문제로 복습합니다. catch 순서, flush, 닫는 순서처럼 자주 막히는 지점을 한 번에 점검합니다.</p><div class="post-card__meta"><time dateTime="2026-08-24T16:40">2026년 8월 24일 16:40</time><span>· <!-- -->자바, JAVA, 심화</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP) — PANCO_IT</title>
+    <meta name="description" content="자바 스트림을 입문자 눈높이로 정리합니다. for문과 무엇이 다른지, filter와 map이 앞 편의 Predicate·Function과 어떻게 이어지는지, 최종 연산을 빠뜨리면 왜 아무 일도 일어나지 않는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-stream-basic" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP) — PANCO_IT" />
+    <meta property="og:description" content="자바 스트림을 입문자 눈높이로 정리합니다. for문과 무엇이 다른지, filter와 map이 앞 편의 Predicate·Function과 어떻게 이어지는지, 최종 연산을 빠뜨리면 왜 아무 일도 일어나지 않는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-stream-basic" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-stream-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-27T16:04" />
+    <meta property="article:modified_time" content="2026-08-27T16:04" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP) — PANCO_IT" />
+    <meta name="twitter:description" content="자바 스트림을 입문자 눈높이로 정리합니다. for문과 무엇이 다른지, filter와 map이 앞 편의 Predicate·Function과 어떻게 이어지는지, 최종 연산을 빠뜨리면 왜 아무 일도 일어나지 않는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-stream-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP)","description":"자바 스트림을 입문자 눈높이로 정리합니다. for문과 무엇이 다른지, filter와 map이 앞 편의 Predicate·Function과 어떻게 이어지는지, 최종 연산을 빠뜨리면 왜 아무 일도 일어나지 않는지까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-stream-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-27T16:04","dateModified":"2026-08-27T16:04","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-stream-basic"},"keywords":"자바, JAVA, 스트림, stream, filter, map"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP)","item":"https://pancoit.site/posts/java-stream-basic"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-VssHLXXr.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-27T16:04">2026년 8월 27일 16:04</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->스트림</span><span class="tag">#<!-- -->stream</span><span class="tag">#<!-- -->filter</span><span class="tag">#<!-- -->map</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="for문으로 거르는 코드와 스트림으로 거르는 코드를 나란히 비교한 그림" src="/uploads/java-stream-hero.png" loading="lazy"/></p>
+<p><em>결과는 같습니다. 달라지는 것은 코드를 읽는 순서입니다.</em></p>
+<p>2편에서 <code>Predicate</code>와 <code>Function</code>을 만들었지만, 솔직히 그 자체로는 쓸 일이 잘 떠오르지 않았을 겁니다. 조건 하나를 변수에 담아 두는 게 뭐 그리 대단한가 싶었을 테니까요.</p>
+<p>오늘 그 물음에 답합니다. 스트림은 <strong>그 조각들이 실제로 일하는 현장</strong>입니다.</p>
+<h2 id="짝수만-골라내는-두-가지-방법"><a href="#짝수만-골라내는-두-가지-방법">짝수만 골라내는 두 가지 방법</a></h2>
+<p>리스트에서 짝수만 뽑는 코드를 써 보겠습니다. 지금까지 배운 대로라면 이렇게 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; nums </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">6</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; evens </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ArrayList&lt;&gt;();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> nums) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (n </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        evens.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>스트림으로 쓰면 이렇게 됩니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; evens </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> nums.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">collect</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Collectors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">toList</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span></code></pre>
+<p>줄 수가 준 것보다 눈여겨볼 것이 있습니다. 위 코드는 <strong>&quot;빈 리스트를 만들고, 하나씩 꺼내서, 검사하고, 담아라&quot;</strong> 라고 절차를 지시합니다. 아래 코드는 <strong>&quot;짝수만 걸러서 리스트로 모아라&quot;</strong> 라고 목적을 말합니다. 담을 그릇을 미리 만드는 일도, 반복을 도는 일도 코드에서 사라졌습니다.</p>
+<h2 id="흐름으로-다룬다는-것"><a href="#흐름으로-다룬다는-것">흐름으로 다룬다는 것</a></h2>
+<p>스트림(Stream)은 <strong>컬렉션의 원소를 하나씩 흘려보내면서 처리하는 통로</strong>입니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 공장 컨베이어 벨트를 떠올리면 됩니다. 벨트 위로 물건이 하나씩 지나가고, 중간중간에 검사기와 가공기가 놓여 있습니다. 불량품을 빼내는 검사기가 <code>filter</code>, 모양을 바꾸는 가공기가 <code>map</code>입니다. 벨트 끝에는 상자가 놓여 있고, 통과한 물건이 거기 담깁니다. 그게 <code>collect</code>입니다.</p>
+</blockquote>
+<p><img alt="스트림 3단계: 열기, 손보기, 닫기" src="/uploads/java-stream-steps.png" loading="lazy"/></p>
+<p><em>그림 1. 세 토막의 순서는 바뀌지 않습니다. 특히 마지막이 없으면 앞의 둘도 돌지 않습니다.</em></p>
+<p>그래서 스트림 코드는 늘 세 토막입니다.</p>
+<ol>
+<li><strong>열기</strong> — <code>stream()</code>으로 컬렉션을 흐름으로 바꿉니다.</li>
+<li><strong>손보기</strong> — <code>filter</code>, <code>map</code> 같은 것을 필요한 만큼 이어 붙입니다. <strong>중간 연산</strong>이라고 부릅니다.</li>
+<li><strong>닫기</strong> — <code>collect</code>나 <code>forEach</code>로 마무리합니다. <strong>최종 연산</strong>입니다.</li>
+</ol>
+<p>중간 연산은 몇 개든 이어 붙일 수 있고, 최종 연산은 <strong>딱 하나</strong>입니다. 이어 붙이는 이 모양을 체인이라고 부르는데, 점을 찍어 계속 연결되는 형태라 익숙해지면 위에서 아래로 읽어 내려가는 것만으로 처리 과정이 그려집니다.</p>
+<h2 id="filter--남길-것을-정합니다"><a href="#filter--남길-것을-정합니다">filter — 남길 것을 정합니다</a></h2>
+<p><code>filter</code>는 조건에 맞는 것만 통과시킵니다. 여기서 2편이 되살아납니다. <strong><code>filter</code>가 받는 것이 바로 <code>Predicate</code>입니다.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Predicate&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; isEven </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 2편에서 만든 것</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">nums.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(isEven)                    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 그대로 넘어갑니다</span></span></code></pre>
+<p>물론 실제로는 변수에 담지 않고 그 자리에 바로 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">nums.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<p>2편에서 &quot;조건을 값으로 넘긴다&quot;고 했던 말이 여기서 실물이 됩니다. 조건이 값이니까 <strong>메서드에 인자로 넘길 수 있고</strong>, 그래서 <code>filter</code>라는 하나의 메서드가 세상 모든 조건을 처리할 수 있는 것입니다.</p>
+<h2 id="map--하나씩-다른-것으로-바꿉니다"><a href="#map--하나씩-다른-것으로-바꿉니다">map — 하나씩 다른 것으로 바꿉니다</a></h2>
+<p><code>map</code>은 통과하는 원소를 <strong>하나씩 다른 값으로 변환</strong>합니다. 받는 것은 짐작하신 대로 <code>Function</code>입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; words </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;apple&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;hi&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;banana&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;cat&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;elephant&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; result </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> words.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() </span><span style="color:#D73A49;--shiki-dark:#F97583">&gt;=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// apple, banana, elephant</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">toUpperCase</span><span style="color:#24292E;--shiki-dark:#E1E4E8">())           </span><span style="color:#6A737D;--shiki-dark:#6A737D">// APPLE, BANANA, ELEPHANT</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">collect</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Collectors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">toList</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span></code></pre>
+<p>여기서 중요한 성질이 하나 있습니다. <strong><code>map</code>은 개수를 바꾸지 않습니다.</strong> 세 개가 들어오면 세 개가 나갑니다. 개수를 줄이는 것은 <code>filter</code>의 일이고, <code>map</code>은 각각의 내용물만 갈아 끼웁니다. 이 구분이 흐릿하면 나중에 원하는 결과가 안 나올 때 어디를 고쳐야 할지 헤매게 됩니다.</p>
+<p>타입도 바뀔 수 있습니다. 사람 목록에서 나이만 뽑으면 <code>Person</code>이 <code>Integer</code>로 바뀌죠.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; ages </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> persons.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getAge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">())</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">collect</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Collectors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">toList</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span></code></pre>
+<h2 id="콜론-두-개는-뭔가요"><a href="#콜론-두-개는-뭔가요">콜론 두 개는 뭔가요</a></h2>
+<p>스트림 코드를 검색하다 보면 이런 것을 만납니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">persons.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">forEach</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(System.out</span><span style="color:#D73A49;--shiki-dark:#F97583">::</span><span style="color:#24292E;--shiki-dark:#E1E4E8">println);</span></span></code></pre>
+<p><code>p -&gt; System.out.println(p)</code>라고 쓸 것을 <code>System.out::println</code>으로 줄인 것입니다. <strong>람다가 하는 일이 이미 있는 메서드를 그대로 호출하는 것뿐이라면</strong>, 그 메서드 이름만 가리켜도 된다는 문법이고 <strong>메서드 참조</strong>라고 부릅니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">toUpperCase</span><span style="color:#24292E;--shiki-dark:#E1E4E8">())   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이것과</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String</span><span style="color:#D73A49;--shiki-dark:#F97583">::</span><span style="color:#24292E;--shiki-dark:#E1E4E8">toUpperCase)    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이것은 같습니다</span></span></code></pre>
+<p>지금은 &quot;람다를 더 줄인 표기&quot;라고만 알아 두시면 충분합니다. 규칙이 몇 가지 더 있어서 뒤에 따로 한 편을 잡아 다루겠습니다. 다만 남의 코드를 읽을 때 자주 나오니, 눈에 익혀 두면 좋습니다.</p>
+<h2 id="단골-함정--최종-연산이-없으면-아무-일도-없습니다"><a href="#단골-함정--최종-연산이-없으면-아무-일도-없습니다">단골 함정 — 최종 연산이 없으면 아무 일도 없습니다</a></h2>
+<p>가장 많이 겪는 일입니다. 아래 코드는 오류도 없고 경고도 없지만, <strong>아무것도 출력하지 않습니다.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">nums.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;검사 중: &quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 찍히지 않습니다</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    });</span></span></code></pre>
+<p><code>filter</code>를 분명히 불렀는데 왜 검사조차 안 할까요. 중간 연산은 <strong>주문서를 적어 두기만 할 뿐, 실제로 일을 시작하지 않기 때문</strong>입니다. 자바는 최종 연산이 나타나는 순간에야 흐름을 돌립니다. 이런 성질을 <strong>지연 연산</strong>이라고 합니다.</p>
+<p>주문만 받고 요리를 시작하지 않는 주방과 같습니다. &quot;나가요&quot;라는 신호, 그러니까 <code>collect</code>나 <code>forEach</code>가 있어야 그제서야 불을 켭니다. 위 코드 끝에 <code>.collect(Collectors.toList())</code> 한 줄을 붙이면 그때 비로소 검사 로그가 찍힙니다.</p>
+<p>이게 왜 이렇게 설계됐냐면, 그래야 <strong>필요한 만큼만 일할 수 있기</strong> 때문입니다. 100만 개짜리 리스트에서 조건에 맞는 첫 번째만 찾을 때, 지연 연산 덕분에 100만 개를 다 훑지 않고 찾는 즉시 멈출 수 있습니다.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>앞의 내용을 한 번에 확인해 봅니다. 특히 마지막 블록에서 <strong>최종 연산이 없으면 정말 아무 일도 안 일어나는지</strong> 직접 보시기 바랍니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">filter와 map, 그리고 지연 연산</span></div><pre class="runner__code"><code>import java.util.List;
+import java.util.stream.Collectors;
+
+public class Main {
+  public static void main(String[] args) {
+      List&lt;Integer&gt; nums = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+      // 1) filter — 짝수만
+      List&lt;Integer&gt; evens = nums.stream()
+              .filter(n -&gt; n % 2 == 0)
+              .collect(Collectors.toList());
+      System.out.println(&quot;짝수만: &quot; + evens);
+
+      // 2) filter + map — 홀수를 제곱
+      List&lt;Integer&gt; odd2 = nums.stream()
+              .filter(n -&gt; n % 2 == 1)
+              .map(n -&gt; n * n)
+              .collect(Collectors.toList());
+      System.out.println(&quot;홀수의 제곱: &quot; + odd2);
+
+      // 3) 타입이 바뀌는 map — 숫자를 문자열로
+      List&lt;String&gt; labels = nums.stream()
+              .filter(n -&gt; n &gt; 7)
+              .map(n -&gt; n + &quot;번&quot;)
+              .collect(Collectors.toList());
+      System.out.println(&quot;이름표: &quot; + labels);
+
+      // 4) 최종 연산이 있는 경우 — 검사 로그가 찍힙니다
+      System.out.println(&quot;--- collect 있음 ---&quot;);
+      nums.stream()
+          .filter(n -&gt; {
+              System.out.println(&quot;  검사: &quot; + n);
+              return n &gt; 8;
+          })
+          .collect(Collectors.toList());
+
+      // 5) 최종 연산이 없는 경우 — 한 줄도 찍히지 않습니다
+      System.out.println(&quot;--- collect 없음 ---&quot;);
+      nums.stream()
+          .filter(n -&gt; {
+              System.out.println(&quot;  검사: &quot; + n);
+              return n &gt; 8;
+          });
+      System.out.println(&quot;(위에 아무것도 없으면 정상입니다)&quot;);
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<h2 id="원본은-그대로-남습니다"><a href="#원본은-그대로-남습니다">원본은 그대로 남습니다</a></h2>
+<p>또 하나 자주 오해하는 지점입니다. 스트림은 <strong>원래 컬렉션을 건드리지 않습니다.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; nums </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">6</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">nums.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">collect</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Collectors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">toList</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(nums);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// [1, 2, 3, 4, 5, 6] — 그대로입니다</span></span></code></pre>
+<p>걸러진 결과는 <strong>새로 만들어진 리스트</strong>이고, <code>nums</code>는 손대지 않은 채 남습니다. 그래서 결과를 쓰려면 반드시 변수에 받아야 합니다. 2편에서 본 <code>removeIf</code>가 원본을 직접 고쳤던 것과 정확히 반대라, 둘을 나란히 기억해 두면 헷갈리지 않습니다.</p>
+<p>한 가지 덧붙이면, 스트림은 <strong>한 번 쓰면 끝</strong>입니다. 최종 연산을 두 번 부르면 예외가 납니다. 다시 처리하려면 <code>nums.stream()</code>으로 흐름을 새로 열어야 합니다.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>스트림</td><td>컬렉션 원소를 하나씩 흘려보내며 처리하는 통로</td></tr><tr><td>구조</td><td><code>stream()</code> → 중간 연산 → 최종 연산</td></tr><tr><td><code>filter</code></td><td>조건에 맞는 것만 통과. <code>Predicate</code>를 받음</td></tr><tr><td><code>map</code></td><td>원소를 다른 값으로 변환. <code>Function</code>을 받음. <strong>개수는 그대로</strong></td></tr><tr><td><code>collect</code></td><td>결과를 리스트 등으로 모으는 최종 연산</td></tr><tr><td>지연 연산</td><td>최종 연산이 없으면 중간 연산도 실행되지 않음</td></tr><tr><td>원본</td><td>바뀌지 않음. 결과는 새 컬렉션</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> 스트림은 <strong>거르고(<code>filter</code>) 바꾸고(<code>map</code>) 담는(<code>collect</code>)</strong> 세 동작이 전부입니다. 그리고 담지 않으면 거르지도 바꾸지도 않습니다. 2편에서 만든 <code>Predicate</code>와 <code>Function</code>이 각각 <code>filter</code>와 <code>map</code>의 자리에 들어간다는 것까지 이으면, 지난 두 편이 왜 필요했는지가 분명해집니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>지연 연산과 <code>map</code>의 개수 규칙에서 많이 틀립니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA4) 3편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-functional-interface"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE)</h3><p>람다를 쓰려면 먼저 그 람다가 들어갈 자리가 있어야 합니다. 추상 메서드 하나짜리 인터페이스를 직접 만들고 @FunctionalInterface로 실수를 막는 법, 그리고 자바가 미리 준비해 둔 Supplier·Consumer·Function·Predicate까지 브라우저에서 실행하며 정리합니다.</p><div class="post-card__meta"><time dateTime="2026-08-26T21:10">2026년 8월 26일 21:10</time><span>· <!-- -->자바, JAVA, 함수형인터페이스</span></div></a><a class="post-card " href="/posts/java-lambda"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA)</h3><p>자바 람다식을 입문자 눈높이로 정리합니다. 익명 클래스가 왜 장황했는지, 화살표로 어디까지 줄일 수 있는지, 중괄호를 쓰면 왜 return을 빠뜨리는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-26T10:32">2026년 8월 26일 10:32</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java3-review"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 심화 12문제로 복습 — JAVA3 총정리</h3><p>자바 심화 JAVA3 시즌(예외·제네릭·컬렉션·파일 입출력·스레드·소켓·JDBC·트랜잭션)을 개념 퀴즈와 직접 고쳐 실행하는 실습 문제로 복습합니다. catch 순서, flush, 닫는 순서처럼 자주 막히는 지점을 한 번에 점검합니다.</p><div class="post-card__meta"><time dateTime="2026-08-24T16:40">2026년 8월 24일 16:40</time><span>· <!-- -->자바, JAVA, 심화</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
