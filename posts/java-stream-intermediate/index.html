@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT) — PANCO_IT</title>
+    <meta name="description" content="스트림의 중간 연산을 입문자 눈높이로 정리합니다. flatMap이 map과 무엇이 다른지, distinct가 객체에서 왜 안 먹히는지, sorted와 limit의 순서를 바꾸면 왜 답이 달라지는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-stream-intermediate" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT) — PANCO_IT" />
+    <meta property="og:description" content="스트림의 중간 연산을 입문자 눈높이로 정리합니다. flatMap이 map과 무엇이 다른지, distinct가 객체에서 왜 안 먹히는지, sorted와 limit의 순서를 바꾸면 왜 답이 달라지는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-stream-intermediate" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-stream-flatmap.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-28T11:26" />
+    <meta property="article:modified_time" content="2026-08-28T11:26" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT) — PANCO_IT" />
+    <meta name="twitter:description" content="스트림의 중간 연산을 입문자 눈높이로 정리합니다. flatMap이 map과 무엇이 다른지, distinct가 객체에서 왜 안 먹히는지, sorted와 limit의 순서를 바꾸면 왜 답이 달라지는지까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-stream-flatmap.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT)","description":"스트림의 중간 연산을 입문자 눈높이로 정리합니다. flatMap이 map과 무엇이 다른지, distinct가 객체에서 왜 안 먹히는지, sorted와 limit의 순서를 바꾸면 왜 답이 달라지는지까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-stream-flatmap.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-28T11:26","dateModified":"2026-08-28T11:26","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-stream-intermediate"},"keywords":"자바, JAVA, 스트림, flatMap, distinct, sorted"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT)","item":"https://pancoit.site/posts/java-stream-intermediate"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CulPFwca.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-28T11:26">2026년 8월 28일 11:26</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->스트림</span><span class="tag">#<!-- -->flatMap</span><span class="tag">#<!-- -->distinct</span><span class="tag">#<!-- -->sorted</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="map은 봉지째 담고 flatMap은 봉지를 뜯어 알맹이만 담는다는 비교 그림" src="/uploads/java-stream-flatmap.png" loading="lazy"/></p>
+<p><em>둘 다 변환이지만, 하나는 개수를 유지하고 하나는 개수를 늘립니다.</em></p>
+<p>3편에서 스트림은 <strong>거르고, 바꾸고, 담는</strong> 세 동작이라고 했습니다. 그런데 실제로 코드를 짜다 보면 그 사이에 하고 싶은 일이 더 생깁니다. 순서대로 줄 세우고 싶고, 중복은 지우고 싶고, 위에서 몇 개만 뽑고 싶죠.</p>
+<p>오늘은 <code>filter</code>와 <code>map</code> 옆에 나란히 붙일 수 있는 나머지 도구들을 봅니다. 다섯 개인데, 각각은 어렵지 않고 <strong>붙이는 순서에서 사고가 납니다.</strong></p>
+<h2 id="중간-연산은-계속-이어-붙일-수-있습니다"><a href="#중간-연산은-계속-이어-붙일-수-있습니다">중간 연산은 계속 이어 붙일 수 있습니다</a></h2>
+<p>먼저 위치를 잡고 가겠습니다. 3편에서 본 세 토막 중 가운데가 오늘의 무대입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">nums.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()                    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 열기</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(...)                 </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 중간 연산</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(...)                    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 중간 연산</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sorted</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()                    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 중간 연산 — 오늘 배울 것</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">limit</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)                    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 중간 연산 — 오늘 배울 것</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">collect</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Collectors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">toList</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()); </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 닫기</span></span></code></pre>
+<p>중간 연산은 <strong>몇 개든, 어떤 순서로든</strong> 붙일 수 있습니다. 자유롭다는 뜻이기도 하지만, <strong>잘못 붙여도 컴파일러가 아무 말을 안 해 준다</strong>는 뜻이기도 합니다. 오늘의 함정이 전부 여기서 나옵니다.</p>
+<h2 id="flatmap--봉지를-뜯어서-담습니다"><a href="#flatmap--봉지를-뜯어서-담습니다">flatMap — 봉지를 뜯어서 담습니다</a></h2>
+<p><code>map</code>과 이름이 비슷해 가장 많이 헷갈리는 것부터 보겠습니다.</p>
+<p>문장 세 개에서 <strong>모든 단어</strong>를 뽑아내고 싶다고 해 보죠. 문장을 쪼개는 것은 <code>split</code>으로 됩니다. 그래서 <code>map</code>을 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; sentences </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Hello World&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Java is fun&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">sentences.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 결과: List&lt;String[]&gt;</span></span></code></pre>
+<p>원하는 게 나왔을까요. 아닙니다. <code>split</code>은 <strong>배열 하나</strong>를 돌려주니, 문장 두 개를 넣으면 <strong>배열 두 개</strong>가 나옵니다. 단어가 풀려 나온 게 아니라 봉지 두 개가 그대로 담긴 것이죠.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 장을 봐 왔다고 해 봅시다. 사과 봉지와 귤 봉지를 바구니에 그냥 넣으면 바구니에는 <strong>봉지 두 개</strong>가 들어갑니다. 봉지를 뜯어 과일만 쏟아 넣어야 <strong>과일 일곱 개</strong>가 되죠. <code>map</code>이 봉지째 담는 것이고, <code>flatMap</code>이 뜯어서 담는 것입니다.</p>
+</blockquote>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">sentences.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">flatMap</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Arrays.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">split</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)))   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 결과: List&lt;String&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">collect</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Collectors.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">toList</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// [Hello, World, Java, is, fun]</span></span></code></pre>
+<p><code>flatMap</code>에 넘기는 람다는 <strong>값 하나가 아니라 스트림 하나</strong>를 돌려줘야 합니다. 그러면 자바가 그 작은 스트림들을 이어 붙여 하나로 만들어 줍니다. 그래서 <code>map</code>은 개수가 그대로지만 <code>flatMap</code>은 <strong>개수가 늘어날 수 있습니다.</strong></p>
+<p>중첩 리스트를 펴는 데도 같은 원리가 쓰입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&lt;List&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">Integer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;&gt; nested </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">nested.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">flatMap</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(List</span><span style="color:#D73A49;--shiki-dark:#F97583">::</span><span style="color:#24292E;--shiki-dark:#E1E4E8">stream)     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// [1, 2, 3, 4, 5]</span></span></code></pre>
+<h2 id="distinct--중복을-지웁니다-다만-조건이-있습니다"><a href="#distinct--중복을-지웁니다-다만-조건이-있습니다">distinct — 중복을 지웁니다. 다만 조건이 있습니다</a></h2>
+<p><code>distinct()</code>는 이름 그대로 중복을 제거합니다. 괄호 안에 아무것도 넣지 않고, 앞쪽 순서를 유지한 채 뒤에 나온 중복만 버립니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">distinct</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()                 </span><span style="color:#6A737D;--shiki-dark:#6A737D">// [1, 2, 3]</span></span></code></pre>
+<p>숫자와 문자열은 이렇게 잘 됩니다. 문제는 <strong>직접 만든 클래스</strong>입니다. 여기서 초보자 대부분이 한 번은 막힙니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> City</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    String name;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    City</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) { </span><span style="color:#005CC5;--shiki-dark:#79B8FF">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name; }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> City</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;서울&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), </span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> City</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;서울&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">distinct</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()                 </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 중복이 안 지워집니다</span></span></code></pre>
+<p>이름이 똑같은데 왜 안 지워질까요. <code>distinct</code>는 두 값이 같은지를 <strong><code>equals()</code>로 판단</strong>하는데, 우리가 만든 클래스는 <code>equals</code>를 정의하지 않았으니 자바의 기본 동작이 쓰입니다. 그 기본 동작은 <strong>&quot;메모리상 같은 객체인가&quot;</strong> 를 보는 것입니다. <code>new</code>를 두 번 했으니 둘은 다른 객체이고, 그래서 이름이 같아도 다르다고 판단합니다.</p>
+<p>해결은 <code>equals</code>와 <code>hashCode</code>를 함께 정의하는 것입니다. 둘을 함께 만들어야 하는 이유는 <code>distinct</code>가 내부적으로 해시를 먼저 보고 걸러 내기 때문입니다. 하나만 만들면 의도대로 동작하지 않습니다.</p>
+<h2 id="sorted--줄을-세웁니다"><a href="#sorted--줄을-세웁니다">sorted — 줄을 세웁니다</a></h2>
+<p><code>sorted()</code>는 괄호를 비워 두면 <strong>기본 순서</strong>로 정렬합니다. 숫자는 작은 것부터, 문자열은 사전 순입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">8</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sorted</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// [1, 2, 5, 8]</span></span></code></pre>
+<p>기준을 바꾸고 싶으면 괄호 안에 비교 방법을 넣습니다. 1편에서 <code>list.sort((a, b) -&gt; b - a)</code>로 내림차순을 만들었던 그 방식이 그대로 쓰입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sorted</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b </span><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a)              </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 내림차순</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sorted</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Comparator.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">reverseOrder</span><span style="color:#24292E;--shiki-dark:#E1E4E8">())    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 같은 뜻, 더 읽기 쉬움</span></span></code></pre>
+<p>객체를 특정 필드로 정렬할 때는 <code>Comparator.comparing</code>이 편합니다. 3편에서 배운 메서드 참조가 여기서 쓰입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">products.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sorted</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Comparator.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">comparing</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Product</span><span style="color:#D73A49;--shiki-dark:#F97583">::</span><span style="color:#24292E;--shiki-dark:#E1E4E8">getPrice))   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 가격 낮은 순</span></span></code></pre>
+<p>한 가지 주의할 점이 있습니다. <code>sorted</code>는 <strong>모든 원소를 다 모아야</strong> 순서를 정할 수 있습니다. 그래서 앞에서 <code>filter</code>로 미리 줄여 놓고 정렬하는 편이 낫습니다. 정렬한 뒤에 거르면 버릴 것까지 줄 세운 셈이 되니까요.</p>
+<h2 id="limit과-skip--앞에서-자르고-앞을-건너뜁니다"><a href="#limit과-skip--앞에서-자르고-앞을-건너뜁니다">limit과 skip — 앞에서 자르고 앞을 건너뜁니다</a></h2>
+<p>둘은 짝입니다. <code>limit(n)</code>은 앞에서 n개만 통과시키고, <code>skip(n)</code>은 앞에서 n개를 버립니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">limit</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// [1, 2, 3]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">skip</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// [3, 4, 5]</span></span></code></pre>
+<p>둘을 함께 쓰면 <strong>페이지 나누기</strong>가 됩니다. 게시판에서 한 페이지에 3개씩 보여 준다면 이렇게 됩니다.</p>
+<table><thead><tr><th>페이지</th><th>코드</th><th>결과</th></tr></thead><tbody><tr><td>1페이지</td><td><code>.skip(0).limit(3)</code></td><td>1, 2, 3</td></tr><tr><td>2페이지</td><td><code>.skip(3).limit(3)</code></td><td>4, 5, 6</td></tr><tr><td>3페이지</td><td><code>.skip(6).limit(3)</code></td><td>7, 8, 9</td></tr></tbody></table>
+<p>건너뛸 개수가 <code>(페이지 번호 - 1) × 페이지 크기</code>라는 규칙이 보이실 겁니다. 실무에서 목록을 나눠 보여 줄 때 그대로 쓰는 계산입니다.</p>
+<h2 id="단골-함정--순서를-바꾸면-답이-바뀝니다"><a href="#단골-함정--순서를-바꾸면-답이-바뀝니다">단골 함정 — 순서를 바꾸면 답이 바뀝니다</a></h2>
+<p>오늘 가장 조심할 부분입니다. 중간 연산은 <strong>위에서 아래로 차례대로</strong> 실행됩니다. 그래서 같은 연산이라도 앞뒤가 바뀌면 결과가 달라집니다.</p>
+<p><img alt="sorted를 먼저 붙일 때와 limit을 먼저 붙일 때 결과가 달라지는 비교" src="/uploads/java-stream-order.png" loading="lazy"/></p>
+<p><em>그림 1. 상위 3개를 원했다면 정렬이 먼저 와야 합니다.</em></p>
+<p>점수 목록에서 <strong>상위 3명</strong>을 뽑는다고 해 보겠습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">scores.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sorted</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Comparator.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">reverseOrder</span><span style="color:#24292E;--shiki-dark:#E1E4E8">())   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 먼저 줄 세우고</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">limit</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)                            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 위에서 3개</span></span></code></pre>
+<p>이게 맞습니다. 그런데 순서를 바꾸면 이렇게 됩니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">scores.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">limit</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)                            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 앞에서 3개 자르고</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">sorted</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(Comparator.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">reverseOrder</span><span style="color:#24292E;--shiki-dark:#E1E4E8">())   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 그 셋만 줄 세움</span></span></code></pre>
+<p>이건 상위 3명이 아니라 <strong>원래 목록의 앞 세 명을 정렬한 것</strong>입니다. 오류도 나지 않고 결과도 그럴듯하게 세 개가 나오니, 데이터를 눈으로 확인하기 전까지는 틀린 줄도 모릅니다. <strong>컴파일러가 잡아 주지 않는 종류의 실수</strong>라 특히 조심해야 합니다.</p>
+<p><code>distinct</code>와 <code>filter</code> 사이에서도 같은 일이 생깁니다. 중복을 지우고 세는 것과, 걸러 낸 뒤 중복을 지우는 것은 상황에 따라 결과가 다릅니다. <strong>&quot;무엇을 먼저 해야 내가 원하는 답이 나오나&quot;</strong> 를 한 번 소리 내어 말해 보면 대개 순서가 잡힙니다.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p>지금까지 본 것을 한 번에 확인합니다. 특히 마지막 두 블록에서 <strong>순서만 바꿨을 때 답이 어떻게 달라지는지</strong> 직접 보시기 바랍니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">중간 연산 다섯 가지와 순서 함정</span></div><pre class="runner__code"><code>import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+class City {
+  String name;
+  City(String name) { this.name = name; }
+
+  @Override
+  public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof City)) return false;
+      return Objects.equals(name, ((City) o).name);
+  }
+  @Override
+  public int hashCode() { return Objects.hash(name); }
+  @Override
+  public String toString() { return name; }
+}
+
+public class Main {
+  public static void main(String[] args) {
+      // 1) flatMap — 문장에서 단어 뽑기
+      List&lt;String&gt; sentences = List.of(&quot;Hello World&quot;, &quot;Java is fun&quot;);
+      System.out.println(&quot;map     : &quot; + sentences.stream()
+              .map(s -&gt; s.split(&quot; &quot;).length + &quot;개짜리 배열&quot;)
+              .collect(Collectors.toList()));
+      System.out.println(&quot;flatMap : &quot; + sentences.stream()
+              .flatMap(s -&gt; Arrays.stream(s.split(&quot; &quot;)))
+              .collect(Collectors.toList()));
+
+      // 2) distinct — equals/hashCode 를 만들어 뒀으므로 동작합니다
+      List&lt;City&gt; cities = List.of(new City(&quot;서울&quot;), new City(&quot;대구&quot;), new City(&quot;서울&quot;));
+      System.out.println(&quot;distinct: &quot; + cities.stream()
+              .distinct().collect(Collectors.toList()));
+
+      // 3) skip + limit — 페이지 나누기
+      List&lt;Integer&gt; all = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+      for (int page = 1; page &lt;= 3; page++) {
+          System.out.println(page + &quot;페이지: &quot; + all.stream()
+                  .skip((long) (page - 1) * 3)
+                  .limit(3)
+                  .collect(Collectors.toList()));
+      }
+
+      // 4) 순서 함정 — 상위 3개를 원한다면?
+      List&lt;Integer&gt; scores = List.of(72, 95, 60, 88, 100, 51);
+      System.out.println(&quot;원본        : &quot; + scores);
+      System.out.println(&quot;sorted→limit: &quot; + scores.stream()
+              .sorted(Comparator.reverseOrder()).limit(3)
+              .collect(Collectors.toList()));
+      System.out.println(&quot;limit→sorted: &quot; + scores.stream()
+              .limit(3).sorted(Comparator.reverseOrder())
+              .collect(Collectors.toList()));
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>sorted→limit</code>은 100, 95, 88이 나오고 <code>limit→sorted</code>는 95, 72, 60이 나옵니다. 둘 다 세 개짜리 목록이라 언뜻 비슷해 보이지만, 뒤엣것은 <strong>최고점 100이 아예 빠져 있습니다.</strong></p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>연산</th><th>하는 일</th><th>기억할 점</th></tr></thead><tbody><tr><td><code>flatMap</code></td><td>각 원소를 여러 개로 풀어 이어 붙임</td><td>람다가 <strong>스트림</strong>을 돌려줘야 함. 개수가 늘어남</td></tr><tr><td><code>distinct</code></td><td>중복 제거</td><td>내 클래스는 <code>equals</code>·<code>hashCode</code>를 <strong>함께</strong> 정의</td></tr><tr><td><code>sorted</code></td><td>정렬</td><td>비워 두면 기본 순서, 괄호 안에 기준을 넣을 수 있음</td></tr><tr><td><code>limit(n)</code></td><td>앞에서 n개만 통과</td><td>정렬이 필요하면 <code>sorted</code>를 <strong>먼저</strong></td></tr><tr><td><code>skip(n)</code></td><td>앞에서 n개 버림</td><td><code>skip</code> + <code>limit</code> = 페이지 나누기</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> <code>map</code>은 봉지째, <code>flatMap</code>은 봉지를 뜯어 담습니다. <code>distinct</code>는 <strong>내가 만든 클래스에서는 <code>equals</code>를 만들어 줘야</strong> 비로소 동작합니다. 그리고 중간 연산은 <strong>적은 순서대로 실행되니</strong>, 상위 N개를 원한다면 <code>sorted</code>가 <code>limit</code>보다 위에 있어야 합니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>순서 함정과 <code>distinct</code> 조건에서 많이 틀립니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA4) 4편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 스트림 최종 연산 — 합치고, 세고, 찾기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-stream-basic"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP)</h3><p>자바 스트림을 입문자 눈높이로 정리합니다. for문과 무엇이 다른지, filter와 map이 앞 편의 Predicate·Function과 어떻게 이어지는지, 최종 연산을 빠뜨리면 왜 아무 일도 일어나지 않는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-27T16:04">2026년 8월 27일 16:04</time><span>· <!-- -->자바, JAVA, 스트림</span></div></a><a class="post-card " href="/posts/java-functional-interface"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE)</h3><p>람다를 쓰려면 먼저 그 람다가 들어갈 자리가 있어야 합니다. 추상 메서드 하나짜리 인터페이스를 직접 만들고 @FunctionalInterface로 실수를 막는 법, 그리고 자바가 미리 준비해 둔 Supplier·Consumer·Function·Predicate까지 브라우저에서 실행하며 정리합니다.</p><div class="post-card__meta"><time dateTime="2026-08-26T21:10">2026년 8월 26일 21:10</time><span>· <!-- -->자바, JAVA, 함수형인터페이스</span></div></a><a class="post-card " href="/posts/java-lambda"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA)</h3><p>자바 람다식을 입문자 눈높이로 정리합니다. 익명 클래스가 왜 장황했는지, 화살표로 어디까지 줄일 수 있는지, 중괄호를 쓰면 왜 return을 빠뜨리는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-26T10:32">2026년 8월 26일 10:32</time><span>· <!-- -->자바, JAVA, 람다</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
