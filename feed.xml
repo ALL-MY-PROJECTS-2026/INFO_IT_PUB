@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)</title>
+      <link>https://pancoit.site/posts/java-stream-terminal</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-stream-terminal</guid>
+      <pubDate>Sat, 29 Aug 2026 04:20:00 GMT</pubDate>
+      <description>스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT)</title>
       <link>https://pancoit.site/posts/java-stream-intermediate</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-stream-intermediate</guid>
