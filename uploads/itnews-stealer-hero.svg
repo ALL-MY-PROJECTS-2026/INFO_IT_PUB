@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="브라우저에 저장된 비밀번호와 세션이 통째로 빠져나가는 모습">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <style>
+    .t{font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif}
+    .h{font-size:44px;font-weight:800;fill:#f8fafc}
+    .s{font-size:22px;fill:#94a3b8}
+    .row{font-size:20px;fill:#e2e8f0}
+    .tag{font-size:17px;font-weight:700;fill:#fca5a5}
+  </style>
+  <text class="t h" x="64" y="86">저장해 둔 편리함이, 통째로</text>
+  <text class="t s" x="66" y="126">브라우저에 담아 둔 비밀번호와 로그인 상태가 한 번에 새어 나갑니다</text>
+
+  <!-- 브라우저 창 -->
+  <rect x="64" y="170" width="620" height="380" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <rect x="64" y="170" width="620" height="46" rx="16" fill="#334155"/>
+  <rect x="64" y="200" width="620" height="16" fill="#334155"/>
+  <circle cx="92" cy="193" r="7" fill="#f87171"/><circle cx="116" cy="193" r="7" fill="#fbbf24"/><circle cx="140" cy="193" r="7" fill="#4ade80"/>
+  <text class="t s" x="176" y="200" font-size="17">저장된 로그인 정보</text>
+
+  <g>
+    <rect x="96" y="248" width="556" height="52" rx="10" fill="#0f172a" stroke="#475569"/>
+    <text class="t row" x="122" y="281">🔑  메일 계정 — 비밀번호 저장됨</text>
+    <rect x="96" y="316" width="556" height="52" rx="10" fill="#0f172a" stroke="#475569"/>
+    <text class="t row" x="122" y="349">🏦  결제 서비스 — 자동 로그인</text>
+    <rect x="96" y="384" width="556" height="52" rx="10" fill="#0f172a" stroke="#475569"/>
+    <text class="t row" x="122" y="417">🍪  세션 쿠키 — 로그인 유지 중</text>
+    <rect x="96" y="452" width="556" height="52" rx="10" fill="#0f172a" stroke="#475569"/>
+    <text class="t row" x="122" y="485">👛  지갑·인증서 — 기기에 보관</text>
+  </g>
+
+  <!-- 유출 화살표 -->
+  <path d="M700 350 L880 350" stroke="#ef4444" stroke-width="5" stroke-dasharray="12 8" marker-end="url(#ar)"/>
+  <defs><marker id="ar" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#ef4444"/></marker></defs>
+  <text class="t tag" x="716" y="332">한 번의 실행으로</text>
+
+  <!-- 다크웹 로그 -->
+  <rect x="900" y="236" width="236" height="228" rx="16" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+  <text class="t" x="928" y="286" font-size="21" font-weight="800" fill="#fee2e2">유출 로그</text>
+  <text class="t" x="928" y="330" font-size="17" fill="#fecaca">아이디·비밀번호</text>
+  <text class="t" x="928" y="362" font-size="17" fill="#fecaca">브라우저 쿠키</text>
+  <text class="t" x="928" y="394" font-size="17" fill="#fecaca">지갑·시스템 정보</text>
+  <text class="t" x="928" y="436" font-size="17" fill="#fca5a5">→ 거래·재판매</text>
+
+  <text class="t s" x="66" y="592" font-size="19">2025년 다크웹에서 확인된 인포스틸러 로그 500만 건 · 전년 대비 59% 증가(카스퍼스키)</text>
+</svg>

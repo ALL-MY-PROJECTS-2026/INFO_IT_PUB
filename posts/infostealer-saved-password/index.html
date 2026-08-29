@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값 — PANCO_IT</title>
+    <meta name="description" content="다크웹에서 확인된 정보 탈취 악성코드 로그가 2025년 한 해 500만 건, 전년 대비 59% 늘었습니다. 감염의 35%는 내려받은 파일을 그냥 실행한 데서 시작합니다. 무엇이 새어 나가는지, 왜 비밀번호만 바꾸면 안 끊기는지, 오늘 할 일 네 가지를 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/infostealer-saved-password" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값 — PANCO_IT" />
+    <meta property="og:description" content="다크웹에서 확인된 정보 탈취 악성코드 로그가 2025년 한 해 500만 건, 전년 대비 59% 늘었습니다. 감염의 35%는 내려받은 파일을 그냥 실행한 데서 시작합니다. 무엇이 새어 나가는지, 왜 비밀번호만 바꾸면 안 끊기는지, 오늘 할 일 네 가지를 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/infostealer-saved-password" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-stealer-hero.svg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-29T23:20" />
+    <meta property="article:modified_time" content="2026-08-29T23:20" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값 — PANCO_IT" />
+    <meta name="twitter:description" content="다크웹에서 확인된 정보 탈취 악성코드 로그가 2025년 한 해 500만 건, 전년 대비 59% 늘었습니다. 감염의 35%는 내려받은 파일을 그냥 실행한 데서 시작합니다. 무엇이 새어 나가는지, 왜 비밀번호만 바꾸면 안 끊기는지, 오늘 할 일 네 가지를 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-stealer-hero.svg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값","description":"다크웹에서 확인된 정보 탈취 악성코드 로그가 2025년 한 해 500만 건, 전년 대비 59% 늘었습니다. 감염의 35%는 내려받은 파일을 그냥 실행한 데서 시작합니다. 무엇이 새어 나가는지, 왜 비밀번호만 바꾸면 안 끊기는지, 오늘 할 일 네 가지를 정리했습니다.","image":"https://pancoit.site/uploads/itnews-stealer-hero.svg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-29T23:20","dateModified":"2026-08-29T23:20","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/infostealer-saved-password"},"keywords":"보안, 인포스틸러, 악성코드, 비밀번호, 세션, 브라우저"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값","item":"https://pancoit.site/posts/infostealer-saved-password"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-W5NtYhBb.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-29T23:20">2026년 8월 29일 23:20</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->보안</span><span class="tag">#<!-- -->인포스틸러</span><span class="tag">#<!-- -->악성코드</span><span class="tag">#<!-- -->비밀번호</span><span class="tag">#<!-- -->세션</span><span class="tag">#<!-- -->브라우저</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="브라우저에 저장된 비밀번호와 세션이 통째로 빠져나가는 모습" src="/uploads/itnews-stealer-hero.svg" loading="lazy"/></p>
+<p><em>저장해 둔 편리함이 그대로 표적이 됩니다.</em></p>
+<p>브라우저가 &quot;비밀번호를 저장할까요?&quot;라고 물으면 대개 저장을 누릅니다. 로그인 상태도 유지해 둡니다. 매번 입력하지 않아도 되니까요.</p>
+<p>그 편리함이 정확히 무엇을 의미하는지 한 번 뒤집어 보겠습니다. <strong>내 컴퓨터 어딘가에 계정 목록이 통째로 적혀 있고, 지금 로그인된 상태까지 저장돼 있다</strong>는 뜻입니다. 그걸 노리는 악성코드가 인포스틸러(정보 탈취형)입니다.</p>
+<h2 id="500만-건-그리고-59"><a href="#500만-건-그리고-59">500만 건, 그리고 59%</a></h2>
+<p>카스퍼스키 디지털 풋프린트 인텔리전스 연구진이 2025년 한 해 다크웹에서 발견된 인포스틸러 로그 파일을 세어 보니 <strong>500만 건</strong>이었습니다. 전년 대비 <strong>59% 증가</strong>입니다.</p>
+<p>여기서 &quot;로그 한 건&quot;은 감염된 기기 하나에서 긁어낸 정보 묶음입니다. 아이디와 비밀번호, 브라우저 쿠키, 암호화폐 지갑 정보, 시스템 정보가 한 덩어리로 담깁니다.</p>
+<p>노드VPN이 별도로 조사한 결과도 방향이 같습니다. 2025년 한 해 인포스틸러 로그에서 자주 등장한 상위 1만 개 도메인을 추리자 관련 로그가 <strong>약 5억 건</strong>이었고, 피해의 <strong>약 99%가 윈도우 PC</strong>에서 나왔습니다.</p>
+<h2 id="대부분은-내가-직접-실행합니다"><a href="#대부분은-내가-직접-실행합니다">대부분은 내가 직접 실행합니다</a></h2>
+<p>감염 경로 통계가 꽤 직설적입니다. 카스퍼스키 분석에서 악성코드가 실행된 위치를 보면:</p>
+<ul>
+<li><strong>35%</strong> — 윈도우 임시 폴더(<code>AppData\Local\Temp</code>)</li>
+<li><strong>32%</strong> — <code>C:\Windows\Microsoft.NET\Framework\</code></li>
+</ul>
+<p>첫 번째가 바로 <strong>인터넷에서 내려받은 파일을 확인 없이 곧바로 실행한 경우</strong>입니다. 브라우저가 파일을 임시 폴더에 내려놓고, 사용자가 그걸 더블클릭하면 거기서 실행되니까요. 두 번째는 정상 시스템 도구를 빌려 쓰는 방식(프로세스 인젝션·리빙 오프 더 랜드)으로, 백신 눈을 피하려는 수법입니다.</p>
+<p>정리하면 <strong>거창한 해킹이 아니라 &quot;받아서 실행&quot;이 가장 큰 입구</strong>입니다.</p>
+<p><img alt="인포스틸러 감염 흐름: 파일 실행 → 수집 → 로그 판매 → 계정 연쇄 침해" src="/uploads/itnews-stealer-flow.svg" loading="lazy"/></p>
+<p><em>그림 1. 끊을 수 있는 지점은 사실상 1번뿐입니다.</em></p>
+<h2 id="비밀번호를-바꿔도-안-끊기는-이유"><a href="#비밀번호를-바꿔도-안-끊기는-이유">비밀번호를 바꿔도 안 끊기는 이유</a></h2>
+<p>여기가 이 글에서 가장 중요한 대목입니다.</p>
+<p>유출된 것이 비밀번호뿐이라면 바꾸면 끝입니다. 그런데 인포스틸러는 <strong>활성 세션</strong>도 함께 가져갑니다. 세션은 &quot;이 사람 로그인 확인됨&quot;이라는 출입증이고, 브라우저는 그걸 쿠키로 들고 있습니다. 이 앱에서 앞서 다룬 <a href="/posts/web-cookies">쿠키가 하는 일</a>의 그 쿠키입니다.</p>
+<p>출입증을 복사당하면 상대는 <strong>비밀번호를 몰라도, 2단계 인증을 통과하지 않고도</strong> 이미 로그인된 상태로 들어갑니다. 비밀번호를 바꿔도 기존 출입증이 살아 있으면 그대로 통합니다.</p>
+<p>노드VPN은 이 점을 이렇게 짚습니다 — 세션 하나만 넘어가도 이메일과 결제 서비스 등 <strong>여러 계정으로 연쇄 접근</strong>이 가능해 피해가 빠르게 번진다고요. 메일함이 뚫리면 나머지 서비스의 비밀번호 재설정 메일이 전부 그쪽으로 갑니다.</p>
+<h2 id="오늘-할-일-네-가지"><a href="#오늘-할-일-네-가지">오늘 할 일 네 가지</a></h2>
+<p><strong>1. 받은 파일은 출처부터 봅니다.</strong> 공식 홈페이지나 정식 스토어에서만 내려받으세요. 검색 결과 상단의 광고 링크, &quot;무료 정품&quot;, 비공식 런처가 대표적인 입구입니다.</p>
+<p><strong>2. &quot;설치하려면 백신을 꺼 주세요&quot;는 그 자체가 답입니다.</strong> 카스퍼스키도 같은 걸 강조합니다. 정상 프로그램은 보안 기능을 끄라고 요구하지 않습니다.</p>
+<p><strong>3. 비밀번호를 바꿨다면 세션도 함께 끊습니다.</strong> 주요 서비스의 보안 설정에는 &quot;모든 기기에서 로그아웃&quot; 또는 &quot;다른 세션 종료&quot; 항목이 있습니다. 비밀번호 변경과 <strong>세트로</strong> 눌러야 합니다. 이걸 안 하면 앞의 설명대로 안 끊깁니다.</p>
+<p><strong>4. 브라우저에 다 맡기지 않습니다.</strong> 앞서 정리한 <a href="/posts/password-manager">비밀번호 관리자</a> 쪽이 낫고, 주요 계정엔 <a href="/posts/two-factor-auth">2단계 인증</a>을 걸어 둡니다. 다만 세션 탈취에는 2단계 인증도 만능이 아니라는 점은 기억해 두세요 — 그래서 3번이 필요합니다.</p>
+<p>내 정보가 이미 돌아다니는지 궁금하다면 <a href="/posts/check-account-breach">계정 유출 확인하는 법</a>을 참고하시면 됩니다.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>무엇</td><td>브라우저·앱에 저장된 로그인 정보를 긁어가는 악성코드</td></tr><tr><td>규모</td><td>다크웹 로그 2025년 500만 건, 전년 대비 +59% (카스퍼스키)</td></tr><tr><td>환경</td><td>피해의 약 99%가 윈도우 PC (노드VPN)</td></tr><tr><td>최대 입구</td><td>내려받은 파일을 그냥 실행 — 실행 위치의 35%가 임시 폴더</td></tr><tr><td>털리는 것</td><td>아이디·비밀번호, 브라우저 쿠키, 지갑, 시스템 정보</td></tr><tr><td>핵심 함정</td><td>세션까지 넘어가면 비밀번호 변경·2단계 인증을 우회</td></tr><tr><td>대응</td><td>출처 확인 · 백신 끄라는 요구 거부 · 비번 변경 시 전체 로그아웃</td></tr></tbody></table>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>데일리시큐, <a href="https://www.dailysecu.com/news/articleView.html?idxno=207500" target="_blank" rel="noopener noreferrer">&quot;복잡한 해킹보다 파일 실행이 더 위험&quot;…인포스틸러 감염 35% 차지</a> — 카스퍼스키 DFI의 2025년 로그 500만 건 분석, 실행 위치 35%/32% 통계</li>
+<li>ZDNet Korea, <a href="https://zdnet.co.kr/view/?no=20260305172126" target="_blank" rel="noopener noreferrer">노드VPN, 편의성 미끼 악성코드 &#x27;인포스틸러&#x27; 확산 경고</a> — 상위 1만 도메인·약 5억 건 로그, 윈도우 99%, 세션 연쇄 접근 경고</li>
+<li>안랩 ASEC, <a href="https://asec.ahnlab.com/ko/94485/" target="_blank" rel="noopener noreferrer">인포스틸러 월간 동향 보고서</a> — 국내 유포 흐름 추적</li>
+</ul>
+<p><em>수치는 각 조사 시점 기준입니다. 특정 제품이나 서비스를 비방할 의도는 없으며, 여기 적은 대응은 일반적인 권고입니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/browser-extension-risk"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지</h3><p>광고 차단, 번역, 쿠폰 자동 적용. 편해서 깔아 둔 브라우저 확장프로그램이 실제로 무엇을 볼 수 있는지, 웹스토어에 있으면 안전한지, 지금 무엇을 점검하면 되는지 질문에 답하는 형식으로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-18T20:00">2026년 8월 18일 20:00</time><span>· <!-- -->보안, 브라우저, 확장프로그램</span></div></a><a class="post-card " href="/posts/check-account-breach"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">내 계정이 털렸는지 확인하는 법 — 개인정보 유출 대응 3단계</h3><p>대형 유출 사고 뉴스, 남 일이 아닙니다. 내 이메일·비밀번호가 유출됐는지 안전하게 확인하는 법과, 털렸을 때 지금 바로 해야 할 대응 3단계를 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-05T13:00">2026년 8월 5일 13:00</time><span>· <!-- -->보안, 개인정보유출, 계정보안</span></div></a><a class="post-card " href="/posts/slopsquatting-ai-package"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">AI가 알려준 그 라이브러리, 세상에 없는 이름일 수 있습니다</h3><p>AI에게 코드를 물으면 다섯 번에 한 번꼴로 존재하지 않는 라이브러리 이름을 알려 줍니다. 공격자가 그 빈 이름을 미리 등록해 두는 슬롭스쿼팅이 무엇인지, 왜 오타 노리기보다 위험한지, 설치 전 30초로 막는 법까지 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-27T17:14">2026년 8월 27일 17:14</time><span>· <!-- -->보안, AI, 공급망공격</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
