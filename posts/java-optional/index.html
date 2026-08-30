@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT) — PANCO_IT</title>
+    <meta name="description" content="자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/java-optional" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT) — PANCO_IT" />
+    <meta property="og:description" content="자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/java-optional" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-optional-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-08-30T13:30" />
+    <meta property="article:modified_time" content="2026-08-30T13:30" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT) — PANCO_IT" />
+    <meta name="twitter:description" content="자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-optional-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)","description":"자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-optional-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-30T13:30","dateModified":"2026-08-30T13:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-optional"},"keywords":"자바, JAVA, Optional, , NullPointerException"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)","item":"https://pancoit.site/posts/java-optional"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BFwja7a1.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-30T13:30">2026년 8월 30일 13:30</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->Optional</span><span class="tag">#</span><span class="tag">#<!-- -->NullPointerException</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="null을 그대로 돌려줄 때와 Optional로 돌려줄 때를 비교한 그림" src="/uploads/java-optional-hero.png" loading="lazy"/></p>
+<p><em>빈 상자를 건네는 것과, 아무것도 주지 않는 것은 다릅니다.</em></p>
+<p>5편에서 <code>findFirst()</code>의 결과가 그냥 값이 아니라 <code>Optional</code>로 돌아왔습니다. 조건에 맞는 값이 <strong>없을 수도 있기 때문</strong>이라고 했죠. 오늘은 그 상자의 정체를 봅니다.</p>
+<h2 id="null은-아무-말도-해-주지-않습니다"><a href="#null은-아무-말도-해-주지-않습니다">null은 아무 말도 해 주지 않습니다</a></h2>
+<p>자바를 쓰다 보면 가장 자주 만나는 오류가 <code>NullPointerException</code>입니다. 값이 있어야 할 자리에 <code>null</code>이 들어 있는데 그걸 쓰려다 터지는 것이죠.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">String name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> findName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1004</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 없으면 null을 돌려준다고 치면</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(name.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 여기서 NullPointerException</span></span></code></pre>
+<p>문제는 <code>findName</code>의 생김새만 봐서는 <strong>null이 올 수 있는지 알 수 없다는 것</strong>입니다. 반환형은 그냥 <code>String</code>이니까요. 없을 수 있다는 사실은 주석이나 문서에만 적혀 있고, 읽지 않으면 그대로 지나칩니다.</p>
+<p>그래서 방어적으로 이렇게 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (name </span><span style="color:#D73A49;--shiki-dark:#F97583">!=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> null</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(name.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>틀린 코드는 아닙니다. 다만 <strong>깜빡하면 아무도 안 알려 준다</strong>는 점이 문제입니다.</p>
+<h2 id="optional은-상자입니다"><a href="#optional은-상자입니다">Optional은 상자입니다</a></h2>
+<p>자바 8이 내놓은 답이 <code>Optional</code>입니다. 값을 그대로 주는 대신 <strong>상자에 담아</strong> 줍니다. 상자 안에 값이 들어 있을 수도 있고, 비어 있을 수도 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Optional&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> findName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1004</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span></code></pre>
+<p>이렇게 되면 받는 쪽이 모를 수가 없습니다. 반환형에 <strong>&quot;없을 수도 있음&quot;이 적혀 있으니까요.</strong> 그리고 값을 쓰려면 상자를 열어야 하는데, 그 과정에서 자연스럽게 &quot;없으면 어떻게 할지&quot;를 정하게 됩니다.</p>
+<blockquote>
+<p><strong>쉽게 —</strong> 택배로 비유하면 이렇습니다. null은 택배가 아예 안 오는 것이고, <code>Optional</code>은 빈 상자라도 오는 것입니다. 빈 상자를 받으면 &quot;아, 물건이 없구나&quot; 하고 알 수 있죠. 안 오면 언제까지 기다려야 할지도 모릅니다.</p>
+</blockquote>
+<h2 id="상자-만들기"><a href="#상자-만들기">상자 만들기</a></h2>
+<p>세 가지를 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Optional&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; a </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Optional.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">of</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;포켓코딩&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 값이 확실히 있을 때</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Optional&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; b </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Optional.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">ofNullable</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(maybeNull); </span><span style="color:#6A737D;--shiki-dark:#6A737D">// null일 수도 있을 때</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Optional&lt;</span><span style="color:#D73A49;--shiki-dark:#F97583">String</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; c </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Optional.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">empty</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();               </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 빈 상자</span></span></code></pre>
+<p>주의할 점 하나. <code>Optional.of(null)</code>은 <strong>그 자리에서 예외가 납니다.</strong> null이 올 수 있는 값이라면 반드시 <code>ofNullable</code>을 써야 합니다. 이름이 헷갈리기 쉬운데, <code>of</code>는 &quot;확실히 있다&quot;, <code>ofNullable</code>은 &quot;없을 수도 있다&quot;로 기억하면 됩니다.</p>
+<h2 id="꺼내는-방법이-여럿입니다"><a href="#꺼내는-방법이-여럿입니다">꺼내는 방법이 여럿입니다</a></h2>
+<p><img alt="orElse, orElseGet, orElseThrow, ifPresent 네 가지 꺼내기 방법" src="/uploads/java-optional-take.png" loading="lazy"/></p>
+<p><em>그림 1. 꺼내기 전에 &quot;없으면 어떻게 할지&quot;를 먼저 정하게 됩니다.</em></p>
+<p><strong>orElse — 없으면 이 값으로</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">String result </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">orElse</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이름 없음&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span></code></pre>
+<p>가장 많이 씁니다. 값이 있으면 그것을, 없으면 괄호 안의 것을 돌려줍니다.</p>
+<p><strong>orElseGet — 없을 때만 만들기</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">String result </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">orElseGet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(() </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> makeDefaultName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span></code></pre>
+<p><code>orElse</code>와 결과는 같지만 동작이 다릅니다. <strong><code>orElse</code>는 괄호 안을 항상 먼저 계산합니다.</strong> 값이 있어서 쓰지도 않을 기본값을 만들어 버리는 것이죠. 기본값을 만드는 데 시간이 걸린다면(DB 조회 같은) <code>orElseGet</code>을 써야 합니다. 2편에서 배운 <code>Supplier</code>가 여기 들어갑니다.</p>
+<p><strong>orElseThrow — 없으면 예외</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">String result </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">orElseThrow</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(() </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> RuntimeException</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;회원 없음&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));</span></span></code></pre>
+<p>값이 반드시 있어야 하는 상황에서 씁니다. 없다는 사실 자체가 오류인 경우죠.</p>
+<p><strong>ifPresent — 있을 때만 실행</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">name.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">ifPresent</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;안녕하세요, &quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n));</span></span></code></pre>
+<p>값을 꺼내 변수에 담지 않고 <strong>있을 때만 무언가를 하고 끝냅니다.</strong> 2편의 <code>Consumer</code>가 들어가는 자리입니다.</p>
+<h2 id="상자를-열지-않고-안을-바꾸기"><a href="#상자를-열지-않고-안을-바꾸기">상자를 열지 않고 안을 바꾸기</a></h2>
+<p><code>Optional</code>도 스트림처럼 <code>map</code>과 <code>filter</code>를 씁니다. 상자를 연 다음 처리하는 게 아니라, <strong>상자째로 이어 붙입니다.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">String len </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> findName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1004</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() </span><span style="color:#D73A49;--shiki-dark:#F97583">&gt;=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)      </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 두 글자 이상만</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;님&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)                </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 뒤에 붙이기</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">orElse</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;해당 없음&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span></code></pre>
+<p>중간에 값이 없어지면 뒤의 연산은 <strong>그냥 건너뜁니다.</strong> null 검사를 단계마다 넣을 필요가 없어지는 것이 이 방식의 이점입니다.</p>
+<h2 id="단골-함정"><a href="#단골-함정">단골 함정</a></h2>
+<p><strong>첫째, <code>get()</code>을 바로 부르는 것.</strong> <code>Optional</code>에는 <code>get()</code>이 있지만, 값이 없으면 예외가 납니다. 결국 <code>NullPointerException</code>을 다른 예외로 바꾼 것뿐이죠. <strong><code>get()</code>은 쓰지 않는다고 생각하는 편이 안전합니다.</strong></p>
+<p><strong>둘째, <code>isPresent()</code>로 검사하고 <code>get()</code>으로 꺼내는 것.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (name.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">isPresent</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()) {       </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이러면</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(name.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">get</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<p>동작은 합니다. 그런데 이건 <code>if (name != null)</code>과 모양이 똑같아서, <code>Optional</code>을 쓴 의미가 거의 없습니다. <code>ifPresent</code>나 <code>orElse</code>로 바꾸면 한 줄로 끝납니다.</p>
+<p><strong>셋째, 필드나 매개변수에 쓰는 것.</strong> <code>Optional</code>은 <strong>메서드 반환값을 위해</strong> 만들어진 도구입니다. 클래스 필드로 두거나 매개변수로 받으면 오히려 코드가 번잡해집니다. &quot;돌려줄 때 없을 수 있음을 알리는 용도&quot;로 한정해 쓰는 것이 일반적인 권장입니다.</p>
+<p><strong>넷째, <code>orElse</code> 안에 무거운 계산을 넣는 것.</strong> 앞에서 본 대로 값이 있어도 실행됩니다. 무거우면 <code>orElseGet</code>으로 바꾸세요.</p>
+<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<p><code>orElse</code>와 <code>orElseGet</code>의 차이는 눈으로 봐야 확실합니다. 출력 순서를 눈여겨보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">Optional 한눈에</span></div><pre class="runner__code"><code>import java.util.*;
+
+public class Main {
+  // 회원 번호로 이름 찾기 — 1004번만 있다고 가정
+  static Optional&lt;String&gt; findName(int id) {
+      if (id == 1004) return Optional.of(&quot;홍길동&quot;);
+      return Optional.empty();
+  }
+
+  static String makeDefault() {
+      System.out.println(&quot;  (기본값 만드는 중... 오래 걸린다고 치죠)&quot;);
+      return &quot;이름 없음&quot;;
+  }
+
+  public static void main(String[] args) {
+      // 1) 있을 때와 없을 때
+      System.out.println(&quot;1004번: &quot; + findName(1004).orElse(&quot;없음&quot;));
+      System.out.println(&quot;9999번: &quot; + findName(9999).orElse(&quot;없음&quot;));
+      System.out.println();
+
+      // 2) orElse는 값이 있어도 기본값을 만든다
+      System.out.println(&quot;--- orElse (값 있음) ---&quot;);
+      String a = findName(1004).orElse(makeDefault());
+      System.out.println(&quot;결과: &quot; + a);
+
+      System.out.println();
+      System.out.println(&quot;--- orElseGet (값 있음) ---&quot;);
+      String b = findName(1004).orElseGet(() -&gt; makeDefault());
+      System.out.println(&quot;결과: &quot; + b);
+      System.out.println(&quot;→ orElseGet은 기본값을 만들지 않았습니다&quot;);
+
+      // 3) ifPresent — 있을 때만 실행
+      System.out.println();
+      findName(1004).ifPresent(n -&gt; System.out.println(&quot;인사: &quot; + n + &quot;님 반갑습니다&quot;));
+      findName(9999).ifPresent(n -&gt; System.out.println(&quot;이 줄은 안 나옵니다&quot;));
+
+      // 4) filter와 map으로 이어 쓰기
+      System.out.println();
+      String r1 = findName(1004).filter(n -&gt; n.length() &gt;= 2).map(n -&gt; n + &quot;님&quot;).orElse(&quot;해당 없음&quot;);
+      String r2 = findName(1004).filter(n -&gt; n.length() &gt;= 5).map(n -&gt; n + &quot;님&quot;).orElse(&quot;해당 없음&quot;);
+      System.out.println(&quot;두 글자 이상: &quot; + r1);
+      System.out.println(&quot;다섯 글자 이상: &quot; + r2);
+
+      // 5) 없는데 꺼내려 하면
+      System.out.println();
+      try {
+          findName(9999).orElseThrow(() -&gt; new RuntimeException(&quot;회원을 찾을 수 없습니다&quot;));
+      } catch (RuntimeException e) {
+          System.out.println(&quot;orElseThrow → &quot; + e.getMessage());
+      }
+  }
+}</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>makeDefault()</code>가 언제 실행되는지가 핵심입니다. <code>orElse</code> 쪽에서는 값이 있는데도 실행되고, <code>orElseGet</code> 쪽에서는 실행되지 않습니다.</p>
+<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>왜 쓰나</td><td>&quot;없을 수 있음&quot;을 <strong>타입으로</strong> 알리기 위해</td></tr><tr><td>만들기</td><td><code>of</code>(확실히 있음) · <code>ofNullable</code>(없을 수도) · <code>empty</code></td></tr><tr><td>기본값</td><td><code>orElse</code>(항상 계산) · <code>orElseGet</code>(없을 때만)</td></tr><tr><td>없으면 오류</td><td><code>orElseThrow</code></td></tr><tr><td>있을 때만</td><td><code>ifPresent</code></td></tr><tr><td>이어 쓰기</td><td><code>filter</code> · <code>map</code> — 없으면 건너뜀</td></tr><tr><td>피할 것</td><td><code>get()</code>, <code>isPresent()</code>+<code>get()</code>, 필드·매개변수 사용</td></tr></tbody></table>
+<p><strong>이것만 기억하면 됩니다.</strong> <code>Optional</code>은 null을 없애는 도구가 아니라 <strong>없을 수 있다는 사실을 드러내는</strong> 도구입니다. 그래서 값을 꺼낼 때마다 &quot;없으면 무엇으로 대신할지&quot;를 정하게 만들고, 그 과정에서 <code>NullPointerException</code>이 줄어듭니다. <code>get()</code>만 쓰지 않으면 절반은 성공입니다.</p>
+<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
+<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(JAVA4) 6편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 메서드 참조 — 람다를 더 짧게 쓰기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-stream-terminal"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)</h3><p>스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-29T13:20">2026년 8월 29일 13:20</time><span>· <!-- -->자바, JAVA, 스트림</span></div></a><a class="post-card " href="/posts/java-stream-intermediate"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT)</h3><p>스트림의 중간 연산을 입문자 눈높이로 정리합니다. flatMap이 map과 무엇이 다른지, distinct가 객체에서 왜 안 먹히는지, sorted와 limit의 순서를 바꾸면 왜 답이 달라지는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-28T11:26">2026년 8월 28일 11:26</time><span>· <!-- -->자바, JAVA, 스트림</span></div></a><a class="post-card " href="/posts/java-stream-basic"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 스트림 — 컬렉션을 흐름으로 다루기(STREAM·FILTER·MAP)</h3><p>자바 스트림을 입문자 눈높이로 정리합니다. for문과 무엇이 다른지, filter와 map이 앞 편의 Predicate·Function과 어떻게 이어지는지, 최종 연산을 빠뜨리면 왜 아무 일도 일어나지 않는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-27T16:04">2026년 8월 27일 16:04</time><span>· <!-- -->자바, JAVA, 스트림</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

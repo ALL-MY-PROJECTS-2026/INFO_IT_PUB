@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</title>
+      <link>https://pancoit.site/posts/java-optional</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-optional</guid>
+      <pubDate>Sun, 30 Aug 2026 04:30:00 GMT</pubDate>
+      <description>자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값</title>
       <link>https://pancoit.site/posts/infostealer-saved-password</link>
       <guid isPermaLink="true">https://pancoit.site/posts/infostealer-saved-password</guid>
