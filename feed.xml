@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</title>
+      <link>https://pancoit.site/posts/java-method-reference</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java-method-reference</guid>
+      <pubDate>Mon, 31 Aug 2026 01:39:00 GMT</pubDate>
+      <description>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</description>
+    </item>
+    <item>
       <title>자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</title>
       <link>https://pancoit.site/posts/java-optional</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-optional</guid>
