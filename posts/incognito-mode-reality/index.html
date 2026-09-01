@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록 — PANCO_IT</title>
+    <meta name="description" content="구글은 시크릿 모드로 수집한 수십억 건의 기록을 지우기로 합의했습니다. 애초에 무엇을 오해했길래 소송까지 갔을까요. 시크릿 모드가 실제로 지워 주는 것, 그래도 지켜보는 네 개의 눈, 그리고 이 기능을 제대로 쓰는 상황을 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/incognito-mode-reality" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록 — PANCO_IT" />
+    <meta property="og:description" content="구글은 시크릿 모드로 수집한 수십억 건의 기록을 지우기로 합의했습니다. 애초에 무엇을 오해했길래 소송까지 갔을까요. 시크릿 모드가 실제로 지워 주는 것, 그래도 지켜보는 네 개의 눈, 그리고 이 기능을 제대로 쓰는 상황을 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/incognito-mode-reality" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-incognito-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-01T15:01" />
+    <meta property="article:modified_time" content="2026-09-01T15:01" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록 — PANCO_IT" />
+    <meta name="twitter:description" content="구글은 시크릿 모드로 수집한 수십억 건의 기록을 지우기로 합의했습니다. 애초에 무엇을 오해했길래 소송까지 갔을까요. 시크릿 모드가 실제로 지워 주는 것, 그래도 지켜보는 네 개의 눈, 그리고 이 기능을 제대로 쓰는 상황을 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-incognito-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록","description":"구글은 시크릿 모드로 수집한 수십억 건의 기록을 지우기로 합의했습니다. 애초에 무엇을 오해했길래 소송까지 갔을까요. 시크릿 모드가 실제로 지워 주는 것, 그래도 지켜보는 네 개의 눈, 그리고 이 기능을 제대로 쓰는 상황을 정리했습니다.","image":"https://pancoit.site/uploads/itnews-incognito-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-01T15:01","dateModified":"2026-09-01T15:01","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/incognito-mode-reality"},"keywords":"보안, 프라이버시, 시크릿모드, 브라우저, 크롬"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록","item":"https://pancoit.site/posts/incognito-mode-reality"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BT2nU16_.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-01T15:01">2026년 9월 1일 15:01</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->보안</span><span class="tag">#<!-- -->프라이버시</span><span class="tag">#<!-- -->시크릿모드</span><span class="tag">#<!-- -->브라우저</span><span class="tag">#<!-- -->크롬</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="블라인드 틈으로 빛이 새어 들어오는 창문" src="/uploads/itnews-incognito-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels (pexels.com) · Pexels License</em></p>
+<p>2024년 4월, 구글은 크롬 시크릿 모드로 브라우징하는 동안 수집한 <strong>수십억 건의 기록을 삭제하기로 합의</strong>했습니다. &quot;시크릿 모드는 비공개&quot;라고 믿게 해 놓고 실제로는 데이터를 수집했다는 집단소송(Brown v. Google)의 결과였죠.</p>
+<p>이 사건이 알려 주는 것은 하나입니다. <strong>시크릿 모드에 대한 오해가, 소송이 될 만큼 크고 넓다</strong>는 것. 그 창을 켜면 아무도 나를 못 본다고 생각하는 사람이 그만큼 많았다는 뜻이니까요.</p>
+<p>그래서 오늘은 정면으로 묻습니다. 시크릿 모드를 켜면, 정확히 <strong>누구에게</strong> 안 보이게 되는 걸까요.</p>
+<h2 id="시크릿-모드가-실제로-하는-일"><a href="#시크릿-모드가-실제로-하는-일">시크릿 모드가 실제로 하는 일</a></h2>
+<p>먼저 진짜 기능부터. 시크릿 창을 열면 나오는 안내 화면에 답이 이미 적혀 있습니다. 아무도 끝까지 읽지 않을 뿐입니다.</p>
+<p><img alt="크롬 시크릿 모드 시작 화면에서 &#x27;저장하지 않는 정보&#x27; 목록과 &#x27;활동이 표시될 수 있는 대상&#x27; 목록에 펜으로 표시한 그림" src="/uploads/itnews-incognito-screen.png" loading="lazy"/></p>
+<p><em>크롬이 직접 말해 줍니다 — 지워 주는 것 세 가지, 그래도 보는 사람 세 부류.</em></p>
+<p>시크릿 모드가 하는 일은 <strong>이 컴퓨터에 흔적을 남기지 않는 것</strong>입니다. 창을 닫는 순간 방문 기록, 쿠키, 검색창과 양식에 입력한 내용이 그 기기에서 지워집니다. 그게 전부입니다.</p>
+<p>두 가지는 지워지지 않고 남습니다. <strong>다운로드한 파일</strong>과 <strong>추가한 북마크</strong>입니다. 시크릿 창에서 받은 파일도 다운로드 폴더에 그대로 있으니, &quot;창을 닫으면 다 사라진다&quot;고 믿으면 여기서부터 어긋납니다.</p>
+<h2 id="네-개의-눈-앞에-세워-보면"><a href="#네-개의-눈-앞에-세워-보면">네 개의 눈 앞에 세워 보면</a></h2>
+<p>이제 본론입니다. 인터넷 접속은 내 컴퓨터에서 출발해 여러 길목을 지나갑니다. 시크릿 모드가 청소하는 곳은 그중 <strong>출발점 하나뿐</strong>입니다.</p>
+<p><img alt="내 컴퓨터에서 회사 네트워크, 통신사, 방문 사이트로 이어지는 경로 위에 눈 표시가 그려진 그림" src="/uploads/itnews-incognito-path.png" loading="lazy"/></p>
+<p><em>접속이 지나간 길목마다 기록이 남습니다. 시크릿 모드의 빗자루는 첫 칸까지만 닿습니다.</em></p>
+<p><strong>첫 번째 눈 — 같은 컴퓨터를 쓰는 사람.</strong> 유일하게 시크릿 모드가 이기는 상대입니다. 가족과 함께 쓰는 컴퓨터, 공용 PC에서 내 검색 기록이 다음 사람에게 보이지 않습니다. 이 기능이 만들어진 이유가 바로 이것입니다.</p>
+<p><strong>두 번째 눈 — 회사와 학교.</strong> 집니다. 회사 네트워크를 지나는 트래픽은 네트워크 관리 장비에 기록됩니다. 시크릿 모드는 그 기록에 아무 영향을 주지 못합니다. 크롬의 안내 화면에 &quot;고용주 또는 학교&quot;가 명시된 이유입니다.</p>
+<p><strong>세 번째 눈 — 통신사.</strong> 역시 집니다. 어느 기기가 언제 어느 서버에 접속했는지는 통신사 구간에서 파악됩니다. 시크릿 모드는 통신 경로를 바꾸는 기능이 아니라서 여기에 관여할 수 없습니다.</p>
+<p><strong>네 번째 눈 — 방문한 사이트.</strong> 대체로 집니다. 사이트는 접속자의 IP 주소를 보고, 브라우저의 여러 특성을 조합해 같은 방문자를 알아보기도 합니다. 그리고 결정적으로, 시크릿 창에서라도 <strong>로그인을 하면 그 서비스는 내가 누구인지 정확히 압니다.</strong> 시크릿 창에서 유튜브에 로그인해 본 영상은 그 계정의 기록에 남습니다.</p>
+<p>정리하면 4전 1승 3패입니다. 시크릿 모드는 &quot;세상으로부터 숨는 기능&quot;이 아니라 <strong>&quot;이 기기 안에서만 흔적을 지우는 기능&quot;</strong> 입니다.</p>
+<h2 id="그럼-언제-쓰고-언제-다른-도구를-쓰나"><a href="#그럼-언제-쓰고-언제-다른-도구를-쓰나">그럼 언제 쓰고, 언제 다른 도구를 쓰나</a></h2>
+<p>용도를 정확히 알면 꽤 유용한 기능입니다. 판정표로 정리합니다.</p>
+<table><thead><tr><th>상황</th><th>시크릿 모드</th><th>이유</th></tr></thead><tbody><tr><td>공용 PC에서 잠깐 로그인</td><td>적합</td><td>창을 닫으면 이 기기에서 로그인·기록 삭제</td></tr><tr><td>가족 컴퓨터에서 선물 검색</td><td>적합</td><td>검색 기록·광고 흔적이 남지 않음</td></tr><tr><td>내 계정 로그아웃 상태로 화면 확인</td><td>적합</td><td>쿠키 없는 새 방문자 시점으로 보임</td></tr><tr><td>회사에서 보는 걸 숨기고 싶다</td><td>부적합</td><td>네트워크 기록은 그대로 남음</td></tr><tr><td>통신사·사이트로부터 익명이 되고 싶다</td><td>부적합</td><td>IP가 그대로 노출됨</td></tr><tr><td>항공권 가격이 내려간다는 속설</td><td>근거 약함</td><td>가격은 쿠키 외 요인이 커서 기대만큼 달라지지 않음</td></tr></tbody></table>
+<p>부적합 칸의 목적이라면 도구 자체가 다릅니다. 통신 경로를 가리는 문제는 <a href="/posts/what-is-vpn">VPN</a>의 영역이고, 사이트가 나를 알아보는 원리는 <a href="/posts/web-cookies">쿠키 편</a>에서 다뤘습니다. 그리고 브라우저에 저장된 비밀번호를 노리는 위협은 시크릿 모드와 무관하게 존재합니다 — <a href="/posts/infostealer-saved-password">지난 편</a>의 주제였죠.</p>
+<h2 id="소송이-바꾼-것-바꾸지-못한-것"><a href="#소송이-바꾼-것-바꾸지-못한-것">소송이 바꾼 것, 바꾸지 못한 것</a></h2>
+<p>앞의 합의로 구글은 세 가지를 약속했습니다. 수집했던 시크릿 브라우징 기록 수십억 건을 삭제하고, 시크릿 모드의 실제 동작을 <strong>더 분명하게 고지</strong>하고, 시크릿 모드에서 <strong>서드파티 쿠키를 기본 차단</strong>하기로 했습니다. 지금 시크릿 창의 안내 문구가 예전보다 구체적인 것은 이 합의의 흔적입니다.</p>
+<p>다만 바뀌지 않은 것이 더 중요합니다. <strong>시크릿 모드의 구조 자체는 그대로</strong>입니다. 여전히 이 기기의 흔적만 지우고, 여전히 네트워크 위의 기록에는 손대지 못합니다. 소송은 기능을 바꾼 것이 아니라 설명을 바꾼 것에 가깝습니다.</p>
+<p>그러니 이 기능을 낮춰 볼 필요도, 과신할 필요도 없습니다. 공용 기기에서 흔적을 안 남기는 데는 이만한 것이 없고, 그 이상을 기대하는 순간 어긋납니다. <strong>도구는 죄가 없습니다. 이름이 조금 과했을 뿐입니다.</strong></p>
+<h2 id="이-글이-딛고-선-자료"><a href="#이-글이-딛고-선-자료">이 글이 딛고 선 자료</a></h2>
+<ul>
+<li>ITWorld, <a href="https://www.itworld.co.kr/article/3572113/" target="_blank" rel="noopener noreferrer">구글, 시크릿 모드 소송 합의를 둘러싼 논쟁</a> (2024-04-11) — Brown v. Google 합의 조건(기록 삭제·고지 개선·서드파티 쿠키 차단)</li>
+<li>디지털투데이, <a href="https://www.digitaltoday.co.kr/news/articleView.html?idxno=666034" target="_blank" rel="noopener noreferrer">크롬 시크릿 모드로는 ISP 추적 못 막아</a> — 통신사·네트워크 구간의 한계</li>
+<li>AdGuard 블로그, <a href="https://adguard.com/ko/blog/incognito-mode-fake-protection-chrome.html" target="_blank" rel="noopener noreferrer">시크릿 모드는 가짜?</a> — 시크릿 모드가 보호하는 것과 못 하는 것</li>
+<li>크롬 시크릿 모드 시작 화면의 공식 고지 문구 (2026년 9월 확인)</li>
+</ul>
+<p><em>본문은 2026년 9월 기준이며, 브라우저 안내 문구와 정책은 이후 달라질 수 있습니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/browser-extension-risk"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지</h3><p>광고 차단, 번역, 쿠폰 자동 적용. 편해서 깔아 둔 브라우저 확장프로그램이 실제로 무엇을 볼 수 있는지, 웹스토어에 있으면 안전한지, 지금 무엇을 점검하면 되는지 질문에 답하는 형식으로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-18T20:00">2026년 8월 18일 20:00</time><span>· <!-- -->보안, 브라우저, 확장프로그램</span></div></a><a class="post-card " href="/posts/infostealer-saved-password"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값</h3><p>다크웹에서 확인된 정보 탈취 악성코드 로그가 2025년 한 해 500만 건, 전년 대비 59% 늘었습니다. 감염의 35%는 내려받은 파일을 그냥 실행한 데서 시작합니다. 무엇이 새어 나가는지, 왜 비밀번호만 바꾸면 안 끊기는지, 오늘 할 일 네 가지를 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-29T23:20">2026년 8월 29일 23:20</time><span>· <!-- -->보안, 인포스틸러, 악성코드</span></div></a><a class="post-card " href="/posts/what-is-vpn"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">VPN이란 무엇인가 — 인터넷에 &#x27;전용 통로&#x27;를 만드는 법</h3><p>공용 와이파이가 위험하다고 하면 꼭 나오는 VPN. VPN이 대체 뭔지, 어떻게 데이터를 암호화해 지키는지, 언제 쓰면 좋고 무엇을 조심해야 하는지 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-07-31T15:00">2026년 7월 31일 15:00</time><span>· <!-- -->보안, VPN, 프라이버시</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록</title>
+      <link>https://pancoit.site/posts/incognito-mode-reality</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/incognito-mode-reality</guid>
+      <pubDate>Tue, 01 Sep 2026 06:01:00 GMT</pubDate>
+      <description>구글은 시크릿 모드로 수집한 수십억 건의 기록을 지우기로 합의했습니다. 애초에 무엇을 오해했길래 소송까지 갔을까요. 시크릿 모드가 실제로 지워 주는 것, 그래도 지켜보는 네 개의 눈, 그리고 이 기능을 제대로 쓰는 상황을 정리했습니다.</description>
+    </item>
+    <item>
       <title>모던 자바 12문제로 복습 — JAVA4 총정리</title>
       <link>https://pancoit.site/posts/java4-review</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java4-review</guid>
