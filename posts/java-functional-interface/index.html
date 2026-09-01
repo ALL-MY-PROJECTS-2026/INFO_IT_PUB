@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-DflU59JE.js"></script>
+    <script type="module" crossorigin src="/assets/index-DqLcokk8.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
   </head>
@@ -89,8 +89,8 @@
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Greeter formal </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;님, 안녕하십니까&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Greeter casual </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;아, 안녕!&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(formal.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;우균&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 우균님, 안녕하십니까</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(casual.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;우균&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 우균아, 안녕!</span></span></code></pre>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(formal.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 길동님, 안녕하십니까</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(casual.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">greet</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">));   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 길동아, 안녕!</span></span></code></pre>
 <p>같은 자리에 다른 동작을 끼워 넣었습니다. <strong>인사하는 방식 자체를 값처럼 주고받은</strong> 셈입니다. 1편에서 말한 &quot;메서드를 값처럼 넘긴다&quot;가 이런 모습입니다.</p>
 <h2 id="functionalinterface--실수를-미리-막습니다"><a href="#functionalinterface--실수를-미리-막습니다">@FunctionalInterface — 실수를 미리 막습니다</a></h2>
 <p>여기서 사고가 하나 납니다. 몇 달 뒤 누군가 이 인터페이스에 메서드를 하나 더 붙였다고 해봅시다.</p>
@@ -160,8 +160,8 @@ public class Main {
       // 직접 만든 자리
       Greeter formal = name -&gt; name + &quot;님, 안녕하십니까&quot;;
       Greeter casual = name -&gt; name + &quot;아, 안녕!&quot;;
-      System.out.println(formal.greet(&quot;우균&quot;));
-      System.out.println(casual.greet(&quot;우균&quot;));
+      System.out.println(formal.greet(&quot;길동&quot;));
+      System.out.println(casual.greet(&quot;길동&quot;));
       System.out.println();
 
       // 자바가 준비해 둔 넷
