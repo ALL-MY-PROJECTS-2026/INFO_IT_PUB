@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>모던 자바 12문제로 복습 — JAVA4 총정리</title>
+      <link>https://pancoit.site/posts/java4-review</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/java4-review</guid>
+      <pubDate>Tue, 01 Sep 2026 02:01:00 GMT</pubDate>
+      <description>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</description>
+    </item>
+    <item>
       <title>자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</title>
       <link>https://pancoit.site/posts/java-method-reference</link>
       <guid isPermaLink="true">https://pancoit.site/posts/java-method-reference</guid>
