@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 시작하기 — 설치 없이 브라우저에서 첫 코드 실행(PRINT)</title>
+      <link>https://pancoit.site/posts/python-start-print</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-start-print</guid>
+      <pubDate>Wed, 02 Sep 2026 01:30:00 GMT</pubDate>
+      <description>파이썬 첫 코드를 설치 없이 이 페이지 안에서 바로 실행해 봅니다. 일부러 한 번 틀려 보고, 에러 문장을 읽는 법과 print·따옴표·주석의 규칙을 익힌 뒤, 세 줄짜리 자기소개 프로그램을 완성합니다.</description>
+    </item>
+    <item>
       <title>시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록</title>
       <link>https://pancoit.site/posts/incognito-mode-reality</link>
       <guid isPermaLink="true">https://pancoit.site/posts/incognito-mode-reality</guid>
