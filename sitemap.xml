@@ -291,6 +291,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/kakao-membership</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/npm-supply-chain-2026</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
