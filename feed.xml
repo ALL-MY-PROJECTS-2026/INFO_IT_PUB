@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>스마트워치가 &quot;500kcal 태웠다&quot;고 할 때 실제는 400 안팎 — 연구가 찍은 오차, 그리고 뭘 믿어야 하나</title>
+      <link>https://pancoit.site/posts/smartwatch-calorie-accuracy</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/smartwatch-calorie-accuracy</guid>
+      <pubDate>Thu, 03 Sep 2026 03:00:00 GMT</pubDate>
+      <description>애플워치·갤럭시워치·가민·핏빗 4종을 실험실 장비와 비교한 연구가 나왔습니다. 칼로리 표시는 15~25% 과대, 체지방률이 높을수록 더 틀립니다. 500이 왜 400이 되는지 계산해 보고, 시계의 어떤 숫자는 믿고 어떤 숫자는 참고만 할지 정리했습니다.</description>
+    </item>
+    <item>
       <title>카카오 유료 멤버십이 온다 — 카톡이 유료가 되냐는 질문부터 정리</title>
       <link>https://pancoit.site/posts/kakao-membership</link>
       <guid isPermaLink="true">https://pancoit.site/posts/kakao-membership</guid>

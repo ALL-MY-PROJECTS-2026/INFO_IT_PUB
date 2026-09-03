@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>스마트워치가 &quot;500kcal 태웠다&quot;고 할 때 실제는 400 안팎 — 연구가 찍은 오차, 그리고 뭘 믿어야 하나 — PANCO_IT</title>
+    <meta name="description" content="애플워치·갤럭시워치·가민·핏빗 4종을 실험실 장비와 비교한 연구가 나왔습니다. 칼로리 표시는 15~25% 과대, 체지방률이 높을수록 더 틀립니다. 500이 왜 400이 되는지 계산해 보고, 시계의 어떤 숫자는 믿고 어떤 숫자는 참고만 할지 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/smartwatch-calorie-accuracy" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="스마트워치가 &quot;500kcal 태웠다&quot;고 할 때 실제는 400 안팎 — 연구가 찍은 오차, 그리고 뭘 믿어야 하나 — PANCO_IT" />
+    <meta property="og:description" content="애플워치·갤럭시워치·가민·핏빗 4종을 실험실 장비와 비교한 연구가 나왔습니다. 칼로리 표시는 15~25% 과대, 체지방률이 높을수록 더 틀립니다. 500이 왜 400이 되는지 계산해 보고, 시계의 어떤 숫자는 믿고 어떤 숫자는 참고만 할지 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/smartwatch-calorie-accuracy" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-smartwatch-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-03T12:00" />
+    <meta property="article:modified_time" content="2026-09-03T12:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="스마트워치가 &quot;500kcal 태웠다&quot;고 할 때 실제는 400 안팎 — 연구가 찍은 오차, 그리고 뭘 믿어야 하나 — PANCO_IT" />
+    <meta name="twitter:description" content="애플워치·갤럭시워치·가민·핏빗 4종을 실험실 장비와 비교한 연구가 나왔습니다. 칼로리 표시는 15~25% 과대, 체지방률이 높을수록 더 틀립니다. 500이 왜 400이 되는지 계산해 보고, 시계의 어떤 숫자는 믿고 어떤 숫자는 참고만 할지 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-smartwatch-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"스마트워치가 \"500kcal 태웠다\"고 할 때 실제는 400 안팎 — 연구가 찍은 오차, 그리고 뭘 믿어야 하나","description":"애플워치·갤럭시워치·가민·핏빗 4종을 실험실 장비와 비교한 연구가 나왔습니다. 칼로리 표시는 15~25% 과대, 체지방률이 높을수록 더 틀립니다. 500이 왜 400이 되는지 계산해 보고, 시계의 어떤 숫자는 믿고 어떤 숫자는 참고만 할지 정리했습니다.","image":"https://pancoit.site/uploads/itnews-smartwatch-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-03T12:00","dateModified":"2026-09-03T12:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/smartwatch-calorie-accuracy"},"keywords":"스마트워치, 칼로리, 애플워치, 갤럭시워치, 헬스케어"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"스마트워치가 \"500kcal 태웠다\"고 할 때 실제는 400 안팎 — 연구가 찍은 오차, 그리고 뭘 믿어야 하나","item":"https://pancoit.site/posts/smartwatch-calorie-accuracy"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BW_6172I.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">스마트워치가 &quot;500kcal 태웠다&quot;고 할 때 실제는 400 안팎 — 연구가 찍은 오차, 그리고 뭘 믿어야 하나</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">스마트워치가 &quot;500kcal 태웠다&quot;고 할 때 실제는 400 안팎 — 연구가 찍은 오차, 그리고 뭘 믿어야 하나</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-03T12:00">2026년 9월 3일 12:00</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->스마트워치</span><span class="tag">#<!-- -->칼로리</span><span class="tag">#<!-- -->애플워치</span><span class="tag">#<!-- -->갤럭시워치</span><span class="tag">#<!-- -->헬스케어</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="숲을 배경으로 달리기 기록이 표시된 스마트워치를 찬 손목" src="/uploads/itnews-smartwatch-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels (pexels.com) · Pexels License</em></p>
+<p>운동을 마치고 손목을 보니 &quot;500kcal 소모&quot;. 오늘은 좀 먹어도 되겠다 싶은 그 순간을 겨냥한 연구가 나왔습니다. 결론부터 말하면 <strong>그 500은 재서 나온 숫자가 아니라 계산해서 나온 숫자이고, 실제보다 15~25% 부풀려져 있을 가능성이 큽니다.</strong> 500이라면 실제는 400에서 435 사이라는 뜻입니다.</p>
+<p>바쁘신 분을 위한 세 줄 요약입니다.</p>
+<ul>
+<li>애플워치·갤럭시워치·가민·핏빗 4종 모두 실험실 장비보다 <strong>칼로리를 더 많이 태웠다고</strong> 표시했습니다</li>
+<li><strong>체지방률이 높을수록</strong> 오차가 커지고, 피부톤은 영향이 없었습니다</li>
+<li>시계에서 <strong>믿을 숫자는 심박수와 시간</strong>, 칼로리는 &quot;참고값&quot;으로 두는 게 정답입니다</li>
+</ul>
+<p>이 글은 2026년 7월 국제학술지 플로스 원(PLOS One)에 실린 논문과 2026년 9월 2일 국내 보도를 바탕으로 썼습니다. 수치는 논문 원문 값을 그대로 옮겼습니다.</p>
+<p><img alt="PLOS One에 실린 논문 페이지 상단 — 제목과 저자, 초록 일부" src="/uploads/plos-official.png" loading="lazy"/></p>
+<p><em>그림 1. 논문 원문 「Body fat, skin tone, and the accuracy of smartwatch caloric expenditure estimates」 — 이 글의 근거입니다. (출처: journals.plos.org, 2026-07-29)</em></p>
+<h2 id="어떤-연구였나요"><a href="#어떤-연구였나요">어떤 연구였나요?</a></h2>
+<p>미국 플로리다 국제대(FIU) 연구팀이 성인 58명에게 스마트워치를 채우고 실내 자전거를 타게 했습니다. 중간 강도와 고강도를 2분씩 번갈아 밟는 약 10분 운동에 앞뒤로 5분씩 휴식을 붙인 구성입니다. 그 사이 참가자의 호흡을 실험실용 대사 분석기(COSMED K5)로 재서 <strong>실제로 쓴 에너지</strong>를 구하고, 같은 시간 동안 시계가 표시한 칼로리와 비교했습니다.</p>
+<p>비교한 시계는 네 종류입니다. 애플워치 시리즈 8, 삼성 갤럭시워치 5, 가민 포러너 955, 핏빗 센스 2. 대부분의 사람이 차고 있을 법한 브랜드가 다 들어 있습니다.</p>
+<h2 id="결과--넷-다-더-태웠다고-말했습니다"><a href="#결과--넷-다-더-태웠다고-말했습니다">결과 — 넷 다 &quot;더 태웠다&quot;고 말했습니다</a></h2>
+<p>네 기기 모두 실제보다 칼로리를 <strong>높게</strong> 표시했습니다. 논문이 낸 기기별 평균 편향은 이렇습니다.</p>
+<p><img alt="시계 표시 500kcal과 실제 400~435kcal의 차이, 그리고 기기별 평균 편향 막대" src="/uploads/sw-gap.png" loading="lazy"/></p>
+<p><em>그림 2. 15분 남짓한 운동에서 시계마다 실제보다 21<del>69kcal을 더 얹었습니다. 15</del>25% 과대 추정을 500 표시에 대입하면 실제는 400~435입니다.</em></p>
+<ul>
+<li><strong>애플워치 시리즈 8</strong>: 실제보다 평균 <strong>+21.6kcal</strong> — 넷 중 가장 정확</li>
+<li><strong>갤럭시워치 5</strong>: <strong>+56.8kcal</strong></li>
+<li><strong>가민 포러너 955</strong>: <strong>+68.6kcal</strong> — 가장 후하게 계산</li>
+<li><strong>핏빗 센스 2</strong>: 평균은 +3.1kcal로 작아 보이지만, 참가자의 13%에서 값이 크게 튀었습니다(이상값을 빼기 전 평균은 +128.6kcal). &quot;평균은 좋은데 믿기 어려운&quot; 쪽입니다</li>
+</ul>
+<p>기기 사이 차이는 통계적으로 뚜렷했습니다(p값 0.001 미만). 언론이 &quot;15~25% 오차&quot;라고 옮긴 수치는 이 기기들의 절대 백분율 오차 범위입니다.</p>
+<p>계산을 한 번 해 보겠습니다. 시계가 500kcal이라고 했을 때 실제 소모량은, 15% 과대라면 500÷1.15 = 약 435kcal, 25% 과대라면 500÷1.25 = 400kcal입니다. 매일 500씩 찍히는 사람이 그 숫자만큼 더 먹는다면, 25% 오차 기준으로 <strong>일주일에 700kcal</strong>이 계산과 어긋납니다. 밥 두 공기가 넘는 양이 조용히 새는 셈입니다.</p>
+<h2 id="왜-틀릴까요--재는-게-아니라-추측이라서"><a href="#왜-틀릴까요--재는-게-아니라-추측이라서">왜 틀릴까요 — 재는 게 아니라 추측이라서</a></h2>
+<p>손목에는 칼로리를 직접 재는 센서가 없습니다. 시계가 가진 건 빛으로 심박을 읽는 센서와 움직임을 감지하는 가속도계, 그리고 내가 입력한 키·몸무게·나이입니다. 이 재료를 <strong>제조사가 공개하지 않는 공식</strong>에 넣어 &quot;이 정도 뛰었으면 이만큼 썼겠지&quot;라고 추정하는 겁니다.</p>
+<p><img alt="센서 → 비공개 공식 → 추정값 표시의 3단계, 그리고 체지방률이 높을수록 오차가 커지는 곡선" src="/uploads/sw-why.png" loading="lazy"/></p>
+<p><em>그림 3. 공식은 &#x27;평균 체형&#x27;을 기준으로 만들어져, 평균에서 멀어질수록 어긋납니다.</em></p>
+<p>이 연구의 핵심 발견이 여기서 나옵니다. <strong>체지방률이 높을수록 모든 기기에서 오차가 커졌고</strong>(p값 0.01 미만), 그 기울기는 핏빗과 가민에서 가파르고 애플에서 완만했습니다. 같은 심박수라도 몸 상태에 따라 실제 에너지 소비는 다른데, 공식이 그 차이를 충분히 반영하지 못한다는 뜻입니다.</p>
+<p>반대로 자주 제기되던 걱정 하나는 이번에 근거가 약해졌습니다. 빛으로 심박을 읽는 방식이라 <strong>피부톤이 어두우면 부정확할 것</strong>이라는 우려인데, 이 연구의 참가자 범위(피츠패트릭 III~V형)에서는 유의미한 차이가 없었습니다(p값 0.89). 다만 가장 어두운 V형 참가자가 적어 결론을 못 박기엔 이르다고 연구팀도 적었습니다.</p>
+<h2 id="그럼-시계의-어떤-숫자를-믿어야-하나요"><a href="#그럼-시계의-어떤-숫자를-믿어야-하나요">그럼 시계의 어떤 숫자를 믿어야 하나요?</a></h2>
+<p>연구팀의 권고는 명확합니다. &quot;칼로리는 정확한 측정값이 아닌 <strong>참고 수치</strong>로 쓰고, 심박수나 운동 강도별 시간 같은 다른 지표를 함께 보라.&quot; 시계의 숫자를 믿음직한 순서로 줄 세우면 이렇습니다.</p>
+<p><img alt="심박수·시간은 믿을 만, 칼로리 절대값은 참고, 칼로리 추세는 활용 가능으로 나눈 정리" src="/uploads/sw-use.png" loading="lazy"/></p>
+<p><em>그림 4. 직접 재는 값(심박·시간·거리)은 믿고, 계산하는 값(칼로리)은 참고만 합니다.</em></p>
+<ol>
+<li><strong>심박수와 심박 구간 시간</strong> — 센서가 직접 재는 값입니다. &quot;고강도 구간에 몇 분 있었나&quot;가 칼로리 숫자보다 운동량을 더 정직하게 보여줍니다.</li>
+<li><strong>운동 시간·거리·걸음 수</strong> — 역시 직접 세는 값이라 오차가 작습니다.</li>
+<li><strong>칼로리 절대값</strong> — 참고만 합니다. 특히 &quot;태운 만큼 먹기&quot;의 근거로는 쓰지 않는 게 안전합니다. 굳이 쓰려면 표시값에서 15~25%를 빼고 생각하세요.</li>
+<li><strong>칼로리의 변화 추세</strong> — 같은 시계로 같은 운동을 한다면, 지난주보다 늘었는지 줄었는지 비교하는 용도로는 쓸 만합니다. 오차가 일정한 방향으로 나기 때문입니다.</li>
+</ol>
+<h2 id="오차를-조금이라도-줄이는-설정"><a href="#오차를-조금이라도-줄이는-설정">오차를 조금이라도 줄이는 설정</a></h2>
+<p>공식의 입력값이 틀리면 결과도 틀립니다. 시계 앱에서 이것부터 확인하세요.</p>
+<ul>
+<li><strong>키·몸무게·나이·성별을 최신으로</strong> — 몸무게가 5kg 바뀌었는데 앱은 작년 값이라면 공식 입력부터 어긋납니다. 분기마다 갱신하는 습관이면 충분합니다.</li>
+<li><strong>운동 종류를 정확히 선택</strong> — 자전거를 타면서 &#x27;걷기&#x27;로 기록하면 공식 자체가 달라집니다.</li>
+<li><strong>손목에 밀착</strong> — 심박 센서가 헐겁게 닿으면 심박부터 틀리고, 그 위에 얹힌 칼로리는 더 틀립니다.</li>
+<li><strong>같은 조건에서 비교</strong> — 브랜드끼리 숫자를 비교하는 건 의미가 없습니다. 위 결과처럼 브랜드마다 공식이 다릅니다.</li>
+</ul>
+<h2 id="자주-나올-질문"><a href="#자주-나올-질문">자주 나올 질문</a></h2>
+<p><strong>Q. 그럼 스마트워치 칼로리는 쓸모없는 건가요?</strong>
+아닙니다. 방향은 맞고 크기가 부풀려진 겁니다. &quot;오늘은 어제보다 많이 움직였다&quot;는 판단엔 충분히 쓸 만하고, &quot;정확히 몇 칼로리를 먹어도 되나&quot;의 근거로는 부족하다는 것이 이번 결과입니다.</p>
+<p><strong>Q. 최신 모델은 더 정확하지 않나요?</strong>
+이 연구는 2022~2023년 모델을 썼습니다. 이후 모델은 센서와 공식이 개선됐을 수 있지만, 연구팀은 &quot;현재 소비자 기기는 실험실 측정을 대신할 만큼 신뢰할 수 있는 칼로리 모니터링을 제공하지 못한다&quot;고 결론지었습니다. 최신 모델의 수치를 확인한 별도 연구가 나오기 전까지는 같은 태도로 보는 게 안전합니다.</p>
+<p><strong>Q. 체지방률이 높으면 어느 기기가 낫나요?</strong>
+이 연구에서는 애플워치의 오차 증가 기울기가 가장 완만했습니다. 다만 참가자가 특정 인구집단(히스패닉 성인 58명)이라, 모든 사람에게 그대로 적용된다고 보긴 어렵습니다.</p>
+<h2 id="지금-확인할-것"><a href="#지금-확인할-것">지금 확인할 것</a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->시계 앱의 몸무게·키·나이가 최신인지</li>
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->운동 기록의 &#x27;종류&#x27;를 매번 맞게 고르는지</li>
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->식단 앱과 시계 칼로리를 연동해 &quot;태운 만큼 더 먹기&quot;로 쓰고 있진 않은지 → 연동을 끄거나 15~25%를 빼서 보기</li>
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->운동량 판단 기준을 칼로리에서 <strong>심박 구간 시간</strong>으로 바꿀 수 있는지</li>
+</ul>
+<h2 id="오늘-정리하면"><a href="#오늘-정리하면">오늘 정리하면</a></h2>
+<ol>
+<li><strong>시계의 칼로리는 측정이 아니라 추정</strong> — 4종 모두 실제보다 많이 표시, 500이면 실제 400~435</li>
+<li><strong>체지방률이 높을수록 더 틀린다</strong> — 피부톤은 영향 없음</li>
+<li><strong>믿을 건 심박수와 시간, 칼로리는 참고값</strong> — 몸무게 갱신과 운동 종류 선택만 해도 오차가 줄어든다</li>
+</ol>
+<h2 id="이-글이-딛고-선-자료"><a href="#이-글이-딛고-선-자료">이 글이 딛고 선 자료</a></h2>
+<ul>
+<li>PLOS One, <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0353261" target="_blank" rel="noopener noreferrer">Body fat, skin tone, and the accuracy of smartwatch caloric expenditure estimates</a> — 논문 원문(2026-07-29), 기기별 편향·체지방률 분석</li>
+<li>이데일리, <a href="https://www.edaily.co.kr/News/Read?newsId=05746566645576184" target="_blank" rel="noopener noreferrer">&quot;오늘 500칼로리 태웠다&quot; 좋아했는데…스마트워치 숫자 믿었다간</a> — 국내 보도(2026-09-02), 기기별 수치 인용</li>
+<li>머니투데이, <a href="https://www.mt.co.kr/world/2026/09/02/2026090221094673089" target="_blank" rel="noopener noreferrer">스마트워치 맹신 금물…실제와 15~25% 차이</a> — 연구팀 권고 인용</li>
+</ul>
+<p><em>본문의 수치는 해당 논문의 실험 조건(실내 자전거, 성인 58명)에서 나온 것으로, 다른 운동이나 최신 모델에서는 결과가 다를 수 있습니다. 건강·체중 관리에 관한 결정은 전문가와 상의하세요.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/kakao-membership"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">카카오 유료 멤버십이 온다 — 카톡이 유료가 되냐는 질문부터 정리</h3><p>카카오가 카카오톡 기반의 통합 유료 멤버십을 준비 중이라는 소식이 나왔습니다. 카톡 자체가 유료가 되는 건지, 언제 나오고 무엇이 묶이는지, 네이버플러스·쿠팡 와우와의 요금 눈높이까지 — 확정된 것과 미정인 것을 구분해 문답으로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-09-02T17:54">2026년 9월 2일 17:54</time><span>· <!-- -->카카오, 카카오멤버십, 카카오톡</span></div></a><a class="post-card " href="/posts/incognito-mode-reality"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록</h3><p>구글은 시크릿 모드로 수집한 수십억 건의 기록을 지우기로 합의했습니다. 애초에 무엇을 오해했길래 소송까지 갔을까요. 시크릿 모드가 실제로 지워 주는 것, 그래도 지켜보는 네 개의 눈, 그리고 이 기능을 제대로 쓰는 상황을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T15:01">2026년 9월 1일 15:01</time><span>· <!-- -->보안, 프라이버시, 시크릿모드</span></div></a><a class="post-card " href="/posts/infostealer-saved-password"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값</h3><p>다크웹에서 확인된 정보 탈취 악성코드 로그가 2025년 한 해 500만 건, 전년 대비 59% 늘었습니다. 감염의 35%는 내려받은 파일을 그냥 실행한 데서 시작합니다. 무엇이 새어 나가는지, 왜 비밀번호만 바꾸면 안 끊기는지, 오늘 할 일 네 가지를 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-29T23:20">2026년 8월 29일 23:20</time><span>· <!-- -->보안, 인포스틸러, 악성코드</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
