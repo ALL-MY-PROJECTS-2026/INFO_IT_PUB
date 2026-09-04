@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 변수 — 상자에 이름표 붙이기(VARIABLE)</title>
+      <link>https://pancoit.site/posts/python-variable</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-variable</guid>
+      <pubDate>Thu, 03 Sep 2026 05:00:00 GMT</pubDate>
+      <description>지난 편의 자기소개 프로그램은 이름을 세 번 고쳐야 했습니다. 오늘은 값을 상자에 넣고 이름표를 붙이는 '변수'로 그 문제를 해결합니다. =의 진짜 뜻, 숫자와 글자의 차이(type), 숫자를 글자에 붙이려다 만나는 TypeError, 그리고 f-string까지 — 실행창에서 직접 고쳐 가며 익힙니다.</description>
+    </item>
+    <item>
       <title>스마트워치가 &quot;500kcal 태웠다&quot;고 할 때 실제는 400 안팎 — 연구가 찍은 오차, 그리고 뭘 믿어야 하나</title>
       <link>https://pancoit.site/posts/smartwatch-calorie-accuracy</link>
       <guid isPermaLink="true">https://pancoit.site/posts/smartwatch-calorie-accuracy</guid>

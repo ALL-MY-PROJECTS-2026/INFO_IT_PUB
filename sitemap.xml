@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pancoit.site/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pancoit.site/posts</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pancoit.site/about</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pancoit.site/contact</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pancoit.site/privacy</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pancoit.site/terms</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pancoit.site/stats</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -326,6 +326,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/python-variable</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/python-what-is</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -382,17 +387,17 @@
   </url>
   <url>
     <loc>https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pancoit.site/category/JAVA</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://pancoit.site/category/PYTHON</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
