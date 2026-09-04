@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT)</title>
+      <link>https://pancoit.site/posts/python-input</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-input</guid>
+      <pubDate>Fri, 04 Sep 2026 11:16:00 GMT</pubDate>
+      <description>나이를 20으로 입력했는데 내년 나이가 201로 찍힙니다. 범인은 input()입니다. 키보드로 받은 값이 왜 전부 글자인지, int()와 float()로 어떻게 숫자로 바꾸는지, 어떤 입력에서 ValueError가 나는지 실행창으로 확인합니다.</description>
+    </item>
+    <item>
       <title>티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지</title>
       <link>https://pancoit.site/posts/tving-access-key-breach</link>
       <guid isPermaLink="true">https://pancoit.site/posts/tving-access-key-breach</guid>

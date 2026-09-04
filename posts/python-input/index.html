@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT) — PANCO_IT</title>
+    <meta name="description" content="나이를 20으로 입력했는데 내년 나이가 201로 찍힙니다. 범인은 input()입니다. 키보드로 받은 값이 왜 전부 글자인지, int()와 float()로 어떻게 숫자로 바꾸는지, 어떤 입력에서 ValueError가 나는지 실행창으로 확인합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-input" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT) — PANCO_IT" />
+    <meta property="og:description" content="나이를 20으로 입력했는데 내년 나이가 201로 찍힙니다. 범인은 input()입니다. 키보드로 받은 값이 왜 전부 글자인지, int()와 float()로 어떻게 숫자로 바꾸는지, 어떤 입력에서 ValueError가 나는지 실행창으로 확인합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-input" />
+    <meta property="og:image" content="https://pancoit.site/uploads/python-input-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-04T20:16" />
+    <meta property="article:modified_time" content="2026-09-04T20:16" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT) — PANCO_IT" />
+    <meta name="twitter:description" content="나이를 20으로 입력했는데 내년 나이가 201로 찍힙니다. 범인은 input()입니다. 키보드로 받은 값이 왜 전부 글자인지, int()와 float()로 어떻게 숫자로 바꾸는지, 어떤 입력에서 ValueError가 나는지 실행창으로 확인합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/python-input-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT)","description":"나이를 20으로 입력했는데 내년 나이가 201로 찍힙니다. 범인은 input()입니다. 키보드로 받은 값이 왜 전부 글자인지, int()와 float()로 어떻게 숫자로 바꾸는지, 어떤 입력에서 ValueError가 나는지 실행창으로 확인합니다.","image":"https://pancoit.site/uploads/python-input-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-04T20:16","dateModified":"2026-09-04T20:16","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-input"},"keywords":"파이썬, python, input, 형변환, int, float, ValueError, 파이썬기초, 파이썬독학"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PYTHON","item":"https://pancoit.site/category/PYTHON"},{"@type":"ListItem","position":3,"name":"파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT)","item":"https://pancoit.site/posts/python-input"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-Cae34wcc.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PYTHON">PYTHON</a></li><li><span aria-current="page">파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PYTHON">PYTHON</a><h1 style="margin-top:0.75rem">파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-04T20:16">2026년 9월 4일 20:16</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->python</span><span class="tag">#<!-- -->input</span><span class="tag">#<!-- -->형변환</span><span class="tag">#<!-- -->int</span><span class="tag">#<!-- -->float</span><span class="tag">#<!-- -->ValueError</span><span class="tag">#<!-- -->파이썬기초</span><span class="tag">#<!-- -->파이썬독학</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="노트북 키보드 위에서 타이핑하는 두 손" src="/uploads/python-input-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Wikimedia Commons, Simon Hattinga Verschure · CC0</em></p>
+<p>이 코드는 왜 내년 나이를 201이라고 할까요. 지난 편 자기소개 카드에 &quot;나이를 직접 입력받자&quot;는 기능 하나를 붙인 것뿐인데, 결과가 이상합니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">증상 — 20을 넣었는데 내년 나이가 201</span></div><pre class="runner__code"><code>age = input(&quot;나이를 입력하세요: &quot;)
+print(f&quot;내년에는 {age + 1}살이 됩니다.&quot;)</code></pre><p class="runner__note">이 예제는 키보드 입력을 씁니다. 실행창 아래 <b>STDIN</b> 칸에 미리 넣어 둔 값(<code>20</code>)을 바꿔 가며 실행해 보세요.</p><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p>실행창을 열면 아래쪽 STDIN 칸에 <code>20</code>이 미리 들어 있습니다. 그대로 실행하면 에러가 납니다. 에러 문장을 읽기 전에, 아래 코드로 같은 증상을 더 또렷하게 볼 수 있습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">증상을 더 또렷하게 — 글자끼리는 이어 붙는다</span></div><pre class="runner__code"><code>age = input(&quot;나이를 입력하세요: &quot;)
+print(age + &quot;1&quot;)      # 20을 넣으면 201이 찍힙니다
+print(type(age))       # 정체를 확인해 봅니다</code></pre><p class="runner__note">이 예제는 키보드 입력을 씁니다. 실행창 아래 <b>STDIN</b> 칸에 미리 넣어 둔 값(<code>20</code>)을 바꿔 가며 실행해 보세요.</p><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p>STDIN의 <code>20</code>을 그대로 두고 돌리면 <code>201</code>이 나오고, 그 아래 <code>&lt;class &#x27;str&#x27;&gt;</code>이 찍힙니다. 오늘은 이 한 줄이 범인을 가리킵니다. 용의자를 하나씩 지워 보겠습니다.</p>
+<h2 id="용의자-1--키보드가-숫자를-못-알아본다"><a href="#용의자-1--키보드가-숫자를-못-알아본다">용의자 1 — 키보드가 숫자를 못 알아본다?</a></h2>
+<p>아닙니다. 키보드는 <code>2</code>와 <code>0</code>을 정확히 보냈습니다. 문제는 그다음입니다. 파이썬의 <code>input()</code>은 <strong>키보드로 들어온 것을 무조건 글자(str)로 돌려줍니다.</strong> 숫자를 쳐도, 소수를 쳐도, 아무것도 안 치고 엔터만 눌러도 전부 글자입니다. <code>20</code>을 치면 <code>&quot;20&quot;</code>이 되어 상자에 들어갑니다. 따옴표가 붙은 채로요.</p>
+<p><img alt="키보드로 20을 치면 input()이 &quot;20&quot;이라는 글자로 받아 상자에 넣고, 그래서 age + 1에서 TypeError가 나는 흐름" src="/uploads/python-input-flow.png" loading="lazy"/></p>
+<p><em>키보드 → input() → 상자까지 값이 이동하는 동안 한 번도 숫자가 된 적이 없습니다. 상자에 든 것은 &quot;20&quot;이라는 글자입니다.</em></p>
+<p>지난 편에서 <code>&quot;저는 &quot; + 20</code>이 TypeError를 냈던 것을 기억하시면, 첫 번째 실행창의 에러도 같은 이유입니다. 글자 상자 <code>age</code>에 숫자 1을 더하려 했으니까요. 두 번째 실행창에서는 <code>&quot;1&quot;</code>이 글자라서 에러 없이 이어 붙어 <code>&quot;201&quot;</code>이 됐습니다. 파이썬에서 글자에 <code>+</code>는 덧셈이 아니라 <strong>이어 붙이기</strong>입니다.</p>
+<h2 id="용의자-2--그럼-input이-잘못-만들어진-것"><a href="#용의자-2--그럼-input이-잘못-만들어진-것">용의자 2 — 그럼 input()이 잘못 만들어진 것?</a></h2>
+<p>이것도 아닙니다. <code>input()</code>이 글자만 돌려주는 데는 이유가 있습니다. 키보드로는 이름도, 나이도, 주소도 들어옵니다. 파이썬이 &quot;이건 숫자 같으니 숫자로, 저건 글자니 글자로&quot;를 멋대로 정하면 <code>010-1234-5678</code> 같은 전화번호가 뺄셈이 되어 버립니다. 그래서 파이썬은 판단을 하지 않고 <strong>전부 글자로 넘긴 뒤, 숫자로 쓸지는 프로그래머가 정하게</strong> 둡니다.</p>
+<h2 id="진범--글자를-숫자로-바꾸는-단계가-빠졌다"><a href="#진범--글자를-숫자로-바꾸는-단계가-빠졌다">진범 — &quot;글자를 숫자로 바꾸는 단계&quot;가 빠졌다</a></h2>
+<p>그 정하는 도구가 <code>int()</code>와 <code>float()</code>입니다. <code>int(&quot;20&quot;)</code>은 글자 <code>&quot;20&quot;</code>을 정수 20으로, <code>float(&quot;3.5&quot;)</code>는 글자 <code>&quot;3.5&quot;</code>를 실수 3.5로 바꿔 줍니다. 지난 편에서 <code>str()</code>로 숫자를 글자로 바꿨던 것의 반대 방향입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">고친 코드 — int()로 글자를 숫자로 바꾼 뒤 계산</span></div><pre class="runner__code"><code>age_text = input(&quot;나이를 입력하세요: &quot;)   # 여기까지는 글자
+age = int(age_text)                         # 글자를 정수로 바꿔 새 상자에
+print(f&quot;내년에는 {age + 1}살이 됩니다.&quot;)    # 이제 덧셈이 됩니다
+print(type(age_text), type(age))</code></pre><p class="runner__note">이 예제는 키보드 입력을 씁니다. 실행창 아래 <b>STDIN</b> 칸에 미리 넣어 둔 값(<code>20</code>)을 바꿔 가며 실행해 보세요.</p><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p>STDIN이 <code>20</code>인 채로 실행하면 <code>내년에는 21살이 됩니다.</code>가 나오고, 마지막 줄에 <code>&lt;class &#x27;str&#x27;&gt; &lt;class &#x27;int&#x27;&gt;</code>가 찍힙니다. 상자가 두 개인 것을 눈여겨보세요. <code>int()</code>는 원래 글자를 고치는 게 아니라 <strong>숫자로 된 새 값을 만들어 돌려줍니다.</strong> 그래서 보통은 이렇게 한 줄로 줄여 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">age </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">input</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;나이를 입력하세요: &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span></code></pre>
+<p>안쪽 <code>input()</code>이 먼저 실행되어 글자를 받고, 바깥 <code>int()</code>가 그것을 숫자로 바꿔 <code>age</code>에 넣습니다. 괄호가 겹칠 때는 <strong>안쪽부터</strong> 실행된다고 읽으면 됩니다.</p>
+<h2 id="재발-방지--어떤-글자가-숫자가-되고-어떤-글자가-안-되나"><a href="#재발-방지--어떤-글자가-숫자가-되고-어떤-글자가-안-되나">재발 방지 — 어떤 글자가 숫자가 되고, 어떤 글자가 안 되나</a></h2>
+<p><code>int()</code>가 만능은 아닙니다. 숫자 모양이 아닌 글자를 넣으면 이번엔 ValueError가 납니다. 실행창의 STDIN 값(처음엔 <code>3.5</code>가 들어 있습니다)을 바꿔 가며 직접 확인해 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">실험 — STDIN을 20, 3.5, 스무살, (빈칸)으로 바꿔 가며 실행</span></div><pre class="runner__code"><code>text = input(&quot;숫자를 입력하세요: &quot;)
+print(repr(text))          # 받은 글자를 따옴표째 보여줍니다
+number = int(text)         # 여기서 실패하면 ValueError
+print(number * 2)</code></pre><p class="runner__note">이 예제는 키보드 입력을 씁니다. 실행창 아래 <b>STDIN</b> 칸에 미리 넣어 둔 값(<code>3.5</code>)을 바꿔 가며 실행해 보세요.</p><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<ul>
+<li><code>20</code> → <code>&#x27;20&#x27;</code>이 찍히고 <code>40</code>이 나옵니다.</li>
+<li><code>3.5</code> → <code>ValueError: invalid literal for int() with base 10: &#x27;3.5&#x27;</code>. <code>int()</code>는 소수점 있는 글자를 받지 않습니다. 이럴 땐 <code>float(text)</code>를 씁니다.</li>
+<li><code>스무살</code> → 같은 ValueError. 숫자 모양이 아니니 당연합니다.</li>
+<li>아무것도 안 치고 엔터 → <code>&#x27;&#x27;</code>(빈 글자)가 찍히고 ValueError. <strong>빈 입력도 글자</strong>라서 <code>int(&quot;&quot;)</code>가 실패합니다.</li>
+</ul>
+<p><img alt="int()와 float() 변환기에 들어가는 입력 여섯 가지 — &quot;20&quot;·&quot;3.5&quot;·&quot;20&quot;은 통과, &quot;3.5&quot;를 int에·&quot;스무살&quot;·&quot;3,5&quot;·빈 글자는 ValueError" src="/uploads/python-input-convert.png" loading="lazy"/></p>
+<p><em>변환기가 받는 글자 모양은 정해져 있습니다. int()는 정수 모양만, float()는 마침표 소수점까지. 쉼표, 단위, 빈칸은 둘 다 거부합니다.</em></p>
+<p><code>float()</code>는 조금 더 너그럽습니다. <code>float(&quot;20&quot;)</code>도 되고(결과는 <code>20.0</code>), <code>float(&quot;3.5&quot;)</code>도 됩니다. 대신 한국식으로 <code>3,5</code>라고 쓰면 실패합니다. 소수점은 <strong>마침표</strong>입니다. 그리고 <code>float(&quot;3.5&quot;)</code>를 정수로 만들고 싶으면 <code>int(float(&quot;3.5&quot;))</code>처럼 두 번 감쌉니다. 안쪽에서 3.5가 되고 바깥에서 소수점을 잘라 3이 됩니다. 반올림이 아니라 <strong>잘라내기</strong>라는 점은 다음 편들에서 다시 나옵니다.</p>
+<p>ValueError가 났을 때 프로그램이 죽지 않게 막는 방법(<code>try</code>)은 PYTHON1 뒷부분에서 배웁니다. 지금은 &quot;어떤 입력이 실패하는지&quot;를 아는 것까지가 목표입니다.</p>
+<h2 id="확인-사살--두-값을-받아-더하기"><a href="#확인-사살--두-값을-받아-더하기">확인 사살 — 두 값을 받아 더하기</a></h2>
+<p>오늘 배운 것을 한 번에 쓰는 코드입니다. STDIN에 <code>3</code>과 <code>4</code>가 두 줄로 들어 있습니다. <code>input()</code>은 한 번 부를 때마다 한 줄씩 가져갑니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">두 수를 입력받아 더하기 — STDIN에 3 과 4 를 두 줄로</span></div><pre class="runner__code"><code>a = int(input(&quot;첫 번째 수: &quot;))
+b = int(input(&quot;두 번째 수: &quot;))
+print(f&quot;{a} + {b} = {a + b}&quot;)
+print(f&quot;{a} / {b} = {a / b}&quot;)     # 나눗셈은 결과가 실수(float)가 됩니다</code></pre><p class="runner__note">이 예제는 키보드 입력을 씁니다. 실행창 아래 <b>STDIN</b> 칸에 미리 넣어 둔 값(<code>3 ⏎ 4</code>)을 바꿔 가며 실행해 보세요.</p><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>3 + 4 = 7</code>과 <code>3 / 4 = 0.75</code>가 나오면 성공입니다. <code>int()</code>를 지우고 다시 돌리면 첫 줄이 <code>3 + 4 = 34</code>가 되는 것도 꼭 한 번 보세요. 오늘 글 전체가 그 한 줄에 들어 있습니다.</p>
+<p>여기서 다들 한 번 넘어지는 곳이 하나 더 있습니다. <code>input(&quot;나이: &quot;)</code>의 괄호 안 글자는 <strong>안내 문구</strong>일 뿐이고 결과에 포함되지 않습니다. <code>input()</code>이 돌려주는 것은 사용자가 친 글자뿐입니다. 안내 문구를 화면에 찍는 것과 값을 받는 것을 한 줄에서 같이 하는 것이지, 안내 문구가 값에 붙는 게 아닙니다.</p>
+<h2 id="되감기"><a href="#되감기">되감기</a></h2>
+<table><thead><tr><th>상황</th><th>결과</th><th>이유</th></tr></thead><tbody><tr><td><code>input()</code>으로 20을 받음</td><td><code>&quot;20&quot;</code> (str)</td><td>키보드 입력은 전부 글자</td></tr><tr><td><code>&quot;20&quot; + 1</code></td><td>TypeError</td><td>글자에 숫자를 더할 수 없음</td></tr><tr><td><code>&quot;20&quot; + &quot;1&quot;</code></td><td><code>&quot;201&quot;</code></td><td>글자끼리 <code>+</code>는 이어 붙이기</td></tr><tr><td><code>int(&quot;20&quot;) + 1</code></td><td><code>21</code></td><td>글자를 정수로 바꾼 뒤 덧셈</td></tr><tr><td><code>int(&quot;3.5&quot;)</code></td><td>ValueError</td><td>정수 모양이 아님 → <code>float()</code></td></tr><tr><td><code>int(&quot;&quot;)</code></td><td>ValueError</td><td>빈 입력도 글자</td></tr></tbody></table>
+<h2 id="오늘-배운-것-문제로-확인"><a href="#오늘-배운-것-문제로-확인">오늘 배운 것, 문제로 확인</a></h2>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(PYTHON1) 4편 · <a href="/posts/python-variable">3편(파이썬 변수)</a>에서 이어집니다. 예제 코드는 강사 개인 GitHub 저장소의 연습 문제를 바탕으로 다시 썼습니다. 다음 편: 파이썬 연산자 — 나눗셈이 셋인 이유(/, //, %).</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-variable"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 변수 — 상자에 이름표 붙이기(VARIABLE)</h3><p>지난 편의 자기소개 프로그램은 이름을 세 번 고쳐야 했습니다. 오늘은 값을 상자에 넣고 이름표를 붙이는 &#x27;변수&#x27;로 그 문제를 해결합니다. =의 진짜 뜻, 숫자와 글자의 차이(type), 숫자를 글자에 붙이려다 만나는 TypeError, 그리고 f-string까지 — 실행창에서 직접 고쳐 가며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-09-03T14:00">2026년 9월 3일 14:00</time><span>· <!-- -->파이썬, python, 파이썬변수</span></div></a><a class="post-card " href="/posts/python-start-print"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 시작하기 — 설치 없이 브라우저에서 첫 코드 실행(PRINT)</h3><p>파이썬 첫 코드를 설치 없이 이 페이지 안에서 바로 실행해 봅니다. 일부러 한 번 틀려 보고, 에러 문장을 읽는 법과 print·따옴표·주석의 규칙을 익힌 뒤, 세 줄짜리 자기소개 프로그램을 완성합니다.</p><div class="post-card__meta"><time dateTime="2026-09-02T10:30">2026년 9월 2일 10:30</time><span>· <!-- -->파이썬, python, 파이썬기초</span></div></a><a class="post-card " href="/posts/python-what-is"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬이란? — 휴가 중에 태어나 AI 시대를 접수한 언어(PYTHON)</h3><p>파이썬이 무엇이고 왜 첫 프로그래밍 언어로 가장 많이 권해지는지 정리합니다. 크리스마스 휴가에 태어난 취미 프로젝트가 인스타그램과 AI 개발의 표준이 되기까지, 그리고 이 언어가 잘하는 것과 못하는 것까지 균형 있게 살펴봅니다.</p><div class="post-card__meta"><time dateTime="2026-09-02T09:30">2026년 9월 2일 09:30</time><span>· <!-- -->파이썬, python, 파이썬이란</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
