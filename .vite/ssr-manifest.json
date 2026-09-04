@@ -1,37 +1,37 @@
 {
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-proxy": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-proxy": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/react-dom/index.js?commonjs-module": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/react-dom/index.js?commonjs-module": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/react/cjs/react.production.min.js?commonjs-exports": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/react/cjs/react.production.min.js?commonjs-exports": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/react/cjs/react.production.min.js?commonjs-proxy": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/react/cjs/react.production.min.js?commonjs-proxy": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/react/index.js?commonjs-module": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/react/index.js?commonjs-module": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/react/index.js?commonjs-proxy": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/react/index.js?commonjs-proxy": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/react/jsx-runtime.js?commonjs-module": [],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/scheduler/cjs/scheduler.production.min.js?commonjs-exports": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/react/jsx-runtime.js?commonjs-module": [],
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/scheduler/cjs/scheduler.production.min.js?commonjs-exports": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/scheduler/cjs/scheduler.production.min.js?commonjs-proxy": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/scheduler/cjs/scheduler.production.min.js?commonjs-proxy": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/scheduler/index.js?commonjs-module": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/scheduler/index.js?commonjs-module": [
     "/assets/react-BCrAd34n.js"
   ],
-  "\u0000C:/Users/Administrator/Downloads/MY/INFO_IT/node_modules/scheduler/index.js?commonjs-proxy": [
+  "\u0000/home/runner/work/INFO_IT/INFO_IT/node_modules/scheduler/index.js?commonjs-proxy": [
     "/assets/react-BCrAd34n.js"
   ],
   "\u0000commonjsHelpers.js": [
@@ -86,6 +86,7 @@
   "src/components/Pagination.tsx": [],
   "src/components/PostCard.tsx": [],
   "src/components/PostRow.tsx": [],
+  "src/components/PostTile.tsx": [],
   "src/components/PythonRunner.tsx": [],
   "src/components/Quiz.tsx": [],
   "src/components/ReadingProgress.tsx": [],
@@ -94,6 +95,7 @@
   "src/components/Sidebar.tsx": [],
   "src/components/TableOfContents.tsx": [],
   "src/components/ThemeToggle.tsx": [],
+  "src/components/ViewToggle.tsx": [],
   "src/components/ads/AdUnit.tsx": [],
   "src/content/pages/about.mdx": [],
   "src/content/pages/contact.mdx": [],
@@ -179,6 +181,7 @@
   "src/lib/mdxComponents.tsx": [],
   "src/lib/pages.ts": [],
   "src/lib/posts.ts": [],
+  "src/lib/viewMode.ts": [],
   "src/pages/About.tsx": [],
   "src/pages/Category.tsx": [],
   "src/pages/Contact.tsx": [],
