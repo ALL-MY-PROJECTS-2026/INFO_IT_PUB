@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지 — PANCO_IT</title>
+    <meta name="description" content="정부 조사 결과가 나왔습니다. 해커의 초능력도, 비밀번호 유출도 아니었습니다. 소스코드에 그대로 적어 둔 접속키가 문이었습니다. 무엇이 나갔고, 내 비밀번호는 안전한지, 오늘 5분 안에 뭘 바꿔야 하는지 정리합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/tving-access-key-breach" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지 — PANCO_IT" />
+    <meta property="og:description" content="정부 조사 결과가 나왔습니다. 해커의 초능력도, 비밀번호 유출도 아니었습니다. 소스코드에 그대로 적어 둔 접속키가 문이었습니다. 무엇이 나갔고, 내 비밀번호는 안전한지, 오늘 5분 안에 뭘 바꿔야 하는지 정리합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/tving-access-key-breach" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-tving-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-04T18:00" />
+    <meta property="article:modified_time" content="2026-09-04T18:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지 — PANCO_IT" />
+    <meta name="twitter:description" content="정부 조사 결과가 나왔습니다. 해커의 초능력도, 비밀번호 유출도 아니었습니다. 소스코드에 그대로 적어 둔 접속키가 문이었습니다. 무엇이 나갔고, 내 비밀번호는 안전한지, 오늘 5분 안에 뭘 바꿔야 하는지 정리합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-tving-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지","description":"정부 조사 결과가 나왔습니다. 해커의 초능력도, 비밀번호 유출도 아니었습니다. 소스코드에 그대로 적어 둔 접속키가 문이었습니다. 무엇이 나갔고, 내 비밀번호는 안전한지, 오늘 5분 안에 뭘 바꿔야 하는지 정리합니다.","image":"https://pancoit.site/uploads/itnews-tving-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-04T18:00","dateModified":"2026-09-04T18:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/tving-access-key-breach"},"keywords":"티빙, 개인정보유출, 해킹, 접속키, 보안"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지","item":"https://pancoit.site/posts/tving-access-key-breach"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CzidwLQp.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ahb-EWqu.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-04T18:00">2026년 9월 4일 18:00</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->티빙</span><span class="tag">#<!-- -->개인정보유출</span><span class="tag">#<!-- -->해킹</span><span class="tag">#<!-- -->접속키</span><span class="tag">#<!-- -->보안</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="철문에 걸린 낡은 자물쇠" src="/uploads/itnews-tving-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Wikimedia Commons, Estormiz · CC0</em></p>
+<p>계정 3,954만 개. 우리나라 인구의 4분의 3이 넘는 숫자가 한 회사에서 한 번에 빠져나갔습니다. 2026년 9월 3일 과학기술정보통신부가 발표한 티빙 침해사고 조사 결과입니다. 그런데 조사단이 짚은 원인은 영화 같은 해킹 기술이 아니었습니다. <strong>내부 시스템을 여는 접속키를 암호화 없이 소스코드에 적어 두고, 사내에서 돌려 쓴 것.</strong> 그 열쇠 하나로 문이 열렸습니다.</p>
+<p>이 글은 2026년 9월 4일 기준으로 정부 발표, 티빙 공식 조회 페이지, 그리고 9월 3일 국내 보도를 대조해 썼습니다. 순서는 이렇습니다. 무엇이 얼마나 나갔는지 보고, 용의자를 하나씩 지워 진범을 찾은 뒤, 내가 오늘 바꿀 것을 정합니다. 공격 절차나 악용법은 다루지 않고, 막는 쪽만 다룹니다.</p>
+<table><thead><tr><th>궁금한 것</th><th>짧은 답</th></tr></thead><tbody><tr><td>내 비밀번호가 나갔나</td><td>암호화된 채 나갔고 풀 수 없다는 게 정부 판단. 그래도 바꿔야 한다(이유는 본문)</td></tr><tr><td>전화번호·이메일은</td><td>암호화됐지만 <strong>암호화 키가 같이 나가</strong> 사실상 노출</td></tr><tr><td>어디서 확인하나</td><td>티빙 공식 조회 페이지(tving.com/info-check)에서 로그인 또는 본인확인</td></tr><tr><td>보상은</td><td>포인트와 1년짜리 안심보험(피해 시 최대 300만 원), 신청 9월 7일~30일</td></tr></tbody></table>
+<p><img alt="티빙 공식 개인정보 유출 내역 조회 페이지 — 로그인하기 버튼과 본인 확인으로 조회하기 버튼" src="/uploads/tving-infocheck-official.png" loading="lazy"/></p>
+<p><em>그림 1. 티빙 공식 &quot;개인정보 유출 내역 조회&quot; 화면. 유출 여부 확인은 이 주소(tving.com/info-check)에서만 하면 됩니다. 문자나 메일로 온 링크는 누르지 않습니다. (출처: tving.com, 2026-09-04 캡처)</em></p>
+<h2 id="증상부터-봅니다--무엇이-얼마나-나갔나"><a href="#증상부터-봅니다--무엇이-얼마나-나갔나">증상부터 봅니다 — 무엇이 얼마나 나갔나</a></h2>
+<p>조사단이 확정한 유출 규모는 계정 3,954만 개입니다. 한 사람이 계정을 여러 개 가진 경우가 섞여 있어 실제 사람 수는 이보다 적고, 정확한 피해자 수는 아직 확정되지 않았습니다.</p>
+<table><thead><tr><th>구분</th><th>계정 수</th><th>뜻</th></tr></thead><tbody><tr><td>활성 계정</td><td>2,206만</td><td>지금 로그인이 되는 계정</td></tr><tr><td>비활성 계정</td><td>1,737만</td><td>휴면·탈퇴 처리된 계정</td></tr><tr><td>테스트 계정</td><td>11만</td><td>회사 내부 시험용</td></tr><tr><td>합계</td><td>3,954만</td><td>중복 포함</td></tr></tbody></table>
+<p>빠져나간 정보는 20개 항목, 70종입니다. 아이디, 이름, 생년월일, 성별, 휴대전화번호, 이메일, 환불 계좌번호, 비밀번호, 그리고 주민등록번호를 대신해 사람을 특정하는 연계정보(CI)와 중복가입확인정보(DI)까지 들어 있습니다. CI는 1,904만 개 계정에서 나갔습니다. KT 제휴 이용권으로 가입한 52만 7천 건도 포함됐습니다.</p>
+<p>여기서 중요한 건 &quot;나갔다&quot;의 등급이 세 가지로 갈린다는 점입니다.</p>
+<p><img alt="유출 항목을 세 등급으로 나눈 그림 — 풀 수 없게 암호화된 비밀번호·환불계좌, 암호화됐지만 키가 함께 나간 휴대전화·이메일, 그대로 나간 이름·생년월일·CI" src="/uploads/tv-items.png" loading="lazy"/></p>
+<p><em>그림 2. 같은 &quot;유출&quot;이어도 위험이 다릅니다. 가운데 줄이 이번 사고의 핵심입니다.</em></p>
+<ul>
+<li><strong>풀 수 없는 것</strong>: 비밀번호와 환불 계좌번호는 단방향 암호화(원래 값으로 되돌릴 수 없는 방식)로 저장돼 있었습니다. 정부는 &quot;평문으로 복호화할 수 없다&quot;고 밝혔습니다.</li>
+<li><strong>풀리는 것</strong>: 휴대전화번호와 이메일은 암호화돼 있었지만, <strong>암호화 키가 함께 유출</strong>됐습니다. 금고는 잠겼는데 열쇠를 같이 가져간 셈이라 사실상 그대로 나간 것으로 봐야 합니다.</li>
+<li><strong>애초에 평문인 것</strong>: 이름, 생년월일, 성별, 아이디, CI·DI, 접속 IP 같은 항목은 암호화 대상이 아니었습니다.</li>
+</ul>
+<p>비밀번호가 풀리지 않는다는 말에 안심할 일이 아닙니다. 이름·생년월일·전화번호·이메일이 한 묶음으로 나갔다는 뜻이고, 이 묶음은 <strong>나를 정확히 겨냥한 피싱 문자를 만드는 재료</strong>로 충분합니다.</p>
+<h2 id="용의자-셋을-지우면-진범이-남습니다"><a href="#용의자-셋을-지우면-진범이-남습니다">용의자 셋을 지우면 진범이 남습니다</a></h2>
+<h3 id="용의자-1-천재-해커의-신기술"><a href="#용의자-1-천재-해커의-신기술">용의자 1. 천재 해커의 신기술?</a></h3>
+<p>아닙니다. 공격자가 눈에 띄지 않으려고 서버 CPU 사용률을 10% 아래로 유지하며 조용히 자료를 빼낸 정황은 있습니다. 그러나 문을 연 방법 자체는 정상적인 열쇠, 즉 <strong>정식 접속키</strong>였습니다. 자물쇠를 부순 게 아니라 열쇠로 열고 들어왔습니다. 그 열쇠를 처음에 어떻게 손에 넣었는지는 조사단도 확정하지 못했습니다. 피싱, 악성코드, 공급망 공격, 키 오남용, 취약점 악용 다섯 가지 시나리오를 모두 살폈지만 근거가 될 로그가 남아 있지 않았습니다. 이 부분은 경찰이 수사 중입니다.</p>
+<h3 id="용의자-2-누군가의-비밀번호가-뚫렸다"><a href="#용의자-2-누군가의-비밀번호가-뚫렸다">용의자 2. 누군가의 비밀번호가 뚫렸다?</a></h3>
+<p>이것도 아닙니다. 이용자 비밀번호로 로그인해 들어온 사고가 아닙니다. 개발자가 쓰는 시스템 접속키로 개발 환경에 들어가, 거기서 더 큰 열쇠를 찾아낸 구조입니다.</p>
+<h3 id="용의자-3-클라우드가-뚫렸다"><a href="#용의자-3-클라우드가-뚫렸다">용의자 3. 클라우드가 뚫렸다?</a></h3>
+<p>클라우드 회사의 시스템이 뚫린 게 아닙니다. 클라우드에 접근하는 <strong>열쇠를 티빙이 어떻게 보관했느냐</strong>의 문제입니다. 티빙은 사고 직후 해당 접속키를 폐기하고 교체했습니다.</p>
+<h3 id="진범-접속키를-소스코드에-적어-두고-돌려-썼다"><a href="#진범-접속키를-소스코드에-적어-두고-돌려-썼다">진범. 접속키를 소스코드에 적어 두고 돌려 썼다</a></h3>
+<p>조사단이 지목한 원인은 관리 체계였습니다. 순서대로 보면 이렇습니다.</p>
+<p><img alt="침입 경로 4단계 — 개발자 접속키 탈취, 개발 환경에서 소스코드 361건 유출, 소스코드 안에 적힌 운영 접속키 발견, 운영 데이터베이스에서 3,954만 계정 유출" src="/uploads/tv-path.png" loading="lazy"/></p>
+<p><em>그림 3. 열쇠가 다음 열쇠를 열어 준 구조. 2단계에서 3단계로 넘어가는 지점이 이 사고의 전부입니다.</em></p>
+<ol>
+<li>공격자가 개발자의 접속키를 손에 넣었습니다(경로 미확정).</li>
+<li>그 키로 개발 환경에 들어가 개발 프로젝트 361건, 30.35GB의 소스코드를 통째로 가져갔습니다.</li>
+<li>소스코드 안에 <strong>운영 환경 접속키가 암호화 없이 그대로 적혀</strong> 있었습니다. 이른바 하드코딩입니다.</li>
+<li>그 키로 실제 서비스가 도는 운영 환경에 들어가 회원 데이터베이스를 빼냈습니다.</li>
+</ol>
+<p>조사단은 여기에 세 가지를 더 짚었습니다. 접속키가 평문으로 저장되고 사내에서 무분별하게 공유됐다는 것, 2024년 모의해킹에서 이미 같은 문제가 지적됐는데 고치지 않았다는 것, 그리고 접속 기록(VPN 로그)을 6일치만 보관해 침입 경로를 되짚을 수 없었다는 것입니다. 보도에 따르면 전체 직원 265명 가운데 보안 전담 인력은 4명 안팎이었습니다.</p>
+<h2 id="접속키가-뭐길래-이렇게-큰일이-되나요"><a href="#접속키가-뭐길래-이렇게-큰일이-되나요">접속키가 뭐길래 이렇게 큰일이 되나요</a></h2>
+<p>접속키는 사람이 아니라 <strong>프로그램이 시스템에 로그인할 때 쓰는 열쇠</strong>입니다. 서버가 데이터베이스에 연결하거나 앱이 클라우드 저장소를 읽을 때 매번 사람이 아이디와 비밀번호를 칠 수 없으니 긴 문자열 하나를 열쇠로 씁니다. 문제는 이 열쇠가 사람 비밀번호보다 훨씬 강력하다는 점입니다. 한 사람 계정이 아니라 <strong>시스템 전체</strong>를 엽니다.</p>
+<p>비유하면 건물 마스터키를 포스트잇에 적어 복도 게시판에 붙여 둔 것과 같습니다. 게시판(소스코드)을 본 사람은 누구나 모든 방(운영 서버)에 들어갈 수 있습니다. 개발 현장에서 이걸 막는 원칙은 오래전부터 정해져 있습니다.</p>
+<table><thead><tr><th>원칙</th><th>무슨 뜻인가</th><th>이번 사고에서는</th></tr></thead><tbody><tr><td>코드와 비밀을 분리</td><td>열쇠는 코드에 적지 않고 별도 금고(비밀 관리 서비스·환경변수)에 둔다</td><td>코드에 그대로 적혀 있었다</td></tr><tr><td>최소 권한</td><td>개발용 열쇠로는 운영 데이터를 못 열게 한다</td><td>개발 환경에서 운영 열쇠가 나왔다</td></tr><tr><td>주기적 교체</td><td>열쇠를 정기적으로 바꿔 오래된 열쇠를 무력화한다</td><td>지적받고도 방치됐다</td></tr><tr><td>기록 보관</td><td>누가 언제 열었는지 충분히 오래 남긴다</td><td>6일치만 남아 경로를 못 찾았다</td></tr></tbody></table>
+<p>개발자라면 이 표가 곧 점검표입니다. 저장소에 올린 코드에 키 문자열이 들어 있는지 검사하는 도구를 붙이고, 이미 올라간 키는 &quot;삭제&quot;가 아니라 **&quot;폐기 후 재발급&quot;**으로 처리해야 합니다. 커밋 기록에 남은 키는 지운 것처럼 보여도 살아 있습니다.</p>
+<h2 id="재발-방지--회사가-할-일과-내가-할-일"><a href="#재발-방지--회사가-할-일과-내가-할-일">재발 방지 — 회사가 할 일과 내가 할 일</a></h2>
+<p>회사가 고쳐야 할 것은 정부가 이미 짚었습니다. 티빙은 신고 기한을 넘긴 데 대해 최대 3천만 원의 과태료 대상이 됐고, 개인정보보호법 개정안이 9월 11일, 정보통신망법 개정안이 10월 1일 시행돼 이런 사고의 과징금이 크게 오릅니다. 여기까지는 제도의 몫입니다.</p>
+<p>이용자인 제 몫은 세 가지입니다. 순서가 중요합니다.</p>
+<p><img alt="오늘 할 일 3가지 — 비밀번호 바꾸기(같은 비밀번호 쓰는 사이트까지), 공식 페이지에서 유출 항목 조회, 피싱 문자 경계와 2단계 인증. 아래에 보상 일정 9월 7일 신청 시작, 9월 30일 마감, 10월 6일 적용" src="/uploads/tv-todo.png" loading="lazy"/></p>
+<p><em>그림 4. 첫째가 가장 급합니다. 티빙 하나가 아니라 같은 비밀번호를 쓰는 모든 곳입니다.</em></p>
+<h3 id="첫째-비밀번호를-바꿉니다--티빙-말고-같은-비밀번호를-쓰는-곳부터"><a href="#첫째-비밀번호를-바꿉니다--티빙-말고-같은-비밀번호를-쓰는-곳부터">첫째, 비밀번호를 바꿉니다 — 티빙 말고 &quot;같은 비밀번호를 쓰는 곳&quot;부터</a></h3>
+<p>비밀번호는 풀리지 않는다고 했는데 왜 바꾸느냐는 질문이 나옵니다. 두 가지 이유입니다. 하나는 &quot;풀 수 없다&quot;가 &quot;영원히 풀 수 없다&quot;는 뜻은 아니라는 점입니다. 단방향 암호화라도 짧고 흔한 비밀번호는 미리 계산해 둔 목록과 대조해 맞힐 수 있습니다. 다른 하나는 더 현실적입니다. 공격자는 유출된 아이디·이메일 목록을 들고 <strong>다른 사이트에 같은 조합을 자동으로 넣어 봅니다.</strong> 이걸 크리덴셜 스터핑이라고 부르는데, 티빙 비밀번호를 은행·쇼핑몰·메일에도 쓰고 있었다면 그쪽이 먼저 뚫립니다.</p>
+<p>그래서 순서는 이렇습니다. 티빙 비밀번호를 바꾸고, 같은 비밀번호를 쓰던 사이트를 전부 다른 것으로 바꿉니다. 이 기회에 사이트마다 다른 비밀번호를 쓰게 해 주는 <a href="/posts/password-manager">비밀번호 관리자</a>를 들이면 다음 사고 때 이 단계가 사라집니다. 브라우저에 저장해 둔 비밀번호까지 한 번 점검하는 편이 좋습니다. 이유는 앞서 다룬 <a href="/posts/infostealer-saved-password">브라우저 저장 비밀번호의 위험</a>에 있습니다.</p>
+<h3 id="둘째-공식-페이지에서-내-유출-항목을-확인합니다"><a href="#둘째-공식-페이지에서-내-유출-항목을-확인합니다">둘째, 공식 페이지에서 내 유출 항목을 확인합니다</a></h3>
+<p>티빙은 회원별로 어떤 항목이 나갔는지 보여 주는 조회 페이지를 열었습니다. 주소는 tving.com/info-check 하나입니다. 로그인하거나 본인확인을 거쳐 확인합니다. 한 가지 원칙만 지키면 됩니다. <strong>&quot;유출 여부를 확인하세요&quot;라며 온 문자·메일·카톡의 링크는 누르지 않습니다.</strong> 사고 뒤에는 이런 안내를 흉내 낸 가짜 링크가 가장 많이 돌아다닙니다. 주소창에 직접 칩니다.</p>
+<h3 id="셋째-피싱을-경계하고-2단계-인증을-켭니다"><a href="#셋째-피싱을-경계하고-2단계-인증을-켭니다">셋째, 피싱을 경계하고 2단계 인증을 켭니다</a></h3>
+<p>이름, 생년월일, 전화번호, 이메일이 한 묶음으로 나갔습니다. 앞으로 오는 문자가 내 이름을 정확히 부르고 생년월일까지 맞힌다고 해서 진짜라는 보장이 없습니다. 은행·카드사·수사기관을 사칭해 계좌나 인증번호를 묻는 연락은 끊고 대표번호로 다시 겁니다. 환불 계좌를 등록해 둔 분은 해당 계좌의 거래 알림을 켜 두면 이상 거래를 바로 알 수 있습니다. 그리고 티빙을 포함해 중요한 서비스에는 <a href="/posts/two-factor-auth">2단계 인증</a>을 켭니다. 비밀번호가 새어도 두 번째 자물쇠가 남습니다. 길게 보면 비밀번호 자체를 없애는 <a href="/posts/passkey-passwordless-login">패스키</a>로 옮겨 가는 편이 낫습니다.</p>
+<h2 id="보상은-어떻게-되나요"><a href="#보상은-어떻게-되나요">보상은 어떻게 되나요</a></h2>
+<p>티빙이 밝힌 보상은 두 가지입니다. 전 회원에게 소액의 포인트를 지급하고, 여기에 1년짜리 안심보험을 붙입니다. 안심보험은 해킹·피싱으로 생긴 금융사기, 인터넷 쇼핑몰 사기, 개인 간 직거래 사기까지 <strong>1인당 최대 300만 원</strong>을 보상합니다. 신청은 9월 7일부터 30일까지 받고 10월 6일부터 적용됩니다. 포인트 금액은 보도마다 5천 원에서 2만 원 상당까지 다르게 전해지고 있어, 정확한 구성은 티빙 앱 공지에서 확인하는 게 맞습니다.</p>
+<p>한 가지는 분명히 해 둡니다. 보상 신청도 티빙 앱과 공식 홈페이지에서만 합니다. &quot;보상금 수령&quot;을 내세운 외부 링크는 앞에서 말한 피싱 그 자체입니다.</p>
+<h2 id="자주-나오는-질문"><a href="#자주-나오는-질문">자주 나오는 질문</a></h2>
+<p><strong>Q. 티빙을 오래전에 탈퇴했는데도 해당되나요?</strong>
+해당될 수 있습니다. 비활성 계정 1,737만 개에는 휴면·탈퇴 처리된 계정이 들어 있습니다. 탈퇴 뒤 보관 기간 안에 있던 정보가 함께 나갔을 수 있으니, 예전에 쓰던 이메일로 조회해 보는 게 좋습니다.</p>
+<p><strong>Q. CI가 뭔데 위험하다고 하나요?</strong>
+주민등록번호 대신 여러 사이트에서 &quot;같은 사람&quot;임을 확인하는 데 쓰는 긴 식별값입니다. 이름·생년월일·전화번호와 묶이면 다른 서비스에서 본인 행세를 시도하는 재료가 될 수 있습니다. CI 자체를 바꿀 수는 없으니, 본인확인이 걸린 서비스의 로그인 알림을 켜 두는 게 현실적인 대응입니다.</p>
+<p><strong>Q. 비밀번호를 바꾸면 끝인가요?</strong>
+티빙만 바꾸면 절반입니다. 같은 비밀번호를 쓰던 다른 사이트를 바꿔야 나머지 절반이 채워집니다. 그다음이 2단계 인증입니다.</p>
+<h2 id="오늘-5분-안에"><a href="#오늘-5분-안에">오늘 5분 안에</a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->티빙 비밀번호 변경</li>
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->티빙과 같은 비밀번호를 쓰던 사이트 목록을 적고 전부 변경</li>
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->tving.com/info-check 를 주소창에 직접 쳐서 유출 항목 확인</li>
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->티빙·메일·은행 앱에 2단계 인증 켜기</li>
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->환불 계좌 등록자는 계좌 거래 알림 켜기</li>
+<li class="task-list-item"><input type="checkbox" disabled=""/> <!-- -->9월 7일 이후 티빙 앱 공지에서 보상 신청</li>
+</ul>
+<h2 id="돌아보면-세-문장입니다"><a href="#돌아보면-세-문장입니다">돌아보면 세 문장입니다</a></h2>
+<p>3,954만 계정을 연 것은 신기술이 아니라 코드에 적힌 접속키 하나였습니다. 비밀번호는 풀리지 않았지만 이름·생년월일·전화번호·이메일은 사실상 그대로 나갔고, 그 묶음이 다음 피싱의 재료가 됩니다. 그래서 오늘 할 일은 같은 비밀번호를 쓰는 모든 곳의 비밀번호를 바꾸고, 공식 페이지에서만 확인하고, 두 번째 자물쇠를 거는 것입니다.</p>
+<h2 id="근거로-삼은-자료"><a href="#근거로-삼은-자료">근거로 삼은 자료</a></h2>
+<ul>
+<li>티빙, <a href="https://www.tving.com/info-check" target="_blank" rel="noopener noreferrer">개인정보 유출 내역 조회</a> — 공식 조회 페이지(2026-09-04 확인)</li>
+<li>이데일리, <a href="https://www.edaily.co.kr/News/Read?newsId=04329606645576512" target="_blank" rel="noopener noreferrer">정부 &quot;티빙 해킹범, 탈취경로 못찾아&quot; 일문일답</a> — 과기정통부 민관합동조사단 발표 문답(2026-09-03), 계정 내역·암호화 상태·미확정 경로</li>
+<li>한국경제, <a href="https://www.hankyung.com/article/2026090324787" target="_blank" rel="noopener noreferrer">티빙 계정 3954만개 털렸다…기술자산 361건도 유출</a> — 유출 항목 20개 70종, 하드코딩·2024 지적·로그 6일·과태료(2026-09-03)</li>
+<li>지디넷코리아, <a href="https://zdnet.co.kr/view/?no=20260903161443" target="_blank" rel="noopener noreferrer">티빙 &quot;침해사고에 따른 피해 시 1인당 300만원 보상&quot;</a> — 안심보험·신청 기간(2026-09-03)</li>
+<li>아이티데일리, <a href="https://www.itdaily.kr/news/articleView.html?idxno=241387" target="_blank" rel="noopener noreferrer">티빙, 해킹으로 이용자 계정 3954만 개 유출</a> — 접속키 평문 저장·사내 공유·조사단 지적(2026-09-03)</li>
+</ul>
+<p><em>이 글은 위 공식 발표와 보도를 바탕으로 초보자 눈높이에서 새로 정리한 해설이며, 공격 방법이나 악용 절차는 다루지 않았습니다. 유출 여부·보상 조건은 시점에 따라 바뀔 수 있으니 티빙 공식 앱·홈페이지 공지를 기준으로 확인하세요.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/check-account-breach"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">내 계정이 털렸는지 확인하는 법 — 개인정보 유출 대응 3단계</h3><p>대형 유출 사고 뉴스, 남 일이 아닙니다. 내 이메일·비밀번호가 유출됐는지 안전하게 확인하는 법과, 털렸을 때 지금 바로 해야 할 대응 3단계를 초보 눈높이로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-05T13:00">2026년 8월 5일 13:00</time><span>· <!-- -->보안, 개인정보유출, 계정보안</span></div></a><a class="post-card " href="/posts/incognito-mode-reality"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록</h3><p>구글은 시크릿 모드로 수집한 수십억 건의 기록을 지우기로 합의했습니다. 애초에 무엇을 오해했길래 소송까지 갔을까요. 시크릿 모드가 실제로 지워 주는 것, 그래도 지켜보는 네 개의 눈, 그리고 이 기능을 제대로 쓰는 상황을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T15:01">2026년 9월 1일 15:01</time><span>· <!-- -->보안, 프라이버시, 시크릿모드</span></div></a><a class="post-card " href="/posts/infostealer-saved-password"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">비밀번호를 바꿔도 안 끊깁니다 — 브라우저에 저장해 둔 것들의 값</h3><p>다크웹에서 확인된 정보 탈취 악성코드 로그가 2025년 한 해 500만 건, 전년 대비 59% 늘었습니다. 감염의 35%는 내려받은 파일을 그냥 실행한 데서 시작합니다. 무엇이 새어 나가는지, 왜 비밀번호만 바꾸면 안 끊기는지, 오늘 할 일 네 가지를 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-29T23:20">2026년 8월 29일 23:20</time><span>· <!-- -->보안, 인포스틸러, 악성코드</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

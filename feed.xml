@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지</title>
+      <link>https://pancoit.site/posts/tving-access-key-breach</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/tving-access-key-breach</guid>
+      <pubDate>Fri, 04 Sep 2026 09:00:00 GMT</pubDate>
+      <description>정부 조사 결과가 나왔습니다. 해커의 초능력도, 비밀번호 유출도 아니었습니다. 소스코드에 그대로 적어 둔 접속키가 문이었습니다. 무엇이 나갔고, 내 비밀번호는 안전한지, 오늘 5분 안에 뭘 바꿔야 하는지 정리합니다.</description>
+    </item>
+    <item>
       <title>파이썬 변수 — 상자에 이름표 붙이기(VARIABLE)</title>
       <link>https://pancoit.site/posts/python-variable</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-variable</guid>
