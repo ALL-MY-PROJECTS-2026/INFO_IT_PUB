@@ -4491,9 +4491,9 @@ AI 전용 칩(NPU)은 같은 계산을 일반 칩보다 `,s.jsx(e.strong,{childr
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 공식 자료와 공개된 정책 발표를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function rc(n={}){const{wrapper:e}={...l(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(we,{...n})}):we(n)}const ic=Object.freeze(Object.defineProperty({__proto__:null,default:rc,frontmatter:nc},Symbol.toStringTag,{value:"Module"})),lc={title:"파이썬 시작하기 — 설치 없이 브라우저에서 첫 코드 실행(PRINT)",date:"2026-09-02T10:30",description:"파이썬 첫 코드를 설치 없이 이 페이지 안에서 바로 실행해 봅니다. 일부러 한 번 틀려 보고, 에러 문장을 읽는 법과 print·따옴표·주석의 규칙을 익힌 뒤, 세 줄짜리 자기소개 프로그램을 완성합니다.",category:"PYTHON",series:"PYTHON1",episode:2,tags:["파이썬","python","파이썬기초","파이썬독학","print","파이썬입문"],cover:"/uploads/python-start-hero.jpg",draft:!1};function Be(n){const e={a:"a",blockquote:"blockquote",code:"code",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...l(),...n.components},{PythonRunner:r,Quiz:i}=e;return r||ve("PythonRunner"),i||ve("Quiz"),s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-start-hero.jpg",alt:"1, 2, 3 레인 번호가 그려진 육상 트랙 출발선"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"이미지 출처: Pexels (pexels.com) · Pexels License"})}),`
 `,s.jsx(e.p,{children:"오늘 이 글이 끝나면, 여러분의 화면에는 이렇게 찍혀 있을 겁니다."}),`
-`,s.jsx(e.pre,{children:s.jsx(e.code,{children:`==============================\r
-안녕하세요, 저는 홍길동입니다.\r
-파이썬을 오늘 시작했습니다.\r
+`,s.jsx(e.pre,{children:s.jsx(e.code,{children:`==============================
+안녕하세요, 저는 홍길동입니다.
+파이썬을 오늘 시작했습니다.
 ==============================
 `})}),`
 `,s.jsxs(e.p,{children:["겨우 이거냐고요? 네, 겨우 이겁니다. 그런데 이 네 줄을 찍는 동안 ",s.jsx(e.strong,{children:"파이썬 문법의 첫 규칙 세 개"}),"(대소문자, 따옴표, 주석)를 전부 만나게 됩니다. 그리고 하나 더 — 아무것도 설치하지 않습니다. 이 시리즈의 실습은 전부 ",s.jsx(e.strong,{children:"글 속 실행창에서 바로"})," 돌아갑니다."]}),`
@@ -4508,7 +4508,7 @@ AI 전용 칩(NPU)은 같은 계산을 일반 칩보다 `,s.jsx(e.strong,{childr
 `,s.jsxs(e.p,{children:["첫 코드가 첫 에러가 됐습니다. 그런데 이건 사고가 아니라 ",s.jsx(e.strong,{children:"이 글의 계획"}),"입니다. 프로그래밍을 배우는 동안 에러 문장은 매일 만나게 되는데, 첫날 안전한 곳에서 한번 겪어 두면 나중에 당황하지 않습니다."]}),`
 `,s.jsx(e.h2,{id:"에러-문장은-혼내는-게-아니라-힌트입니다",children:s.jsx(e.a,{href:"#에러-문장은-혼내는-게-아니라-힌트입니다",children:"에러 문장은 혼내는 게 아니라 힌트입니다"})}),`
 `,s.jsxs(e.p,{children:['방금 그 문장을 번역하면 이렇습니다. "',s.jsx(e.strong,{children:"Print라는 이름은 처음 듣는데요."}),'" 파이썬이 아는 명령은 소문자 ',s.jsx(e.code,{children:"print"}),"인데, 우리는 대문자 P로 시작하는 ",s.jsx(e.code,{children:"Print"}),"를 썼습니다. 파이썬에게 이 둘은 ",s.jsx(e.strong,{children:"완전히 다른 글자"}),"입니다."]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-start-error-fix.png",alt:"대문자 Print로 에러가 난 화면과 소문자로 고쳐 성공한 화면을 나란히 비교한 그림"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-start-error-fix-v2.png",alt:"대문자 Print로 에러가 난 화면과 소문자로 고쳐 성공한 화면을 나란히 비교한 그림"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"한 글자 차이로 갈린 두 화면. 에러 문장 속에 범인의 이름('Print')이 그대로 적혀 있습니다."})}),`
 `,s.jsx(e.p,{children:"여기서 첫 규칙이 나옵니다."}),`
 `,s.jsxs(e.blockquote,{children:[`
@@ -4516,7 +4516,7 @@ AI 전용 칩(NPU)은 같은 계산을 일반 칩보다 `,s.jsx(e.strong,{childr
 `]}),`
 `,s.jsx(e.h2,{id:"고쳐서-다시--print의-정체",children:s.jsx(e.a,{href:"#고쳐서-다시--print의-정체",children:"고쳐서 다시 — print의 정체"})}),`
 `,s.jsxs(e.p,{children:["P를 소문자로 바꾸면 통과합니다. 이번엔 통과시키는 김에, ",s.jsx(e.code,{children:"print"}),"가 정확히 무슨 일을 하는지 그림으로 봐 두겠습니다."]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-print-delivery.png",alt:"print에 넣은 글자가 파이썬을 거쳐 화면에 도착하는 과정을 그린 그림"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-print-delivery-v2.png",alt:"print에 넣은 글자가 파이썬을 거쳐 화면에 도착하는 과정을 그린 그림"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:'print는 괄호 안의 것을 화면으로 배달하는 명령입니다. 따옴표는 "이건 글자 그대로예요"라는 포장지라서, 화면에는 내용물만 도착합니다.'})}),`
 `,s.jsx(e.p,{children:"여기서 규칙 두 개가 더 나옵니다."}),`
 `,s.jsxs(e.blockquote,{children:[`
@@ -4562,7 +4562,7 @@ print("=" * 30)`}),`
 `,s.jsxs(e.p,{children:["이름을 '김철수'로 바꾸려면 세 줄을 찾아 고쳐야 합니다. 열 줄, 백 줄짜리 프로그램이면 하나쯤 빠뜨리기 딱 좋습니다. 이럴 때 파이썬은 값을 ",s.jsx(e.strong,{children:"상자에 넣고 이름표를 붙여"})," 둡니다."]}),`
 `,s.jsx(s.Fragment,{children:s.jsx(e.pre,{className:"shiki shiki-themes github-light github-dark",style:{backgroundColor:"#fff","--shiki-dark-bg":"#24292e",color:"#24292e","--shiki-dark":"#e1e4e8"},tabIndex:"0",children:s.jsx(e.code,{children:s.jsxs(e.span,{className:"line",children:[s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:"name "}),s.jsx(e.span,{style:{color:"#D73A49","--shiki-dark":"#F97583"},children:"="}),s.jsx(e.span,{style:{color:"#032F62","--shiki-dark":"#9ECBFF"},children:' "홍길동"'})]})})})}),`
 `,s.jsx(e.p,{children:"이 한 줄이 하는 일은 이렇습니다."}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-variable-box.png",alt:'name = "홍길동" 한 줄이 상자에 값을 넣고 name 이름표를 붙이는 장면'})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-variable-box-v2.png",alt:'name = "홍길동" 한 줄이 상자에 값을 넣고 name 이름표를 붙이는 장면'})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"등호 오른쪽의 값을 상자에 넣고, 왼쪽의 글자를 이름표로 붙입니다. 상자는 만들 때 크기나 종류를 정하지 않습니다 — 넣는 값이 정합니다."})}),`
 `,s.jsxs(e.p,{children:["상자 비유가 잘 안 와닿는 분은 엑셀을 떠올려도 됩니다. 엑셀에서 A1 셀에 값을 적어 두고 다른 셀에서 ",s.jsx(e.code,{children:"=A1"}),"로 가져다 쓰듯, 변수는 ",s.jsx(e.strong,{children:"이름 붙은 칸에 값을 넣어 두고 어디서든 그 이름으로 꺼내 쓰는 것"}),"입니다. 상자든 셀이든 핵심은 같습니다 — 값 하나, 이름 하나."]}),`
 `,s.jsxs(e.p,{children:["여기서 오늘 가장 중요한 규칙이 나옵니다. 수학 시간에 배운 ",s.jsx(e.code,{children:"="}),'는 "같다"였지만, 파이썬의 ',s.jsx(e.code,{children:"="}),'는 **"오른쪽 값을 왼쪽 이름에 넣는다"**입니다. 그래서 ',s.jsx(e.code,{children:'name = "홍길동"'}),'은 "name은 홍길동과 같다"가 아니라 **"홍길동을 name이라는 상자에 넣어라"**로 읽습니다. 이 방향(오른쪽에서 왼쪽으로)만 기억하면 변수의 절반은 끝입니다.']}),`
@@ -4623,7 +4623,7 @@ print("=" * 30)`}),`
 `,s.jsx(e.p,{children:"마지막으로, 처음 보면 어색한 코드 한 줄을 봅니다."}),`
 `,s.jsx(s.Fragment,{children:s.jsx(e.pre,{className:"shiki shiki-themes github-light github-dark",style:{backgroundColor:"#fff","--shiki-dark-bg":"#24292e",color:"#24292e","--shiki-dark":"#e1e4e8"},tabIndex:"0",children:s.jsx(e.code,{children:s.jsxs(e.span,{className:"line",children:[s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:"age "}),s.jsx(e.span,{style:{color:"#D73A49","--shiki-dark":"#F97583"},children:"="}),s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:" age "}),s.jsx(e.span,{style:{color:"#D73A49","--shiki-dark":"#F97583"},children:"+"}),s.jsx(e.span,{style:{color:"#005CC5","--shiki-dark":"#79B8FF"},children:" 1"})]})})})}),`
 `,s.jsxs(e.p,{children:["수학이라면 말이 안 되는 식입니다(어떤 수가 자기보다 1 크다니). 하지만 ",s.jsx(e.code,{children:"="}),'가 "같다"가 아니라 "넣는다"라는 걸 기억하면 풀립니다. ',s.jsx(e.strong,{children:"오른쪽을 먼저 계산"}),"(age 상자에서 20을 꺼내 1을 더해 21)하고, 그 결과를 ",s.jsx(e.strong,{children:"같은 상자에 다시 넣습니다"}),". 옛 값 20은 버려집니다."]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-variable-rebind.png",alt:"age = 20인 상자에서 값을 꺼내 1을 더한 뒤 같은 상자에 21을 넣고, 옛 값 20이 지워지는 장면"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-variable-rebind-v2.png",alt:"age = 20인 상자에서 값을 꺼내 1을 더한 뒤 같은 상자에 21을 넣고, 옛 값 20이 지워지는 장면"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"이름표는 그대로, 속만 교체됩니다. 상자는 언제나 마지막에 넣은 값 하나만 기억합니다."})}),`
 `,s.jsx(r,{label:"같은 상자에 다시 넣기 — 값이 바뀌는 순간",code:`age = 20
 print(age)        # 20
@@ -4668,7 +4668,7 @@ print(type(age))  # <class 'str'>`}),`
 `,s.jsx(e.p,{children:"끝입니다. 이 한 줄의 간결함이 어디서 왔고, 그 덕에 파이썬이 지금 어떤 위치에 있는지 — 본격적으로 코드를 치기 전에 오늘 한 편으로 정리해 두겠습니다."}),`
 `,s.jsx(e.h2,{id:"크리스마스-휴가에-태어난-언어",children:s.jsx(e.a,{href:"#크리스마스-휴가에-태어난-언어",children:"크리스마스 휴가에 태어난 언어"})}),`
 `,s.jsxs(e.p,{children:["1989년 겨울, 네덜란드의 개발자 ",s.jsx(e.strong,{children:"귀도 반 로섬(Guido van Rossum)"})," 은 연구소가 문을 닫는 크리스마스 휴가 동안 심심풀이로 새 프로그래밍 언어를 만들기 시작했습니다. 그리고 1991년, 이 취미 프로젝트를 세상에 공개하며 자신이 좋아하던 영국 코미디 쇼 「몬티 파이썬(Monty Python)」에서 이름을 따 왔습니다. 뱀은 나중에 로고가 되면서 얹힌 이미지일 뿐, ",s.jsx(e.strong,{children:"원조는 코미디"}),"입니다."]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-history-timeline.png",alt:"1991년 첫 공개부터 2020년대 AI 시대까지 파이썬의 연대기를 그린 시간선"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-history-timeline-v2.png",alt:"1991년 첫 공개부터 2020년대 AI 시대까지 파이썬의 연대기를 그린 시간선"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"취미로 시작한 언어가 30년을 살아남아 지금 전성기를 맞았습니다."})}),`
 `,s.jsxs(e.p,{children:["2008년에 지금 우리가 배우는 ",s.jsx(e.strong,{children:"파이썬 3"}),'가 나왔고, 2020년에 구형인 파이썬 2가 공식 은퇴하면서 세대교체가 끝났습니다. 지금 어디서든 "파이썬"이라고 하면 파이썬 3을 말합니다. 이 시리즈도 당연히 파이썬 3 기준입니다.']}),`
 `,s.jsx(e.h2,{id:"30년을-살아남은-고집--읽기-쉬울-것",children:s.jsx(e.a,{href:"#30년을-살아남은-고집--읽기-쉬울-것",children:"30년을 살아남은 고집 — 읽기 쉬울 것"})}),`
@@ -4678,7 +4678,7 @@ print(type(age))  # <class 'str'>`}),`
 `,s.jsxs(e.p,{children:['프로그래밍을 안 배웠어도 대충 읽힙니다. "명단 속 이름마다(for name in) 인사를 출력하는구나(print)." 괄호와 세미콜론 대신 ',s.jsx(e.strong,{children:"들여쓰기로 구조를 표현"}),"하는 것도 같은 철학입니다 — 사람 눈에 보이는 모양과 컴퓨터가 이해하는 구조를 일치시킨 것이죠. 이 들여쓰기 규칙은 4편(조건문)에서 정면으로 다룹니다."]}),`
 `,s.jsx(e.h2,{id:"지금-파이썬으로-뭘-만들고-있나",children:s.jsx(e.a,{href:"#지금-파이썬으로-뭘-만들고-있나",children:"지금 파이썬으로 뭘 만들고 있나"})}),`
 `,s.jsx(e.p,{children:"읽기 쉬우니 배우기 쉽고, 배우는 사람이 많으니 재료(라이브러리)가 쌓이고, 재료가 많으니 더 많은 곳에 쓰이는 선순환이 30년 굴러간 결과 — 지금 파이썬의 활동 범위는 이렇습니다."}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-usage-map.png",alt:"파이썬을 중심으로 웹 서비스, AI 머신러닝, 데이터 분석, 업무 자동화, 교육으로 뻗은 지도"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/python-usage-map-v2.png",alt:"파이썬을 중심으로 웹 서비스, AI 머신러닝, 데이터 분석, 업무 자동화, 교육으로 뻗은 지도"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"한 언어를 배워 두면 갈 수 있는 길이 다섯 갈래로 열립니다."})}),`
 `,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"인스타그램의 서버"}),"가 파이썬으로 돌아가고, 챗봇·이미지 생성 같은 ",s.jsx(e.strong,{children:"AI 개발은 사실상 파이썬이 표준"}),"입니다. 회사에서는 엑셀로 열리지 않는 큰 자료를 분석하거나 반복 업무를 자동화하는 데 쓰고, 학교와 부트캠프에서는 첫 언어로 가르칩니다. 프로그래밍 언어 인기 순위(TIOBE 등)에서 수년째 최상위권을 지키는 이유입니다."]}),`
 `,s.jsx(e.h2,{id:"못하는-것도-있습니다",children:s.jsx(e.a,{href:"#못하는-것도-있습니다",children:"못하는 것도 있습니다"})}),`
