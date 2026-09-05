@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬 연산자 — 나눗셈이 셋인 이유(/, //, %) — PANCO_IT</title>
+    <meta name="description" content="7 나누기 2의 답이 파이썬에는 세 개 있습니다. 3.5, 3, 그리고 1. 슬래시 하나(/), 슬래시 둘(//), 퍼센트(%)가 각각 무엇을 돌려주는지 세 라운드로 붙여 보고, 음수에서 //가 왜 -3이 아니라 -4가 되는지까지 실행창으로 확인합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-operator" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬 연산자 — 나눗셈이 셋인 이유(/, //, %) — PANCO_IT" />
+    <meta property="og:description" content="7 나누기 2의 답이 파이썬에는 세 개 있습니다. 3.5, 3, 그리고 1. 슬래시 하나(/), 슬래시 둘(//), 퍼센트(%)가 각각 무엇을 돌려주는지 세 라운드로 붙여 보고, 음수에서 //가 왜 -3이 아니라 -4가 되는지까지 실행창으로 확인합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-operator" />
+    <meta property="og:image" content="https://pancoit.site/uploads/python-operator-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-05T20:18" />
+    <meta property="article:modified_time" content="2026-09-05T20:18" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬 연산자 — 나눗셈이 셋인 이유(/, //, %) — PANCO_IT" />
+    <meta name="twitter:description" content="7 나누기 2의 답이 파이썬에는 세 개 있습니다. 3.5, 3, 그리고 1. 슬래시 하나(/), 슬래시 둘(//), 퍼센트(%)가 각각 무엇을 돌려주는지 세 라운드로 붙여 보고, 음수에서 //가 왜 -3이 아니라 -4가 되는지까지 실행창으로 확인합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/python-operator-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬 연산자 — 나눗셈이 셋인 이유(/, //, %)","description":"7 나누기 2의 답이 파이썬에는 세 개 있습니다. 3.5, 3, 그리고 1. 슬래시 하나(/), 슬래시 둘(//), 퍼센트(%)가 각각 무엇을 돌려주는지 세 라운드로 붙여 보고, 음수에서 //가 왜 -3이 아니라 -4가 되는지까지 실행창으로 확인합니다.","image":"https://pancoit.site/uploads/python-operator-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-05T20:18","dateModified":"2026-09-05T20:18","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-operator"},"keywords":"파이썬, python, 연산자, 나눗셈, 몫, 나머지, 거듭제곱, 파이썬기초, 파이썬독학"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PYTHON","item":"https://pancoit.site/category/PYTHON"},{"@type":"ListItem","position":3,"name":"파이썬 연산자 — 나눗셈이 셋인 이유(/, //, %)","item":"https://pancoit.site/posts/python-operator"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-7BbCo7pX.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PYTHON">PYTHON</a></li><li><span aria-current="page">파이썬 연산자 — 나눗셈이 셋인 이유(/, //, %)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PYTHON">PYTHON</a><h1 style="margin-top:0.75rem">파이썬 연산자 — 나눗셈이 셋인 이유(/, //, %)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-05T20:18">2026년 9월 5일 20:18</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->python</span><span class="tag">#<!-- -->연산자</span><span class="tag">#<!-- -->나눗셈</span><span class="tag">#<!-- -->몫</span><span class="tag">#<!-- -->나머지</span><span class="tag">#<!-- -->거듭제곱</span><span class="tag">#<!-- -->파이썬기초</span><span class="tag">#<!-- -->파이썬독학</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="구구단표가 인쇄된 계산기" src="/uploads/python-operator-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels, Fatih Yurtman · Pexels License</em></p>
+<p>같은 7과 2를 두고 세 줄을 나란히 돌려 보겠습니다. 결과를 먼저 보고, 설명은 그다음입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">한 문제, 세 가지 답</span></div><pre class="runner__code"><code>print(7 / 2)
+print(7 // 2)
+print(7 % 2)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>3.5</code>, <code>3</code>, <code>1</code>. 세 줄 모두 &quot;7을 2로 나눈다&quot;인데 답이 다릅니다. 파이썬이 이상한 게 아니라, <strong>나눗셈이라는 말 안에 서로 다른 질문 세 개가 들어 있기 때문</strong>입니다. 피자 7조각을 두 사람이 나눈다고 해 보겠습니다. &quot;한 사람이 얼마나 먹나&quot;(3.5조각), &quot;온전한 조각으로는 몇 개씩 주나&quot;(3조각), &quot;그러고 몇 조각이 남나&quot;(1조각). 질문마다 연산자가 하나씩 배정돼 있습니다.</p>
+<p><img alt="7 나누기 2를 /, //, %로 계산한 세 결과 3.5, 3, 1을 피자 조각 비유와 함께 세 칸으로 비교한 그림" src="/uploads/python-operator-three.png" loading="lazy"/></p>
+<p><em>세 연산자는 경쟁 관계가 아니라 분업 관계입니다. 몫(//)과 나머지(%)를 합치면 원래 수로 돌아옵니다: 7 = 2 × 3 + 1.</em></p>
+<p>오늘은 이 셋을 세 라운드로 붙여 봅니다. 라운드마다 &quot;무엇을 돌려주나&quot;, &quot;어디서 헷갈리나&quot;, &quot;실제로 언제 쓰나&quot;를 봅니다. 마지막에 판정표로 정리합니다.</p>
+<h2 id="라운드-1--슬래시-하나는-항상-실수를-돌려줍니다"><a href="#라운드-1--슬래시-하나는-항상-실수를-돌려줍니다">라운드 1 — 슬래시 하나(/)는 항상 실수를 돌려줍니다</a></h2>
+<p><code>/</code>는 우리가 아는 나눗셈입니다. 다만 파이썬에는 규칙이 하나 더 있습니다. <strong>나누어떨어지든 아니든 결과는 언제나 실수(float)</strong> 라는 것입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">나누어떨어져도 실수</span></div><pre class="runner__code"><code>print(8 / 2)          # 4가 아니라 4.0
+print(type(8 / 2))    # &lt;class &#x27;float&#x27;&gt;
+print(10 / 4)         # 2.5
+print(1 / 3)          # 0.3333333333333333</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>8 / 2</code>가 <code>4</code>가 아니라 <code>4.0</code>으로 찍힙니다. 결과가 정수여도 실수 상자에 담아 돌려준다는 뜻입니다. 지난 편에서 <code>int(&quot;20&quot;)</code>처럼 자료형을 따졌던 이유가 여기서 다시 나옵니다. <code>4.0</code>은 화면에서 4처럼 보여도 정수가 아니라서, 뒤에서 &quot;정수만 받는&quot; 자리에 넣으면 막힙니다. 예를 들어 리스트의 몇 번째 칸을 고를 때 <code>[8 / 2]</code>를 쓰면 TypeError가 납니다. 그 이야기는 리스트 편에서 다시 만납니다.</p>
+<p>마지막 줄 <code>1 / 3</code>이 <code>0.3333333333333333</code>으로 끝나는 것도 눈여겨보세요. 컴퓨터는 소수를 딱 떨어지게 저장하지 못해서 어딘가에서 잘라야 합니다. 그래서 <code>0.1 + 0.2</code>를 찍으면 <code>0.30000000000000004</code>가 나옵니다. 파이썬의 버그가 아니라 모든 언어가 같은 방식으로 저장하기 때문이고, 돈 계산처럼 정확해야 할 때 쓰는 도구는 따로 있습니다. 지금은 &quot;실수 나눗셈 결과는 근사값일 수 있다&quot; 정도로 기억해 두면 됩니다.</p>
+<h2 id="라운드-2--슬래시-둘은-몫-그런데-자르기가-아니라-내림입니다"><a href="#라운드-2--슬래시-둘은-몫-그런데-자르기가-아니라-내림입니다">라운드 2 — 슬래시 둘(//)은 몫, 그런데 &quot;자르기&quot;가 아니라 &quot;내림&quot;입니다</a></h2>
+<p><code>//</code>는 나눈 뒤 <strong>소수점 아래를 버리고 정수만</strong> 돌려줍니다. 결과도 정수(int)입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">몫만 남기기</span></div><pre class="runner__code"><code>print(7 // 2)         # 3
+print(8 // 2)         # 4 (4.0이 아님)
+print(type(7 // 2))   # &lt;class &#x27;int&#x27;&gt;
+print(7.0 // 2)       # 3.0 — 실수가 하나라도 섞이면 결과도 실수</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p>여기까지는 &quot;소수점을 자른다&quot;로 이해해도 답이 맞습니다. 그런데 음수가 들어오면 이 이해가 틀립니다. 여기서 다들 한 번 넘어집니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">음수에서는 답이 달라집니다</span></div><pre class="runner__code"><code>print(-7 / 2)         # -3.5
+print(-7 // 2)        # -4  (-3이 아닙니다)
+print(int(-7 / 2))    # -3  (int()는 0 쪽으로 자름)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>-7 // 2</code>가 <code>-3</code>이 아니라 <code>-4</code>입니다. <code>//</code>는 소수점을 &quot;자르는&quot; 것이 아니라 <strong>수직선에서 왼쪽(작은 쪽) 정수로 내리는</strong> 연산이기 때문입니다. <code>-3.5</code>의 왼쪽 정수는 <code>-4</code>입니다. 반대로 <code>int(-3.5)</code>는 소수점을 잘라 <code>-3</code>이 됩니다. 양수에서는 두 방법의 답이 같아서 차이를 못 느끼다가, 음수에서 처음 갈라집니다.</p>
+<p><img alt="-7 나누기 2 = -3.5를 수직선에 놓고, //는 왼쪽 정수 -4로 내리고 int()는 0 쪽으로 잘라 -3이 되는 차이를 표시한 그림" src="/uploads/python-operator-floor.png" loading="lazy"/></p>
+<p><em>//는 &quot;내림(floor)&quot;입니다. 수직선에서 언제나 왼쪽으로 갑니다. 그래서 이름도 floor division입니다.</em></p>
+<p>이 성질은 <code>%</code>와 짝이 맞도록 일부러 그렇게 정한 것입니다. 라운드 3에서 이유가 나옵니다.</p>
+<h2 id="라운드-3--퍼센트는-나머지-부호는-나누는-수를-따릅니다"><a href="#라운드-3--퍼센트는-나머지-부호는-나누는-수를-따릅니다">라운드 3 — 퍼센트(%)는 나머지, 부호는 나누는 수를 따릅니다</a></h2>
+<p><code>%</code>는 나누고 남은 것을 돌려줍니다. 백분율과는 상관이 없습니다. 이름이 그렇게 생겼을 뿐입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">나머지 구하기</span></div><pre class="runner__code"><code>print(7 % 2)          # 1
+print(8 % 2)          # 0 — 나누어떨어지면 0
+print(10 % 3)         # 1
+print(2 % 5)          # 2 — 작은 수를 큰 수로 나누면 자기 자신이 남습니다</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>%</code>가 자주 쓰이는 곳은 딱 두 가지입니다. 하나는 <strong>짝수·홀수 판별</strong>입니다. <code>n % 2</code>가 <code>0</code>이면 짝수, <code>1</code>이면 홀수입니다. 다른 하나는 <strong>주기적으로 돌아오는 것</strong>을 셀 때입니다. 요일, 시계, &quot;3명씩 조를 짜면 몇 명이 남나&quot; 같은 계산입니다.</p>
+<p>그리고 <code>//</code>와 <code>%</code>는 항상 짝으로 움직입니다. 어떤 수 <code>a</code>를 <code>b</code>로 나눴을 때, <strong><code>a == b * (a // b) + a % b</code></strong> 가 언제나 성립하도록 파이썬이 두 연산자를 맞춰 두었습니다. 7 = 2 × 3 + 1. 음수도 확인해 보겠습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">몫과 나머지는 짝 — 음수에서도 성립</span></div><pre class="runner__code"><code>a, b = -7, 2
+print(a // b, a % b)            # -4 1
+print(b * (a // b) + a % b)     # -7 — 원래 수로 돌아옵니다
+print(7 % -2)                   # -1 — 나머지 부호는 나누는 수(b)를 따릅니다
+print(divmod(7, 2))             # (3, 1) — 몫과 나머지를 한 번에</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>-7 // 2</code>를 <code>-4</code>로 내렸기 때문에 <code>-7 % 2</code>는 <code>1</code>이 됩니다. 만약 <code>//</code>가 <code>-3</code>으로 잘랐다면 나머지는 <code>-1</code>이 되어야 했을 겁니다. 파이썬은 <strong>나머지의 부호가 나누는 수와 같아지는 쪽</strong>을 골랐고, 그래서 <code>7 % -2</code>는 <code>-1</code>입니다. 다른 언어(C, 자바)는 반대로 정해 두어서 <code>-7 % 2</code>가 <code>-1</code>입니다. 여러 언어를 오갈 때 가장 자주 틀리는 자리입니다. 마지막 줄의 <code>divmod()</code>는 몫과 나머지를 한 번에 돌려주는 도구입니다.</p>
+<h2 id="판정표--세-연산자-언제-무엇을-쓰나"><a href="#판정표--세-연산자-언제-무엇을-쓰나">판정표 — 세 연산자, 언제 무엇을 쓰나</a></h2>
+<table><thead><tr><th>연산자</th><th>이름</th><th><code>7 ? 2</code></th><th>결과 자료형</th><th>이럴 때 씁니다</th></tr></thead><tbody><tr><td><code>/</code></td><td>나눗셈</td><td><code>3.5</code></td><td>항상 float</td><td>평균, 비율, &quot;한 명당 얼마&quot;</td></tr><tr><td><code>//</code></td><td>몫(내림)</td><td><code>3</code></td><td>int (실수 섞이면 float)</td><td>&quot;몇 개씩&quot;, &quot;몇 번 들어가나&quot;, 자리 계산</td></tr><tr><td><code>%</code></td><td>나머지</td><td><code>1</code></td><td>int (실수 섞이면 float)</td><td>짝홀 판별, 주기, &quot;몇 개 남나&quot;</td></tr></tbody></table>
+<p>세 문장으로 줄이면 이렇습니다. <strong><code>/</code>는 정확한 값(실수), <code>//</code>는 온전한 개수(내림), <code>%</code>는 남는 양.</strong> 그리고 <code>//</code>와 <code>%</code>는 <code>a == b * (a // b) + a % b</code>로 묶여 있어서 음수에서도 서로 어긋나지 않습니다.</p>
+<h2 id="덤--나머지-연산자들과-순서"><a href="#덤--나머지-연산자들과-순서">덤 — 나머지 연산자들과 순서</a></h2>
+<p>나눗셈 셋 외의 산술 연산자는 우리가 아는 그대로입니다. <code>+</code>, <code>-</code>, <code>*</code>, 그리고 거듭제곱 <code>**</code>입니다. <code>2 ** 10</code>은 1024입니다. <code>^</code>가 아니라는 점만 주의하면 됩니다. 파이썬에서 <code>^</code>는 전혀 다른 연산(비트 연산)이라 <code>2 ^ 10</code>은 <code>8</code>이 나옵니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">우선순위 — 곱셈·나눗셈이 덧셈·뺄셈보다 먼저</span></div><pre class="runner__code"><code>print(2 + 3 * 4)        # 14 (3 * 4 먼저)
+print((2 + 3) * 4)      # 20 (괄호 먼저)
+print(2 ** 3 ** 2)      # 512 (거듭제곱은 오른쪽부터: 3 ** 2 = 9, 2 ** 9)
+print(-3 ** 2)          # -9 (거듭제곱이 부호보다 먼저: -(3 ** 2))
+print(7 // 2 * 2)       # 6 (//와 *는 같은 급, 왼쪽부터)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p>수학 시간의 순서와 같습니다. 괄호 → 거듭제곱 → 곱셈·나눗셈(<code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>) → 덧셈·뺄셈. 다만 두 줄은 자주 틀립니다. <code>2 ** 3 ** 2</code>는 오른쪽부터 계산해 512이고, <code>-3 ** 2</code>는 <code>-9</code>입니다. <code>(-3) ** 2</code>를 원하면 괄호를 써야 합니다. 헷갈리면 괄호를 치는 것이 정답입니다. 괄호는 공짜이고, 읽는 사람도 편합니다.</p>
+<p>한 가지 더. 0으로 나누면 세 연산자 모두 <code>ZeroDivisionError</code>로 멈춥니다. <code>7 / 0</code>, <code>7 // 0</code>, <code>7 % 0</code> 전부입니다. 입력값으로 나눌 때는 0이 들어올 수 있다는 것을 기억해 두어야 하는데, 그것을 막는 방법(<code>if</code>)이 바로 다음 편입니다.</p>
+<h2 id="실전--초를-분과-초로-바꾸기"><a href="#실전--초를-분과-초로-바꾸기">실전 — 초를 분과 초로 바꾸기</a></h2>
+<p><code>//</code>와 <code>%</code>가 함께 일하는 가장 흔한 장면입니다. 125초는 몇 분 몇 초일까요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">125초 → 2분 5초</span></div><pre class="runner__code"><code>total = 125
+minutes = total // 60      # 60이 몇 번 들어가나 → 2
+seconds = total % 60       # 그러고 몇 초 남나 → 5
+print(f&quot;{total}초는 {minutes}분 {seconds}초입니다.&quot;)
+
+# 응용: 3,700초를 시·분·초로
+t = 3700
+print(t // 3600, &quot;시간&quot;, t % 3600 // 60, &quot;분&quot;, t % 60, &quot;초&quot;)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p>첫 줄은 <code>2분 5초</code>, 둘째 줄은 <code>1 시간 1 분 40 초</code>가 나옵니다. <code>t % 3600 // 60</code>은 &quot;3600으로 나눈 나머지(100)를 다시 60으로 나눈 몫(1)&quot;입니다. <code>%</code>와 <code>//</code>가 같은 급이라 왼쪽부터 계산됩니다. <code>total</code>을 <code>59</code>, <code>60</code>, <code>61</code>로 바꿔 돌려 보면 경계에서 어떻게 넘어가는지 보입니다.</p>
+<h2 id="셋-중-하나는-오늘-본문에-없는-함정입니다"><a href="#셋-중-하나는-오늘-본문에-없는-함정입니다">셋 중 하나는 오늘 본문에 없는 함정입니다</a></h2>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<hr/>
+<p><em>포켓코딩(PYTHON1) 5편 · <a href="/posts/python-input">4편(파이썬 입력과 형변환)</a>에서 이어집니다. 예제 코드는 강사 개인 GitHub 저장소의 연습 문제를 바탕으로 다시 썼습니다. 다음 편: 파이썬 조건문 if — 0으로 나누기 전에 멈추는 법.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-input"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT)</h3><p>나이를 20으로 입력했는데 내년 나이가 201로 찍힙니다. 범인은 input()입니다. 키보드로 받은 값이 왜 전부 글자인지, int()와 float()로 어떻게 숫자로 바꾸는지, 어떤 입력에서 ValueError가 나는지 실행창으로 확인합니다.</p><div class="post-card__meta"><time dateTime="2026-09-04T20:16">2026년 9월 4일 20:16</time><span>· <!-- -->파이썬, python, input</span></div></a><a class="post-card " href="/posts/python-variable"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 변수 — 상자에 이름표 붙이기(VARIABLE)</h3><p>지난 편의 자기소개 프로그램은 이름을 세 번 고쳐야 했습니다. 오늘은 값을 상자에 넣고 이름표를 붙이는 &#x27;변수&#x27;로 그 문제를 해결합니다. =의 진짜 뜻, 숫자와 글자의 차이(type), 숫자를 글자에 붙이려다 만나는 TypeError, 그리고 f-string까지 — 실행창에서 직접 고쳐 가며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-09-03T14:00">2026년 9월 3일 14:00</time><span>· <!-- -->파이썬, python, 파이썬변수</span></div></a><a class="post-card " href="/posts/python-start-print"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 시작하기 — 설치 없이 브라우저에서 첫 코드 실행(PRINT)</h3><p>파이썬 첫 코드를 설치 없이 이 페이지 안에서 바로 실행해 봅니다. 일부러 한 번 틀려 보고, 에러 문장을 읽는 법과 print·따옴표·주석의 규칙을 익힌 뒤, 세 줄짜리 자기소개 프로그램을 완성합니다.</p><div class="post-card__meta"><time dateTime="2026-09-02T10:30">2026년 9월 2일 10:30</time><span>· <!-- -->파이썬, python, 파이썬기초</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

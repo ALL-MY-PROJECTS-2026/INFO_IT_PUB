@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 연산자 — 나눗셈이 셋인 이유(/, //, %)</title>
+      <link>https://pancoit.site/posts/python-operator</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-operator</guid>
+      <pubDate>Sat, 05 Sep 2026 20:18:00 GMT</pubDate>
+      <description>7 나누기 2의 답이 파이썬에는 세 개 있습니다. 3.5, 3, 그리고 1. 슬래시 하나(/), 슬래시 둘(//), 퍼센트(%)가 각각 무엇을 돌려주는지 세 라운드로 붙여 보고, 음수에서 //가 왜 -3이 아니라 -4가 되는지까지 실행창으로 확인합니다.</description>
+    </item>
+    <item>
       <title>파이썬 입력과 형변환 — 20을 넣었는데 201이 나오는 이유(INPUT)</title>
       <link>https://pancoit.site/posts/python-input</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-input</guid>
