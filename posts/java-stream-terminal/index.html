@@ -40,15 +40,15 @@
     <meta property="og:title" content="자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND) — PANCO_IT" />
     <meta property="og:description" content="스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다." />
     <meta property="og:url" content="https://pancoit.site/posts/java-stream-terminal" />
-    <meta property="og:image" content="https://pancoit.site/uploads/java-stream-terminal.png" />
+    <meta property="og:image" content="https://pancoit.site/uploads/java-stream-terminal-r2.png" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="article:published_time" content="2026-08-29T13:20" />
     <meta property="article:modified_time" content="2026-08-29T13:20" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND) — PANCO_IT" />
     <meta name="twitter:description" content="스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다." />
-    <meta name="twitter:image" content="https://pancoit.site/uploads/java-stream-terminal.png" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)","description":"스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-stream-terminal.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-29T13:20","dateModified":"2026-08-29T13:20","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-stream-terminal"},"keywords":"자바, JAVA, 스트림, collect, reduce, Optional"}</script>
+    <meta name="twitter:image" content="https://pancoit.site/uploads/java-stream-terminal-r2.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)","description":"스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-stream-terminal-r2.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-29T13:20","dateModified":"2026-08-29T13:20","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-stream-terminal"},"keywords":"자바, JAVA, 스트림, collect, reduce, Optional"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)","item":"https://pancoit.site/posts/java-stream-terminal"}]}</script>
     <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
     <script>
@@ -60,12 +60,12 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-7BbCo7pX.js"></script>
+    <script type="module" crossorigin src="/assets/index-CzDVuIdb.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
   <body>
-    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-29T13:20">2026년 8월 29일 13:20</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->스트림</span><span class="tag">#<!-- -->collect</span><span class="tag">#<!-- -->reduce</span><span class="tag">#<!-- -->Optional</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="중간 연산은 아직 실행되지 않고 최종 연산이 와야 흐른다는 비교 그림" src="/uploads/java-stream-terminal.png" loading="lazy"/></p>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/JAVA">JAVA</a></li><li><span aria-current="page">자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/JAVA">JAVA</a><h1 style="margin-top:0.75rem">자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-08-29T13:20">2026년 8월 29일 13:20</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->자바</span><span class="tag">#<!-- -->JAVA</span><span class="tag">#<!-- -->스트림</span><span class="tag">#<!-- -->collect</span><span class="tag">#<!-- -->reduce</span><span class="tag">#<!-- -->Optional</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="중간 연산은 아직 실행되지 않고 최종 연산이 와야 흐른다는 비교 그림" src="/uploads/java-stream-terminal-r2.png" loading="lazy"/></p>
 <p><em>중간 연산은 계획이고, 최종 연산은 실행 버튼입니다.</em></p>
 <p>3편에서 스트림의 기본을, 4편에서 정렬·중복 제거·자르기를 봤습니다. 그런데 지금까지 쓴 것들에는 공통점이 하나 있습니다. <strong>결과가 다시 스트림</strong>이었다는 것. 그래서 계속 점을 찍어 이어 붙일 수 있었죠.</p>
 <p>오늘은 그 줄의 <strong>맨 끝</strong>을 다룹니다. 스트림을 값으로 바꿔 꺼내는 자리, 최종 연산입니다.</p>
@@ -89,7 +89,7 @@
 <p>이 게으름은 낭비를 줄이려고 만든 성질입니다. 뒤에 <code>limit(1)</code>이 붙어 있다면 원소 하나만 통과시켜 보고 멈추면 되니까요. 전부 걸러 놓고 하나만 꺼내는 것보다 훨씬 적게 일합니다.</p>
 <h2 id="무엇을-얻고-싶은지로-고릅니다"><a href="#무엇을-얻고-싶은지로-고릅니다">무엇을 얻고 싶은지로 고릅니다</a></h2>
 <p>최종 연산은 종류가 많아 보이지만, <strong>원하는 결과 모양</strong>으로 나누면 네 갈래입니다.</p>
-<p><img alt="담기·세기·합치기·찾기 네 갈래로 정리한 최종 연산" src="/uploads/java-stream-terminal-kinds.png" loading="lazy"/></p>
+<p><img alt="담기·세기·합치기·찾기 네 갈래로 정리한 최종 연산" src="/uploads/java-stream-terminal-kinds-r2.png" loading="lazy"/></p>
 <p><em>그림 1. 결과를 무엇으로 받고 싶은지가 곧 선택 기준입니다.</em></p>
 <h2 id="담기--다시-컬렉션으로"><a href="#담기--다시-컬렉션으로">담기 — 다시 컬렉션으로</a></h2>
 <p>가장 많이 씁니다. 거르고 바꾼 결과를 리스트로 받아 두는 것이죠.</p>
