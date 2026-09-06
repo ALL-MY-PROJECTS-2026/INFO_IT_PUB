@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>크롬이 올해 여섯 번째로 뚫렸습니다 — CVE-2026-85046, 집과 회사 브라우저 네 대를 오늘 안에 막는 순서 — PANCO_IT</title>
+    <meta name="description" content="9월 3일 구글이 크롬 152.0.7977.82를 급히 내놨습니다. 실제 공격에 이미 쓰인 V8 취약점 때문입니다. 무엇이 뚫렸는지, 엣지·웨일·안드로이드까지 어디가 걸리는지, 왜 다시 시작 버튼 하나가 핵심인지를 기기별 점검 순서로 정리합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/chrome-v8-zero-day-2026" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="크롬이 올해 여섯 번째로 뚫렸습니다 — CVE-2026-85046, 집과 회사 브라우저 네 대를 오늘 안에 막는 순서 — PANCO_IT" />
+    <meta property="og:description" content="9월 3일 구글이 크롬 152.0.7977.82를 급히 내놨습니다. 실제 공격에 이미 쓰인 V8 취약점 때문입니다. 무엇이 뚫렸는지, 엣지·웨일·안드로이드까지 어디가 걸리는지, 왜 다시 시작 버튼 하나가 핵심인지를 기기별 점검 순서로 정리합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/chrome-v8-zero-day-2026" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-chrome-zeroday-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-06T18:30" />
+    <meta property="article:modified_time" content="2026-09-06T18:30" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="크롬이 올해 여섯 번째로 뚫렸습니다 — CVE-2026-85046, 집과 회사 브라우저 네 대를 오늘 안에 막는 순서 — PANCO_IT" />
+    <meta name="twitter:description" content="9월 3일 구글이 크롬 152.0.7977.82를 급히 내놨습니다. 실제 공격에 이미 쓰인 V8 취약점 때문입니다. 무엇이 뚫렸는지, 엣지·웨일·안드로이드까지 어디가 걸리는지, 왜 다시 시작 버튼 하나가 핵심인지를 기기별 점검 순서로 정리합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-chrome-zeroday-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"크롬이 올해 여섯 번째로 뚫렸습니다 — CVE-2026-85046, 집과 회사 브라우저 네 대를 오늘 안에 막는 순서","description":"9월 3일 구글이 크롬 152.0.7977.82를 급히 내놨습니다. 실제 공격에 이미 쓰인 V8 취약점 때문입니다. 무엇이 뚫렸는지, 엣지·웨일·안드로이드까지 어디가 걸리는지, 왜 다시 시작 버튼 하나가 핵심인지를 기기별 점검 순서로 정리합니다.","image":"https://pancoit.site/uploads/itnews-chrome-zeroday-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-06T18:30","dateModified":"2026-09-06T18:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/chrome-v8-zero-day-2026"},"keywords":"크롬, 제로데이, CVE-2026-85046, V8, 브라우저 보안, 업데이트"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D"},{"@type":"ListItem","position":3,"name":"크롬이 올해 여섯 번째로 뚫렸습니다 — CVE-2026-85046, 집과 회사 브라우저 네 대를 오늘 안에 막는 순서","item":"https://pancoit.site/posts/chrome-v8-zero-day-2026"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DQHlrFLS.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a></li><li><span aria-current="page">크롬이 올해 여섯 번째로 뚫렸습니다 — CVE-2026-85046, 집과 회사 브라우저 네 대를 오늘 안에 막는 순서</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D">IT소식</a><h1 style="margin-top:0.75rem">크롬이 올해 여섯 번째로 뚫렸습니다 — CVE-2026-85046, 집과 회사 브라우저 네 대를 오늘 안에 막는 순서</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-06T18:30">2026년 9월 6일 18:30</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->크롬</span><span class="tag">#<!-- -->제로데이</span><span class="tag">#<!-- -->CVE-2026-85046</span><span class="tag">#<!-- -->V8</span><span class="tag">#<!-- -->브라우저 보안</span><span class="tag">#<!-- -->업데이트</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="나무 테이블 위 노트북 화면에 구글 검색창이 열려 있고 옆에 스마트폰이 놓여 있는 모습" src="/uploads/itnews-chrome-zeroday-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels, Pixabay · CC0</em></p>
+<p>2026년 9월 3일(미국 시간) 구글이 크롬 안정 버전을 <strong>152.0.7977.82</strong>로 올리면서 짧은 문장 하나를 덧붙였습니다. &quot;CVE-2026-85046의 익스플로잇이 실제로 존재한다는 것을 알고 있다.&quot; 패치가 나오기 전에 이미 누군가 쓰고 있었다는 뜻이고, 이런 취약점을 <strong>제로데이</strong>(고칠 시간이 0일이었던 구멍)라고 부릅니다. 올해 들어 크롬에서만 여섯 번째입니다.</p>
+<p>이틀 전인 9월 1일에도 크롬은 보안 수정 26건이 담긴 업데이트를 내놨습니다. 그중 두 건은 가장 높은 등급인 &quot;치명적&quot;이었습니다. 그러니까 이번 주 크롬 사용자는 48시간 사이에 큰 업데이트를 두 번 받아야 했습니다. 문제는 대부분의 사람이 그 사실을 모른다는 점입니다. 크롬은 조용히 내려받고, 다시 시작할 때까지 기다립니다.</p>
+<p>이 글은 2026년 9월 6일 기준으로 구글 릴리스 블로그, 미국 국립취약점데이터베이스(NVD), 미국 사이버안보국(CISA) 공고, 해외 보안 매체 두 곳을 대조해 썼습니다. 공격 절차나 악용 방법은 다루지 않습니다. 대신 한 가지 미션을 받았다고 가정하고, 그 미션을 끝내는 순서를 따라가겠습니다.</p>
+<h2 id="오늘-받은-미션--브라우저-네-대를-밤-안에"><a href="#오늘-받은-미션--브라우저-네-대를-밤-안에">오늘 받은 미션 — 브라우저 네 대를 밤 안에</a></h2>
+<p>가상의 상황을 하나 두겠습니다. 직장인 지은 씨가 집에 돌아와 뉴스를 보고 이렇게 적어 두었다고 해 봅시다.</p>
+<table><thead><tr><th>의뢰 항목</th><th>내용</th></tr></thead><tbody><tr><td>지켜야 할 것</td><td>집 데스크톱(윈도우, 크롬) · 맥북(크롬) · 회사 노트북(엣지, 회사가 관리) · 안드로이드 폰(크롬)</td></tr><tr><td>마감</td><td>오늘 밤</td></tr><tr><td>조건</td><td>파일을 새로 설치하거나 돈을 쓰지 않는다. 회사 PC는 규정을 어기지 않는다</td></tr><tr><td>완료 기준</td><td>네 대 모두 고친 버전이 실제로 <strong>실행 중</strong>인 것을 눈으로 확인</td></tr></tbody></table>
+<p>마지막 줄이 이 미션의 전부입니다. &quot;업데이트를 받았다&quot;가 아니라 &quot;고친 버전이 지금 돌고 있다&quot;를 확인해야 끝납니다. 왜 그 차이가 중요한지는 조립 단계에서 보입니다.</p>
+<h2 id="무엇이-뚫렸나--의뢰서-뒷면의-사실-확인"><a href="#무엇이-뚫렸나--의뢰서-뒷면의-사실-확인">무엇이 뚫렸나 — 의뢰서 뒷면의 사실 확인</a></h2>
+<p>먼저 고칠 대상을 정확히 알아야 합니다. 이번 취약점의 신분증을 정리하면 이렇습니다.</p>
+<table><thead><tr><th>항목</th><th>확인된 사실 (2026-09-06 기준)</th></tr></thead><tbody><tr><td>번호</td><td>CVE-2026-85046 (CVE는 공개된 보안 취약점마다 붙는 고유 번호)</td></tr><tr><td>뚫린 부품</td><td>V8 — 크롬이 웹페이지의 자바스크립트를 실행하는 엔진</td></tr><tr><td>결함 종류</td><td>타입 혼동(Type confusion) — 프로그램이 한 종류의 데이터를 다른 종류로 착각하게 만드는 오류</td></tr><tr><td>심각도</td><td>높음(High), CVSS 8.8점(10점 만점)</td></tr><tr><td>결과</td><td>조작된 웹페이지 한 장으로 <strong>샌드박스 안에서</strong> 임의 코드 실행</td></tr><tr><td>고친 버전</td><td>152.0.7977.82 / .83 (윈도우·맥), 152.0.7977.82 (리눅스)</td></tr><tr><td>발견·제보</td><td>보안 연구자 Salvatore Gulizia(별명 Serotav), 2026년 8월 4일 제보, 포상금 1,000달러</td></tr><tr><td>실제 악용</td><td>구글이 &quot;익스플로잇이 실제로 존재한다&quot;고 명시</td></tr><tr><td>정부 조치</td><td>미국 CISA가 9월 4일 악용 확인 취약점 목록(KEV)에 등재, 연방기관 패치 시한 9월 18일</td></tr></tbody></table>
+<p>용어 두 개만 풀겠습니다. <strong>V8</strong>은 크롬 안에서 자바스크립트를 읽고 실행하는 부품입니다. 웹페이지의 버튼이 눌리고, 화면이 바뀌고, 광고가 뜨는 거의 모든 동작이 이 엔진을 지나갑니다. 그래서 V8의 구멍은 &quot;특정 기능을 쓸 때만&quot; 위험한 게 아니라, 웹페이지를 여는 것 자체가 위험해질 수 있습니다.</p>
+<p><strong>타입 혼동</strong>은 비유하자면 택배 상자의 라벨을 바꿔 붙이는 것과 비슷합니다. 안에는 유리병이 들어 있는데 라벨에는 &quot;옷&quot;이라고 적혀 있으면, 그 상자를 다루는 사람은 잘못된 방식으로 다루게 됩니다. 프로그램도 데이터의 종류를 잘못 알면 메모리를 잘못된 방식으로 읽고 쓰게 되고, 공격자는 그 틈을 이용해 자기 코드를 끼워 넣습니다. 구글은 공격의 구체적 내용과 누가 썼는지는 공개하지 않았습니다. 대부분의 사용자가 업데이트를 마칠 때까지 세부 내용을 감추는 것이 관례입니다.</p>
+<p>한 가지 더 눈여겨볼 표현이 있습니다. NVD 설명문에 나오는 &quot;<strong>샌드박스 안에서</strong>&quot;입니다.</p>
+<p><img alt="렌더러 샌드박스라는 울타리 안에서 조작된 웹페이지의 스크립트가 임의 코드 실행에 이르는 모습과, 울타리 바깥의 내 파일·다른 탭·운영체제 사이에 잠긴 문이 있는 그림" src="/uploads/itnews-chrome-sandbox-fence.png" loading="lazy"/></p>
+<p><em>그림 1. 이번 취약점이 여는 문은 울타리 안까지입니다. 울타리 바깥으로 나가려면 다른 취약점이 하나 더 필요합니다. 그래서 위험이 작다는 뜻은 아닙니다. 실제 공격은 두 개를 이어 씁니다.</em></p>
+<p>크롬은 웹페이지 하나하나를 <strong>샌드박스</strong>라는 격리된 방에서 실행합니다. 이번 취약점은 그 방 안에서 공격자의 코드가 돌게 만듭니다. 방 안에서는 그 페이지가 볼 수 있는 것, 즉 같은 사이트의 데이터와 그 탭의 동작을 건드릴 수 있습니다. 내 사진 파일이나 다른 사이트의 로그인까지 곧장 닿지는 않습니다. 거기까지 가려면 울타리를 넘는 두 번째 취약점이 필요합니다. 그런데 실제 공격 도구는 보통 이 두 개를 묶어서 팝니다. 첫 번째 문이 열린 상태로 두는 것이 위험한 이유입니다.</p>
+<h2 id="조건-분해--네-대-중-어디가-걸리나"><a href="#조건-분해--네-대-중-어디가-걸리나">조건 분해 — 네 대 중 어디가 걸리나</a></h2>
+<p>크롬만의 문제로 보이지만, 이 취약점은 크롬이 아니라 <strong>크로미움</strong>(크롬의 바탕이 되는 오픈소스 브라우저 엔진)의 V8에 있습니다. 크로미움을 가져다 만든 브라우저는 전부 같은 엔진을 씁니다. CISA도 공고에 마이크로소프트 엣지와 오페라를 예로 들어 &quot;여러 브라우저에 영향을 줄 수 있다&quot;고 적었습니다.</p>
+<table><thead><tr><th>지은 씨의 기기</th><th>브라우저</th><th>걸리나</th><th>고치는 주체</th></tr></thead><tbody><tr><td>집 데스크톱(윈도우)</td><td>크롬</td><td>걸림</td><td>구글 — 152.0.7977.82/.83</td></tr><tr><td>맥북</td><td>크롬</td><td>걸림</td><td>구글 — 152.0.7977.82/.83</td></tr><tr><td>회사 노트북</td><td>엣지</td><td>걸림</td><td>마이크로소프트가 크로미움 수정을 받아 자체 버전으로 배포</td></tr><tr><td>안드로이드 폰</td><td>크롬</td><td>걸림</td><td>구글 — 플레이 스토어로 배포(9월 3일 안드로이드용 업데이트 항목이 릴리스 블로그에 함께 올라왔습니다)</td></tr><tr><td>(참고) 네이버 웨일·브레이브·오페라·비발디</td><td>크로미움 계열</td><td>걸림</td><td>각 회사가 자기 일정으로 반영</td></tr><tr><td>(참고) 파이어폭스·사파리</td><td>다른 엔진</td><td>이 번호와는 무관</td><td>—</td></tr></tbody></table>
+<p>아이폰의 크롬은 사정이 다릅니다. 애플 정책 때문에 아이폰용 크롬은 대부분 애플의 웹킷 엔진을 쓰고 있어, V8 취약점의 영향은 안드로이드나 PC와 같지 않습니다. 이 글의 미션에는 아이폰이 없으니 넘어가되, 아이폰 사용자는 iOS 업데이트 쪽을 따로 챙기면 됩니다.</p>
+<p>정리하면 지은 씨의 네 대는 <strong>전부 해당</strong>합니다. 다만 고치는 주체가 둘로 나뉩니다. 크롬 세 대는 구글이 직접, 엣지 한 대는 마이크로소프트가 반영합니다. 그리고 회사 노트북은 회사가 업데이트를 관리할 가능성이 있어 순서를 따로 둡니다.</p>
+<h2 id="도구-선택--왜-새-프로그램이-아니라-다시-시작인가"><a href="#도구-선택--왜-새-프로그램이-아니라-다시-시작인가">도구 선택 — 왜 새 프로그램이 아니라 &#x27;다시 시작&#x27;인가</a></h2>
+<p>여기서 고르는 도구는 단순합니다. 크롬의 <strong>자동 업데이트</strong>입니다. 백신을 새로 깔거나 확장 프로그램을 넣을 필요가 없습니다. 오히려 이런 때 &quot;크롬 보안 강화&quot;를 내세우는 확장 프로그램이 나오면 의심해야 합니다. 확장 프로그램 자체가 다른 위험이라는 이야기는 <a href="/posts/browser-extension-risk/">크롬 확장프로그램 글</a>에서 따로 다뤘습니다.</p>
+<p>자동 업데이트는 이렇게 움직입니다. 크롬은 켜져 있는 동안 몇 시간마다 새 버전이 있는지 확인하고, 있으면 조용히 내려받습니다. 그런데 내려받은 새 버전은 <strong>브라우저를 다시 시작해야</strong> 실행됩니다. 지금 돌고 있는 크롬은 여전히 옛 버전입니다. 며칠 동안 노트북을 덮기만 하고 크롬을 완전히 끄지 않는 사람은, 업데이트를 받아 두고도 구멍이 난 버전으로 계속 웹을 보는 셈입니다.</p>
+<p>구글 도움말에 따르면 그래서 크롬은 오른쪽 위 메뉴 자리에 색깔로 신호를 줍니다. 업데이트가 나온 뒤 이틀쯤 지나면 초록, 나흘이면 주황, 일주일이면 빨강으로 바뀝니다. 이 색 점을 본 적이 있다면, 그때 크롬은 &quot;받아 뒀으니 다시 시작해 달라&quot;고 말하고 있었던 것입니다.</p>
+<p><img alt="크롬 설정의 Chrome 정보 화면 목업 — 버전 152.0.7977.82에 붉은 펜 동그라미, 다시 시작 버튼에 주황 펜 동그라미와 메모" src="/uploads/itnews-chrome-about-check.png" loading="lazy"/></p>
+<p><em>그림 2. 완료 기준은 이 화면 하나입니다. 버전 뒷자리가 7977.82 이상이고, &quot;다시 시작&quot; 버튼이 사라져 &quot;최신 버전입니다&quot;로 바뀌어 있으면 끝입니다.</em></p>
+<h2 id="조립--기기별-순서"><a href="#조립--기기별-순서">조립 — 기기별 순서</a></h2>
+<p>이제 네 대를 차례로 돕니다. 각 단계 끝에는 반드시 버전 숫자를 확인합니다.</p>
+<p><strong>1. 집 데스크톱과 맥북(크롬)</strong></p>
+<ol>
+<li>크롬 오른쪽 위 점 세 개 메뉴를 누르고 도움말 → Chrome 정보로 들어갑니다. 주소창에 <code>chrome://settings/help</code>를 쳐도 같은 화면입니다.</li>
+<li>화면이 열리면 크롬이 스스로 업데이트를 확인합니다. 잠시 기다립니다.</li>
+<li>&quot;다시 시작&quot; 버튼이 보이면 누릅니다. 열려 있던 탭은 다시 시작한 뒤 되살아납니다.</li>
+<li>다시 열린 Chrome 정보 화면에서 버전이 <strong>152.0.7977.82</strong> 또는 <strong>.83</strong> 이상인지 읽습니다. 맥은 .83까지 나옵니다.</li>
+</ol>
+<p><strong>2. 회사 노트북(엣지)</strong></p>
+<ol>
+<li>엣지 오른쪽 위 점 세 개 → 도움말 및 피드백 → Microsoft Edge 정보. 주소창에는 <code>edge://settings/help</code>입니다.</li>
+<li>엣지는 크로미움 보안 수정을 받아 자기 버전 번호로 내놓습니다. 그래서 숫자가 크롬과 다릅니다. &quot;최신 상태입니다&quot;라는 문구와 함께 이번 크로미움 수정이 반영됐는지는 마이크로소프트의 엣지 보안 릴리스 노트에서 CVE-2026-85046 번호로 확인합니다.</li>
+<li>회사가 업데이트를 잠가 두었다면 이 화면에 &quot;조직에서 관리&quot; 표시가 나오고 버튼이 비활성화됩니다. 이때는 스스로 우회하지 않고 <strong>IT 담당자에게 알립니다.</strong> 미국 정부기관조차 CISA 지시로 9월 18일까지 패치 시한을 받았다는 사실을 함께 전하면 이야기가 빨라집니다.</li>
+</ol>
+<p><strong>3. 안드로이드 폰(크롬)</strong></p>
+<ol>
+<li>플레이 스토어 → 오른쪽 위 프로필 → 앱 및 기기 관리 → 업데이트 목록에서 Chrome을 찾습니다.</li>
+<li>또는 크롬 안에서 점 세 개 → 설정 → Chrome 정보로 들어가 버전을 읽습니다.</li>
+<li>자동 업데이트를 와이파이에서만 하도록 설정한 폰은 집에 와서야 받습니다. 밤에 와이파이가 연결됐는지 확인합니다.</li>
+</ol>
+<p><strong>4. 참고용 — 웨일 같은 다른 크로미움 브라우저</strong></p>
+<p>점 세 개 메뉴 → 도움말 → 정보 화면이 대부분 같은 자리에 있습니다. 회사마다 반영 시점이 다르므로, 며칠 뒤 다시 한 번 열어 보는 것이 안전합니다.</p>
+<h2 id="검수--빠지기-쉬운-네-가지"><a href="#검수--빠지기-쉬운-네-가지">검수 — 빠지기 쉬운 네 가지</a></h2>
+<p>납품 전에 검수합니다. 실제로 사람들이 자주 놓치는 지점입니다.</p>
+<p><strong>첫째, 받았지만 다시 시작하지 않은 경우.</strong> 가장 흔합니다. Chrome 정보 화면에 &quot;다시 시작&quot; 버튼이 남아 있다면 아직 옛 버전이 돌고 있습니다. 위 그림 2의 상태가 바로 그 상태입니다.</p>
+<p><strong>둘째, 크롬 창을 여러 개 띄워 둔 경우.</strong> 다시 시작은 모든 창을 함께 닫고 다시 엽니다. 한 창만 닫았다고 새 버전이 되지는 않습니다.</p>
+<p><strong>셋째, 오래 꺼 두었던 PC.</strong> 몇 주 만에 켠 노트북의 크롬은 그동안의 업데이트를 한꺼번에 받습니다. 첫 실행 뒤 몇 분 지나서 Chrome 정보를 한 번 더 열어야 합니다. 특히 지원이 끝난 윈도우 10을 아직 쓰는 PC라면 운영체제 쪽 구멍이 함께 남아 있으니 <a href="/posts/windows10-eol-esu/">윈도우 10 종료 글</a>도 참고할 만합니다.</p>
+<p><strong>넷째, &quot;샌드박스 안이라니 괜찮겠지&quot;라는 판단.</strong> 그림 1에서 본 대로 이번 취약점 하나로 컴퓨터 전체가 넘어가지는 않습니다. 하지만 두 번째 취약점과 묶이면 이야기가 달라지고, 실제 공격자는 그렇게 묶어서 씁니다. 반대로 &quot;크롬 쓰면 다 털린다&quot;는 식의 공포도 사실이 아닙니다. 고친 버전을 실행하면 이 문은 닫힙니다.</p>
+<h2 id="왜-올해만-여섯-번인가--2026년-크롬-제로데이-여섯-개"><a href="#왜-올해만-여섯-번인가--2026년-크롬-제로데이-여섯-개">왜 올해만 여섯 번인가 — 2026년 크롬 제로데이 여섯 개</a></h2>
+<p>미션과 별개로, 한 걸음 물러서서 볼 것이 있습니다. 왜 이렇게 자주 뚫리는가입니다. NVD 공개일 기준으로 2026년 들어 실제 공격에 쓰인 뒤 패치된 크롬 취약점을 늘어놓으면 이렇습니다.</p>
+<table><thead><tr><th>공개일</th><th>번호</th><th>뚫린 부품</th><th>고친 버전</th></tr></thead><tbody><tr><td>2월 13일</td><td>CVE-2026-2441</td><td>CSS(화면 꾸미기 처리)</td><td>145.0.7632.75</td></tr><tr><td>3월 13일</td><td>CVE-2026-3909</td><td>Skia(그림 그리는 부품)</td><td>146.0.7680.75</td></tr><tr><td>3월 13일</td><td>CVE-2026-3910</td><td>V8</td><td>146.0.7680.75</td></tr><tr><td>4월 1일</td><td>CVE-2026-5281</td><td>Dawn(그래픽 처리)</td><td>146.0.7680.178</td></tr><tr><td>6월 9일</td><td>CVE-2026-11645</td><td>V8</td><td>149.0.7827.103</td></tr><tr><td>9월 3일</td><td>CVE-2026-85046</td><td>V8</td><td>152.0.7977.82</td></tr></tbody></table>
+<p><img alt="2026년 1월부터 9월까지 가로 축 위에 크롬 제로데이 여섯 건을 점으로 찍은 타임라인. V8 세 건은 붉은 점, 나머지 세 건은 파란 점" src="/uploads/itnews-chrome-zeroday-timeline-2026.png" loading="lazy"/></p>
+<p><em>그림 3. 여섯 건 중 세 건이 V8입니다. 3월에는 하루에 두 건이 함께 고쳐졌습니다. (날짜는 NVD 공개일, 2026-09-06 기준)</em></p>
+<p>여섯 건 중 절반이 V8입니다. 이유는 V8이 하는 일의 성격에 있습니다. V8은 웹페이지의 자바스크립트를 그냥 읽는 게 아니라, 빨리 돌리기 위해 실행 중에 기계어로 바꿔 최적화합니다. 이 최적화 단계가 복잡할수록 &quot;이 값은 반드시 정수일 것&quot;과 같은 가정이 늘어나고, 그 가정이 깨지는 순간이 바로 타입 혼동입니다. 빠른 브라우저를 만들려는 노력과 안전한 브라우저를 만들려는 노력이 같은 부품에서 부딪히는 셈입니다.</p>
+<p>또 하나는 크롬의 위치입니다. 세계에서 가장 많이 쓰이는 브라우저라 공격자 입장에서 한 번 만든 익스플로잇의 값어치가 가장 큽니다. 이번 제보자가 받은 포상금은 1,000달러였습니다. 반면 실제 공격에 쓸 수 있는 브라우저 익스플로잇은 비공식 시장에서 그보다 훨씬 높은 값에 거래된다고 여러 보안 기관이 지적해 왔습니다. 좋은 쪽과 나쁜 쪽이 같은 구멍을 두고 경쟁하는 구조입니다.</p>
+<p>저는 이 여섯 건을 &quot;크롬이 유독 위험하다&quot;는 증거로 읽지 않습니다. 오히려 발견되면 며칠 안에 고쳐 배포되는 속도, 그리고 그 사실을 감추지 않고 릴리스 노트에 &quot;실제 익스플로잇 존재&quot;라고 적는 관행이 사용자에게는 이득입니다. 위험은 그 속도를 사용자 쪽에서 끊어 버릴 때 생깁니다. 즉 다시 시작을 미룰 때입니다.</p>
+<h2 id="납품--오늘-끝내는-점검표"><a href="#납품--오늘-끝내는-점검표">납품 — 오늘 끝내는 점검표</a></h2>
+<p>지은 씨의 미션을 완료 기준으로 다시 정리합니다.</p>
+<ul>
+<li>크롬(윈도우·맥): Chrome 정보 화면에서 <strong>152.0.7977.82 이상</strong> 확인, &quot;다시 시작&quot; 버튼이 사라진 상태</li>
+<li>엣지(회사): 정보 화면에서 최신 확인. 관리 잠금이면 IT 담당자에게 CVE-2026-85046 번호와 함께 전달</li>
+<li>안드로이드 크롬: 플레이 스토어 업데이트 후 Chrome 정보에서 버전 확인</li>
+<li>공통: 크롬 오른쪽 위에 색 점(초록·주황·빨강)이 보이면 그날 안에 다시 시작</li>
+<li>공통: &quot;브라우저 보안 강화&quot; 같은 명목의 새 확장 프로그램은 설치하지 않음</li>
+<li>다음 주: 웨일 등 다른 크로미움 브라우저를 쓴다면 며칠 뒤 정보 화면을 한 번 더 확인</li>
+</ul>
+<h2 id="남는-질문-몇-가지"><a href="#남는-질문-몇-가지">남는 질문 몇 가지</a></h2>
+<p><strong>업데이트했는데 해킹당했을 가능성은 없나요?</strong>
+고친 버전을 실행한 시점 이후로는 이 취약점으로 들어올 수 없습니다. 그 전에 조작된 페이지를 열었는지는 개인이 확인하기 어렵습니다. 구글도 공격 대상의 성격을 밝히지 않았습니다. 다만 이런 제로데이는 광범위한 일반 사용자보다 특정 대상을 노리는 데 쓰인 사례가 많았습니다. 불안하다면 주요 계정의 비밀번호를 바꾸고 2단계 인증을 켜는 것이 현실적인 조치입니다.</p>
+<p><strong>시크릿 모드로 보면 안전한가요?</strong>
+아닙니다. 시크릿 모드는 방문 기록을 내 기기에 남기지 않는 기능이지, 엔진의 구멍을 막는 기능이 아닙니다. 같은 V8이 돌아갑니다. 시크릿 모드가 무엇을 해 주고 무엇을 못 해 주는지는 <a href="/posts/incognito-mode-reality/">시크릿 모드 글</a>에 정리해 두었습니다.</p>
+<p><strong>회사에서 업데이트를 막아 두었는데 제가 할 수 있는 건 없나요?</strong>
+개인이 정책을 우회하는 것은 규정 위반이 되기 쉽습니다. 할 수 있는 일은 IT 담당자에게 알리는 것과, 그동안 회사 노트북으로 낯선 링크를 열지 않는 것입니다.</p>
+<p><strong>앞으로도 이런 일이 있을 텐데 매번 뉴스를 봐야 하나요?</strong>
+아니어도 됩니다. 크롬을 하루에 한 번은 완전히 끄고 다시 켜는 습관, 그리고 오른쪽 위 색 점을 보면 바로 다시 시작하는 습관 두 가지면 대부분의 브라우저 제로데이는 뉴스를 보기 전에 막힙니다.</p>
+<h2 id="근거로-삼은-자료"><a href="#근거로-삼은-자료">근거로 삼은 자료</a></h2>
+<p>이 글은 아래 원자료를 직접 확인해 초보 눈높이로 다시 쓴 해설이며, 어느 기사의 요약도 아닙니다. 수치와 버전은 2026년 9월 6일 기준입니다.</p>
+<ul>
+<li>Google, Chrome Releases 블로그, &quot;Stable Channel Update for Desktop&quot;(152.0.7977.82/.83, 보안 수정 12건, CVE-2026-85046 실제 익스플로잇 존재 명시), 2026-09-03 — <a href="http://chromereleases.googleblog.com/2026/09/stable-channel-update-for-desktop_01882797386.html" target="_blank" rel="noopener noreferrer">http://chromereleases.googleblog.com/2026/09/stable-channel-update-for-desktop_01882797386.html</a></li>
+<li>Google, Chrome Releases 블로그, &quot;Stable Channel Update for Desktop&quot;(152.0.7977.75/.76, 보안 수정 26건), 2026-09-01 — <a href="http://chromereleases.googleblog.com/2026/09/stable-channel-update-for-desktop.html" target="_blank" rel="noopener noreferrer">http://chromereleases.googleblog.com/2026/09/stable-channel-update-for-desktop.html</a></li>
+<li>NIST, National Vulnerability Database, &quot;CVE-2026-85046&quot;(공개 2026-09-03) — <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-85046" target="_blank" rel="noopener noreferrer">https://nvd.nist.gov/vuln/detail/CVE-2026-85046</a> · 표의 다른 다섯 건도 같은 데이터베이스의 각 번호 항목(CVE-2026-2441, 3909, 3910, 5281, 11645)을 확인했습니다</li>
+<li>CISA, Known Exploited Vulnerabilities Catalog, &quot;Google Chromium V8 Type Confusion Vulnerability&quot;(등재 2026-09-04, 시한 2026-09-18) — <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">https://www.cisa.gov/known-exploited-vulnerabilities-catalog</a></li>
+<li>The Hacker News, &quot;Google Releases Chrome Update to Patch Actively Exploited V8 Zero-Day&quot;, 2026-09-04 — <a href="https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html" target="_blank" rel="noopener noreferrer">https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html</a></li>
+<li>BleepingComputer, &quot;Google warns of new Chrome zero-day flaw exploited in attacks&quot;, 2026-09-04 — <a href="https://www.bleepingcomputer.com/news/security/google-warns-of-new-chrome-zero-day-flaw-exploited-in-attacks/" target="_blank" rel="noopener noreferrer">https://www.bleepingcomputer.com/news/security/google-warns-of-new-chrome-zero-day-flaw-exploited-in-attacks/</a></li>
+<li>크롬 업데이트 색 점(초록·주황·빨강) 설명은 Google Chrome 도움말 &quot;Chrome 업데이트&quot; 문서를 참고했습니다 — <a href="https://support.google.com/chrome/answer/95414" target="_blank" rel="noopener noreferrer">https://support.google.com/chrome/answer/95414</a></li>
+</ul></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/incognito-mode-reality"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">시크릿 모드를 켜도 회사는 알고 있습니다 — 구글이 지운 수십억 건의 기록</h3><p>구글은 시크릿 모드로 수집한 수십억 건의 기록을 지우기로 합의했습니다. 애초에 무엇을 오해했길래 소송까지 갔을까요. 시크릿 모드가 실제로 지워 주는 것, 그래도 지켜보는 네 개의 눈, 그리고 이 기능을 제대로 쓰는 상황을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T15:01">2026년 9월 1일 15:01</time><span>· <!-- -->보안, 프라이버시, 시크릿모드</span></div></a><a class="post-card " href="/posts/browser-extension-risk"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">크롬 확장프로그램, 그거 안전한가요 — 자주 받는 질문 7가지</h3><p>광고 차단, 번역, 쿠폰 자동 적용. 편해서 깔아 둔 브라우저 확장프로그램이 실제로 무엇을 볼 수 있는지, 웹스토어에 있으면 안전한지, 지금 무엇을 점검하면 되는지 질문에 답하는 형식으로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-18T20:00">2026년 8월 18일 20:00</time><span>· <!-- -->보안, 브라우저, 확장프로그램</span></div></a><a class="post-card " href="/posts/tving-access-key-breach"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">티빙 3,954만 계정은 어떻게 털렸나 — 접속키 하나가 연 문, 그리고 오늘 내가 바꿀 것 3가지</h3><p>정부 조사 결과가 나왔습니다. 해커의 초능력도, 비밀번호 유출도 아니었습니다. 소스코드에 그대로 적어 둔 접속키가 문이었습니다. 무엇이 나갔고, 내 비밀번호는 안전한지, 오늘 5분 안에 뭘 바꿔야 하는지 정리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-04T18:00">2026년 9월 4일 18:00</time><span>· <!-- -->티빙, 개인정보유출, 해킹</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
