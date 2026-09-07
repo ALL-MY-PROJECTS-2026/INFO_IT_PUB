@@ -1770,7 +1770,7 @@ public class Main {
 `})}),`
 `,s.jsx(e.p,{children:"짧습니다. 이제 이 네 줄을 하나씩 풀어 보겠습니다."}),`
 `,s.jsx(e.h2,{id:"한-줄씩-뜯어보기",children:s.jsx(e.a,{href:"#한-줄씩-뜯어보기",children:"한 줄씩 뜯어보기"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-hello-anatomy-r2.png",alt:"HelloWorld 코드를 class·main·System.out.println 세 부분으로 나눠 설명한 다이어그램"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-hello-anatomy-r3.png",alt:"HelloWorld 코드를 class·main·System.out.println 세 부분으로 나눠 설명한 다이어그램"})}),`
 `,s.jsxs(e.p,{children:[s.jsxs(e.strong,{children:["① ",s.jsx(e.code,{children:"public class HelloWorld {"})]}),`
 자바는 모든 코드를 `,s.jsx(e.strong,{children:"클래스(class)라는 상자"})," 안에 담습니다. 상자 이름이 ",s.jsx(e.code,{children:"HelloWorld"}),"입니다."]}),`
 `,s.jsxs(e.blockquote,{children:[`
@@ -1801,7 +1801,7 @@ public class Main {
 `,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"컴파일"}),": 컴퓨터가 알아듣는 형태(",s.jsx(e.code,{children:".class"}),")로 번역합니다."]}),`
 `,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"실행"}),": 번역된 것을 돌려 화면에 결과가 나옵니다."]}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-hello-runflow-r2.png",alt:"자바 실행 3단계 흐름도: 작성(.java) → 컴파일(.class로 번역) → 실행(화면 출력)"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-hello-runflow-r3.png",alt:"자바 실행 3단계 흐름도: 작성(.java) → 컴파일(.class로 번역) → 실행(화면 출력)"})}),`
 `,s.jsx(e.p,{children:"지금은 이클립스(Eclipse)나 인텔리제이 같은 도구가 이 과정을 버튼 하나로 대신 해 줍니다."}),`
 `,s.jsx(e.h2,{id:"자주-틀리는-곳-여기서-다들-막힙니다",children:s.jsx(e.a,{href:"#자주-틀리는-곳-여기서-다들-막힙니다",children:"자주 틀리는 곳 (여기서 다들 막힙니다)"})}),`
 `,s.jsxs(e.blockquote,{children:[`
