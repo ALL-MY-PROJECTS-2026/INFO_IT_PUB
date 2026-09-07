@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-BT4igHHd.js"></script>
+    <script type="module" crossorigin src="/assets/index-DPlyEhrC.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -105,7 +105,7 @@ print(number * 2)</code></pre><p class="runner__note">이 예제는 키보드 �
 </ul>
 <p><img alt="int()와 float() 변환기에 들어가는 입력 여섯 가지 — &quot;20&quot;·&quot;3.5&quot;·&quot;20&quot;은 통과, &quot;3.5&quot;를 int에·&quot;스무살&quot;·&quot;3,5&quot;·빈 글자는 ValueError" src="/uploads/python-input-convert.png" loading="lazy"/></p>
 <p><em>변환기가 받는 글자 모양은 정해져 있습니다. int()는 정수 모양만, float()는 마침표 소수점까지. 쉼표, 단위, 빈칸은 둘 다 거부합니다.</em></p>
-<p><code>float()</code>는 조금 더 너그럽습니다. <code>float(&quot;20&quot;)</code>도 되고(결과는 <code>20.0</code>), <code>float(&quot;3.5&quot;)</code>도 됩니다. 대신 한국식으로 <code>3,5</code>라고 쓰면 실패합니다. 소수점은 <strong>마침표</strong>입니다. 그리고 <code>float(&quot;3.5&quot;)</code>를 정수로 만들고 싶으면 <code>int(float(&quot;3.5&quot;))</code>처럼 두 번 감쌉니다. 안쪽에서 3.5가 되고 바깥에서 소수점을 잘라 3이 됩니다. 반올림이 아니라 <strong>잘라내기</strong>라는 점은 다음 편들에서 다시 나옵니다.</p>
+<p><code>float()</code>는 조금 더 너그럽습니다. <code>float(&quot;20&quot;)</code>도 되고(결과는 <code>20.0</code>), <code>float(&quot;3.5&quot;)</code>도 됩니다. 대신 <code>3,5</code>처럼 쉼표를 찍으면 실패합니다. 소수점을 쉼표로 적는 나라도 있지만 파이썬은 <strong>마침표</strong>만 소수점으로 읽습니다. 그리고 <code>float(&quot;3.5&quot;)</code>를 정수로 만들고 싶으면 <code>int(float(&quot;3.5&quot;))</code>처럼 두 번 감쌉니다. 안쪽에서 3.5가 되고 바깥에서 소수점을 잘라 3이 됩니다. 반올림이 아니라 <strong>잘라내기</strong>라는 점은 다음 편들에서 다시 나옵니다.</p>
 <p>ValueError가 났을 때 프로그램이 죽지 않게 막는 방법(<code>try</code>)은 PYTHON1 뒷부분에서 배웁니다. 지금은 &quot;어떤 입력이 실패하는지&quot;를 아는 것까지가 목표입니다.</p>
 <h2 id="확인-사살--두-값을-받아-더하기"><a href="#확인-사살--두-값을-받아-더하기">확인 사살 — 두 값을 받아 더하기</a></h2>
 <p>오늘 배운 것을 한 번에 쓰는 코드입니다. STDIN에 <code>3</code>과 <code>4</code>가 두 줄로 들어 있습니다. <code>input()</code>은 한 번 부를 때마다 한 줄씩 가져갑니다.</p>
