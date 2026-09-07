@@ -2263,7 +2263,7 @@ public class Main {
 `,s.jsxs(e.span,{className:"line",children:[s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:"    System.out."}),s.jsx(e.span,{style:{color:"#6F42C1","--shiki-dark":"#B392F0"},children:"println"}),s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:"("}),s.jsx(e.span,{style:{color:"#032F62","--shiki-dark":"#9ECBFF"},children:'"멈추지 않아요"'}),s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:");"})]}),`
 `,s.jsx(e.span,{className:"line",children:s.jsx(e.span,{style:{color:"#6A737D","--shiki-dark":"#6A737D"},children:"    // i++;  ← 이걸 빼먹으면 i가 계속 0이라 영원히 반복!"})}),`
 `,s.jsx(e.span,{className:"line",children:s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:"}"})})]})})}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-loops-infinite-r2.png",alt:"무한루프 비교: 증감식 없으면 i가 계속 0이라 영원히 반복, i++ 있으면 언젠가 조건이 거짓이 되어 정상 종료"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-loops-infinite-r3.png",alt:"무한루프 비교: 증감식 없으면 i가 계속 0이라 영원히 반복, i++ 있으면 언젠가 조건이 거짓이 되어 정상 종료"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"조건을 거짓으로 바꿀 장치(i++)가 있어야 멈춥니다."})}),`
 `,s.jsxs(e.blockquote,{children:[`
 `,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"규칙 —"})," 반복문 안에는 ",s.jsx(e.strong,{children:"조건을 거짓으로 바꿀 장치"}),"(보통 ",s.jsx(e.code,{children:"i++"}),")가 반드시 있어야 합니다. 프로그램이 멈추지 않고 화면이 계속 쏟아진다면, 십중팔구 이 증감식을 빠뜨린 것입니다."]}),`
