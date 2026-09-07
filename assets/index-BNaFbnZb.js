@@ -3756,7 +3756,7 @@ public class Main {
 `,s.jsxs(e.blockquote,{children:[`
 `,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"쉽게 —"})," 컵의 물을 대야에 붓는 건 쉽습니다(넘칠 일 없음). 반대로 대야 물을 컵에 부으면 넘칩니다. 형변환도 ",s.jsx(e.strong,{children:"작은 그릇 → 큰 그릇"}),"은 그냥 되고, ",s.jsx(e.strong,{children:"큰 그릇 → 작은 그릇"}),"은 조심해서 부어야 합니다."]}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-type-conversion-typecast-r2.png",alt:"형변환: 작은→큰은 자동, 큰→작은은 (int)로 지정하되 소수점 잘림"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-type-conversion-typecast-r3.png",alt:"형변환: 작은→큰은 자동, 큰→작은은 (int)로 지정하되 소수점 잘림"})}),`
 `,s.jsx(e.h2,{id:"자동-형변환-작은--큰-그냥-됨",children:s.jsx(e.a,{href:"#자동-형변환-작은--큰-그냥-됨",children:"자동 형변환 (작은 → 큰, 그냥 됨)"})}),`
 `,s.jsx(e.p,{children:"정수를 소수 상자에 담으면 자바가 알아서 바꿔 줍니다."}),`
 `,s.jsx(s.Fragment,{children:s.jsx(e.pre,{className:"shiki shiki-themes github-light github-dark",style:{backgroundColor:"#fff","--shiki-dark-bg":"#24292e",color:"#24292e","--shiki-dark":"#e1e4e8"},tabIndex:"0",children:s.jsxs(e.code,{children:[s.jsxs(e.span,{className:"line",children:[s.jsx(e.span,{style:{color:"#D73A49","--shiki-dark":"#F97583"},children:"int"}),s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:" a "}),s.jsx(e.span,{style:{color:"#D73A49","--shiki-dark":"#F97583"},children:"="}),s.jsx(e.span,{style:{color:"#005CC5","--shiki-dark":"#79B8FF"},children:" 10"}),s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:";"})]}),`
