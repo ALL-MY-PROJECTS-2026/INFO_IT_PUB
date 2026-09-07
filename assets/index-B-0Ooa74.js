@@ -2564,7 +2564,7 @@ public class Main {
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"이미지 출처: Pexels (Pixabay) · Pexels License"})}),`
 `,s.jsxs(e.p,{children:["지난 편에서 사용자에게 값을 입력받았습니다. 그런데 값을 받아 놓기만 해서는 아무 일도 일어나지 않습니다. 받은 값으로 ",s.jsx(e.strong,{children:"계산하고, 비교하고, 판단"}),"해야 비로소 프로그램이 됩니다. 그 도구가 오늘의 주제, ",s.jsx(e.strong,{children:"연산자"}),"입니다."]}),`
 `,s.jsxs(e.p,{children:["이름이 낯설 뿐 대부분 초등학교 산수에서 이미 본 기호들입니다. 종류가 많아 보여도 ",s.jsx(e.strong,{children:"무리 지어 보면 몇 개 안 됩니다."})]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-operators-groups-r2.png",alt:"연산자 4무리: 산술은 계산값, 비교와 논리는 참·거짓, 증감은 1 증가·감소"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-operators-groups-r3.png",alt:"연산자 4무리: 산술은 계산값, 비교와 논리는 참·거짓, 증감은 1 증가·감소"})}),`
 `,s.jsx(e.h2,{id:"산술-연산자--계산하고-남기기",children:s.jsx(e.a,{href:"#산술-연산자--계산하고-남기기",children:"산술 연산자 — 계산하고, 남기기"})}),`
 `,s.jsxs(e.p,{children:["우리가 아는 사칙연산에 ",s.jsxs(e.strong,{children:["나머지(",s.jsx(e.code,{children:"%"}),")"]})," 하나가 더 있습니다."]}),`
 `,s.jsx(s.Fragment,{children:s.jsx(e.pre,{className:"shiki shiki-themes github-light github-dark",style:{backgroundColor:"#fff","--shiki-dark-bg":"#24292e",color:"#24292e","--shiki-dark":"#e1e4e8"},tabIndex:"0",children:s.jsxs(e.code,{children:[s.jsxs(e.span,{className:"line",children:[s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:"System.out."}),s.jsx(e.span,{style:{color:"#6F42C1","--shiki-dark":"#B392F0"},children:"println"}),s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:"("}),s.jsx(e.span,{style:{color:"#005CC5","--shiki-dark":"#79B8FF"},children:"7"}),s.jsx(e.span,{style:{color:"#D73A49","--shiki-dark":"#F97583"},children:" +"}),s.jsx(e.span,{style:{color:"#005CC5","--shiki-dark":"#79B8FF"},children:" 3"}),s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:");   "}),s.jsx(e.span,{style:{color:"#6A737D","--shiki-dark":"#6A737D"},children:"// 10"})]}),`
@@ -2593,7 +2593,7 @@ public class Main {
 `,s.jsxs(e.blockquote,{children:[`
 `,s.jsxs(e.p,{children:[s.jsxs(e.strong,{children:["단골 함정 — ",s.jsx(e.code,{children:"="})," 와 ",s.jsx(e.code,{children:"=="})," 는 완전히 다릅니다."]})," ",s.jsx(e.code,{children:"="}),"는 ",s.jsx(e.strong,{children:"넣기(대입)"}),", ",s.jsx(e.code,{children:"=="}),"는 ",s.jsx(e.strong,{children:"같은지 묻기(비교)"})," 입니다. ",s.jsx(e.code,{children:"age = 20"}),"은 age에 20을 집어넣는 것이고, ",s.jsx(e.code,{children:"age == 20"}),"은 age가 20인지 물어보는 것입니다. 비교할 자리에 등호를 하나만 쓰면 값이 바뀌어 버리거나 오류가 납니다."]}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-operators-eq-r2.png",alt:"= 는 넣기(대입), == 는 묻기(비교)로 결과는 true 또는 false"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-operators-eq-r3.png",alt:"= 는 넣기(대입), == 는 묻기(비교)로 결과는 true 또는 false"})}),`
 `,s.jsxs(e.p,{children:["헷갈릴 때는 소리 내어 읽습니다. ",s.jsx(e.code,{children:"="}),'는 "넣어라", ',s.jsx(e.code,{children:"=="}),'는 "같은가?"입니다.']}),`
 `,s.jsx(e.h2,{id:"비교-연산자--결과는-참-또는-거짓",children:s.jsx(e.a,{href:"#비교-연산자--결과는-참-또는-거짓",children:"비교 연산자 — 결과는 참 또는 거짓"})}),`
 `,s.jsxs(e.p,{children:["두 값을 견주면 결과는 숫자가 아니라 ",s.jsxs(e.strong,{children:[s.jsx(e.code,{children:"true"}),"(참) / ",s.jsx(e.code,{children:"false"}),"(거짓)"]})," 로 나옵니다."]}),`
