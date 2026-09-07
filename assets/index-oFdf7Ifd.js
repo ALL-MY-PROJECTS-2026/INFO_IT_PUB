@@ -1893,7 +1893,7 @@ public class Main {
 `,s.jsxs(e.span,{className:"line",children:[s.jsx(e.span,{style:{color:"#D73A49","--shiki-dark":"#F97583"},children:"        break"}),s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:";"})]}),`
 `,s.jsx(e.span,{className:"line",children:s.jsx(e.span,{style:{color:"#24292E","--shiki-dark":"#E1E4E8"},children:"}"})}),`
 `,s.jsx(e.span,{className:"line",children:s.jsx(e.span,{style:{color:"#6A737D","--shiki-dark":"#6A737D"},children:"// 출력: 금메달 / 은메달  (원치 않은 결과)"})})]})})}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-if-switch-diagram-r2.png",alt:"switch break 비교: break 없으면 아래 case로 줄줄이 흘러 폴스루, break 있으면 즉시 탈출해 의도한 결과"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/java-if-switch-diagram-r3.png",alt:"switch break 비교: break 없으면 아래 case로 줄줄이 흘러 폴스루, break 있으면 즉시 탈출해 의도한 결과"})}),`
 `,s.jsxs(e.blockquote,{children:[`
 `,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"규칙 —"})," 특별한 의도가 없다면 ",s.jsxs(e.strong,{children:["모든 ",s.jsx(e.code,{children:"case"}),"마다 ",s.jsx(e.code,{children:"break"}),"를 꼭"]})," 붙입니다. 이걸 놓쳐서 생기는 버그가 초보에게 아주 흔합니다."]}),`
 `]}),`
