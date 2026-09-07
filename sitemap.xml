@@ -336,6 +336,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/python-list-basic</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/python-operator</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>

@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 리스트 — 장바구니 열아홉 줄로 익히는 인덱스·슬라이싱·append·pop</title>
+      <link>https://pancoit.site/posts/python-list-basic</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-list-basic</guid>
+      <pubDate>Mon, 07 Sep 2026 16:27:00 GMT</pubDate>
+      <description>장 볼 물건 다섯 개를 변수 다섯 개에 담을 수는 없습니다. 리스트가 무엇인지 공식 문서의 정의로 먼저 세우고, 주석 없는 열아홉 줄을 위에서 아래로 읽으며 0부터 세는 번호, 끝이 빠지는 슬라이싱, append와 pop, 복사가 아니었던 = 한 줄을 확인합니다.</description>
+    </item>
+    <item>
       <title>크롬이 올해 여섯 번째로 뚫렸습니다 — CVE-2026-85046, 집과 회사 브라우저 네 대를 오늘 안에 막는 순서</title>
       <link>https://pancoit.site/posts/chrome-v8-zero-day-2026</link>
       <guid isPermaLink="true">https://pancoit.site/posts/chrome-v8-zero-day-2026</guid>
