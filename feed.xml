@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 for 반복문 — 장바구니 영수증으로 익히는 range와 빠지는 끝 번호</title>
+      <link>https://pancoit.site/posts/python-for-loop</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-for-loop</guid>
+      <pubDate>Tue, 08 Sep 2026 10:28:00 GMT</pubDate>
+      <description>장바구니 다섯 개의 값을 더하는 영수증을 for 반복문으로 만듭니다. 1부터 10까지 더했는데 45가 나온 첫 시도에서 range의 끝 번호가 빠진다는 규칙을 찾고, 리스트를 직접 돌고, 돌면서 지우면 한 칸을 건너뛰는 이유까지 확인합니다.</description>
+    </item>
+    <item>
       <title>강남언니 22만 명 유출 — 시술 내역까지 샜을 때 지금 할 일</title>
       <link>https://pancoit.site/posts/gangnam-unni-breach-2026</link>
       <guid isPermaLink="true">https://pancoit.site/posts/gangnam-unni-breach-2026</guid>
