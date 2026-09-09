@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 while 반복문 — 멈추지 않는 프로그램, 범인은 빠진 한 줄</title>
+      <link>https://pancoit.site/posts/python-while-break</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-while-break</guid>
+      <pubDate>Wed, 09 Sep 2026 09:44:00 GMT</pubDate>
+      <description>0을 다섯 번만 찍으려던 여섯 줄이 멈추지 않습니다. 조건을 의심하고 들여쓰기를 의심한 끝에 남는 범인은 한 줄. while이 무엇인지 공식 자습서 정의로 먼저 세우고, 무한 루프의 증상에서 원인까지 좁혀 간 뒤 break·continue·while True와 for·while 선택 기준을 브라우저에서 직접 돌려 봅니다.</description>
+    </item>
+    <item>
       <title>D램 값 사상 최고, 노트북·폰 지금 사도 되나</title>
       <link>https://pancoit.site/posts/memory-price-surge-2026</link>
       <guid isPermaLink="true">https://pancoit.site/posts/memory-price-surge-2026</guid>
