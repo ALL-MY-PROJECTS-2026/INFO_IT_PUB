@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>개인정보보호법 개정 시행, 오해 넷</title>
+      <link>https://pancoit.site/posts/privacy-law-2026-penalty</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/privacy-law-2026-penalty</guid>
+      <pubDate>Thu, 10 Sep 2026 01:50:00 GMT</pubDate>
+      <description>2026년 9월 11일 개정 개인정보 보호법이 시행됩니다. 매출액의 10%라는 과징금 상한이 어떤 조건에서만 붙는지, 대표자 책임과 유출 통지가 어떻게 달라지는지, 그리고 정보를 맡긴 쪽에서 실제로 달라지는 것은 무엇인지 조문으로 확인했습니다.</description>
+    </item>
+    <item>
       <title>파이썬 while 반복문 — 멈추지 않는 프로그램, 범인은 빠진 한 줄</title>
       <link>https://pancoit.site/posts/python-while-break</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-while-break</guid>
