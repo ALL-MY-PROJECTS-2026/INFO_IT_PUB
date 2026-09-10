@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 함수 def — 여섯 줄 복붙을 하나로, return 없으면 None</title>
+      <link>https://pancoit.site/posts/python-function</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-function</guid>
+      <pubDate>Thu, 10 Sep 2026 11:47:00 GMT</pubDate>
+      <description>카페 영수증 6줄이 손님 3명에게 세 번 복붙돼 18줄이 됐습니다. 부가세율을 한 곳만 고치게 해 달라는 의뢰를 받고 def로 묶습니다. 매개변수와 인자, 기본값, 그리고 return을 빼면 왜 None이 찍히는지까지 브라우저에서 직접 돌려 보며 확인합니다.</description>
+    </item>
+    <item>
       <title>개인정보보호법 개정 시행, 오해 넷</title>
       <link>https://pancoit.site/posts/privacy-law-2026-penalty</link>
       <guid isPermaLink="true">https://pancoit.site/posts/privacy-law-2026-penalty</guid>
