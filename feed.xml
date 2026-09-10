@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>티빙 보상 신청 — 300만 원은 받는 돈이 아닙니다</title>
+      <link>https://pancoit.site/posts/tving-breach-compensation</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/tving-breach-compensation</guid>
+      <pubDate>Thu, 10 Sep 2026 17:29:00 GMT</pubDate>
+      <description>9월 30일까지 신청한 사람만 받습니다. 안심보험 300만 원은 보장 한도이고, 실제로 손에 오는 것은 포인트 5,000원과 프리미엄 기능 3개월, 그리고 택1 쿠폰입니다. 체감가치 2만 원이 어떻게 나온 숫자인지 요금표로 계산해 보고, 신청에서 막히는 자리 네 곳을 정리합니다.</description>
+    </item>
+    <item>
       <title>파이썬 함수 def — 여섯 줄 복붙을 하나로, return 없으면 None</title>
       <link>https://pancoit.site/posts/python-function</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-function</guid>
