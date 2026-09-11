@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>중고폰 공장초기화, 복구되나요 — 진짜 위험은 다른 곳입니다</title>
+      <link>https://pancoit.site/posts/used-phone-factory-reset</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/used-phone-factory-reset</guid>
+      <pubDate>Fri, 11 Sep 2026 18:00:00 GMT</pubDate>
+      <description>공장초기화를 하면 사진이 되살아난다는 말이 검색 결과에 가득합니다. 안드로이드 10 이상과 요즘 아이폰은 암호화 키를 지우는 방식이라 내용 자체를 살리기 어렵습니다. 정작 초기화가 손대지 않는 자리는 따로 있습니다. 계정 잠금, 유심과 eSIM, SD카드, 연결해 둔 기기입니다.</description>
+    </item>
+    <item>
       <title>파이썬 기초 복습 — print부터 함수까지 12문제와 실습 6개</title>
       <link>https://pancoit.site/posts/python1-review</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python1-review</guid>
