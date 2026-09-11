@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 기초 복습 — print부터 함수까지 12문제와 실습 6개</title>
+      <link>https://pancoit.site/posts/python1-review</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python1-review</guid>
+      <pubDate>Fri, 11 Sep 2026 10:55:00 GMT</pubDate>
+      <description>PYTHON1 열 편(print·변수·input·연산자·if·리스트·for·while·함수)을 개념 퀴즈 12문항과 직접 고쳐 실행하는 실습 문제 6개로 복습합니다. 입력은 문자열, range는 끝 제외, return 없으면 None 같은 여섯 함정을 브라우저에서 손으로 확인합니다.</description>
+    </item>
+    <item>
       <title>아이폰 18 프로는 왜 210만 원이 아니었나</title>
       <link>https://pancoit.site/posts/iphone18-price-forecast</link>
       <guid isPermaLink="true">https://pancoit.site/posts/iphone18-price-forecast</guid>

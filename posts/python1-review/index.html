@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬 기초 복습 — print부터 함수까지 12문제와 실습 6개 — PANCO_IT</title>
+    <meta name="description" content="PYTHON1 열 편(print·변수·input·연산자·if·리스트·for·while·함수)을 개념 퀴즈 12문항과 직접 고쳐 실행하는 실습 문제 6개로 복습합니다. 입력은 문자열, range는 끝 제외, return 없으면 None 같은 여섯 함정을 브라우저에서 손으로 확인합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python1-review" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬 기초 복습 — print부터 함수까지 12문제와 실습 6개 — PANCO_IT" />
+    <meta property="og:description" content="PYTHON1 열 편(print·변수·input·연산자·if·리스트·for·while·함수)을 개념 퀴즈 12문항과 직접 고쳐 실행하는 실습 문제 6개로 복습합니다. 입력은 문자열, range는 끝 제외, return 없으면 None 같은 여섯 함정을 브라우저에서 손으로 확인합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python1-review" />
+    <meta property="og:image" content="https://pancoit.site/uploads/python-review-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-11T10:55" />
+    <meta property="article:modified_time" content="2026-09-11T10:55" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬 기초 복습 — print부터 함수까지 12문제와 실습 6개 — PANCO_IT" />
+    <meta name="twitter:description" content="PYTHON1 열 편(print·변수·input·연산자·if·리스트·for·while·함수)을 개념 퀴즈 12문항과 직접 고쳐 실행하는 실습 문제 6개로 복습합니다. 입력은 문자열, range는 끝 제외, return 없으면 None 같은 여섯 함정을 브라우저에서 손으로 확인합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/python-review-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬 기초 복습 — print부터 함수까지 12문제와 실습 6개","description":"PYTHON1 열 편(print·변수·input·연산자·if·리스트·for·while·함수)을 개념 퀴즈 12문항과 직접 고쳐 실행하는 실습 문제 6개로 복습합니다. 입력은 문자열, range는 끝 제외, return 없으면 None 같은 여섯 함정을 브라우저에서 손으로 확인합니다.","image":"https://pancoit.site/uploads/python-review-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-11T10:55","dateModified":"2026-09-11T10:55","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python1-review"},"keywords":"파이썬, Python, 기초, 복습, 문제, 퀴즈"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PYTHON","item":"https://pancoit.site/category/PYTHON"},{"@type":"ListItem","position":3,"name":"파이썬 기초 복습 — print부터 함수까지 12문제와 실습 6개","item":"https://pancoit.site/posts/python1-review"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-L0aHUJrF.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PYTHON">PYTHON</a></li><li><span aria-current="page">파이썬 기초 복습 — print부터 함수까지 12문제와 실습 6개</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PYTHON">PYTHON</a><h1 style="margin-top:0.75rem">파이썬 기초 복습 — print부터 함수까지 12문제와 실습 6개</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-11T10:55">2026년 9월 11일 10:55</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->Python</span><span class="tag">#<!-- -->기초</span><span class="tag">#<!-- -->복습</span><span class="tag">#<!-- -->문제</span><span class="tag">#<!-- -->퀴즈</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="클립보드에 놓인 체크리스트와 펜 — 복습 이미지" src="/uploads/python-review-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels · Pexels License (<a href="https://www.pexels.com/photo/8580716/" target="_blank" rel="noopener noreferrer">https://www.pexels.com/photo/8580716/</a>)</em></p>
+<p>열 편을 지나왔습니다. 새 문법은 이번 편에 없습니다. 대신 지나온 것을 <strong>문제로 다시 만납니다.</strong></p>
+<p>읽어서 아는 것과 손으로 되는 것은 다릅니다. 저도 <code>range(5)</code>가 5를 포함하지 않는다는 문장을 여러 번 읽고도, 실제로 숫자가 4에서 끊기는 걸 보고 나서야 몸에 붙었습니다. 그래서 이 편은 두 단계입니다. 먼저 개념을 퀴즈로 훑고, 그다음 <strong>실제로 고쳐서 실행하는 문제</strong>를 풉니다.</p>
+<h2 id="열-편에서-무엇을-지나왔을까요"><a href="#열-편에서-무엇을-지나왔을까요">열 편에서 무엇을 지나왔을까요</a></h2>
+<table><thead><tr><th>편</th><th>핵심</th><th>대표 함정</th></tr></thead><tbody><tr><td>1</td><td>파이썬이 어떤 언어인가</td><td>이름은 뱀이 아니라 코미디 프로에서</td></tr><tr><td>2</td><td><code>print</code>·주석·따옴표</td><td><code>Print</code>는 안 됩니다 — 대소문자를 가립니다</td></tr><tr><td>3</td><td>변수와 자료형·<code>type()</code></td><td><code>=</code>는 &quot;같다&quot;가 아니라 &quot;넣는다&quot;</td></tr><tr><td>4</td><td><code>input()</code>과 형변환</td><td>받은 값은 <strong>무조건 문자열</strong></td></tr><tr><td>5</td><td>연산자 <code>/</code>·<code>//</code>·<code>%</code></td><td><code>10 / 3</code>은 3이 아니라 3.33…</td></tr><tr><td>6</td><td><code>if</code>·<code>elif</code>·<code>else</code></td><td>들여쓰기 한 칸이 곧 문법</td></tr><tr><td>7</td><td>리스트·인덱스·슬라이싱</td><td>번호는 <strong>0부터</strong>, 슬라이싱 끝은 빠집니다</td></tr><tr><td>8</td><td><code>for</code>와 <code>range</code></td><td><code>range(5)</code>는 0~4</td></tr><tr><td>9</td><td><code>while</code>·<code>break</code>·<code>continue</code></td><td>조건을 갱신하지 않으면 안 멈춥니다</td></tr><tr><td>10</td><td>함수 <code>def</code>·<code>return</code></td><td><code>return</code> 없으면 <code>None</code></td></tr></tbody></table>
+<p><img alt="PYTHON1 열 편을 말 걸기·값 다루기·길 고르기·묶어 두기 네 묶음으로 나눈 지도" src="/uploads/python-review-map.png" loading="lazy"/></p>
+<p><em>네 덩어리로 묶어 두면 다시 찾기가 쉽습니다. 한 묶음이 흔들리면 그 묶음만 다시 보면 됩니다.</em></p>
+<p>열 편을 하나씩 기억하려 들면 오히려 안 남습니다. 위처럼 <strong>말 걸기 → 값 다루기 → 길 고르기 → 묶어 두기</strong> 네 덩어리로 잡아 두면, 막힐 때 어디로 돌아갈지가 바로 나옵니다.</p>
+<h2 id="여기서-여섯-번-넘어집니다"><a href="#여기서-여섯-번-넘어집니다">여기서 여섯 번 넘어집니다</a></h2>
+<p>시즌 내내 되풀이해 나온 함정이 여섯 개입니다. 하나로 모아 두었습니다.</p>
+<p><img alt="여섯 함정 — input 문자열, 들여쓰기, 인덱스 0부터, range 끝 제외, while 갱신, return 없으면 None" src="/uploads/python-review-traps.png" loading="lazy"/></p>
+<p><em>왼쪽이 실제로 쓰는 코드, 오른쪽이 기대와 실제 결과입니다.</em></p>
+<p>이 여섯 줄만 몸에 붙으면 PYTHON1은 충분합니다.</p>
+<blockquote>
+<p>입력은 문자열 · 콜론 뒤엔 들여쓰기 · 번호는 0부터 · <code>range</code>는 끝 제외 · <code>while</code>은 갱신 · <code>return</code> 없으면 <code>None</code></p>
+</blockquote>
+<h2 id="1단계--개념-빠른-점검"><a href="#1단계--개념-빠른-점검">1단계 — 개념 빠른 점검</a></h2>
+<p>먼저 개념부터 OX·4지선다 열두 문제로 확인합니다. 해설에 몇 편 내용인지 적어 두었으니, 틀린 문제의 편으로 돌아가시면 됩니다.</p>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 5문제 + 4지선다 7문제</p><button class="quiz__btn">시작하기</button></div></div>
+<h2 id="2단계--직접-풀어-보기"><a href="#2단계--직접-풀어-보기">2단계 — 직접 풀어 보기</a></h2>
+<p>이제 손으로 풉니다. 각 문제의 실행창에서 코드를 고친 뒤 <strong>Run</strong> 을 누르면 결과가 나옵니다. 화면이 좁으면 <strong>크게 보기</strong>로 넓혀서 푸시면 됩니다. 정답은 문제 아래 <strong>정답 보기</strong>를 눌러야 펼쳐집니다.</p>
+<h3 id="문제-1-출력을-먼저-예측하기"><a href="#문제-1-출력을-먼저-예측하기">문제 1. 출력을 먼저 예측하기</a></h3>
+<p>아래 세 줄이 무엇을 찍을지 종이에 적어 본 뒤 실행해 맞혀 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 1</span></div><pre class="runner__code"><code>print(7 + 3)
+print(&quot;7&quot; + &quot;3&quot;)
+print(7 / 2)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><code>10</code>, <code>73</code>, <code>3.5</code> 입니다.</p><p>숫자끼리 <code>+</code>는 더하기, 문자열끼리 <code>+</code>는 이어 붙이기입니다. 그리고 <code>/</code>는 나머지를 버리지 않으므로 <code>7 / 2</code>는 3이 아니라 <code>3.5</code>입니다. 몫만 필요하면 <code>//</code>를 씁니다.</p></details>
+<h3 id="문제-2-1부터-5까지-나오게-고치기"><a href="#문제-2-1부터-5까지-나오게-고치기">문제 2. 1부터 5까지 나오게 고치기</a></h3>
+<p>지금은 0부터 4까지 나옵니다. <code>range</code> 한 곳만 고쳐 1 2 3 4 5가 나오게 해 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 2</span></div><pre class="runner__code"><code>for i in range(5):
+  print(i)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><code>for i in range(1, 6):</code> 로 고칩니다.</p><p>시작을 1로 주고, 끝은 빠지므로 5까지 받으려면 6을 적습니다. <code>range(1, 5)</code>로 적으면 4에서 끊깁니다.</p></details>
+<h3 id="문제-3-들여쓰기-한-줄-고치기"><a href="#문제-3-들여쓰기-한-줄-고치기">문제 3. 들여쓰기 한 줄 고치기</a></h3>
+<p>실행하면 <code>IndentationError</code>가 납니다. 한 줄만 고쳐 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 3</span></div><pre class="runner__code"><code>score = 85
+if score &gt;= 60:
+print(&quot;합격&quot;)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><code>print(&quot;합격&quot;)</code> 앞에 공백 네 칸을 넣습니다.</p><p>콜론(<code>:</code>)으로 끝난 줄 다음은 반드시 들여씁니다. 들여쓴 부분까지가 <code>if</code>에 딸린 몸입니다.</p></details>
+<h3 id="문제-4-마지막-값만-꺼내기"><a href="#문제-4-마지막-값만-꺼내기">문제 4. 마지막 값만 꺼내기</a></h3>
+<p><code>nums[3]</code>은 <code>IndexError</code>가 납니다. 마지막 값 40이 나오게 고쳐 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 4</span></div><pre class="runner__code"><code>nums = [10, 20, 30, 40]
+print(nums[4])</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><code>print(nums[3])</code> 또는 <code>print(nums[-1])</code> 입니다.</p><p>값이 네 개면 번호는 0, 1, 2, 3입니다. 개수와 마지막 번호가 하나 차이 난다는 것이 인덱스의 핵심입니다. 개수를 모를 때는 <code>-1</code>이 안전합니다.</p></details>
+<h3 id="문제-5-멈추게-만들기"><a href="#문제-5-멈추게-만들기">문제 5. 멈추게 만들기</a></h3>
+<p>이대로 실행하면 0이 끝없이 찍힙니다. 한 줄을 더해 0 1 2에서 멈추게 해 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 5</span></div><pre class="runner__code"><code>n = 0
+while n &lt; 3:
+  print(n)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p><code>print(n)</code> 아래에 <code>    n += 1</code> 을 넣습니다.</p><p><code>while</code>은 조건이 거짓이 될 때 멈춥니다. 조건에 쓰인 값을 몸 안에서 바꿔 주지 않으면 조건이 영원히 참이라 멈출 수가 없습니다.</p></details>
+<h3 id="문제-6-none이-나오지-않게-고치기"><a href="#문제-6-none이-나오지-않게-고치기">문제 6. None이 나오지 않게 고치기</a></h3>
+<p><code>total</code>에 <code>None</code>이 담깁니다. 함수 쪽을 고쳐 <code>7</code>이 나오게 해 보세요.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">문제 6</span></div><pre class="runner__code"><code>def add(a, b):
+  print(a + b)
+
+total = add(3, 4)
+print(&quot;합계는&quot;, total)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<details class="answer"><summary>정답 보기</summary><p>함수 안의 <code>print(a + b)</code> 를 <code>return a + b</code> 로 바꿉니다.</p><p><code>print</code>는 화면에 보여 줄 뿐이고, 값을 호출한 자리로 돌려보내는 것은 <code>return</code>입니다. 돌려줄 것이 없는 함수는 <code>None</code>을 돌려줍니다.</p></details>
+<h2 id="여섯-줄만-남기고-다음-시즌으로"><a href="#여섯-줄만-남기고-다음-시즌으로">여섯 줄만 남기고 다음 시즌으로</a></h2>
+<p>여섯 문제 중 몇 개를 한 번에 푸셨는지 세어 보시면 됩니다. 넷 이상이면 PYTHON1은 통과입니다. 두 개 이하라면 아래 표에서 틀린 쪽 편으로 돌아가시는 편이 빠릅니다.</p>
+<table><thead><tr><th>틀린 문제</th><th>돌아갈 편</th></tr></thead><tbody><tr><td>1번</td><td>3편 변수·자료형, 5편 연산자</td></tr><tr><td>2번</td><td>8편 for와 range</td></tr><tr><td>3번</td><td>6편 if 조건문</td></tr><tr><td>4번</td><td>7편 리스트</td></tr><tr><td>5번</td><td>9편 while</td></tr><tr><td>6번</td><td>10편 함수</td></tr></tbody></table>
+<p>기억할 것은 결국 여섯 줄입니다. <strong>입력은 문자열, 콜론 뒤엔 들여쓰기, 번호는 0부터, <code>range</code>는 끝 제외, <code>while</code>은 갱신, <code>return</code> 없으면 <code>None</code>.</strong> 나머지는 필요할 때 찾아 쓰면 됩니다.</p>
+<p>다음 시즌 PYTHON2는 <strong>실용 기초</strong>입니다. 문자열을 자르고 붙이는 메서드, 이름으로 값을 찾는 딕셔너리, 오류가 나도 프로그램이 죽지 않게 하는 <code>try-except</code>를 다룹니다. 리스트에서 한 걸음 더 나가는 자리입니다.</p>
+<p>예제 코드는 강사 개인 GitHub 저장소의 실습 코드를 왕초보 눈높이로 다듬어 쓰고 있습니다.</p>
+<h3 id="참고-자료"><a href="#참고-자료">참고 자료</a></h3>
+<ul>
+<li>파이썬 공식 자습서 — <a href="https://docs.python.org/ko/3/tutorial/" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/</a></li>
+<li>파이썬 공식 문서 내장 함수 — <a href="https://docs.python.org/ko/3/library/functions.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/library/functions.html</a></li>
+</ul></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-function"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 함수 def — 여섯 줄 복붙을 하나로, return 없으면 None</h3><p>카페 영수증 6줄이 손님 3명에게 세 번 복붙돼 18줄이 됐습니다. 부가세율을 한 곳만 고치게 해 달라는 의뢰를 받고 def로 묶습니다. 매개변수와 인자, 기본값, 그리고 return을 빼면 왜 None이 찍히는지까지 브라우저에서 직접 돌려 보며 확인합니다.</p><div class="post-card__meta"><time dateTime="2026-09-10T11:47">2026년 9월 10일 11:47</time><span>· <!-- -->파이썬, python, 함수</span></div></a><a class="post-card " href="/posts/python-while-break"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 while 반복문 — 멈추지 않는 프로그램, 범인은 빠진 한 줄</h3><p>0을 다섯 번만 찍으려던 여섯 줄이 멈추지 않습니다. 조건을 의심하고 들여쓰기를 의심한 끝에 남는 범인은 한 줄. while이 무엇인지 공식 자습서 정의로 먼저 세우고, 무한 루프의 증상에서 원인까지 좁혀 간 뒤 break·continue·while True와 for·while 선택 기준을 브라우저에서 직접 돌려 봅니다.</p><div class="post-card__meta"><time dateTime="2026-09-09T09:44">2026년 9월 9일 09:44</time><span>· <!-- -->파이썬, python, while</span></div></a><a class="post-card " href="/posts/python-for-loop"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 for 반복문 — 장바구니 영수증으로 익히는 range와 빠지는 끝 번호</h3><p>장바구니 다섯 개의 값을 더하는 영수증을 for 반복문으로 만듭니다. 1부터 10까지 더했는데 45가 나온 첫 시도에서 range의 끝 번호가 빠진다는 규칙을 찾고, 리스트를 직접 돌고, 돌면서 지우면 한 칸을 건너뛰는 이유까지 확인합니다.</p><div class="post-card__meta"><time dateTime="2026-09-08T10:28">2026년 9월 8일 10:28</time><span>· <!-- -->파이썬, python, for문</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
