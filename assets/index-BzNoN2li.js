@@ -4506,63 +4506,61 @@ public class Main {
 `,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/",children:"Palo Alto Networks Unit 42 — The npm Threat Landscape: Attack Surface and Mitigations"})}),`
 `,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.boho.or.kr",children:"KISA 보호나라"})}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다. 공격 수법은 방어에 필요한 범위에서만 설명했고, 재현에 쓰일 수 있는 세부는 담지 않았습니다."})})]})}function Ic(n={}){const{wrapper:e}={...l(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(_e,{...n})}):_e(n)}const Mc=Object.freeze(Object.defineProperty({__proto__:null,default:Ic,frontmatter:Sc},Symbol.toStringTag,{value:"Module"})),Pc={title:"옥토버페스트 서울 맥주 값은 이미지 안에 있습니다 — 페이지 여섯 곳 기록",description:"입장권은 20,000~25,000원, 맥주는 6,000~25,000원, 학센은 49,000원입니다. 그런데 이 값들이 한곳에 있지 않습니다. 입장권은 판매처에, 맥주는 공식 사이트의 PNG 이미지 한 장 안에 들어 있었습니다. 페이지 여섯 곳을 열어 값을 모은 기록과, 끝내 못 찾은 숫자 하나를 적었습니다.",date:"2026-09-12T07:20",category:"이슈",tags:["옥토버페스트서울","옥토버페스트","문화비축기지","맥주축제","티켓가격","서울축제"],cover:"/uploads/issue-okt-hero.jpg",draft:!1};function ve(n){const e={a:"a",em:"em",h2:"h2",img:"img",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...l(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/issue-okt-hero.jpg",alt:"바이에른 청백 마름모 깃발 아래에서 사람들이 맥주잔을 들어 올리고 있는 축제 장면"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다. 공격 수법은 방어에 필요한 범위에서만 설명했고, 재현에 쓰일 수 있는 세부는 담지 않았습니다."})})]})}function Ic(n={}){const{wrapper:e}={...l(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(_e,{...n})}):_e(n)}const Mc=Object.freeze(Object.defineProperty({__proto__:null,default:Ic,frontmatter:Sc},Symbol.toStringTag,{value:"Module"})),Pc={title:"옥토버페스트 서울 맥주 6천원부터, 입장권 2만원입니다 — 둘이 152,000원",description:"입장권은 월~목 20,000원, 금·토·일 25,000원입니다. 맥주는 한 잔 6,000~25,000원, 슈바인 학센은 49,000원입니다. 둘이 토요일에 가서 맥주 네 잔에 학센과 프레첼을 나누면 152,000원이 나옵니다. 값이 세 곳에 나뉘어 있어 한 자리에 모았습니다.",date:"2026-09-12T07:20",category:"이슈",tags:["옥토버페스트서울","옥토버페스트","문화비축기지","맥주축제","티켓가격","서울축제"],cover:"/uploads/issue-okt-hero.jpg",draft:!1};function ve(n){const e={a:"a",em:"em",h2:"h2",img:"img",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...l(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/issue-okt-hero.jpg",alt:"바이에른 청백 마름모 깃발 아래에서 사람들이 맥주잔을 들어 올리고 있는 축제 장면"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"참고 사진입니다. 옥토버페스트 서울 현장 사진이 아닙니다. (사진: Pexels 무료 실사, 무가공)"})}),`
-`,s.jsxs(e.p,{children:["옥토버페스트 서울 2026이 9월 12일부터 21일까지 서울 마포구 문화비축기지에서 열립니다. 둘이 가면 얼마가 드는지 계산해 보려고 했습니다. 토요일 기준으로 ",s.jsx(e.strong,{children:"152,000원"}),"이 나왔습니다."]}),`
-`,s.jsxs(e.p,{children:["계산 자체는 어렵지 않습니다. 입장권 값에 맥주 값, 안주 값을 더하면 됩니다. 그런데 그 세 숫자를 모으는 데 ",s.jsx(e.strong,{children:"페이지를 여섯 개 열어야 했습니다."})]}),`
-`,s.jsx(e.p,{children:"먼저 다 모은 뒤의 결과부터 놓겠습니다."}),`
-`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"항목"}),s.jsx(e.th,{children:"값"}),s.jsx(e.th,{children:"어디에 적혀 있었나"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"입장권 (월 ~ 목)"}),s.jsx(e.td,{children:"20,000원"}),s.jsx(e.td,{children:"판매처 상품 페이지"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"입장권 (금·토·일)"}),s.jsx(e.td,{children:"25,000원"}),s.jsx(e.td,{children:"판매처 상품 페이지"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"프리미엄 테이블 (4인)"}),s.jsx(e.td,{children:"200,000원"}),s.jsx(e.td,{children:"판매처 별도 상품 페이지"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"맥주 한 잔"}),s.jsx(e.td,{children:"6,000 ~ 25,000원"}),s.jsxs(e.td,{children:["공식 사이트 메뉴 페이지의 ",s.jsx(e.strong,{children:"이미지 안"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"슈바인 학센"}),s.jsx(e.td,{children:"49,000원"}),s.jsx(e.td,{children:"같은 이미지 안"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"프레첼 한 개"}),s.jsx(e.td,{children:"7,000원"}),s.jsx(e.td,{children:"같은 이미지 안"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"잔 용량"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"어디에도 없음"})}),s.jsx(e.td,{children:"—"})]})]})]}),`
-`,s.jsx(e.p,{children:"마지막 줄이 이 글을 쓰게 된 이유입니다. 값을 다 모았는데 그 값이 비싼지 싼지 판단할 기준 하나가 빠져 있었습니다."}),`
-`,s.jsx(e.h2,{id:"공식-사이트에-값이-적혀-있을까요",children:s.jsx(e.a,{href:"#공식-사이트에-값이-적혀-있을까요",children:"공식 사이트에 값이 적혀 있을까요"})}),`
-`,s.jsx(e.p,{children:"가장 먼저 연 것은 공식 사이트였습니다. 상단 메뉴에 Tickets 항목이 있으니 거기에 값이 있으리라 봤습니다."}),`
-`,s.jsxs(e.p,{children:["열어 보니 ",s.jsx(e.strong,{children:'"Get Your Tickets!" 버튼 하나'}),"가 있었습니다. 요금표도, 좌석 등급도, 시간대별 구분도 없었습니다. 버튼은 판매처로 나갑니다. 페이지에 따로 적힌 것은 제휴 호텔 회원 할인 안내 한 줄뿐이었습니다."]}),`
-`,s.jsx(e.p,{children:'공식 사이트가 티켓 정보를 판매처에 통째로 위임한 구조입니다. 흔한 방식이긴 합니다. 다만 검색에서 "옥토버페스트 서울 티켓"으로 들어온 사람이 공식 사이트를 먼저 열면, 값을 보지 못한 채 한 번 더 이동해야 합니다.'}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/issue-okt-1-path.png",alt:"값을 찾아 이동한 경로. 공식 사이트 Tickets 페이지에서 값을 찾지 못해 판매처 상품 페이지로 넘어가 입장권 값을 얻고, 다시 공식 사이트 Menu 페이지로 돌아와 메뉴판 이미지를 만나고, 이미지를 내려받아 판독한 뒤에야 맥주와 음식 값을 얻었다. 잔 용량은 어느 경로에서도 나오지 않았다"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"여섯 개를 열었고 그중 두 곳에서만 숫자가 나왔습니다. 마지막 칸은 끝내 비었습니다."})}),`
-`,s.jsx(e.h2,{id:"입장권-값은-판매처에-있었습니다",children:s.jsx(e.a,{href:"#입장권-값은-판매처에-있었습니다",children:"입장권 값은 판매처에 있었습니다"})}),`
-`,s.jsx(e.p,{children:"판매처 상품 페이지에는 필요한 것이 대체로 있었습니다."}),`
-`,s.jsx(e.p,{children:"월요일부터 목요일까지가 20,000원, 금요일과 토요일과 일요일이 25,000원입니다. 행사가 열리는 열흘을 요일로 늘어놓으면 25,000원짜리 날이 12·13·18·19·20일 닷새, 20,000원짜리 날이 14·15·16·17·21일 닷새로 정확히 반씩 나뉩니다."}),`
-`,s.jsx(e.p,{children:"지정좌석은 별도 상품으로 팔립니다. 프리미엄 테이블이 4인 기준 200,000원, 프리미엄 플러스 테이블이 4인 기준 300,000원입니다. 한 사람 몫으로 나누면 50,000원과 75,000원이니 일반석의 두 배와 세 배입니다. 테이블 단위로만 팔기 때문에 둘이 가서 하나를 잡아도 4인 값을 냅니다."}),`
-`,s.jsxs(e.p,{children:["여기까지가 상품 페이지에서 바로 읽히는 부분입니다. 그런데 ",s.jsx(e.strong,{children:"먹고 마시는 값이 한 줄도 없는 페이지입니다."})," 입장권에 무엇이 포함되는지에 대한 설명도 없습니다. 맥주 쿠폰이 붙는지, 안주가 딸려 나오는지는 이 페이지만 봐서는 알 수 없습니다."]}),`
-`,s.jsx(e.h2,{id:"메뉴-값은-공식-사이트로-되돌아가야-했습니다",children:s.jsx(e.a,{href:"#메뉴-값은-공식-사이트로-되돌아가야-했습니다",children:"메뉴 값은 공식 사이트로 되돌아가야 했습니다"})}),`
-`,s.jsx(e.p,{children:"다시 공식 사이트로 돌아갔습니다. F&B 메뉴 아래에 독일 Beer, 한국 Beer, 기타 주류, 독일 Food, K-Chicken, Menu, Prost 항목이 있었습니다."}),`
-`,s.jsxs(e.p,{children:["앞의 항목들은 브랜드와 음식을 소개하는 페이지였습니다. 값이 적힌 곳은 ",s.jsx(e.strong,{children:"Menu 하나뿐입니다."})]}),`
-`,s.jsxs(e.p,{children:["그 페이지를 열었더니 본문 텍스트가 거의 없었습니다. 대신 ",s.jsx(e.strong,{children:"이미지 한 장"}),"이 놓여 있는 구조입니다."]}),`
-`,s.jsx(e.h2,{id:"메뉴판은-왜-이미지-한-장일까요",children:s.jsx(e.a,{href:"#메뉴판은-왜-이미지-한-장일까요",children:"메뉴판은 왜 이미지 한 장일까요"})}),`
-`,s.jsx(e.p,{children:"페이지에 실린 것은 가로 1587, 세로 2245 픽셀짜리 PNG 파일 하나였습니다. 맥주 23종, 음식 6종, 사이드 3종의 이름과 값이 그 안에 그림으로 들어 있습니다."}),`
-`,s.jsx(e.p,{children:"이게 왜 문제가 되는지는 세 가지로 갈립니다."}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"검색에 잡히지 않습니다."}),' "옥토버페스트 서울 맥주 가격"으로 검색하면 이 페이지가 상위에 올 이유가 없습니다. 페이지 안에 그 낱말도, 숫자도 텍스트로 존재하지 않기 때문입니다. 실제로 검색 결과 상위에는 개인 블로그와 기사들이 올라오고, 그중 값을 적은 글은 찾기 어려웠습니다.']}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"복사가 안 됩니다."}),' 친구에게 "학센이 49,000원이더라"라고 옮기려면 눈으로 읽고 손으로 다시 쳐야 합니다.']}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"화면 낭독기로 읽을 수 없습니다."})," 시각장애가 있는 사람은 이 페이지에서 값을 알 수 없습니다. 이미지에 대체 텍스트가 붙어 있지 않았습니다."]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/issue-okt-2-menu.png",alt:"공식 메뉴 페이지의 실제 구조. 페이지 본문은 제목 한 줄뿐이고 그 아래에 1587×2245 픽셀 PNG 한 장이 놓여 있다. 이미지 안에 맥주 23종과 음식 6종과 사이드 3종의 값이 그림으로 들어 있어 텍스트 선택도 검색도 되지 않는다"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"값이 텍스트로 존재하지 않는 페이지입니다. 이미지를 내려받아 눈으로 읽는 것 말고는 방법이 없었습니다."})}),`
-`,s.jsx(e.h2,{id:"이미지를-내려받아-옮긴-값",children:s.jsx(e.a,{href:"#이미지를-내려받아-옮긴-값",children:"이미지를 내려받아 옮긴 값"})}),`
-`,s.jsx(e.p,{children:"원본 PNG를 받아 전 품목을 읽었습니다. 구간을 대표하는 것만 옮기면 이렇습니다."}),`
-`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"품목"}),s.jsx(e.th,{children:"값"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"클라우스탈러 오리지널 (무알코올)"}),s.jsx(e.td,{children:"6,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"파울라너 바이스비어"}),s.jsx(e.td,{children:"9,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"파울라너 옥토버페스트 생맥주"}),s.jsx(e.td,{children:"10,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"카이저돔 필스너"}),s.jsx(e.td,{children:"12,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"벨텐부르거 아노1050"}),s.jsx(e.td,{children:"17,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"슈나이더 바이세 페스트바이세"}),s.jsx(e.td,{children:"22,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"슈렝케를라 메르첸 생맥주"}),s.jsx(e.td,{children:"25,000원"})]})]})]}),`
-`,s.jsx(e.p,{children:"음식 쪽은 폭이 더 큽니다. 슈바인 학센이 49,000원, 독일 소세지 모음이 38,000원, 비프 슈니첼이 33,000원, 치킨강정과 감자튀김이 29,000원입니다. 프레첼은 한 개짜리가 7,000원, 하트와 라우겐이 함께 나오는 듀오가 13,000원입니다. 사이드는 사우어크라우트 3,000원, 피클 2,000원입니다."}),`
-`,s.jsxs(e.p,{children:["값의 분포에서 하나가 눈에 걸립니다. ",s.jsx(e.strong,{children:"술은 6,000원에서 25,000원 사이에 촘촘히 깔려 있는데, 음식은 7,000원짜리 프레첼 다음이 곧바로 29,000원입니다."})," 그 사이 값대가 비어 있습니다. 가볍게 하나만 집으려 해도 고를 것이 프레첼 아니면 3만원대라는 뜻입니다."]}),`
-`,s.jsxs(e.p,{children:["이제 처음의 계산이 가능해집니다. 두 사람이 토요일에 가서 각자 맥주를 두 잔씩 마시고 학센 하나와 프레첼 듀오를 나누면 입장권 50,000원, 맥주 40,000원, 학센 49,000원, 프레첼 13,000원으로 ",s.jsx(e.strong,{children:"152,000원"}),"입니다. 입장권이 차지하는 몫은 33%입니다."]}),`
-`,s.jsx(e.h2,{id:"이-값이-비싼-건지-어떻게-아나요",children:s.jsx(e.a,{href:"#이-값이-비싼-건지-어떻게-아나요",children:"이 값이 비싼 건지 어떻게 아나요"})}),`
-`,s.jsxs(e.p,{children:["맥주 값을 다 옮기고 나서도 판단이 서지 않았습니다. ",s.jsx(e.strong,{children:"잔 용량이 메뉴판에서 빠져 있는 탓입니다."})]}),`
-`,s.jsx(e.p,{children:"밀리리터 표기도, 마스 표기도 없습니다. 뮌헨 본고장에서는 1리터짜리 마스 잔이 기본이라 값을 리터 단위로 셈하는데, 여기서는 10,000원짜리 한 잔이 500밀리리터인지 1리터인지 알 수 없습니다. 두 배 차이가 나는 정보인데 어느 페이지에도 없었습니다."}),`
-`,s.jsx(e.p,{children:"메뉴판 안에서 용량이 적힌 품목은 딱 하나, 선물용 병맥주인 게셴크루크뿐이었습니다. 2리터 115,000원입니다. 나머지 22종에는 표기가 없습니다."}),`
-`,s.jsx(e.p,{children:"값을 판단하는 데 가장 필요한 숫자가 빠져 있으면, 그 값이 공개된 것인지 아닌지를 다시 묻게 됩니다."}),`
-`,s.jsx(e.h2,{id:"같은-페이지-안에서-숫자가-어긋납니다",children:s.jsx(e.a,{href:"#같은-페이지-안에서-숫자가-어긋납니다",children:"같은 페이지 안에서 숫자가 어긋납니다"})}),`
-`,s.jsx(e.p,{children:"마지막으로 하나 더 걸린 것이 있습니다."}),`
-`,s.jsxs(e.p,{children:["판매처 상품 페이지 맨 위 요약 칸에는 관람 시간이 ",s.jsx(e.strong,{children:"600분(인터미션 30분 포함)"})," 으로 적혀 있습니다. 열 시간짜리 행사로 읽힙니다."]}),`
-`,s.jsx(e.p,{children:'그런데 같은 페이지 아래쪽 이용안내 칸에는 회차 시각이 따로 있습니다. 1부가 12시부터 16시 30분까지, 2부가 17시 30분부터 22시까지입니다. 1부 줄 끝에는 "중간 인터미션 시간중에 1부 고객 퇴장"이라는 문장이 붙어 있습니다.'}),`
-`,s.jsx(e.p,{children:"두 칸을 맞춰 보면 어긋나는 것이 둘입니다."}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"인터미션 길이가 다릅니다."})," 요약은 30분이라고 적었는데 회차 시각을 빼면 16시 30분부터 17시 30분까지 60분입니다."]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"표 한 장의 시간이 다릅니다."})," 600분은 문이 열려 있는 폭이고, 1부 표를 산 사람이 실제로 머무는 시간은 270분입니다. 45%입니다."]}),`
+`,s.jsx(e.p,{children:"옥토버페스트 서울 2026이 9월 12일부터 21일까지 서울 마포구 문화비축기지에서 열립니다."}),`
+`,s.jsx(e.p,{children:"값부터 놓겠습니다."}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"항목"}),s.jsx(e.th,{children:"값"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"입장권 (월 ~ 목)"}),s.jsx(e.td,{children:"20,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"입장권 (금·토·일)"}),s.jsx(e.td,{children:"25,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"프리미엄 테이블 (4인)"}),s.jsx(e.td,{children:"200,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"프리미엄 플러스 테이블 (4인)"}),s.jsx(e.td,{children:"300,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"맥주 한 잔"}),s.jsx(e.td,{children:"6,000 ~ 25,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"슈바인 학센"}),s.jsx(e.td,{children:"49,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"프레첼 한 개"}),s.jsx(e.td,{children:"7,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"사우어크라우트"}),s.jsx(e.td,{children:"3,000원"})]})]})]}),`
+`,s.jsxs(e.p,{children:["입장권은 들어가는 값입니다. 먹고 마시는 것은 전부 따로 냅니다. 둘이 토요일에 가서 맥주를 두 잔씩 마시고 학센 하나와 프레첼을 나누면 ",s.jsx(e.strong,{children:"152,000원"}),"이 나옵니다."]}),`
+`,s.jsx(e.p,{children:"이 값들은 한 자리에 모여 있지 않습니다. 입장권은 판매처에, 맥주와 음식은 공식 사이트에, 그것도 이미지 한 장 안에 있습니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/issue-okt-1-path.png",alt:"값이 어디에 적혀 있는지 보여주는 구조도. 입장권과 지정석 값은 NOL 티켓 상품 페이지 두 곳에, 맥주와 음식 값은 옥토버페스트 서울 공식 사이트 Menu 페이지의 PNG 이미지 안에 있다. 공식 사이트 Tickets 페이지에는 판매처로 나가는 버튼만 있고 요금표가 없으며, 잔 용량은 어느 쪽에도 적혀 있지 않다"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"값이 세 곳에 나뉘어 있고, 잔 용량은 어느 쪽에도 없습니다."})}),`
+`,s.jsx(e.h2,{id:"입장권-값을-가르는-건-요일-하나입니다",children:s.jsx(e.a,{href:"#입장권-값을-가르는-건-요일-하나입니다",children:"입장권 값을 가르는 건 요일 하나입니다"})}),`
+`,s.jsx(e.p,{children:"월요일부터 목요일까지가 20,000원, 금요일과 토요일과 일요일이 25,000원입니다. 회차에 따라 값이 달라지지는 않습니다."}),`
+`,s.jsx(e.p,{children:"행사가 열리는 열흘을 요일로 늘어놓으면 25,000원짜리 날이 12·13·18·19·20일 닷새, 20,000원짜리 날이 14·15·16·17·21일 닷새입니다. 정확히 반씩 나뉩니다. 두 사람이 하루 차이로 움직이면 10,000원, 네 사람이면 20,000원이 갈립니다."}),`
+`,s.jsx(e.h2,{id:"지정석은-4인-테이블로만-팝니다",children:s.jsx(e.a,{href:"#지정석은-4인-테이블로만-팝니다",children:"지정석은 4인 테이블로만 팝니다"})}),`
+`,s.jsx(e.p,{children:"일반석에는 좌석 지정이 없습니다. 지정좌석은 별도 상품입니다."}),`
+`,s.jsx(e.p,{children:"프리미엄 테이블이 4인 기준 200,000원, 프리미엄 플러스 테이블이 4인 기준 300,000원입니다. 한 사람 몫으로 나누면 50,000원과 75,000원이니 일반석 금·토·일 값의 두 배와 세 배입니다."}),`
+`,s.jsx(e.p,{children:"테이블 단위로만 팔기 때문에 둘이 가서 하나를 잡아도 4인 값을 냅니다. 그 경우 한 사람당 100,000원이 되고, 일반석의 네 배가 됩니다."}),`
+`,s.jsx(e.p,{children:"단체는 깎아 줍니다. 일반석은 20명에서 49명까지 20%, 50명에서 99명까지 30%, 100명 이상 40%입니다. 프리미엄은 10테이블(40명) 이상 20%, 20테이블(80명) 이상 30%를 깎습니다."}),`
+`,s.jsx(e.h2,{id:"맥주는-6000원에서-25000원입니다",children:s.jsx(e.a,{href:"#맥주는-6000원에서-25000원입니다",children:"맥주는 6,000원에서 25,000원입니다"})}),`
+`,s.jsx(e.p,{children:"무알코올부터 보면 클라우스탈러 오리지널과 레몬이 각 6,000원, 파울라너 0.0 논알콜이 6,000원입니다."}),`
+`,s.jsx(e.p,{children:"알코올이 든 것 중 가장 싼 쪽은 파울라너 바이스비어와 오버도르퍼 페스트비어로 각 9,000원입니다. 축제 이름을 단 파울라너 옥토버페스트 생맥주와 OBC 세 종은 각 10,000원을 받습니다."}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"품목"}),s.jsx(e.th,{children:"값"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"클라우스탈러 오리지널 (무알코올)"}),s.jsx(e.td,{children:"6,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"파울라너 바이스비어"}),s.jsx(e.td,{children:"9,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"파울라너 옥토버페스트 생맥주"}),s.jsx(e.td,{children:"10,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"크롬바커 둔켈 · 필스 · 가펠 쾰쉬"}),s.jsx(e.td,{children:"11,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"카이저돔 네 종"}),s.jsx(e.td,{children:"12,000 ~ 13,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"벨텐부르거 아노1050 · 스페치알"}),s.jsx(e.td,{children:"17,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"슈나이더 바이세 페스트바이세 · 호펜바이세"}),s.jsx(e.td,{children:"22,000원"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"슈렝케를라 메르첸 생맥주"}),s.jsx(e.td,{children:"25,000원"})]})]})]}),`
+`,s.jsx(e.p,{children:"맥주 말고도 아쿠아비트와 돈카트가 각 20,000원, 한스베어 와인 세 종이 10,000 ~ 12,000원, 하이볼 세 종이 각 10,000원입니다. 선물용 2리터 병맥주인 게셴크루크만 115,000원으로 따로 놓여 있습니다."}),`
+`,s.jsx(e.h2,{id:"음식은-7000원-다음이-29000원입니다",children:s.jsx(e.a,{href:"#음식은-7000원-다음이-29000원입니다",children:"음식은 7,000원 다음이 29,000원입니다"})}),`
+`,s.jsx(e.p,{children:"슈바인 학센이 49,000원, 독일 소세지 모음이 38,000원, 비프 슈니첼이 33,000원, 치킨강정과 감자튀김이 29,000원입니다. 프레첼은 한 개짜리가 7,000원, 하트와 라우겐이 함께 나오는 듀오가 13,000원으로 갈립니다."}),`
+`,s.jsx(e.p,{children:"사이드는 사우어크라우트 3,000원, 피클 2,000원, 포션 버터 두 개 2,000원입니다. 학센에는 사우어크라우트와 루콜라와 그레이비 소스가 함께 나오고, 프레첼에는 독일 버터가 딸려 나옵니다."}),`
+`,s.jsxs(e.p,{children:["값의 분포에 빈 구간이 있습니다. ",s.jsx(e.strong,{children:"술은 6,000원에서 25,000원 사이에 촘촘히 깔려 있는데, 음식은 7,000원짜리 프레첼 다음이 곧바로 29,000원입니다."})," 가볍게 하나만 집으려 해도 고를 것이 프레첼 아니면 3만원대입니다. 둘이 가서 하나를 나눈다는 전제로 짜인 값으로 보입니다."]}),`
+`,s.jsx(e.h2,{id:"둘이-토요일에-가면-152000원입니다",children:s.jsx(e.a,{href:"#둘이-토요일에-가면-152000원입니다",children:"둘이 토요일에 가면 152,000원입니다"})}),`
+`,s.jsx(e.p,{children:"앞의 값을 조합하면 이렇게 됩니다. 두 사람, 토요일, 각자 맥주 두 잔, 학센 하나와 프레첼 듀오를 나누는 경우입니다."}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"항목"}),s.jsx(e.th,{children:"값"}),s.jsx(e.th,{children:"몫"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"입장권 25,000원 × 2"}),s.jsx(e.td,{children:"50,000원"}),s.jsx(e.td,{children:"33%"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"파울라너 옥토버페스트 10,000원 × 4"}),s.jsx(e.td,{children:"40,000원"}),s.jsx(e.td,{children:"26%"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"슈바인 학센"}),s.jsx(e.td,{children:"49,000원"}),s.jsx(e.td,{children:"32%"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"프레첼 듀오"}),s.jsx(e.td,{children:"13,000원"}),s.jsx(e.td,{children:"9%"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:s.jsx(e.strong,{children:"합계"})}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"152,000원"})}),s.jsx(e.td,{children:"한 사람 76,000원"})]})]})]}),`
+`,s.jsx(e.p,{children:"입장권이 차지하는 몫이 33%입니다. 셋 중 하나가 채 되지 않습니다."}),`
+`,s.jsx(e.p,{children:"가장 적게 쓰면 얼마인지도 세어 두겠습니다. 월요일에 혼자 가서 입장권 20,000원에 무알코올 맥주 6,000원과 프레첼 7,000원이면 33,000원입니다. 반대로 토요일에 넷이 프리미엄 플러스 테이블을 잡고 슈렝케를라를 한 잔씩 마시면 테이블 300,000원에 맥주 100,000원이 더 붙습니다."}),`
+`,s.jsx(e.h2,{id:"이-값이-비싼지-어떻게-아나요",children:s.jsx(e.a,{href:"#이-값이-비싼지-어떻게-아나요",children:"이 값이 비싼지 어떻게 아나요"})}),`
+`,s.jsxs(e.p,{children:["맥주 값을 다 놓고도 판단이 서지 않는 지점이 하나 남습니다. ",s.jsx(e.strong,{children:"잔 용량이 메뉴에 적혀 있지 않습니다."})]}),`
+`,s.jsx(e.p,{children:"밀리리터 표기도, 마스 표기도 없습니다. 뮌헨 본고장에서는 1리터짜리 마스 잔이 기본이라 값을 리터 단위로 셈하는데, 10,000원짜리 한 잔이 500밀리리터인지 1리터인지에 따라 체감이 두 배로 갈립니다."}),`
+`,s.jsx(e.p,{children:"용량이 적힌 품목은 선물용 2리터 병맥주 하나뿐입니다. 나머지 22종에는 표기가 없습니다."}),`
+`,s.jsx(e.p,{children:"값을 판단하는 데 필요한 숫자가 빠져 있으면, 싼지 비싼지는 현장에서 잔을 받아 봐야 알게 됩니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/issue-okt-2-menu.png",alt:"공식 Menu 페이지의 구조. 페이지 본문은 제목 한 줄뿐이고 그 아래에 1587×2245 픽셀 PNG 한 장이 놓여 있다. 맥주 23종과 음식 6종과 사이드 3종의 값이 그림 안에 들어 있어 검색에 잡히지 않고 복사도 낭독기 읽기도 되지 않는다"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"맥주와 음식 값은 이 이미지 한 장 안에 있습니다. 페이지에 텍스트로는 존재하지 않습니다."})}),`
+`,s.jsx(e.p,{children:"값이 이미지 안에만 있으면 따라오는 것이 셋입니다. 검색에 잡히지 않고, 복사가 되지 않고, 화면 낭독기가 읽지 못합니다. 시각장애가 있는 사람은 이 페이지에서 값을 알 수 없습니다."}),`
+`,s.jsx(e.h2,{id:"한-장으로-몇-시간-있을-수-있나요",children:s.jsx(e.a,{href:"#한-장으로-몇-시간-있을-수-있나요",children:"한 장으로 몇 시간 있을 수 있나요"})}),`
+`,s.jsxs(e.p,{children:["판매처 상품 페이지의 요약 칸에는 관람 시간이 ",s.jsx(e.strong,{children:"600분(인터미션 30분 포함)"})," 으로 적혀 있습니다."]}),`
+`,s.jsx(e.p,{children:'같은 페이지 아래쪽 이용안내 칸에는 회차 시각이 따로 있습니다. 1부가 12시부터 16시 30분까지, 2부가 17시 30분부터 22시까지입니다. 1부 줄 끝에는 "중간 인터미션 시간중에 1부 고객 퇴장"이라는 문장이 붙어 있습니다.'}),`
+`,s.jsx(e.p,{children:"두 칸이 맞지 않는 곳이 둘입니다."}),`
+`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"인터미션 길이."})," 요약은 30분이라고 적었는데 회차 시각을 빼면 16시 30분부터 17시 30분까지 60분입니다."]}),`
+`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"표 한 장의 시간."})," 600분은 문이 열려 있는 폭이고, 1부 표로 머무는 시간은 270분입니다. 45%입니다."]}),`
 `,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/issue-okt-3-mismatch.png",alt:"판매 페이지의 두 칸을 확대해 맞춘 그림. 위쪽 상품 요약 칸은 600분에 인터미션 30분 포함이라고 적고 있고, 아래쪽 이용안내 칸은 1부 12시부터 16시 30분, 2부 17시 30분부터 22시로 적으면서 1부 고객이 인터미션에 퇴장한다고 밝히고 있다. 두 칸을 맞추면 인터미션은 60분이고 표 한 장은 270분이다"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"같은 페이지의 위쪽 칸과 아래쪽 칸입니다. 어느 쪽이 맞는지는 페이지만 보고 알 수 없습니다."})}),`
-`,s.jsx(e.p,{children:"어느 쪽이 맞는지 단정할 근거는 없습니다. 다만 회차 시각 쪽이 1부와 2부의 시작·종료를 직접 적고 있으므로, 자리를 비워야 하는 간격은 60분으로 보는 편이 안전합니다."}),`
-`,s.jsx(e.h2,{id:"다음에-이런-페이지를-열-때",children:s.jsx(e.a,{href:"#다음에-이런-페이지를-열-때",children:"다음에 이런 페이지를 열 때"})}),`
-`,s.jsx(e.p,{children:"축제 하나 값을 계산하는 데 여섯 페이지를 열고 이미지 한 장을 판독했습니다. 정리해 보면 순서가 있었습니다."}),`
-`,s.jsxs(e.p,{children:["공식 사이트에 값이 없으면 ",s.jsx(e.strong,{children:"판매처로 갑니다."})," 티켓 정보는 대개 여기 있습니다. 판매처에 먹고 마시는 값이 없으면 ",s.jsx(e.strong,{children:"다시 공식 사이트의 메뉴 항목으로 돌아갑니다."})," 그 페이지의 본문이 비어 있으면 ",s.jsx(e.strong,{children:"이미지를 의심합니다."})," 브라우저에서 이미지 주소를 열면 원본 해상도로 볼 수 있습니다."]}),`
-`,s.jsxs(e.p,{children:["그리고 값을 다 모은 뒤에 한 번 더 묻습니다. ",s.jsx(e.strong,{children:"이 값을 판단하는 데 필요한 다른 숫자가 빠져 있지는 않은가."})," 이번에는 잔 용량이 그 자리였습니다."]}),`
-`,s.jsx(e.p,{children:"한 가지 더. 표 사는 시각도 이용안내 깊숙이 있었습니다. 월요일부터 토요일 관람은 전날 오후 5시까지, 일요일 관람은 전날 오전 11시까지입니다. 일요일만 여섯 시간 앞당겨집니다. 주말에 움직이려고 토요일 밤에 알아보면 일요일 표는 이미 닫혀 있습니다."}),`
-`,s.jsx(e.p,{children:"이 글은 2026년 9월 12일 오후에 옥토버페스트 서울 공식 사이트와 판매처 상품 페이지에서 직접 확인한 내용을 정리한 것입니다. 값과 운영 방식은 주최 측 사정에 따라 바뀔 수 있고, 실제로 개막 직전에 좌석 배치가 변경된다는 공지가 판매 페이지에 올라와 있습니다. 방문 전에 최신 안내를 다시 확인하시기 바랍니다."})]})}function Tc(n={}){const{wrapper:e}={...l(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(ve,{...n})}):ve(n)}const qc=Object.freeze(Object.defineProperty({__proto__:null,default:Tc,frontmatter:Pc},Symbol.toStringTag,{value:"Module"})),Oc={title:"온디바이스 AI — 내 폰 안에서 도는 AI",date:"2026-07-24T12:24",description:"인터넷 없이도 폰 안에서 바로 도는 온디바이스 AI. 클라우드 AI와 뭐가 다른지, 왜 빨라지고 안전해지는지 초보 눈높이로 정리했습니다.",category:"IT소식",tags:["AI","온디바이스","스마트폰","프라이버시"],cover:"/uploads/itnews-ondevice-hero.jpg",draft:!1};function Se(n){const e={a:"a",blockquote:"blockquote",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...l(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-ondevice-hero.jpg",alt:"스마트폰 부품과 칩 분해도"})}),`
+`,s.jsx(e.p,{children:"회차 시각 쪽이 1부와 2부의 시작·종료를 직접 적고 있으므로, 자리를 비워야 하는 간격은 60분으로 보는 편이 안전합니다."}),`
+`,s.jsx(e.h2,{id:"표는-관람일-전날에-닫힙니다",children:s.jsx(e.a,{href:"#표는-관람일-전날에-닫힙니다",children:"표는 관람일 전날에 닫힙니다"})}),`
+`,s.jsx(e.p,{children:"당일에는 온라인으로 살 수 없습니다. 월요일부터 토요일까지 관람은 전날 오후 5시까지, 일요일 관람은 전날 오전 11시까지입니다."}),`
+`,s.jsx(e.p,{children:"일요일만 여섯 시간 앞당겨집니다. 주말에 움직이려고 토요일 밤에 알아보면 일요일 표는 이미 닫혀 있습니다."}),`
+`,s.jsx(e.p,{children:"무를 때 떼는 돈은 관람일까지 남은 날로 갈립니다. 9일에서 7일 전이 티켓 금액의 10%, 6일에서 3일 전이 20%, 2일 전부터 취소 기한까지가 30%입니다. 25,000원짜리 표면 각각 2,500원과 5,000원과 7,500원입니다."}),`
+`,s.jsx(e.p,{children:"예매한 당일 밤 12시 이전에 취소하면 수수료가 없습니다. 다만 취소 기한 안일 때만 그렇습니다."}),`
+`,s.jsx(e.p,{children:"행사장은 서울 마포구 증산로 87 문화비축기지입니다. 지하철 6호선 월드컵경기장역 2번이나 3번 출구에서 걸어서 10분 거리입니다. 음주는 만 19세 이상이고, 바깥 술과 음식은 가지고 들어갈 수 없습니다."}),`
+`,s.jsx(e.p,{children:"이 글은 2026년 9월 12일 오후 기준으로 옥토버페스트 서울 공식 사이트와 판매처 상품 페이지에 적힌 값을 정리한 것입니다. 값과 운영 방식은 주최 측 사정에 따라 바뀔 수 있고, 개막 직전에 좌석 배치가 변경된다는 공지가 판매 페이지에 올라와 있습니다. 방문 전에 최신 안내를 다시 확인하시기 바랍니다."})]})}function Tc(n={}){const{wrapper:e}={...l(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(ve,{...n})}):ve(n)}const qc=Object.freeze(Object.defineProperty({__proto__:null,default:Tc,frontmatter:Pc},Symbol.toStringTag,{value:"Module"})),Oc={title:"온디바이스 AI — 내 폰 안에서 도는 AI",date:"2026-07-24T12:24",description:"인터넷 없이도 폰 안에서 바로 도는 온디바이스 AI. 클라우드 AI와 뭐가 다른지, 왜 빨라지고 안전해지는지 초보 눈높이로 정리했습니다.",category:"IT소식",tags:["AI","온디바이스","스마트폰","프라이버시"],cover:"/uploads/itnews-ondevice-hero.jpg",draft:!1};function Se(n){const e={a:"a",blockquote:"blockquote",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...l(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-ondevice-hero.jpg",alt:"스마트폰 부품과 칩 분해도"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"이미지 출처: Pexels · Pexels License"})}),`
 `,s.jsx(e.p,{children:'새 스마트폰 광고에 **"온디바이스 AI"**라는 말이 자주 보입니다. AI는 원래 인터넷 너머 큰 서버에서 도는 거 아니었나요? 오늘은 이 온디바이스 AI가 뭔지 쉽게 정리하겠습니다.'}),`
 `,s.jsx(e.h2,{id:"온디바이스-ai가-뭔가요",children:s.jsx(e.a,{href:"#온디바이스-ai가-뭔가요",children:"온디바이스 AI가 뭔가요?"})}),`
