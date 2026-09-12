@@ -386,6 +386,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/python-string-methods</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/python-variable</loc>
     <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
