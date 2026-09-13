@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 딕셔너리는 번호가 아니라 이름표로 꺼냅니다 — 없는 키는 KeyError</title>
+      <link>https://pancoit.site/posts/python-dict</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-dict</guid>
+      <pubDate>Sun, 13 Sep 2026 07:13:00 GMT</pubDate>
+      <description>이름과 점수를 리스트 두 개로 관리하던 코드를 딕셔너리 한 개로 바꿉니다. 꺼내기·더하기·없는 것을 물었을 때 세 라운드로 견주고, 두 리스트가 어긋나면 왜 조용히 틀리는지, KeyError와 get의 None 중 무엇이 더 위험한지 브라우저에서 돌려 보며 가릅니다.</description>
+    </item>
+    <item>
       <title>파이썬 문자열은 바뀌지 않습니다 — strip 결과를 받아야 하는 이유</title>
       <link>https://pancoit.site/posts/python-string-methods</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-string-methods</guid>
