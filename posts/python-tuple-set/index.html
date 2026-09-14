@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유 — PANCO_IT</title>
+    <meta name="description" content="대괄호를 소괄호로 바꿨을 뿐인데 값을 고치면 TypeError가 납니다. 왜 그런지, 고칠 수 없는 것을 어디에 쓰는지, 원소 하나짜리 튜플에 왜 쉼표가 붙는지, 같은 이름이 다섯 번 찍힌 명단에서 집합 한 줄로 세 명을 남기는 법까지 여덟 개 질문에 답합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-tuple-set" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유 — PANCO_IT" />
+    <meta property="og:description" content="대괄호를 소괄호로 바꿨을 뿐인데 값을 고치면 TypeError가 납니다. 왜 그런지, 고칠 수 없는 것을 어디에 쓰는지, 원소 하나짜리 튜플에 왜 쉼표가 붙는지, 같은 이름이 다섯 번 찍힌 명단에서 집합 한 줄로 세 명을 남기는 법까지 여덟 개 질문에 답합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-tuple-set" />
+    <meta property="og:image" content="https://pancoit.site/uploads/python-tuple-set-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-14T00:45" />
+    <meta property="article:modified_time" content="2026-09-14T00:45" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유 — PANCO_IT" />
+    <meta name="twitter:description" content="대괄호를 소괄호로 바꿨을 뿐인데 값을 고치면 TypeError가 납니다. 왜 그런지, 고칠 수 없는 것을 어디에 쓰는지, 원소 하나짜리 튜플에 왜 쉼표가 붙는지, 같은 이름이 다섯 번 찍힌 명단에서 집합 한 줄로 세 명을 남기는 법까지 여덟 개 질문에 답합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/python-tuple-set-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유","description":"대괄호를 소괄호로 바꿨을 뿐인데 값을 고치면 TypeError가 납니다. 왜 그런지, 고칠 수 없는 것을 어디에 쓰는지, 원소 하나짜리 튜플에 왜 쉼표가 붙는지, 같은 이름이 다섯 번 찍힌 명단에서 집합 한 줄로 세 명을 남기는 법까지 여덟 개 질문에 답합니다.","image":"https://pancoit.site/uploads/python-tuple-set-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-14T00:45","dateModified":"2026-09-14T00:45","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-tuple-set"},"keywords":"파이썬, python, 튜플, tuple, 집합, set, 언패킹, 중복제거, 파이썬기초, 파이썬독학"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PYTHON","item":"https://pancoit.site/category/PYTHON"},{"@type":"ListItem","position":3,"name":"파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유","item":"https://pancoit.site/posts/python-tuple-set"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-OQX0Zf2e.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PYTHON">PYTHON</a></li><li><span aria-current="page">파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PYTHON">PYTHON</a><h1 style="margin-top:0.75rem">파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-14T00:45">2026년 9월 14일 00:45</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->python</span><span class="tag">#<!-- -->튜플</span><span class="tag">#<!-- -->tuple</span><span class="tag">#<!-- -->집합</span><span class="tag">#<!-- -->set</span><span class="tag">#<!-- -->언패킹</span><span class="tag">#<!-- -->중복제거</span><span class="tag">#<!-- -->파이썬기초</span><span class="tag">#<!-- -->파이썬독학</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="연한 살구색 봉투 세 장이 겹쳐 놓여 있고 봉투마다 금색 밀랍 봉인이 찍혀 있다" src="/uploads/python-tuple-set-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels · Dreamcatchlight · Pexels License</em></p>
+<blockquote>
+<p>&quot;리스트를 만들 때 대괄호 대신 소괄호를 썼더니 값을 고치는 줄에서 에러가 납니다. 괄호 모양만 바꿨는데 왜 그런가요?&quot;</p>
+</blockquote>
+<p>지난 편 딕셔너리 글에 달린 질문입니다. 괄호를 바꾸면 자료형이 바뀝니다. 대괄호는 리스트, 소괄호는 <strong>튜플</strong>, 중괄호에 값만 넣으면 <strong>집합</strong>입니다. 셋은 생긴 것보다 하는 일이 더 다릅니다.</p>
+<p>학기 초에 받은 명단과, 출석을 부른 결과를 놓고 시작하겠습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">members </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">checked </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span></code></pre>
+<p>둘 다 리스트인데 성격이 다릅니다. 위는 학기 내내 바뀌면 안 되는 명단이고, 아래는 같은 이름이 겹쳐 있어서 그대로 세면 다섯 명이 됩니다. 파이썬에는 이 두 일에 맞는 그릇이 따로 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">members </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">checked </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">len</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(members), </span><span style="color:#005CC5;--shiki-dark:#79B8FF">len</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(checked))</span></span></code></pre>
+<pre><code>3 3
+</code></pre>
+<p>위는 고칠 수 없게 잠겼고, 아래는 겹친 이름이 사라져 세 명이 됐습니다. 질문 여덟 개로 나눠 답하겠습니다.</p>
+<h2 id="튜플이-뭔가요--리스트와-무엇이-다른가요"><a href="#튜플이-뭔가요--리스트와-무엇이-다른가요">튜플이 뭔가요 — 리스트와 무엇이 다른가요</a></h2>
+<p>파이썬 공식 자습서는 튜플을 <strong>쉼표로 구분된 여러 값을 하나로 묶은, 바꿀 수 없는 순서열</strong>이라고 설명합니다. 리스트와 같은 점부터 적으면, 순서가 있고 0번부터 번호로 꺼냅니다. 다른 점은 하나입니다. <strong>만든 뒤에 내용을 바꿀 수 없습니다.</strong></p>
+<table><thead><tr><th>성질</th><th>리스트 <code>[ ]</code></th><th>튜플 <code>( )</code></th></tr></thead><tbody><tr><td>순서·번호로 꺼내기</td><td>있음</td><td>있음</td></tr><tr><td>만든 뒤 고치기</td><td><code>append</code>·<code>remove</code>·<code>x[0] = ...</code> 전부 가능</td><td><strong>전부 불가</strong></td></tr><tr><td>딕셔너리의 키로</td><td>불가</td><td><strong>가능</strong></td></tr><tr><td>쓰임</td><td>늘고 줄고 바뀌는 목록</td><td>한 번 정하면 끝인 묶음</td></tr></tbody></table>
+<p>이 편에서 쓰는 말은 넷입니다.</p>
+<table><thead><tr><th>용어</th><th>뜻</th></tr></thead><tbody><tr><td>튜플(tuple)</td><td>소괄호와 쉼표로 묶은, 바꿀 수 없는 순서열</td></tr><tr><td>불변(immutable)</td><td>만든 뒤 내용을 바꿀 수 없다는 성질. 지난 1편의 문자열도 불변입니다</td></tr><tr><td>언패킹(unpacking)</td><td>묶음 안의 값을 변수 여러 개에 한 번에 나눠 담는 것</td></tr><tr><td>집합(set)</td><td>순서도 없고 중복도 없는 값의 모임. 중괄호 <code>{ }</code>에 값만 넣습니다</td></tr></tbody></table>
+<p>비유하자면 리스트는 뚜껑이 열리는 상자이고 튜플은 <strong>봉인을 찍은 봉투</strong>입니다. 안에 든 것은 같아도 봉투는 뜯지 않는 이상 내용을 바꿀 수 없고, 바꾸려면 새 봉투를 만들어야 합니다.</p>
+<h2 id="괄호만-바꿨는데-왜-고칠-수-없나요"><a href="#괄호만-바꿨는데-왜-고칠-수-없나요">괄호만 바꿨는데 왜 고칠 수 없나요</a></h2>
+<p>직접 고쳐 보겠습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">괄호 두 개 차이로 결과가 갈립니다</span></div><pre class="runner__code"><code>members = [&quot;홍길동&quot;, &quot;김철수&quot;, &quot;이영희&quot;]
+members[0] = &quot;박민수&quot;
+print(members)
+
+members = (&quot;홍길동&quot;, &quot;김철수&quot;, &quot;이영희&quot;)
+members[0] = &quot;박민수&quot;
+print(members)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>[&#x27;박민수&#x27;, &#x27;김철수&#x27;, &#x27;이영희&#x27;]
+TypeError: &#x27;tuple&#x27; object does not support item assignment
+</code></pre>
+<p>첫 번째는 바뀌었고, 두 번째는 멈췄습니다. 오류 이름이 <code>TypeError</code>인 것이 힌트입니다. 값이 잘못된 게 아니라 <strong>그 자료형이 그 동작을 지원하지 않는다</strong>는 뜻입니다. <code>item assignment</code>는 칸에 값을 넣는 일이고, 튜플에는 그 기능 자체가 없습니다.</p>
+<p><img alt="같은 세 이름을 담은 그릇 두 개를 위아래로 놓고 괄호만 바뀐 것을 짚은 그림. 위는 대괄호 리스트라 상자 뚜껑이 열려 있고 0번 칸을 박민수로 바꾸는 화살표 끝에 바뀐 결과가 있다. 아래는 소괄호 튜플이라 같은 자리에 밀랍 봉인이 찍혀 있고 같은 화살표 끝에 TypeError가 적혀 있다. 두 줄 사이에 바뀐 것은 괄호 두 개뿐이라는 표시가 있다" src="/uploads/python-tuple-set-bracket.png" loading="lazy"/></p>
+<p><em>바뀐 것은 괄호 두 개뿐인데, 아래쪽은 봉인이 찍혀 칸을 고칠 수 없습니다.</em></p>
+<p><code>append</code>나 <code>remove</code>도 없습니다. 리스트에서 쓰던 메서드를 튜플에 쓰면 <code>AttributeError: &#x27;tuple&#x27; object has no attribute &#x27;append&#x27;</code>가 납니다. 없는 기능을 부른 것입니다.</p>
+<p>한 가지 선을 그어 두겠습니다. 봉인은 <strong>봉투에</strong> 찍힌 것이지 안에 든 물건에 찍힌 것이 아닙니다. 튜플 안에 리스트가 들어 있으면 그 리스트는 여전히 바뀝니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, [</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">])</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">].append(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(t)</span></span></code></pre>
+<pre><code>(1, [2, 3, 4])
+</code></pre>
+<p><code>t[1]</code>을 다른 것으로 바꾸는 일은 막히지만, <code>t[1]</code>이 가리키는 리스트에 값을 더하는 일은 막히지 않습니다. 튜플이 지키는 것은 &quot;어느 칸에 무엇이 들어 있는가&quot;이지 그 무엇의 속까지는 아닙니다.</p>
+<h2 id="고칠-수-없는데-어디에-쓰나요"><a href="#고칠-수-없는데-어디에-쓰나요">고칠 수 없는데 어디에 쓰나요</a></h2>
+<p>고칠 수 없다는 것은 단점처럼 들리지만, 실제로는 <strong>바뀌면 안 되는 값을 바뀌지 않게 만드는 것</strong>이 튜플의 일입니다. 세 자리에서 씁니다.</p>
+<p>첫째, 값 여러 개를 한 번에 나눠 받을 때입니다. 이걸 <strong>언패킹</strong>이라고 부릅니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">묶어서 돌려주고 나눠서 받습니다</span></div><pre class="runner__code"><code>def min_max(nums):
+  return min(nums), max(nums)
+
+low, high = min_max([7, 2, 9, 4])
+print(low, high)
+
+x, y = (10, 20)
+print(x, y)
+
+x, y = y, x
+print(x, y)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p><code>return min(nums), max(nums)</code>는 쉼표로 값 두 개를 묶어 튜플 하나로 돌려줍니다. 받는 쪽에서 <code>low, high =</code>로 쓰면 그 튜플이 두 변수에 나뉘어 들어갑니다. 마지막 줄 <code>x, y = y, x</code>는 임시 변수 없이 두 값을 맞바꾸는 파이썬식 표현입니다. 오른쪽이 먼저 튜플로 묶이고 왼쪽에 풀립니다.</p>
+<p>둘째, 딕셔너리의 키로 쓸 때입니다. 지난 편에서 리스트는 키가 될 수 없다고 했습니다. 내용이 바뀌니까요. 튜플은 바뀌지 않으니 됩니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">좌표처럼 값 둘이 한 몸인 키</span></div><pre class="runner__code"><code>seats = {(1, 3): &quot;홍길동&quot;, (2, 5): &quot;김철수&quot;}
+print(seats[(1, 3)])
+
+try:
+  bad = {[1, 3]: &quot;홍길동&quot;}
+except TypeError as e:
+  print(&quot;리스트는&quot;, e)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>홍길동
+리스트는 unhashable type: &#x27;list&#x27;
+</code></pre>
+<p>1행 3열 자리에 누가 앉았는지를 찾을 때 <code>(1, 3)</code> 두 값이 한 몸으로 키가 됩니다. 리스트로 같은 일을 하면 <code>unhashable</code>이라는 낯선 말과 함께 막힙니다. 바뀔 수 있는 것은 이름표로 쓸 수 없다는 뜻입니다.</p>
+<p>셋째, 함수에 넘긴 값이 안에서 바뀌지 않았으면 할 때입니다. 리스트를 넘기면 함수 안에서 <code>append</code> 한 번에 원본이 변합니다. 튜플을 넘기면 그런 일이 생기지 않습니다. 저는 이 세 번째가 가장 실용적인 이유라고 봅니다. 고칠 수 없다는 성질이 &quot;실수로 고쳐질 일이 없다&quot;는 보장으로 바뀌는 자리입니다.</p>
+<h2 id="1에-쉼표는-왜-붙나요"><a href="#1에-쉼표는-왜-붙나요">(1,)에 쉼표는 왜 붙나요</a></h2>
+<p>여기가 이 편에서 가장 작은 함정입니다. 원소 하나짜리 튜플을 만들려고 <code>(1)</code>이라고 쓰면 튜플이 되지 않습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">쉼표가 있고 없고</span></div><pre class="runner__code"><code>a = (1)
+b = (1,)
+c = 1,
+
+print(type(a))
+print(type(b))
+print(type(c))</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>&lt;class &#x27;int&#x27;&gt;
+&lt;class &#x27;tuple&#x27;&gt;
+&lt;class &#x27;tuple&#x27;&gt;
+</code></pre>
+<p><code>(1)</code>은 그냥 숫자 1입니다. <code>(2 + 3) * 4</code>의 괄호와 같은 괄호라서, 계산 순서만 정하고 사라집니다. 튜플을 만드는 것은 괄호가 아니라 <strong>쉼표</strong>입니다. 그래서 <code>1,</code>처럼 괄호 없이 쉼표만 찍어도 튜플이 되고, <code>(1,)</code>처럼 괄호 안에 쉼표를 찍어야 원소 하나짜리 튜플이 됩니다.</p>
+<p><img alt="어두운 터미널 화면에 대화형 파이썬을 친 모습. type((1))의 답은 int, type((1,))의 답은 tuple이고, 이어서 t = (1,) 뒤에 t + (2,)를 치자 (1, 2)가 나온다. (1,)의 쉼표에 주황색 펜 동그라미가 쳐져 있고 옆에 쉼표가 튜플을 만든다는 메모가 손글씨로 적혀 있다" src="/uploads/python-tuple-set-comma.png" loading="lazy"/></p>
+<p><em>괄호가 아니라 쉼표가 튜플을 만듭니다. 원소 하나면 쉼표를 끝에 찍습니다.</em></p>
+<p>원소가 둘 이상이면 쉼표가 저절로 들어가니 신경 쓸 일이 없습니다. 하나일 때만 이 일이 생깁니다. 함수에 튜플 하나를 넘기려다 숫자를 넘기고, 뒤에서 <code>len()</code>이 <code>TypeError: object of type &#x27;int&#x27; has no len()</code>으로 터지는 것이 전형적인 모양입니다.</p>
+<p>튜플에 값을 더하고 싶으면 어떻게 하느냐는 질문이 여기서 따라옵니다. 고칠 수 없으니 <code>append</code>는 없습니다. 대신 <strong>새 튜플을 만듭니다.</strong></p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">t </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> t </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(t)</span></span></code></pre>
+<pre><code>(1, 2)
+</code></pre>
+<p><code>t + (2,)</code>는 원래 튜플에 값을 넣는 게 아니라 두 튜플을 이어 붙인 <strong>새 튜플</strong>을 만들고, 그것을 <code>t</code>라는 이름에 다시 붙입니다. 1편에서 <code>s = s.strip()</code>으로 결과를 받아야 했던 것과 같은 모양입니다. 원본은 그대로이고 이름이 새것을 가리킵니다.</p>
+<h2 id="집합은-뭔가요--왜-중복을-버리나요"><a href="#집합은-뭔가요--왜-중복을-버리나요">집합은 뭔가요 — 왜 중복을 버리나요</a></h2>
+<p>공식 자습서의 정의는 <strong>순서가 없고 중복 원소가 없는 컬렉션</strong>입니다. 앞의 두 낱말이 곧 성질입니다.</p>
+<table><thead><tr><th>성질</th><th>뜻</th></tr></thead><tbody><tr><td>중복이 없다</td><td>같은 값을 두 번 넣어도 하나만 남습니다</td></tr><tr><td>순서가 없다</td><td>몇 번째라는 개념이 없어 <code>s[0]</code>을 못 씁니다</td></tr><tr><td>있는지 묻기가 빠르다</td><td><code>x in s</code>가 리스트보다 훨씬 빠릅니다</td></tr><tr><td>바뀌지 않는 값만 담는다</td><td>리스트는 넣을 수 없고 튜플은 됩니다</td></tr></tbody></table>
+<p>중괄호에 값만 넣으면 집합입니다. 지난 편의 딕셔너리는 중괄호에 <code>키: 값</code> 쌍을 넣었습니다. 기호가 같아서 한 군데가 헷갈립니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">중괄호가 두 자료형을 씁니다</span></div><pre class="runner__code"><code>a = {1, 2, 3}
+b = {&quot;a&quot;: 1}
+c = {}
+d = set()
+
+print(type(a))
+print(type(b))
+print(type(c))
+print(type(d))
+
+print(set(&quot;hello&quot;))</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>&lt;class &#x27;set&#x27;&gt;
+&lt;class &#x27;dict&#x27;&gt;
+&lt;class &#x27;dict&#x27;&gt;
+&lt;class &#x27;set&#x27;&gt;
+{&#x27;h&#x27;, &#x27;e&#x27;, &#x27;l&#x27;, &#x27;o&#x27;}
+</code></pre>
+<p>빈 중괄호 <code>{}</code>는 <strong>빈 딕셔너리</strong>입니다. 빈 집합은 <code>set()</code>으로만 만듭니다. 이건 문법이 그렇게 정해진 것이라 외우는 수밖에 없습니다. 마지막 줄 <code>set(&quot;hello&quot;)</code>에서 <code>l</code>이 하나만 남은 것이 중복을 버린다는 뜻이고, 순서가 <code>h e l l o</code>와 다른 것이 순서가 없다는 뜻입니다. 출력 순서는 실행할 때마다 다를 수 있습니다.</p>
+<p>순서가 없으니 번호로는 못 꺼냅니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">s </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">])</span></span></code></pre>
+<pre><code>TypeError: &#x27;set&#x27; object is not subscriptable
+</code></pre>
+<p><code>subscriptable</code>은 대괄호로 꺼낼 수 있다는 뜻입니다. 집합은 그게 안 됩니다. 집합은 꺼내는 그릇이 아니라 <strong>있는지 묻고, 겹치는 것을 걸러내는 그릇</strong>입니다.</p>
+<h2 id="중복-제거에-왜-집합이-가장-짧나요"><a href="#중복-제거에-왜-집합이-가장-짧나요">중복 제거에 왜 집합이 가장 짧나요</a></h2>
+<p>출석 결과로 돌아가겠습니다. 같은 이름이 겹쳐 찍힌 리스트에서 실제 몇 명이 왔는지 세는 일입니다.</p>
+<p>집합 없이 하면 이렇게 됩니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">checked </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">unique </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> []</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> checked:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name </span><span style="color:#D73A49;--shiki-dark:#F97583">not</span><span style="color:#D73A49;--shiki-dark:#F97583"> in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> unique:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        unique.append(name)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">len</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(unique))</span></span></code></pre>
+<p>다섯 줄입니다. 틀린 코드는 아닙니다. 다만 &quot;겹치지 않게 모은다&quot;는 일 자체가 집합의 정의라서, 집합에 넣기만 하면 끝납니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">한 줄로 세 명</span></div><pre class="runner__code"><code>checked = [&quot;김철수&quot;, &quot;홍길동&quot;, &quot;김철수&quot;, &quot;이영희&quot;, &quot;홍길동&quot;]
+
+print(len(checked))
+print(len(set(checked)))
+print(set(checked))</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>5
+3
+{&#x27;홍길동&#x27;, &#x27;김철수&#x27;, &#x27;이영희&#x27;}
+</code></pre>
+<p><code>set(checked)</code>는 리스트를 집합으로 바꾸고, 그 과정에서 겹친 이름이 사라집니다. 다섯 줄이 한 줄이 된 이유는 요령이 아니라 <strong>자료형이 이미 그 규칙을 갖고 있기 때문</strong>입니다.</p>
+<p><img alt="중복 제거의 흐름을 실제 이름으로 그린 그림. 맨 위 리스트 칸에 김철수, 홍길동, 김철수, 이영희, 홍길동 다섯 개가 있고 겹치는 두 개는 흐리게 칠해져 있다. 여기서 두 갈래로 갈라진다. 왼쪽은 set 화살표를 지나 집합 칸에 홍길동, 김철수, 이영희 세 개만 남고 순서 없음이라 적혀 있으며, 다시 sorted 화살표를 지나 김철수, 이영희, 홍길동이 가나다순으로 놓인다. 오른쪽은 dict.fromkeys 화살표를 지나 김철수, 홍길동, 이영희 순서 그대로 세 개가 된다. 오른쪽 아래 상자에 순서가 필요 없으면 set 한 줄, 원래 순서를 지켜야 하면 dict.fromkeys라고 적혀 있다" src="/uploads/python-tuple-set-dedupe.png" loading="lazy"/></p>
+<p><em>집합을 거치면 겹침은 사라지지만 순서도 사라집니다. 순서가 필요하면 뒤에 정렬하거나, 처음 순서를 지키는 다른 길로 갑니다.</em></p>
+<p>여기에 함정이 하나 딸려 옵니다. <strong>순서가 사라집니다.</strong> 명단이 원래 김철수·홍길동·이영희 순서였다는 사실은 집합을 거치는 순간 없어집니다. 순서가 필요하면 두 가지 길이 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">checked </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;김철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;홍길동&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">sorted</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">set</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(checked)))</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">list</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">dict</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.fromkeys(checked)))</span></span></code></pre>
+<pre><code>[&#x27;김철수&#x27;, &#x27;이영희&#x27;, &#x27;홍길동&#x27;]
+[&#x27;김철수&#x27;, &#x27;홍길동&#x27;, &#x27;이영희&#x27;]
+</code></pre>
+<p><code>sorted(set(...))</code>는 겹침을 없앤 뒤 가나다순으로 새 리스트를 만듭니다. <code>dict.fromkeys(...)</code>는 리스트의 값을 딕셔너리 키로 삼는데, 키는 겹칠 수 없고 넣은 순서를 기억하니 <strong>처음 나온 순서를 지킨 채</strong> 겹침만 빠집니다. 정렬이 필요하면 앞엣것, 원래 순서가 필요하면 뒤엣것입니다.</p>
+<h2 id="집합끼리-계산이-되나요"><a href="#집합끼리-계산이-되나요">집합끼리 계산이 되나요</a></h2>
+<p>됩니다. 이름 그대로 수학의 집합 연산입니다. 1반과 2반의 동아리 명단으로 보겠습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">겹치는 사람, 전체, 한쪽에만</span></div><pre class="runner__code"><code>a = {&quot;홍길동&quot;, &quot;김철수&quot;, &quot;이영희&quot;}
+b = {&quot;김철수&quot;, &quot;박민수&quot;}
+
+print(a &amp; b)
+print(a | b)
+print(a - b)
+
+a.add(&quot;최지우&quot;)
+a.add(&quot;홍길동&quot;)
+print(len(a))
+print(sorted(a))</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>{&#x27;김철수&#x27;}
+{&#x27;홍길동&#x27;, &#x27;김철수&#x27;, &#x27;이영희&#x27;, &#x27;박민수&#x27;}
+{&#x27;홍길동&#x27;, &#x27;이영희&#x27;}
+4
+[&#x27;김철수&#x27;, &#x27;이영희&#x27;, &#x27;최지우&#x27;, &#x27;홍길동&#x27;]
+</code></pre>
+<ul>
+<li><code>a &amp; b</code> — 양쪽에 다 있는 사람. 교집합입니다.</li>
+<li><code>a | b</code> — 어느 한쪽이라도 있는 사람. 합집합이고, 김철수는 한 번만 셉니다.</li>
+<li><code>a - b</code> — a에는 있고 b에는 없는 사람. 차집합입니다.</li>
+<li><code>add()</code> — 하나 넣습니다. 이미 있는 홍길동을 다시 넣어도 개수는 그대로입니다.</li>
+<li><code>sorted(a)</code> — 집합에는 순서가 없으니 정렬하려면 <code>sorted()</code>로 <strong>리스트를 새로 만듭니다.</strong> <code>a.sort()</code>는 없습니다.</li>
+</ul>
+<p><code>x in a</code>로 있는지 묻는 것도 됩니다. 리스트에서 <code>in</code>은 앞에서부터 하나씩 견주지만 집합은 바로 찾아갑니다. 명단이 수만 명이면 이 차이가 체감됩니다.</p>
+<h2 id="그래서-언제-무엇을-쓰나요"><a href="#그래서-언제-무엇을-쓰나요">그래서 언제 무엇을 쓰나요</a></h2>
+<p>이제 그릇이 넷입니다. 지난 편의 리스트·딕셔너리에 이 편의 튜플·집합을 더해 한 표에 놓겠습니다.</p>
+<table><thead><tr><th>그릇</th><th>기호</th><th>순서</th><th>고치기</th><th>중복</th><th>이런 일에</th></tr></thead><tbody><tr><td>리스트</td><td><code>[1, 2]</code></td><td>있음</td><td>됨</td><td>됨</td><td>늘고 줄고 바뀌는 목록</td></tr><tr><td>튜플</td><td><code>(1, 2)</code></td><td>있음</td><td><strong>안 됨</strong></td><td>됨</td><td>한 번 정하면 끝인 묶음, 딕셔너리 키</td></tr><tr><td>집합</td><td><code>{1, 2}</code></td><td><strong>없음</strong></td><td>됨</td><td><strong>안 됨</strong></td><td>있는지 묻기, 겹침 걸러내기</td></tr><tr><td>딕셔너리</td><td><code>{&quot;a&quot;: 1}</code></td><td>넣은 순서</td><td>됨</td><td>키는 안 됨</td><td>이름표로 값 찾기</td></tr></tbody></table>
+<p>고르는 기준은 두 질문이면 됩니다. <strong>바뀌어야 하는가</strong>와 <strong>겹쳐도 되는가</strong>입니다.</p>
+<ul>
+<li>바뀌면 안 되면 튜플입니다. 좌표, 날짜의 (년, 월, 일), 함수가 돌려주는 값 여러 개.</li>
+<li>겹치면 안 되면 집합입니다. 방문자 목록, 사용한 아이디, 두 명단의 겹침.</li>
+<li>둘 다 아니면 리스트이고, 이름으로 찾아야 하면 딕셔너리입니다.</li>
+</ul>
+<p>애매하면 리스트로 시작해도 됩니다. 다만 코드 어딘가에 <code>if x not in unique:</code>가 보이면 그 자리는 집합이 할 일이고, &quot;이 값은 절대 바뀌면 안 되는데&quot;라는 주석이 보이면 그 자리는 튜플이 할 일입니다.</p>
+<h2 id="한-글자-바꾸면-무엇이-달라질까요"><a href="#한-글자-바꾸면-무엇이-달라질까요">한 글자 바꾸면 무엇이 달라질까요</a></h2>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 5문제</p><button class="quiz__btn">시작하기</button></div></div>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>파이썬 공식 자습서 5.3 &quot;튜플과 시퀀스&quot; — 튜플의 정의, 원소 하나짜리 튜플의 쉼표, 언패킹 <a href="https://docs.python.org/ko/3/tutorial/datastructures.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/datastructures.html</a></li>
+<li>파이썬 공식 자습서 5.4 &quot;집합&quot; — 정의, 빈 집합은 set(), 집합 연산 <a href="https://docs.python.org/ko/3/tutorial/datastructures.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/datastructures.html</a></li>
+<li>파이썬 표준 라이브러리 &quot;집합 형 — set, frozenset&quot; — add·remove·연산자 전체 <a href="https://docs.python.org/ko/3/library/stdtypes.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/library/stdtypes.html</a></li>
+</ul>
+<hr/>
+<p><em>포켓코딩(PYTHON2) 3편 · <a href="/posts/python-dict">2편(파이썬 딕셔너리)</a>에서 이어집니다. 예제 코드는 강사 개인 GitHub 저장소의 강의 자료를 바탕으로 다시 썼습니다. 다음 편은 리스트 컴프리헨션입니다. for문 네 줄을 대괄호 한 줄로 줄이는 문법과, 줄이다가 오히려 안 읽히게 되는 지점을 다룹니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-dict"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 딕셔너리는 번호가 아니라 이름표로 꺼냅니다 — 없는 키는 KeyError</h3><p>이름과 점수를 리스트 두 개로 관리하던 코드를 딕셔너리 한 개로 바꿉니다. 꺼내기·더하기·없는 것을 물었을 때 세 라운드로 견주고, 두 리스트가 어긋나면 왜 조용히 틀리는지, KeyError와 get의 None 중 무엇이 더 위험한지 브라우저에서 돌려 보며 가릅니다.</p><div class="post-card__meta"><time dateTime="2026-09-13T07:13">2026년 9월 13일 07:13</time><span>· <!-- -->파이썬, python, 딕셔너리</span></div></a><a class="post-card " href="/posts/python-string-methods"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 문자열은 바뀌지 않습니다 — strip 결과를 받아야 하는 이유</h3><p>회원 정보를 다듬는 여덟 줄에 실수가 세 개 숨어 있습니다. 셋 다 에러가 나지 않아서 출력을 보기 전까지 모릅니다. strip이 왜 안 먹는지, 괄호를 빠뜨리면 무엇이 담기는지, 슬라이싱이 왜 공백까지 잘라 오는지 브라우저에서 직접 돌려 보며 잡습니다.</p><div class="post-card__meta"><time dateTime="2026-09-12T15:27">2026년 9월 12일 15:27</time><span>· <!-- -->파이썬, python, 문자열</span></div></a><a class="post-card " href="/posts/python-function"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 함수 def — 여섯 줄 복붙을 하나로, return 없으면 None</h3><p>카페 영수증 6줄이 손님 3명에게 세 번 복붙돼 18줄이 됐습니다. 부가세율을 한 곳만 고치게 해 달라는 의뢰를 받고 def로 묶습니다. 매개변수와 인자, 기본값, 그리고 return을 빼면 왜 None이 찍히는지까지 브라우저에서 직접 돌려 보며 확인합니다.</p><div class="post-card__meta"><time dateTime="2026-09-10T11:47">2026년 9월 10일 11:47</time><span>· <!-- -->파이썬, python, 함수</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

@@ -14,6 +14,13 @@
       <description>내 번호로 지인에게 이상한 문자가 갔다면 폰이 남의 손에 있을 수 있습니다. 카톡 해킹·번호 도용과 가르는 법, 설정 화면에서 3분 안에 보는 흔적 다섯, 공공 검사 도구 셋, 감염이 맞을 때의 순서를 2026년 9월 기준으로 정리했습니다.</description>
     </item>
     <item>
+      <title>파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유</title>
+      <link>https://pancoit.site/posts/python-tuple-set</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-tuple-set</guid>
+      <pubDate>Mon, 14 Sep 2026 00:45:00 GMT</pubDate>
+      <description>대괄호를 소괄호로 바꿨을 뿐인데 값을 고치면 TypeError가 납니다. 왜 그런지, 고칠 수 없는 것을 어디에 쓰는지, 원소 하나짜리 튜플에 왜 쉼표가 붙는지, 같은 이름이 다섯 번 찍힌 명단에서 집합 한 줄로 세 명을 남기는 법까지 여덟 개 질문에 답합니다.</description>
+    </item>
+    <item>
       <title>파이썬 딕셔너리는 번호가 아니라 이름표로 꺼냅니다 — 없는 키는 KeyError</title>
       <link>https://pancoit.site/posts/python-dict</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-dict</guid>
