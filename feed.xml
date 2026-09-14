@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>아이폰 듀오 스펙표에 없는 것 — Face ID·접힘 횟수, 주름은 어떻게 적었나</title>
+      <link>https://pancoit.site/posts/iphone-duo-spec-gaps</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/iphone-duo-spec-gaps</guid>
+      <pubDate>Mon, 14 Sep 2026 16:02:00 GMT</pubDate>
+      <description>아이폰 듀오는 254g에 접으면 11.3mm, 갤럭시 Z 폴드8은 201g에 9.7mm입니다. 숫자는 삼성이 앞서는데, 검색창에 가장 많이 오르는 물음은 무게가 아니라 주름입니다. 두 회사 공식 문서에서 주름을 어떻게 적었는지, 그리고 애플 사양 페이지에 Face ID와 접힘 횟수가 왜 없는지를 공식 수치로만 대조했습니다.</description>
+    </item>
+    <item>
       <title>택배 문자 눌렀다면 좀비폰 확인방법 — 흔적 다섯, 신고는 다른 폰으로</title>
       <link>https://pancoit.site/posts/zombie-phone-check</link>
       <guid isPermaLink="true">https://pancoit.site/posts/zombie-phone-check</guid>
