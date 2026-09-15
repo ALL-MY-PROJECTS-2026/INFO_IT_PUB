@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다 — PANCO_IT</title>
+    <meta name="description" content="빈 리스트를 만들고 for로 돌며 append 하던 네 줄이 대괄호 한 줄이 됩니다. 어디서 왔고 무엇이 편해졌는지, 골라내는 if는 왜 뒤에 붙고 바꿔 넣는 if else는 왜 앞에 오는지, 이중 for와 elif는 왜 안 읽히는지를 브라우저에서 돌려 보며 가릅니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-list-comprehension" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다 — PANCO_IT" />
+    <meta property="og:description" content="빈 리스트를 만들고 for로 돌며 append 하던 네 줄이 대괄호 한 줄이 됩니다. 어디서 왔고 무엇이 편해졌는지, 골라내는 if는 왜 뒤에 붙고 바꿔 넣는 if else는 왜 앞에 오는지, 이중 for와 elif는 왜 안 읽히는지를 브라우저에서 돌려 보며 가릅니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-list-comprehension" />
+    <meta property="og:image" content="https://pancoit.site/uploads/python-list-comprehension-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-15T14:16" />
+    <meta property="article:modified_time" content="2026-09-15T14:16" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다 — PANCO_IT" />
+    <meta name="twitter:description" content="빈 리스트를 만들고 for로 돌며 append 하던 네 줄이 대괄호 한 줄이 됩니다. 어디서 왔고 무엇이 편해졌는지, 골라내는 if는 왜 뒤에 붙고 바꿔 넣는 if else는 왜 앞에 오는지, 이중 for와 elif는 왜 안 읽히는지를 브라우저에서 돌려 보며 가릅니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/python-list-comprehension-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다","description":"빈 리스트를 만들고 for로 돌며 append 하던 네 줄이 대괄호 한 줄이 됩니다. 어디서 왔고 무엇이 편해졌는지, 골라내는 if는 왜 뒤에 붙고 바꿔 넣는 if else는 왜 앞에 오는지, 이중 for와 elif는 왜 안 읽히는지를 브라우저에서 돌려 보며 가릅니다.","image":"https://pancoit.site/uploads/python-list-comprehension-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-15T14:16","dateModified":"2026-09-15T14:16","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-list-comprehension"},"keywords":"파이썬, python, 리스트컴프리헨션, listcomprehension, for문, if else, 이중for문, 파이썬기초, 파이썬독학"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PYTHON","item":"https://pancoit.site/category/PYTHON"},{"@type":"ListItem","position":3,"name":"파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다","item":"https://pancoit.site/posts/python-list-comprehension"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-1sIrPr5-.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PYTHON">PYTHON</a></li><li><span aria-current="page">파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PYTHON">PYTHON</a><h1 style="margin-top:0.75rem">파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-15T14:16">2026년 9월 15일 14:16</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->python</span><span class="tag">#<!-- -->리스트컴프리헨션</span><span class="tag">#<!-- -->listcomprehension</span><span class="tag">#<!-- -->for문</span><span class="tag">#<!-- -->if else</span><span class="tag">#<!-- -->이중for문</span><span class="tag">#<!-- -->파이썬기초</span><span class="tag">#<!-- -->파이썬독학</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="종이 상자 안에 연둣빛 사과가 가지런히 담겨 있다" src="/uploads/python-list-comprehension-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels · Tobi and Chris · Pexels License</em></p>
+<p>시험 점수 다섯 개에서 80점 넘는 것만 뽑습니다. 시즌 1에서 배운 대로 쓰면 이렇습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">scores </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#005CC5;--shiki-dark:#79B8FF">88</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">72</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">95</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">60</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">81</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">passed </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> []</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> scores:</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">&gt;=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 80</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        passed.append(s)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(passed)</span></span></code></pre>
+<pre><code>[88, 95, 81]
+</code></pre>
+<p>같은 일을 한 줄로 쓴 것이 오늘의 주인공입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">passed </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [s </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> scores </span><span style="color:#D73A49;--shiki-dark:#F97583">if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">&gt;=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 80</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span></code></pre>
+<p>결과는 똑같이 <code>[88, 95, 81]</code>입니다. 다섯 줄이 한 줄이 됐는데, 줄 수보다 눈여겨볼 것은 <strong>읽는 방향</strong>입니다. 위 코드는 위에서 아래로 읽고, 아래 코드는 가운데부터 읽습니다. 이 글은 그 한 줄이 어디서 왔는지부터 시작해, 조건이 붙는 자리 둘, 그리고 어디까지 줄여도 되는지까지 갑니다.</p>
+<h2 id="리스트-컴프리헨션이-뭔가요--벨트-위에서-담는-새-상자"><a href="#리스트-컴프리헨션이-뭔가요--벨트-위에서-담는-새-상자">리스트 컴프리헨션이 뭔가요 — 벨트 위에서 담는 새 상자</a></h2>
+<p>파이썬 공식 자습서는 리스트 컴프리헨션을 <strong>리스트를 만드는 간결한 방법</strong>이라고 정의합니다. 이미 있는 리스트나 범위를 한 바퀴 돌면서, 각 원소를 바꾸거나 골라서 <strong>새 리스트를 하나 만드는 문법</strong>입니다. 있는 리스트를 고치는 것이 아니라 새로 만드는 것이라는 점이 먼저입니다.</p>
+<p>언제 쓰나. 리스트 하나를 재료로 다른 리스트를 만들 때입니다. 점수에서 합격만, 이름에서 대문자로, 가격에서 세금 붙여서. 세 경우 모두 재료 리스트를 돌면서 하나씩 처리해 새 리스트에 담는 일입니다.</p>
+<p>성질은 넷입니다.</p>
+<table><thead><tr><th>성질</th><th>뜻</th></tr></thead><tbody><tr><td>새 리스트를 돌려준다</td><td>재료 리스트는 그대로 두고 결과가 새 리스트로 나온다</td></tr><tr><td>대괄호 안에 다 들어간다</td><td><code>[표현식 for 변수 in 재료]</code>가 기본 꼴이고 <code>if</code>가 뒤에 붙을 수 있다</td></tr><tr><td>안에서 쓴 변수가 밖에 남지 않는다</td><td>for문은 돌고 나면 <code>s</code>가 남지만, 컴프리헨션은 남기지 않는다</td></tr><tr><td>표현식이 튜플이면 괄호가 필요하다</td><td><code>[(x, y) for ...]</code>처럼 감싸야 한다</td></tr></tbody></table>
+<p>이 편에서 쓰는 말은 이렇게 정합니다.</p>
+<table><thead><tr><th>용어</th><th>이 글에서의 뜻</th></tr></thead><tbody><tr><td>재료</td><td><code>for</code> 뒤에 오는, 한 바퀴 돌 리스트나 <code>range</code></td></tr><tr><td>표현식</td><td>맨 앞에 오는, 새 리스트에 담을 값을 만드는 식</td></tr><tr><td>골라내는 if</td><td>맨 뒤에 붙어 담을지 말지를 정하는 조건</td></tr><tr><td>바꿔 넣는 if else</td><td>맨 앞 표현식 안에 들어가 무엇을 담을지를 고르는 조건</td></tr></tbody></table>
+<p>비유는 정의 뒤에 붙입니다. 재료 리스트는 벨트 위를 지나가는 과일이고, 컴프리헨션은 벨트 옆에 선 사람 한 명입니다. 지나가는 것을 하나씩 집어 <strong>그대로 담거나, 다듬어 담거나, 상자에 안 넣고 보냅니다.</strong> 벨트 위의 과일 자체는 손대지 않습니다.</p>
+<p><img alt="컨베이어 벨트 위에 점수 다섯 개가 지나가고 벨트 옆에 선 사람이 80 이상만 집어 새 상자에 담는 장면. 벨트 위에는 88, 72, 95, 60, 81이 순서대로 있고 72와 60은 그대로 지나가며 새 상자에는 88, 95, 81이 담겨 있다. 벨트 아래에 원래 리스트는 그대로라는 글씨가 있다" src="/uploads/python-list-comprehension-belt.png" loading="lazy"/></p>
+<p><em>재료는 벨트 위를 그대로 지나가고, 담긴 것만 새 상자가 됩니다.</em></p>
+<h2 id="for-네-줄-시절--무엇이-번거로웠나"><a href="#for-네-줄-시절--무엇이-번거로웠나">for 네 줄 시절 — 무엇이 번거로웠나</a></h2>
+<p>컴프리헨션이 없다고 치고 제곱수 열 개를 모아 보겠습니다. 공식 자습서에 나오는 그 예제입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">for와 append로 제곱수 모으기</span></div><pre class="runner__code"><code>squares = []
+for x in range(10):
+  squares.append(x**2)
+
+print(squares)
+print(x)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+9
+</code></pre>
+<p>결과는 맞게 나옵니다. 번거로운 자리는 셋입니다.</p>
+<p>먼저 <strong>빈 리스트를 미리 만들어야</strong> 합니다. <code>squares = []</code> 한 줄이 없으면 <code>append</code>할 곳이 없습니다. 다음으로 <strong>담는 동작을 따로 적어야</strong> 합니다. 하고 싶은 일은 &quot;제곱해서 모으기&quot;인데 코드에는 &quot;제곱한 것을 append 하기&quot;라고 적힙니다. 마지막 줄의 출력이 세 번째입니다. 루프가 끝났는데 <code>x</code>가 <code>9</code>로 <strong>밖에 남아 있습니다.</strong> 공식 자습서도 이 점을 부작용이라고 적어 두었고, 컴프리헨션은 이 부작용 없이 같은 결과를 낸다고 설명합니다.</p>
+<p>세 가지 다 치명적이지는 않습니다. 다만 같은 모양의 네 줄을 하루에 열 번 쓰다 보면, 이 네 줄이 하나의 동작이라는 것을 문법이 알아 줬으면 하게 됩니다.</p>
+<h2 id="한-줄이-된-뒤--읽는-순서는-가운데부터"><a href="#한-줄이-된-뒤--읽는-순서는-가운데부터">한 줄이 된 뒤 — 읽는 순서는 가운데부터</a></h2>
+<p>같은 일을 컴프리헨션으로 쓰면 이렇습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">한 줄로 제곱수 모으기</span></div><pre class="runner__code"><code>squares = [x**2 for x in range(10)]
+
+print(squares)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</code></pre>
+<p>빈 리스트도, <code>append</code>도 없습니다. <code>x</code>도 밖에 남지 않습니다. 여기서 마지막 줄에 <code>print(x)</code>를 붙이면 <code>NameError</code>가 납니다. 컴프리헨션 안에서 쓴 <code>x</code>는 대괄호가 닫히면 사라집니다.</p>
+<p>처음 보면 앞뒤가 뒤집힌 것처럼 읽힙니다. 읽는 순서를 따로 익히면 풀립니다. <strong>가운데 <code>for</code>부터, 그다음 맨 앞, 그다음 맨 뒤</strong>입니다.</p>
+<p><img alt="대괄호 한 줄 x2 for x in range(10) if x % 2 == 0 을 세 조각으로 나눠 읽는 순서를 표시한 그림. 가운데 for x in range(10) 조각에 1번과 &quot;0부터 9까지 하나씩 x에&quot;, 맨 앞 x2 조각에 2번과 &quot;그 x를 제곱해서 담는다&quot;, 맨 뒤 if x % 2 == 0 조각에 3번과 &quot;단, 짝수일 때만&quot;이라는 메모가 붙어 있다" src="/uploads/python-list-comprehension-order.png" loading="lazy"/></p>
+<p><em>1번 재료, 2번 담을 것, 3번 조건. 왼쪽부터가 아니라 가운데부터입니다.</em></p>
+<p>for문으로 풀면 순서가 그대로 보입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> range</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">):        </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 1. 재료</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:         </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 3. 조건</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        result.append(x</span><span style="color:#D73A49;--shiki-dark:#F97583">**</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)  </span><span style="color:#6A737D;--shiki-dark:#6A737D"># 2. 담을 것</span></span></code></pre>
+<p>컴프리헨션은 이 세 줄을 <strong>담을 것, 재료, 조건</strong> 순서로 한 줄에 눕힌 것입니다. 공식 자습서의 표현으로는 &quot;표현식과 그 뒤를 따르는 for 절, 그리고 없거나 여러 개의 for나 if 절&quot;입니다.</p>
+<p>저는 이 문법을 처음 배우는 분에게 왼쪽부터 읽지 말라고 먼저 말합니다. 왼쪽부터 읽으면 아직 정해지지도 않은 <code>x</code>를 제곱하라는 말이 되어 막힙니다.</p>
+<h2 id="골라내는-if는-뒤에-붙습니다"><a href="#골라내는-if는-뒤에-붙습니다">골라내는 if는 뒤에 붙습니다</a></h2>
+<p>조건이 붙는 자리가 둘이라 검색창에 &quot;리스트 컴프리헨션 if else&quot;가 자주 올라옵니다. 둘을 갈라 보겠습니다.</p>
+<p><strong>담을지 말지를 정하는 조건은 맨 뒤</strong>입니다. 처음 코드의 <code>if s &gt;= 80</code>이 이것입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">80점 이상만 골라 담기</span></div><pre class="runner__code"><code>scores = [88, 72, 95, 60, 81]
+
+passed = [s for s in scores if s &gt;= 80]
+print(passed)
+
+names = [&quot;kim&quot;, &quot;&quot;, &quot;lee&quot;, &quot;&quot;, &quot;park&quot;]
+filled = [n for n in names if n != &quot;&quot;]
+print(filled)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>[88, 95, 81]
+[&#x27;kim&#x27;, &#x27;lee&#x27;, &#x27;park&#x27;]
+</code></pre>
+<p>조건에 걸리지 않은 원소는 새 리스트에 <strong>아예 들어가지 않습니다.</strong> 그래서 결과 리스트가 재료보다 짧아집니다. 두 번째 예처럼 빈 문자열을 걸러 내는 데 자주 씁니다.</p>
+<p>여기에는 <code>else</code>를 붙일 수 없습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">passed </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [s </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> scores </span><span style="color:#D73A49;--shiki-dark:#F97583">if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">&gt;=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 80</span><span style="color:#D73A49;--shiki-dark:#F97583"> else</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span></code></pre>
+<pre><code>SyntaxError: invalid syntax
+</code></pre>
+<p>뒤에 붙는 <code>if</code>는 &quot;담을까 말까&quot;만 정하는 자리라 &quot;아니면 이걸 담아라&quot;가 들어갈 곳이 없습니다. <code>else</code>를 쓰고 싶다면 조건이 하는 일이 다른 것이고, 자리도 다릅니다.</p>
+<h2 id="바꿔-넣는-if-else는-앞에-옵니다"><a href="#바꿔-넣는-if-else는-앞에-옵니다">바꿔 넣는 if else는 앞에 옵니다</a></h2>
+<p><strong>무엇을 담을지를 고르는 조건은 맨 앞 표현식 안</strong>에 들어갑니다. 이때는 모든 원소가 담기고, 원소마다 값이 갈립니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">합격 불합격으로 바꿔 담기</span></div><pre class="runner__code"><code>scores = [88, 72, 95, 60, 81]
+
+result = [&quot;합격&quot; if s &gt;= 80 else &quot;불합격&quot; for s in scores]
+print(result)
+
+print(len(scores), len(result))</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>[&#x27;합격&#x27;, &#x27;불합격&#x27;, &#x27;합격&#x27;, &#x27;불합격&#x27;, &#x27;합격&#x27;]
+5 5
+</code></pre>
+<p>결과 리스트의 길이가 재료와 <strong>같습니다.</strong> 하나도 버리지 않고 값만 바꿨기 때문입니다. <code>&quot;합격&quot; if s &gt;= 80 else &quot;불합격&quot;</code> 부분은 파이썬의 조건 표현식이고, 컴프리헨션 문법이 아니라 그냥 값을 만드는 식입니다. 그래서 표현식 자리인 맨 앞에 옵니다.</p>
+<p><img alt="조건이 들어가는 두 자리를 나란히 놓은 그림. 위쪽은 s for s in scores if s &gt;= 80 으로 맨 뒤 if 자리에 &quot;담을까 말까&quot;라는 라벨과 결과가 셋으로 줄어든다는 설명이 있고, 아래쪽은 &quot;합격&quot; if s &gt;= 80 else &quot;불합격&quot; for s in scores 로 맨 앞 표현식 자리에 &quot;무엇을 담을까&quot;라는 라벨과 결과가 다섯 개 그대로라는 설명이 있다. 두 줄의 for s in scores 부분은 같은 파란색이다" src="/uploads/python-list-comprehension-ifpos.png" loading="lazy"/></p>
+<p><em>뒤의 if는 개수를 줄이고, 앞의 if else는 개수를 지킵니다.</em></p>
+<p>둘을 한 줄에 같이 쓸 수도 있습니다. 앞에서 값을 고르고, 뒤에서 담을지를 정합니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">result </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;A&quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">&gt;=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 90</span><span style="color:#D73A49;--shiki-dark:#F97583"> else</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;B&quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> scores </span><span style="color:#D73A49;--shiki-dark:#F97583">if</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">&gt;=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 80</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span></code></pre>
+<pre><code>[&#x27;B&#x27;, &#x27;A&#x27;, &#x27;B&#x27;]
+</code></pre>
+<p>80 미만은 뒤의 <code>if</code>에서 빠지고, 남은 셋이 앞의 <code>if else</code>로 A나 B가 됩니다. 되기는 하지만 한 줄에 조건이 둘이면 읽는 사람이 두 번 멈춥니다. 이 정도가 한 줄의 한계에 가깝다고 봅니다.</p>
+<p><code>elif</code>는 없습니다. 조건 표현식에 <code>elif</code>가 없기 때문입니다. 등급 셋을 나누려면 <code>&quot;A&quot; if s &gt;= 90 else &quot;B&quot; if s &gt;= 80 else &quot;C&quot;</code>처럼 겹쳐 쓸 수는 있는데, 이쯤 되면 함수를 하나 만들어 <code>[grade(s) for s in scores]</code>로 쓰는 편이 읽기 쉽습니다.</p>
+<h2 id="이중-for는-되지만-한-줄이-두-줄보다-나은지는-따로-봅니다"><a href="#이중-for는-되지만-한-줄이-두-줄보다-나은지는-따로-봅니다">이중 for는 되지만 한 줄이 두 줄보다 나은지는 따로 봅니다</a></h2>
+<p><code>for</code>를 두 번 쓸 수도 있습니다. 공식 자습서의 예제입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">for 두 개로 짝 만들기</span></div><pre class="runner__code"><code>pairs = [(x, y) for x in [1, 2, 3] for y in [3, 1, 4] if x != y]
+print(pairs)
+
+combs = []
+for x in [1, 2, 3]:
+  for y in [3, 1, 4]:
+      if x != y:
+          combs.append((x, y))
+print(combs)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+</code></pre>
+<p>두 결과가 같습니다. 규칙은 하나입니다. <strong>for와 if의 순서가 for문으로 풀었을 때와 같아야</strong> 합니다. 바깥 <code>for x</code>가 먼저, 안쪽 <code>for y</code>가 다음, 조건이 마지막입니다. 표현식이 <code>(x, y)</code>처럼 튜플이면 괄호로 감싸야 합니다. 괄호를 빼고 <code>[x, y for ...]</code>라고 쓰면 파이썬이 &quot;컴프리헨션 대상에 괄호를 잊었느냐&quot;고 되묻는 <code>SyntaxError</code>가 납니다.</p>
+<p>이 편의 함정이 여기 있습니다. <strong>되는 것과 읽히는 것은 다릅니다.</strong> 3×4 행렬의 행과 열을 바꾸는 코드를 공식 자습서는 이렇게 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">matrix </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    [</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    [</span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">6</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">7</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">8</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    [</span><span style="color:#005CC5;--shiki-dark:#79B8FF">9</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">11</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">12</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">transposed </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [[row[i] </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> row </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> matrix] </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> range</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)]</span></span></code></pre>
+<pre><code>[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
+</code></pre>
+<p>맞는 코드이고 한 줄입니다. 그런데 자습서는 바로 뒤에 <strong>복잡한 흐름문보다 내장 함수를 쓰라</strong>고 적고, 같은 일을 <code>list(zip(*matrix))</code>로 보여 줍니다. 한 줄로 쓸 수 있다는 것이 한 줄로 써야 한다는 뜻은 아닙니다.</p>
+<p>제가 쓰는 기준은 이렇습니다. <code>for</code>가 하나이고 <code>if</code>가 하나까지면 컴프리헨션, <code>for</code>가 둘이거나 <code>if</code>가 둘이면 일단 for문으로 풀어 써 보고, 그래도 한 줄이 더 잘 읽힐 때만 다시 줄입니다. 대개 다시 줄이지 않게 됩니다.</p>
+<h2 id="남은-한계--컴프리헨션이-못-하는-것"><a href="#남은-한계--컴프리헨션이-못-하는-것">남은 한계 — 컴프리헨션이 못 하는 것</a></h2>
+<p>한 줄이 만능은 아닙니다. 안 되거나 안 어울리는 자리가 셋 있습니다.</p>
+<p><strong>중간에 다른 일을 끼울 수 없습니다.</strong> 돌면서 <code>print</code>를 찍거나, 조건에 따라 <code>break</code>로 멈추거나, 두 리스트에 나눠 담는 일은 for문의 몫입니다. 컴프리헨션은 새 리스트 하나를 돌려주는 식이지 문장이 아닙니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">result </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s) </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> scores]</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(result)</span></span></code></pre>
+<pre><code>88
+72
+95
+60
+81
+[None, None, None, None, None]
+</code></pre>
+<p>찍히기는 하는데 <code>None</code> 다섯 개짜리 리스트가 같이 만들어집니다. 쓰지도 않을 리스트를 만드는 셈이라, 출력만 하려면 for문이 맞습니다.</p>
+<p><strong>결과가 크면 메모리를 한 번에 씁니다.</strong> 컴프리헨션은 리스트 전체를 만들어 놓습니다. 백만 개를 만들면 백만 개가 한꺼번에 자리를 차지합니다. 하나씩 꺼내 쓰기만 할 거라면 대괄호를 소괄호로 바꾼 <code>(x**2 for x in range(1000000))</code> 꼴이 따로 있는데, 그것은 이 시리즈 뒤쪽에서 따로 다루고, 여기서는 이름만 적어 둡니다.</p>
+<p><strong>딕셔너리와 집합도 같은 꼴로 만듭니다.</strong> 이건 한계가 아니라 덤입니다. 지난 편의 중괄호를 그대로 씁니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">딕셔너리와 집합 컴프리헨션</span></div><pre class="runner__code"><code>names = [&quot;kim&quot;, &quot;lee&quot;, &quot;park&quot;]
+
+lengths = {n: len(n) for n in names}
+print(lengths)
+
+initials = {n[0] for n in names}
+print(initials)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>{&#x27;kim&#x27;: 3, &#x27;lee&#x27;: 3, &#x27;park&#x27;: 4}
+{&#x27;k&#x27;, &#x27;l&#x27;, &#x27;p&#x27;}
+</code></pre>
+<p>중괄호 안에 <code>키: 값</code>이면 딕셔너리, 값만 있으면 집합입니다. 3편에서 본 대로 집합은 순서를 보장하지 않으니 출력 순서는 달라질 수 있습니다.</p>
+<h2 id="네-줄과-한-줄-어느-쪽을-쓸까"><a href="#네-줄과-한-줄-어느-쪽을-쓸까">네 줄과 한 줄, 어느 쪽을 쓸까</a></h2>
+<table><thead><tr><th>상황</th><th>쓸 것</th><th>이유</th></tr></thead><tbody><tr><td>리스트에서 골라내기</td><td><code>[x for x in 재료 if 조건]</code></td><td>가장 흔한 꼴, 한눈에 읽힌다</td></tr><tr><td>리스트 원소마다 바꾸기</td><td><code>[식 for x in 재료]</code></td><td><code>append</code> 없이 새 리스트</td></tr><tr><td>원소마다 값을 둘 중 하나로</td><td><code>[a if 조건 else b for x in 재료]</code></td><td><code>if else</code>는 앞, 개수는 그대로</td></tr><tr><td>조건이 셋 이상</td><td>함수 + <code>[f(x) for x in 재료]</code></td><td><code>elif</code>가 없고 겹친 <code>if else</code>는 안 읽힌다</td></tr><tr><td><code>for</code>가 둘</td><td>for문으로 먼저 써 본다</td><td>한 줄이 더 잘 읽힐 때만 줄인다</td></tr><tr><td>돌면서 출력·중단·두 리스트</td><td>for문</td><td>컴프리헨션은 새 리스트 하나를 돌려주는 식이다</td></tr></tbody></table>
+<p>기억할 것은 셋입니다. 가운데 <code>for</code>부터 읽습니다. 골라내는 <code>if</code>는 뒤, 바꿔 넣는 <code>if else</code>는 앞입니다. 한 줄에 <code>for</code>나 <code>if</code>가 둘 이상이면 한 번 풀어 써 봅니다.</p>
+<h2 id="한-줄만-바꾸면-결과는-어떻게-될까요"><a href="#한-줄만-바꾸면-결과는-어떻게-될까요">한 줄만 바꾸면 결과는 어떻게 될까요</a></h2>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 5문제</p><button class="quiz__btn">시작하기</button></div></div>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>파이썬 공식 자습서 5.1.3 &quot;리스트 컴프리헨션&quot; — 정의, 제곱수 예제와 변수가 남는 부작용, 일반 꼴(표현식 + for 절 + for/if 절), 튜플은 괄호 <a href="https://docs.python.org/ko/3/tutorial/datastructures.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/datastructures.html</a></li>
+<li>파이썬 공식 자습서 5.1.4 &quot;중첩된 리스트 컴프리헨션&quot; — 행렬 전치 예제와 &quot;복잡한 흐름문보다 내장 함수를&quot; <a href="https://docs.python.org/ko/3/tutorial/datastructures.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/datastructures.html</a></li>
+<li>파이썬 언어 레퍼런스 6.13 &quot;조건 표현식&quot; — <code>a if 조건 else b</code> <a href="https://docs.python.org/ko/3/reference/expressions.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/reference/expressions.html</a></li>
+</ul>
+<hr/>
+<p><em>포켓코딩(PYTHON2) 4편 · <a href="/posts/python-tuple-set">3편(파이썬 튜플과 집합)</a>에서 이어집니다. 예제 코드는 강사 개인 GitHub 저장소의 강의 자료와 파이썬 공식 자습서의 예제를 바탕으로 다시 썼습니다. 다음 편은 함수 심화입니다. 인자를 몇 개든 받는 <code>*args</code>와 <code>**kwargs</code>, 그리고 기본값에 리스트를 쓰면 왜 호출할 때마다 같은 리스트가 따라오는지를 다룹니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-for-loop"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 for 반복문 — 장바구니 영수증으로 익히는 range와 빠지는 끝 번호</h3><p>장바구니 다섯 개의 값을 더하는 영수증을 for 반복문으로 만듭니다. 1부터 10까지 더했는데 45가 나온 첫 시도에서 range의 끝 번호가 빠진다는 규칙을 찾고, 리스트를 직접 돌고, 돌면서 지우면 한 칸을 건너뛰는 이유까지 확인합니다.</p><div class="post-card__meta"><time dateTime="2026-09-08T10:28">2026년 9월 8일 10:28</time><span>· <!-- -->파이썬, python, for문</span></div></a><a class="post-card " href="/posts/python-tuple-set"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유</h3><p>대괄호를 소괄호로 바꿨을 뿐인데 값을 고치면 TypeError가 납니다. 왜 그런지, 고칠 수 없는 것을 어디에 쓰는지, 원소 하나짜리 튜플에 왜 쉼표가 붙는지, 같은 이름이 다섯 번 찍힌 명단에서 집합 한 줄로 세 명을 남기는 법까지 여덟 개 질문에 답합니다.</p><div class="post-card__meta"><time dateTime="2026-09-14T00:45">2026년 9월 14일 00:45</time><span>· <!-- -->파이썬, python, 튜플</span></div></a><a class="post-card " href="/posts/python-dict"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 딕셔너리는 번호가 아니라 이름표로 꺼냅니다 — 없는 키는 KeyError</h3><p>이름과 점수를 리스트 두 개로 관리하던 코드를 딕셔너리 한 개로 바꿉니다. 꺼내기·더하기·없는 것을 물었을 때 세 라운드로 견주고, 두 리스트가 어긋나면 왜 조용히 틀리는지, KeyError와 get의 None 중 무엇이 더 위험한지 브라우저에서 돌려 보며 가릅니다.</p><div class="post-card__meta"><time dateTime="2026-09-13T07:13">2026년 9월 13일 07:13</time><span>· <!-- -->파이썬, python, 딕셔너리</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

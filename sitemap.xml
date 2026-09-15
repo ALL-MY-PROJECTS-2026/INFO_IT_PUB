@@ -391,6 +391,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/python-list-comprehension</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/python-operator</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>

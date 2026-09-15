@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다</title>
+      <link>https://pancoit.site/posts/python-list-comprehension</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-list-comprehension</guid>
+      <pubDate>Tue, 15 Sep 2026 14:16:00 GMT</pubDate>
+      <description>빈 리스트를 만들고 for로 돌며 append 하던 네 줄이 대괄호 한 줄이 됩니다. 어디서 왔고 무엇이 편해졌는지, 골라내는 if는 왜 뒤에 붙고 바꿔 넣는 if else는 왜 앞에 오는지, 이중 for와 elif는 왜 안 읽히는지를 브라우저에서 돌려 보며 가릅니다.</description>
+    </item>
+    <item>
       <title>추석 온누리상품권 환급 9월 16~20일 — 영수증 합산해 최대 4만 원</title>
       <link>https://pancoit.site/posts/chuseok-onnuri-refund</link>
       <guid isPermaLink="true">https://pancoit.site/posts/chuseok-onnuri-refund</guid>
