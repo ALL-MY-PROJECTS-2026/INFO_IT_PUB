@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬 함수 기본값 리스트는 한 번만 만들어집니다 — *args와 global까지 — PANCO_IT</title>
+    <meta name="description" content="장바구니 함수를 세 번 불렀더니 첫 손님 사과가 셋째 손님 바구니에 들어 있었습니다. 기본값 basket=[]가 def 때 한 번만 만들어져 세 호출이 같은 리스트를 쓰기 때문입니다. None으로 고치는 법, 값을 몇 개든 받는 *args와 **kwargs, 함수 안에서 count += 1이 UnboundLocalError가 되는 이유와 global까지 실행 결과로 확인합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-function-advanced" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬 함수 기본값 리스트는 한 번만 만들어집니다 — *args와 global까지 — PANCO_IT" />
+    <meta property="og:description" content="장바구니 함수를 세 번 불렀더니 첫 손님 사과가 셋째 손님 바구니에 들어 있었습니다. 기본값 basket=[]가 def 때 한 번만 만들어져 세 호출이 같은 리스트를 쓰기 때문입니다. None으로 고치는 법, 값을 몇 개든 받는 *args와 **kwargs, 함수 안에서 count += 1이 UnboundLocalError가 되는 이유와 global까지 실행 결과로 확인합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-function-advanced" />
+    <meta property="og:image" content="https://pancoit.site/uploads/python-function-advanced-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-16T13:51" />
+    <meta property="article:modified_time" content="2026-09-16T13:51" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬 함수 기본값 리스트는 한 번만 만들어집니다 — *args와 global까지 — PANCO_IT" />
+    <meta name="twitter:description" content="장바구니 함수를 세 번 불렀더니 첫 손님 사과가 셋째 손님 바구니에 들어 있었습니다. 기본값 basket=[]가 def 때 한 번만 만들어져 세 호출이 같은 리스트를 쓰기 때문입니다. None으로 고치는 법, 값을 몇 개든 받는 *args와 **kwargs, 함수 안에서 count += 1이 UnboundLocalError가 되는 이유와 global까지 실행 결과로 확인합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/python-function-advanced-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬 함수 기본값 리스트는 한 번만 만들어집니다 — *args와 global까지","description":"장바구니 함수를 세 번 불렀더니 첫 손님 사과가 셋째 손님 바구니에 들어 있었습니다. 기본값 basket=[]가 def 때 한 번만 만들어져 세 호출이 같은 리스트를 쓰기 때문입니다. None으로 고치는 법, 값을 몇 개든 받는 *args와 **kwargs, 함수 안에서 count += 1이 UnboundLocalError가 되는 이유와 global까지 실행 결과로 확인합니다.","image":"https://pancoit.site/uploads/python-function-advanced-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-16T13:51","dateModified":"2026-09-16T13:51","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-function-advanced"},"keywords":"파이썬, python, 함수기본값, args, kwargs, 가변인자, global, nonlocal, UnboundLocalError, 파이썬독학"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PYTHON","item":"https://pancoit.site/category/PYTHON"},{"@type":"ListItem","position":3,"name":"파이썬 함수 기본값 리스트는 한 번만 만들어집니다 — *args와 global까지","item":"https://pancoit.site/posts/python-function-advanced"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CG1F6ZoW.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts">전체 글</a><a href="/about">소개</a><a href="/contact">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PYTHON">PYTHON</a></li><li><span aria-current="page">파이썬 함수 기본값 리스트는 한 번만 만들어집니다 — *args와 global까지</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PYTHON">PYTHON</a><h1 style="margin-top:0.75rem">파이썬 함수 기본값 리스트는 한 번만 만들어집니다 — *args와 global까지</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-16T13:51">2026년 9월 16일 13:51</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->python</span><span class="tag">#<!-- -->함수기본값</span><span class="tag">#<!-- -->args</span><span class="tag">#<!-- -->kwargs</span><span class="tag">#<!-- -->가변인자</span><span class="tag">#<!-- -->global</span><span class="tag">#<!-- -->nonlocal</span><span class="tag">#<!-- -->UnboundLocalError</span><span class="tag">#<!-- -->파이썬독학</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="노란 플라스틱 장바구니가 높이 쌓여 있는 사진" src="/uploads/python-function-advanced-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels · Sóc Năng Động · Pexels License</em></p>
+<p>카페 주문 앱의 장바구니 함수가 이상하다는 말이 들어왔습니다. 첫 손님이 사과를 담았는데, 셋째 손님 바구니에 사과와 우유가 이미 들어 있더라는 것입니다. 함수는 여덟 줄이고 에러는 한 번도 나지 않았습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> add_item</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(item, basket</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[]):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    basket.append(item)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> basket</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(add_item(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;사과&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(add_item(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;우유&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(add_item(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;계란&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span></code></pre>
+<pre><code>[&#x27;사과&#x27;]
+[&#x27;사과&#x27;, &#x27;우유&#x27;]
+[&#x27;사과&#x27;, &#x27;우유&#x27;, &#x27;계란&#x27;]
+</code></pre>
+<p>기대한 출력은 <code>[&#x27;사과&#x27;]</code>, <code>[&#x27;우유&#x27;]</code>, <code>[&#x27;계란&#x27;]</code>이었습니다. 손님마다 새 바구니를 주려고 <code>basket=[]</code>를 기본값으로 둔 것인데, 결과는 바구니 하나를 세 손님이 돌려 쓴 모양입니다. 이 편은 이 여덟 줄이 왜 그렇게 도는지 원인을 찾고, 같은 함수 문법에서 초보자가 두 번째로 걸리는 자리인 <code>count += 1</code>까지 실행 결과로 확인합니다. 시즌 1의 9편(함수 def)이 &quot;함수를 만드는 법&quot;이었다면, 이 편은 &quot;함수에 값이 들어오고 나가는 규칙&quot;입니다.</p>
+<h2 id="기본값과-별표-인자가-뭔가요--정의부터"><a href="#기본값과-별표-인자가-뭔가요--정의부터">기본값과 별표 인자가 뭔가요 — 정의부터</a></h2>
+<p>파이썬 공식 자습서는 함수의 매개변수에 <strong>기본 인자 값</strong>을 둘 수 있다고 정의합니다. <code>def add_item(item, basket=[])</code>에서 <code>basket=[]</code>가 그것이고, 호출할 때 그 자리를 비우면 기본값이 들어갑니다. 자습서는 바로 뒤에 &quot;중요한 주의사항&quot;이라고 적고 이렇게 씁니다. <strong>기본값은 오직 한 번만 값이 구해집니다.</strong> 리스트나 딕셔너리처럼 바꿀 수 있는 객체가 기본값이면 여기서 차이가 생깁니다.</p>
+<p>별표가 붙는 매개변수는 둘입니다. <code>*name</code>은 형식 매개변수 목록 밖의 위치 인자들을 담은 <strong>튜플</strong>을 받고, <code>**name</code>은 대응하는 매개변수가 없는 키워드 인자들을 담은 <strong>딕셔너리</strong>를 받습니다. 자습서는 <code>*name</code>이 <code>**name</code> 앞에 와야 한다고 적었습니다.</p>
+<p>성질은 넷입니다.</p>
+<table><thead><tr><th>성질</th><th>뜻</th></tr></thead><tbody><tr><td>기본값은 <code>def</code>가 실행될 때 한 번 만들어진다</td><td>호출할 때마다 새로 만들어지지 않는다</td></tr><tr><td>바꿀 수 있는 기본값은 호출 사이에 이어진다</td><td>리스트·딕셔너리 기본값에 넣은 값이 다음 호출에 남는다</td></tr><tr><td><code>*args</code>는 튜플, <code>**kwargs</code>는 딕셔너리다</td><td>몇 개를 넣든 함수 안에서는 그릇 하나로 받는다</td></tr><tr><td>함수 안에서 대입하면 그 이름은 지역 변수가 된다</td><td>밖의 변수를 고치려면 <code>global</code>을 써야 한다</td></tr></tbody></table>
+<p>이 편에서 쓰는 말은 이렇게 정합니다.</p>
+<table><thead><tr><th>용어</th><th>이 글에서의 뜻</th></tr></thead><tbody><tr><td>기본값</td><td><code>def</code> 줄에서 <code>=</code> 뒤에 적어 둔, 호출 때 비워도 되는 값</td></tr><tr><td>바꿀 수 있는 객체</td><td>리스트·딕셔너리·집합처럼 안의 내용을 고칠 수 있는 값</td></tr><tr><td><code>*args</code></td><td>자리 인자를 몇 개든 받아 튜플로 묶는 매개변수</td></tr><tr><td><code>**kwargs</code></td><td><code>이름=값</code> 인자를 몇 개든 받아 딕셔너리로 묶는 매개변수</td></tr><tr><td>지역 변수</td><td>함수 안에서 대입해서 생긴, 함수 밖에서는 보이지 않는 이름</td></tr></tbody></table>
+<p>비유는 정의 뒤에 붙입니다. <code>def</code> 줄의 기본값은 가게 문을 열 때 계산대 옆에 놓아 둔 <strong>바구니 하나</strong>입니다. 손님이 자기 바구니를 안 들고 오면 그 바구니를 씁니다. 문제는 그 바구니를 쓰고 나서 비우는 사람이 없다는 것입니다. 다음 손님도 같은 바구니를 받습니다.</p>
+<h2 id="재현--세-번-부르면-세-번-자랍니다"><a href="#재현--세-번-부르면-세-번-자랍니다">재현 — 세 번 부르면 세 번 자랍니다</a></h2>
+<p>의뢰받은 여덟 줄을 그대로 돌립니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">장바구니 함수를 세 번 부르기</span></div><pre class="runner__code"><code>def add_item(item, basket=[]):
+  basket.append(item)
+  return basket
+
+print(add_item(&quot;사과&quot;))
+print(add_item(&quot;우유&quot;))
+print(add_item(&quot;계란&quot;))</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>[&#x27;사과&#x27;]
+[&#x27;사과&#x27;, &#x27;우유&#x27;]
+[&#x27;사과&#x27;, &#x27;우유&#x27;, &#x27;계란&#x27;]
+</code></pre>
+<p>에러가 없습니다. 첫 호출은 기대한 대로이고, 둘째부터 앞 손님 물건이 남아 있습니다. 함수 어디에도 &quot;앞 호출 결과를 기억하라&quot;는 줄이 없는데 기억합니다. 의심 가는 줄은 <code>basket=[]</code> 하나입니다.</p>
+<p><img alt="어두운 터미널 창에 add_item을 세 번 부른 결과가 찍혀 있고 셋째 줄 결과에 펜으로 동그라미가 쳐져 있다. 옆 메모에 기대한 것은 계란 하나였다고 적혀 있다" src="/uploads/python-function-advanced-terminal.jpg" loading="lazy"/></p>
+<p><em>세 번째 출력이 사건 현장입니다. 기대한 것은 계란 하나였습니다.</em></p>
+<h2 id="원인--기본값-리스트는-def-때-한-번만-만들어집니다"><a href="#원인--기본값-리스트는-def-때-한-번만-만들어집니다">원인 — 기본값 리스트는 def 때 한 번만 만들어집니다</a></h2>
+<p><code>[]</code>는 호출할 때마다 새로 만들어지는 것이 아니라, <code>def add_item(...)</code> 줄이 실행되는 순간 <strong>딱 한 번</strong> 만들어집니다. 그 뒤 모든 호출이 그 리스트 하나를 <code>basket</code>으로 받습니다. 리스트는 안의 내용을 바꿀 수 있는 객체라 <code>append</code>한 것이 남고, 다음 호출이 그 상태를 이어받습니다.</p>
+<p>같은 리스트인지 확인하는 방법이 있습니다. 파이썬은 객체마다 번호를 붙이고 <code>id()</code>로 보여 줍니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">두 호출이 받은 basket이 같은 객체인지</span></div><pre class="runner__code"><code>def add_item(item, basket=[]):
+  print(id(basket))
+  basket.append(item)
+  return basket
+
+a = add_item(&quot;사과&quot;)
+b = add_item(&quot;우유&quot;)
+print(a is b)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>2122221678144
+2122221678144
+True
+</code></pre>
+<p>숫자는 실행할 때마다 다르지만 두 줄이 같습니다. <code>a is b</code>가 <code>True</code>이니 첫 호출이 돌려준 리스트와 둘째 호출이 돌려준 리스트가 같은 물건입니다. 공식 FAQ는 이 문제를 &quot;흔히 신참 프로그래머들을 깨무는 버그&quot;라고 부르고, 원인을 한 문장으로 적었습니다. <strong>함수가 정의될 때 기본값은 정확히 한 번 만들어집니다.</strong></p>
+<p>기본값이 숫자나 문자열이면 이 문제가 없습니다. 안의 내용을 바꿀 수 없기 때문입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">바꿀 수 없는 기본값은 안전합니다</span></div><pre class="runner__code"><code>def greet(name, times=1):
+  return (&quot;안녕 &quot; + name + &quot; &quot;) * times
+
+print(greet(&quot;철수&quot;))
+print(greet(&quot;영희&quot;, 3))</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>안녕 철수 
+안녕 영희 안녕 영희 안녕 영희 
+</code></pre>
+<p><code>times=1</code>은 몇 번을 불러도 1입니다. 숫자는 고칠 수 없는 값이라 호출 사이에 이어질 것이 없습니다. FAQ도 숫자, 문자열, 튜플, <code>None</code>은 안전하고 딕셔너리, 리스트, 클래스 인스턴스가 문제라고 갈라 적었습니다.</p>
+<p><img alt="위 칸에는 def 때 만든 리스트 상자 하나에 호출 1·2·3이 전부 화살표로 연결돼 상자에 사과·우유·계란이 쌓이고, 아래 칸에는 호출마다 새 상자 하나씩에 사과, 우유, 계란이 따로 담겨 있다" src="/uploads/python-function-advanced-sharedbox.jpg" loading="lazy"/></p>
+<p><em>위는 basket=[], 아래는 basket=None으로 두고 함수 안에서 새로 만든 경우입니다.</em></p>
+<h2 id="해결--none을-두고-함수-안에서-새로-만듭니다"><a href="#해결--none을-두고-함수-안에서-새로-만듭니다">해결 — None을 두고 함수 안에서 새로 만듭니다</a></h2>
+<p>FAQ가 권하는 방법은 하나입니다. 기본값을 <code>None</code>으로 두고, 함수 안에서 <code>None</code>이면 그때 새 리스트를 만듭니다. <code>None</code>은 바꿀 수 없는 값이라 공유돼도 문제가 없고, 새 리스트는 호출할 때마다 함수 안에서 만들어집니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">None으로 고친 장바구니 함수</span></div><pre class="runner__code"><code>def add_item(item, basket=None):
+  if basket is None:
+      basket = []
+  basket.append(item)
+  return basket
+
+print(add_item(&quot;사과&quot;))
+print(add_item(&quot;우유&quot;))
+
+mine = [&quot;빵&quot;]
+print(add_item(&quot;커피&quot;, mine))
+print(mine)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>[&#x27;사과&#x27;]
+[&#x27;우유&#x27;]
+[&#x27;빵&#x27;, &#x27;커피&#x27;]
+[&#x27;빵&#x27;, &#x27;커피&#x27;]
+</code></pre>
+<p>앞의 두 줄이 기대한 대로 따로 나옵니다. 뒤의 두 줄은 손님이 자기 바구니 <code>mine</code>을 들고 온 경우입니다. 그때는 새로 만들지 않고 받은 바구니에 담고, 그래서 <code>mine</code>에도 커피가 들어 있습니다. 이건 버그가 아니라 의도한 동작입니다. 리스트를 넘기면 함수가 그 리스트를 고칠 수 있다는 것은 시즌 1 리스트 편에서 본 성질 그대로입니다.</p>
+<p>고친 코드에서 바뀐 것은 두 줄입니다. <code>basket=[]</code>가 <code>basket=None</code>이 되고, <code>if basket is None: basket = []</code>가 들어갔습니다. 비교는 <code>==</code>가 아니라 <code>is</code>로 합니다. <code>None</code>은 세상에 하나뿐인 값이라 &quot;같은 물건인가&quot;를 묻는 <code>is</code>가 맞습니다.</p>
+<h2 id="값이-몇-개든-받기--args는-튜플로-묶입니다"><a href="#값이-몇-개든-받기--args는-튜플로-묶입니다">값이 몇 개든 받기 — *args는 튜플로 묶입니다</a></h2>
+<p>사건 하나가 끝났으니 같은 <code>def</code> 줄에서 자주 쓰는 문법을 둘 더 봅니다. 손님이 물건을 몇 개 사든 합계를 내는 함수를 만들려면 매개변수 개수를 미리 정할 수 없습니다. 이때 이름 앞에 별표를 하나 붙입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">자리 인자를 몇 개든 받는 *prices</span></div><pre class="runner__code"><code>def total(*prices):
+  print(type(prices), prices)
+  return sum(prices)
+
+print(total(1000, 2500))
+print(total())</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>&lt;class &#x27;tuple&#x27;&gt; (1000, 2500)
+3500
+&lt;class &#x27;tuple&#x27;&gt; ()
+0
+</code></pre>
+<p><code>total(1000, 2500)</code>이라고 부르면 함수 안에서 <code>prices</code>는 <code>(1000, 2500)</code>, 즉 튜플입니다. 아무것도 안 넣으면 빈 튜플입니다. 자습서는 이 인자들이 &quot;튜플로 묶인다&quot;고 적었고, 별표 매개변수 뒤에 오는 매개변수는 키워드로만 넘길 수 있다고 덧붙였습니다. 이름이 <code>args</code>일 필요는 없습니다. 관례일 뿐이고 <code>*prices</code>처럼 뜻이 보이는 이름이 낫습니다.</p>
+<p><code>이름=값</code> 꼴을 몇 개든 받으려면 별표를 둘 붙입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">이름=값 인자를 몇 개든 받는 **options</span></div><pre class="runner__code"><code>def order(**options):
+  print(type(options), options)
+  for k, v in options.items():
+      print(k, &quot;=&quot;, v)
+
+order(size=&quot;large&quot;, ice=False)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>&lt;class &#x27;dict&#x27;&gt; {&#x27;size&#x27;: &#x27;large&#x27;, &#x27;ice&#x27;: False}
+size = large
+ice = False
+</code></pre>
+<p>이번에는 딕셔너리입니다. 자습서 정의대로 &quot;대응하는 매개변수가 없는 키워드 인자들을 담은 딕셔너리&quot;를 받습니다. 시즌 2 2편에서 배운 <code>items()</code>로 그대로 돕니다.</p>
+<p>셋을 한 <code>def</code>에 같이 쓸 때 순서가 있습니다. 보통 매개변수, <code>*args</code>, <code>**kwargs</code> 순입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">세 종류를 한 줄에</span></div><pre class="runner__code"><code>def receipt(name, *items, **opts):
+  print(name, items, opts)
+
+receipt(&quot;철수&quot;, &quot;커피&quot;, &quot;빵&quot;, discount=10)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>철수 (&#x27;커피&#x27;, &#x27;빵&#x27;) {&#x27;discount&#x27;: 10}
+</code></pre>
+<p><code>&quot;철수&quot;</code>는 <code>name</code>이 받고, 남은 자리 인자 <code>&quot;커피&quot;</code>, <code>&quot;빵&quot;</code>은 튜플로, <code>discount=10</code>은 딕셔너리로 갑니다. 순서를 바꿔 키워드 인자 뒤에 자리 인자를 쓰면 <code>SyntaxError: positional argument follows keyword argument</code>가 납니다. 이건 실행 전에 걸리는 에러라 금방 찾습니다.</p>
+<p><img alt="두 줄로 나뉜 그림. 위 줄은 total(1000, 2500, 700) 호출이 화살표를 거쳐 둥근 괄호 모양 상자 *prices 안의 (1000, 2500, 700)이 되고 튜플 표가 붙어 있다. 아래 줄은 order(size=&quot;large&quot;, ice=False) 호출이 중괄호 모양 상자 **options 안의 딕셔너리가 되고 딕셔너리 표가 붙어 있다" src="/uploads/python-function-advanced-pack.jpg" loading="lazy"/></p>
+<p><em>별표 하나는 튜플로, 둘은 딕셔너리로 포장합니다. 풀 때도 별표입니다.</em></p>
+<p>포장의 반대도 됩니다. 값이 이미 리스트나 딕셔너리에 들어 있으면 호출할 때 별표를 붙여 풀어 넣습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">리스트와 딕셔너리를 풀어서 넘기기</span></div><pre class="runner__code"><code>def total(*prices):
+  return sum(prices)
+
+def order(**options):
+  for k, v in options.items():
+      print(k, &quot;=&quot;, v)
+
+prices = [1000, 2500, 700]
+print(total(*prices))
+
+opts = {&quot;size&quot;: &quot;small&quot;, &quot;ice&quot;: True}
+order(**opts)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>4200
+size = small
+ice = True
+</code></pre>
+<p><code>total(*prices)</code>는 <code>total(1000, 2500, 700)</code>과 같습니다. 자습서는 <code>range()</code>에 <code>[3, 6]</code>을 <code>*args</code>로 풀어 넘기는 예를 들었습니다. 정의에서 별표는 &quot;모아라&quot;, 호출에서 별표는 &quot;풀어라&quot;입니다.</p>
+<h2 id="두-번째-사건--count--1이-unboundlocalerror가-됩니다"><a href="#두-번째-사건--count--1이-unboundlocalerror가-됩니다">두 번째 사건 — count += 1이 UnboundLocalError가 됩니다</a></h2>
+<p>방문 횟수를 세는 함수도 신고가 들어왔습니다. 이번에는 에러가 납니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">밖의 변수를 함수 안에서 늘리기</span></div><pre class="runner__code"><code>count = 0
+
+def visit():
+  count += 1
+  return count
+
+try:
+  visit()
+except UnboundLocalError as e:
+  print(&quot;UnboundLocalError:&quot;, e)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>UnboundLocalError: cannot access local variable &#x27;count&#x27; where it is not associated with a value
+</code></pre>
+<p><code>count</code>는 분명히 위에서 0으로 만들었는데 &quot;값이 없다&quot;고 합니다. 이유는 파이썬이 <code>def</code> 안에서 <strong>대입이 있는 이름을 지역 변수로 본다</strong>는 규칙에 있습니다. <code>count += 1</code>은 <code>count = count + 1</code>이고 대입입니다. 그래서 함수 안의 <code>count</code>는 밖의 <code>count</code>와 다른 새 이름이 되고, 아직 값이 없는 새 이름에서 <code>+ 1</code>을 하려니 에러가 납니다. 공식 FAQ의 &quot;변수에 값이 있을 때 UnboundLocalError가 발생하는 이유&quot; 항목이 정확히 이 상황입니다.</p>
+<p>읽기만 하면 문제가 없습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">읽기만 하면 밖의 변수가 보입니다</span></div><pre class="runner__code"><code>rate = 0.1
+
+def tax(price):
+  return price * rate
+
+print(tax(1000))</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>100.0
+</code></pre>
+<p><code>rate</code>는 함수 안에서 대입되지 않으니 지역 변수가 아니고, 파이썬은 밖에서 찾아 씁니다. 자습서 9.2절이 적은 찾는 순서는 안에서 밖으로입니다. 함수 안, 그 함수를 감싼 함수, 모듈 전체, 마지막으로 내장 이름입니다.</p>
+<p>밖의 변수를 정말로 바꾸려면 <code>global</code>로 선언합니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">global로 밖의 count를 바꾸기</span></div><pre class="runner__code"><code>count = 0
+
+def visit():
+  global count
+  count += 1
+  return count
+
+print(visit(), visit())</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>1 2
+</code></pre>
+<p><code>global count</code> 한 줄이 &quot;이 함수 안의 count는 밖의 것&quot;이라고 알립니다. 자습서는 global로 선언하면 모든 참조와 대입이 모듈의 전역 이름으로 간다고 설명합니다. 다만 이 방법은 함수가 밖의 상태를 몰래 바꾸게 만들어 나중에 찾기 어려운 버그가 되기 쉽습니다. 저는 값을 <code>return</code>으로 돌려주고 밖에서 <code>count = visit(count)</code>처럼 받는 쪽을 먼저 씁니다. <code>global</code>은 정말 하나뿐인 설정값을 다룰 때만 씁니다.</p>
+<p>함수 안에 함수가 있을 때는 <code>nonlocal</code>입니다. 바깥 함수의 변수를 안쪽 함수가 바꿉니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">함수 안의 함수가 바깥 변수를 바꾸는 nonlocal</span></div><pre class="runner__code"><code>def counter():
+  n = 0
+  def hit():
+      nonlocal n
+      n += 1
+      return n
+  return hit
+
+h = counter()
+print(h(), h(), h())</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>1 2 3
+</code></pre>
+<p><code>hit</code>은 <code>counter</code>가 만든 <code>n</code>을 기억하고 부를 때마다 늘립니다. 자습서는 <code>nonlocal</code>로 선언하지 않으면 감싼 함수의 변수는 읽기 전용이라고 적었습니다. 이 꼴은 시즌 3 클래스 편에서 다시 나옵니다.</p>
+<h2 id="장바구니-함수로-본-규칙-다섯"><a href="#장바구니-함수로-본-규칙-다섯">장바구니 함수로 본 규칙 다섯</a></h2>
+<table><thead><tr><th>상황</th><th>규칙</th><th>근거</th></tr></thead><tbody><tr><td>기본값이 리스트·딕셔너리</td><td><code>None</code>으로 두고 안에서 새로 만든다</td><td>기본값은 <code>def</code> 때 한 번만 만들어진다</td></tr><tr><td>기본값이 숫자·문자열·튜플·<code>None</code></td><td>그대로 써도 된다</td><td>바꿀 수 없는 값은 호출 사이에 이어지지 않는다</td></tr><tr><td>자리 인자를 몇 개든</td><td><code>*args</code>, 함수 안에서는 튜플</td><td>남은 자리 인자를 튜플로 묶는다</td></tr><tr><td><code>이름=값</code>을 몇 개든</td><td><code>**kwargs</code>, 함수 안에서는 딕셔너리</td><td>대응 매개변수 없는 키워드 인자를 딕셔너리로 묶는다</td></tr><tr><td>밖의 변수를 함수 안에서 바꾸기</td><td><code>global</code>(모듈) · <code>nonlocal</code>(감싼 함수), 되도록 <code>return</code>으로</td><td>함수 안 대입은 지역 변수를 만든다</td></tr></tbody></table>
+<p>기억할 것은 셋입니다. 리스트 기본값은 <code>None</code>으로 바꿉니다. 별표는 정의에서 모으고 호출에서 풉니다. 함수 안에서 <code>+=</code>를 쓰는 이름은 지역 변수라 밖의 것을 바꾸려면 선언이 필요합니다.</p>
+<h2 id="출력을-맞혀-보면-어디서-갈리는지-보입니다"><a href="#출력을-맞혀-보면-어디서-갈리는지-보입니다">출력을 맞혀 보면 어디서 갈리는지 보입니다</a></h2>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 5문제</p><button class="quiz__btn">시작하기</button></div></div>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>파이썬 공식 자습서 4.9.1 &quot;기본 인자 값&quot; — &quot;기본값은 오직 한 번만 값이 구해집니다&quot;와 <code>L=[]</code> 누적 예제, <code>L=None</code> 해법 <a href="https://docs.python.org/ko/3/tutorial/controlflow.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/controlflow.html</a></li>
+<li>파이썬 공식 자습서 4.9.2 &quot;키워드 인자&quot;·4.9.4 &quot;임의의 인자 목록&quot;·4.9.5 &quot;인자 목록 언 패킹&quot; — <code>**name</code>은 딕셔너리, <code>*name</code>은 튜플, 호출 때 <code>*</code>로 풀기 <a href="https://docs.python.org/ko/3/tutorial/controlflow.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/controlflow.html</a></li>
+<li>파이썬 프로그래밍 FAQ &quot;객체 간에 기본값이 공유되는 이유는 무엇입니까?&quot;·&quot;변수에 값이 있을 때 UnboundLocalError가 발생하는 이유는 무엇입니까?&quot; <a href="https://docs.python.org/ko/3/faq/programming.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/faq/programming.html</a></li>
+<li>파이썬 공식 자습서 9.2 &quot;파이썬 스코프와 이름 공간&quot; — 이름을 찾는 순서, <code>global</code>과 <code>nonlocal</code> <a href="https://docs.python.org/ko/3/tutorial/classes.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/classes.html</a></li>
+</ul>
+<hr/>
+<p><em>포켓코딩(PYTHON2) 5편 · <a href="/posts/python-list-comprehension">4편(파이썬 리스트 컴프리헨션)</a>에서 이어집니다. 예제 코드는 강사 개인 GitHub 저장소의 강의 자료와 파이썬 공식 자습서의 예제를 바탕으로 다시 썼고, 출력은 전부 Python 3.14에서 실행해 받아 적었습니다. 다음 편은 모듈과 import입니다. 파일을 나누는 법, <code>from</code>으로 골라 가져오는 법, 그리고 파일 이름을 표준 모듈과 똑같이 지으면 왜 엉뚱한 것이 불려 오는지 봅니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-list-comprehension"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다</h3><p>빈 리스트를 만들고 for로 돌며 append 하던 네 줄이 대괄호 한 줄이 됩니다. 어디서 왔고 무엇이 편해졌는지, 골라내는 if는 왜 뒤에 붙고 바꿔 넣는 if else는 왜 앞에 오는지, 이중 for와 elif는 왜 안 읽히는지를 브라우저에서 돌려 보며 가릅니다.</p><div class="post-card__meta"><time dateTime="2026-09-15T14:16">2026년 9월 15일 14:16</time><span>· <!-- -->파이썬, python, 리스트컴프리헨션</span></div></a><a class="post-card " href="/posts/python-tuple-set"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유</h3><p>대괄호를 소괄호로 바꿨을 뿐인데 값을 고치면 TypeError가 납니다. 왜 그런지, 고칠 수 없는 것을 어디에 쓰는지, 원소 하나짜리 튜플에 왜 쉼표가 붙는지, 같은 이름이 다섯 번 찍힌 명단에서 집합 한 줄로 세 명을 남기는 법까지 여덟 개 질문에 답합니다.</p><div class="post-card__meta"><time dateTime="2026-09-14T00:45">2026년 9월 14일 00:45</time><span>· <!-- -->파이썬, python, 튜플</span></div></a><a class="post-card " href="/posts/python-dict"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 딕셔너리는 번호가 아니라 이름표로 꺼냅니다 — 없는 키는 KeyError</h3><p>이름과 점수를 리스트 두 개로 관리하던 코드를 딕셔너리 한 개로 바꿉니다. 꺼내기·더하기·없는 것을 물었을 때 세 라운드로 견주고, 두 리스트가 어긋나면 왜 조용히 틀리는지, KeyError와 get의 None 중 무엇이 더 위험한지 브라우저에서 돌려 보며 가릅니다.</p><div class="post-card__meta"><time dateTime="2026-09-13T07:13">2026년 9월 13일 07:13</time><span>· <!-- -->파이썬, python, 딕셔너리</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about">소개</a><a href="/contact">문의</a><a href="/stats">방문 통계</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
