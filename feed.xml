@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>크롬 비밀번호 유출됨 팝업 — 계정이 뚫린 건 아닙니다</title>
+      <link>https://pancoit.site/posts/chrome-password-leak-alert</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/chrome-password-leak-alert</guid>
+      <pubDate>Thu, 17 Sep 2026 12:33:00 GMT</pubDate>
+      <description>저장된 비밀번호가 유출됐다는 경고를 보고 검색해 들어오셨다면, 먼저 갈라야 할 것이 있습니다. 이 경고가 무엇을 말하고 무엇을 말하지 않는지, 구글이 어떻게 내 비밀번호를 모른 채 40억 건짜리 유출 목록과 맞춰 보는지, 수십 개가 떴을 때 어느 것부터 바꿔야 하는지 순서대로 적었습니다.</description>
+    </item>
+    <item>
       <title>파이썬 함수 기본값 리스트는 한 번만 만들어집니다 — *args와 global까지</title>
       <link>https://pancoit.site/posts/python-function-advanced</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-function-advanced</guid>

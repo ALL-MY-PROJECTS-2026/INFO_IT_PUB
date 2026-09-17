@@ -81,6 +81,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/posts/chrome-password-leak-alert/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/chrome-v8-zero-day-2026/</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
