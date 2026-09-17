@@ -34,12 +34,12 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
     <title>자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND) — PANCO_IT</title>
     <meta name="description" content="스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다." />
-    <link rel="canonical" href="https://pancoit.site/posts/java-stream-terminal" />
+    <link rel="canonical" href="https://pancoit.site/posts/java-stream-terminal/" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="PANCO_IT" />
     <meta property="og:title" content="자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND) — PANCO_IT" />
     <meta property="og:description" content="스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다." />
-    <meta property="og:url" content="https://pancoit.site/posts/java-stream-terminal" />
+    <meta property="og:url" content="https://pancoit.site/posts/java-stream-terminal/" />
     <meta property="og:image" content="https://pancoit.site/uploads/java-stream-terminal-r4.jpg" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="article:published_time" content="2026-08-29T13:20" />
@@ -48,8 +48,8 @@
     <meta name="twitter:title" content="자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND) — PANCO_IT" />
     <meta name="twitter:description" content="스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다." />
     <meta name="twitter:image" content="https://pancoit.site/uploads/java-stream-terminal-r4.jpg" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)","description":"스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-stream-terminal-r4.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-29T13:20","dateModified":"2026-08-29T13:20","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-stream-terminal"},"keywords":"자바, JAVA, 스트림, collect, reduce, Optional"}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA"},{"@type":"ListItem","position":3,"name":"자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)","item":"https://pancoit.site/posts/java-stream-terminal"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)","description":"스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다.","image":"https://pancoit.site/uploads/java-stream-terminal-r4.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-08-29T13:20","dateModified":"2026-08-29T13:20","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/java-stream-terminal/"},"keywords":"자바, JAVA, 스트림, collect, reduce, Optional"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"JAVA","item":"https://pancoit.site/category/JAVA/"},{"@type":"ListItem","position":3,"name":"자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)","item":"https://pancoit.site/posts/java-stream-terminal/"}]}</script>
     <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
     <script>
       (function () {
@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-H_v1WYDF.js"></script>
+    <script type="module" crossorigin src="/assets/index-DJQGfyxu.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
