@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬 import가 내 파일을 먼저 찾습니다 — 모듈 나누기와 from</title>
+      <link>https://pancoit.site/posts/python-module-import</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-module-import</guid>
+      <pubDate>Thu, 17 Sep 2026 17:29:00 GMT</pubDate>
+      <description>계산기 파일이 200줄을 넘어 둘로 나눴습니다. calc.py를 만들고 main.py에서 import 한 줄로 불러 오는 법, from으로 필요한 것만 골라 오는 법, 그리고 파일 이름을 random.py로 지었더니 표준 random이 통째로 가려진 사건까지 Python 3.14 실행 결과로 확인합니다.</description>
+    </item>
+    <item>
       <title>크롬 비밀번호 유출됨 팝업 — 계정이 뚫린 건 아닙니다</title>
       <link>https://pancoit.site/posts/chrome-password-leak-alert</link>
       <guid isPermaLink="true">https://pancoit.site/posts/chrome-password-leak-alert</guid>

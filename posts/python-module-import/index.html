@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬 import가 내 파일을 먼저 찾습니다 — 모듈 나누기와 from — PANCO_IT</title>
+    <meta name="description" content="계산기 파일이 200줄을 넘어 둘로 나눴습니다. calc.py를 만들고 main.py에서 import 한 줄로 불러 오는 법, from으로 필요한 것만 골라 오는 법, 그리고 파일 이름을 random.py로 지었더니 표준 random이 통째로 가려진 사건까지 Python 3.14 실행 결과로 확인합니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-module-import/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬 import가 내 파일을 먼저 찾습니다 — 모듈 나누기와 from — PANCO_IT" />
+    <meta property="og:description" content="계산기 파일이 200줄을 넘어 둘로 나눴습니다. calc.py를 만들고 main.py에서 import 한 줄로 불러 오는 법, from으로 필요한 것만 골라 오는 법, 그리고 파일 이름을 random.py로 지었더니 표준 random이 통째로 가려진 사건까지 Python 3.14 실행 결과로 확인합니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-module-import/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/python-module-import-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-17T17:29" />
+    <meta property="article:modified_time" content="2026-09-17T17:29" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬 import가 내 파일을 먼저 찾습니다 — 모듈 나누기와 from — PANCO_IT" />
+    <meta name="twitter:description" content="계산기 파일이 200줄을 넘어 둘로 나눴습니다. calc.py를 만들고 main.py에서 import 한 줄로 불러 오는 법, from으로 필요한 것만 골라 오는 법, 그리고 파일 이름을 random.py로 지었더니 표준 random이 통째로 가려진 사건까지 Python 3.14 실행 결과로 확인합니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/python-module-import-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬 import가 내 파일을 먼저 찾습니다 — 모듈 나누기와 from","description":"계산기 파일이 200줄을 넘어 둘로 나눴습니다. calc.py를 만들고 main.py에서 import 한 줄로 불러 오는 법, from으로 필요한 것만 골라 오는 법, 그리고 파일 이름을 random.py로 지었더니 표준 random이 통째로 가려진 사건까지 Python 3.14 실행 결과로 확인합니다.","image":"https://pancoit.site/uploads/python-module-import-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-17T17:29","dateModified":"2026-09-17T17:29","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-module-import/"},"keywords":"파이썬, python, 모듈, import, from import, 표준라이브러리, ModuleNotFoundError, 파이썬독학, 파이썬기초"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PYTHON","item":"https://pancoit.site/category/PYTHON/"},{"@type":"ListItem","position":3,"name":"파이썬 import가 내 파일을 먼저 찾습니다 — 모듈 나누기와 from","item":"https://pancoit.site/posts/python-module-import/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DTe3VTQ2.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PYTHON/">PYTHON</a></li><li><span aria-current="page">파이썬 import가 내 파일을 먼저 찾습니다 — 모듈 나누기와 from</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PYTHON/">PYTHON</a><h1 style="margin-top:0.75rem">파이썬 import가 내 파일을 먼저 찾습니다 — 모듈 나누기와 from</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-17T17:29">2026년 9월 17일 17:29</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->python</span><span class="tag">#<!-- -->모듈</span><span class="tag">#<!-- -->import</span><span class="tag">#<!-- -->from import</span><span class="tag">#<!-- -->표준라이브러리</span><span class="tag">#<!-- -->ModuleNotFoundError</span><span class="tag">#<!-- -->파이썬독학</span><span class="tag">#<!-- -->파이썬기초</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="창고 선반에 번호와 이름표가 붙은 보관함이 줄지어 꽂혀 있는 사진" src="/uploads/python-module-import-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels · cottonbro studio · Pexels License</em></p>
+<p>계산기 스크립트가 213줄이 됐습니다. 위쪽 절반은 세금과 할인을 계산하는 함수들이고, 아래쪽 절반은 그 결과를 화면에 찍는 부분입니다. 할인율 하나 고치려고 스크롤을 한참 내리다가 엉뚱한 함수를 건드린 것이 이번 주에만 두 번.</p>
+<p>오늘 이 파일을 둘로 가릅니다. 계산은 <code>calc.py</code>가 맡고, 부르는 쪽은 <code>main.py</code>가 맡습니다. 끝나면 <code>main.py</code> 하나만 돌려도 이렇게 나옵니다.</p>
+<pre><code>calc 모듈이 읽혔습니다
+5
+0.1
+calc
+</code></pre>
+<p>네 줄인데 내용은 전부 옆 파일 것입니다. 첫 줄은 <code>calc.py</code>가 스스로 찍은 것이고, 나머지 셋은 <code>main.py</code>가 <code>calc.py</code>에서 꺼내 온 값입니다. 파일을 나눴는데 값은 건너옵니다. 그 다리가 <code>import</code> 한 줄입니다.</p>
+<h2 id="모듈과-import가-뭔가요--정의부터"><a href="#모듈과-import가-뭔가요--정의부터">모듈과 import가 뭔가요 — 정의부터</a></h2>
+<p>파이썬 공식 자습서는 <strong>모듈</strong>을 &quot;파이썬 정의와 문장들을 담고 있는 파일&quot;이라고 정의합니다. 파일 이름이 곧 모듈 이름이고, 확장자 <code>.py</code>를 뺀 부분이 그 이름입니다. <code>calc.py</code>를 만들면 모듈 이름은 <code>calc</code>입니다. 특별한 선언도, 등록 절차도 없습니다. 파일을 만들면 그게 모듈입니다.</p>
+<p><code>import</code>는 그 모듈을 지금 파일로 데려오는 문장입니다. 자습서는 import가 모듈 이름을 <strong>현재 이름 공간에 들여놓는다</strong>고 적었습니다. 이름 공간은 &quot;이름과 값을 짝지어 둔 목록&quot;입니다. <code>import calc</code> 한 줄이면 내 파일의 목록에 <code>calc</code>라는 이름표가 하나 생기고, 그 이름표를 통해 <code>calc.add</code>처럼 안쪽 것들에 닿습니다.</p>
+<p>왜 나누느냐면, 같은 계산을 다른 프로그램에서도 쓰려면 복사해 붙이는 수밖에 없기 때문입니다. 복사본이 셋이 되면 고칠 자리도 셋이 됩니다. 파일 하나로 두고 세 프로그램이 불러 쓰면 고칠 자리는 하나.</p>
+<p>성질은 이렇습니다.</p>
+<table><thead><tr><th>성질</th><th>뜻</th></tr></thead><tbody><tr><td>파일 이름에서 <code>.py</code>를 뺀 것이 모듈 이름</td><td><code>calc.py</code> → <code>calc</code></td></tr><tr><td><code>import</code>는 그 파일을 위에서 아래로 한 번 실행한다</td><td>함수 정의뿐 아니라 <code>print</code>도 그때 돈다</td></tr><tr><td>같은 모듈을 여러 번 import해도 실행은 한 번</td><td>두 번째부터는 이미 읽어 둔 것을 준다</td></tr><tr><td>찾는 순서는 실행 중인 파일이 있는 폴더가 먼저</td><td>표준 모듈보다 내 폴더가 앞선다</td></tr></tbody></table>
+<p>이 글에서 쓰는 말입니다.</p>
+<table><thead><tr><th>용어</th><th>뜻</th></tr></thead><tbody><tr><td>모듈</td><td>파이썬 코드가 든 <code>.py</code> 파일 하나</td></tr><tr><td>표준 모듈</td><td>파이썬을 깔면 같이 딸려 오는 모듈. <code>math</code>, <code>random</code>, <code>datetime</code> 같은 것들</td></tr><tr><td>이름 공간</td><td>지금 파일에서 쓸 수 있는 이름들의 목록</td></tr><tr><td>점 표기</td><td><code>calc.add</code>처럼 모듈 이름 뒤에 점을 찍어 안쪽 것을 가리키는 방식</td></tr><tr><td>별명</td><td><code>import calc as c</code>의 <code>c</code>처럼 짧게 붙여 쓰는 다른 이름</td></tr></tbody></table>
+<p>앞의 창고 사진이 이 구조 그대로입니다. 선반 칸마다 이름표가 붙어 있고, 필요한 것을 꺼낼 때는 이름표를 보고 손을 뻗습니다. <code>import</code>는 선반 하나를 내 작업대 옆으로 끌어오는 일이고, <code>from</code>은 그 선반에서 나사 한 봉지만 집어 오는 일입니다. 선반째 끌어오면 뭐가 어디서 왔는지 이름표로 보이고, 봉지만 집어 오면 손이 짧아지는 대신 출처가 안 보입니다. 이 차이가 뒤에서 사고를 냅니다.</p>
+<h2 id="파일을-둘로-나눠-봅니다"><a href="#파일을-둘로-나눠-봅니다">파일을 둘로 나눠 봅니다</a></h2>
+<p>같은 폴더에 파일 두 개를 만듭니다. 먼저 계산을 맡을 <code>calc.py</code>를 씁니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;calc 모듈이 읽혔습니다&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">TAX</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0.1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a, b):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> total</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(price, count):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> price </span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> count</span></span></code></pre>
+<p>맨 위의 <code>print</code>는 원래 필요 없는 줄입니다. 언제 실행되는지 눈으로 보려고 일부러 넣었습니다. 뒤에서 뺍니다.</p>
+<p>그 다음은 부르는 쪽 <code>main.py</code>입니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> calc</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(calc.add(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(calc.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">TAX</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(calc.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">__name__</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<p><code>main.py</code>를 실행합니다.</p>
+<pre><code>calc 모듈이 읽혔습니다
+5
+0.1
+calc
+</code></pre>
+<p><code>main.py</code> 어디에도 <code>print(&quot;calc 모듈이 읽혔습니다&quot;)</code>가 없는데 첫 줄에 찍혔습니다. <code>import calc</code>가 <code>calc.py</code>를 위에서 아래로 한 번 훑고 지나갔기 때문입니다. 함수 정의 두 개와 변수 <code>TAX</code> 하나가 그때 만들어졌고, 중간에 있던 <code>print</code>도 같이 실행됐습니다.</p>
+<p>그 아래 세 줄은 점 표기입니다. <code>calc.add</code>는 &quot;calc 선반에 있는 add&quot;, <code>calc.TAX</code>는 &quot;calc 선반에 있는 TAX&quot;. 마지막 <code>calc.__name__</code>은 모듈이 자기 이름을 적어 두는 자리이고, 여기서는 <code>calc</code>가 나옵니다. 이 값이 뒤에서 한 번 더 쓰입니다.</p>
+<p>두 파일은 <strong>같은 폴더</strong>에 있어야 합니다. <code>main.py</code>만 바탕화면에 두고 <code>calc.py</code>를 문서 폴더에 두면 못 찾습니다. 이유는 다섯 번째 절에서 봅니다.</p>
+<h2 id="import-한-줄은-파일-전체를-한-번만-실행합니다"><a href="#import-한-줄은-파일-전체를-한-번만-실행합니다">import 한 줄은 파일 전체를 한 번만 실행합니다</a></h2>
+<p>그럼 두 번 import하면 두 번 실행될까요. 해 봅니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> calc</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> calc</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;두 번 import 했습니다&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(calc.total(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), calc.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">TAX</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<pre><code>calc 모듈이 읽혔습니다
+두 번 import 했습니다
+30 0.1
+</code></pre>
+<p><code>import calc</code>가 두 줄인데 &quot;calc 모듈이 읽혔습니다&quot;는 한 번만 찍혔습니다. 파이썬은 한 번 읽은 모듈을 기억해 두고, 두 번째부터는 읽어 둔 것을 그대로 건넵니다. 두 번 쓰든 열 번 쓰든 같습니다. 자습서도 모듈 초기화 코드는 <strong>처음 import될 때만</strong> 실행된다고 못박아 뒀습니다.</p>
+<p>덕분에 파일 열 개가 같은 모듈을 import해도 무거워지지 않습니다. 대신 함정이 하나. 프로그램을 돌려 놓은 상태에서 <code>calc.py</code>를 고쳐도 반영되지 않습니다. 이미 읽어 둔 것을 쓰니까요. 고쳤으면 프로그램을 다시 시작해야 합니다. 처음 모듈을 나눠 쓸 때 &quot;분명히 고쳤는데 그대로인데요&quot; 하는 상황이 거의 이것입니다.</p>
+<p>모듈이 실제로 무엇인지도 확인할 수 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> calc</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">type</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(calc))</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(calc)</span></span></code></pre>
+<pre><code>&lt;class &#x27;module&#x27;&gt;
+&lt;module &#x27;calc&#x27; from &#x27;C:\\...\\run\\calc.py&#x27;&gt;
+</code></pre>
+<p><code>calc</code>는 문자열도 함수도 아닌 <strong>module 타입의 값</strong>이고, 어느 파일에서 왔는지 경로까지 달고 있습니다. 리스트나 딕셔너리처럼, 모듈도 변수에 담기는 값 하나입니다.</p>
+<p>여기서 <code>calc.py</code>의 <code>print</code> 줄을 빼야 합니다. 그런데 <code>calc.py</code>만 따로 돌려 시험할 때는 그런 출력이 있는 편이 편합니다. 둘 다 되게 하는 관용구가 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">if</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> __name__</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;__main__&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">    print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;calc 를 직접 실행했습니다&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<p><code>calc.py</code>를 직접 실행하면 그 파일의 <code>__name__</code>은 <code>&quot;__main__&quot;</code>이 되고, 다른 파일이 import해서 들어오면 <code>&quot;calc&quot;</code>가 됩니다. 아까 <code>main.py</code>에서 <code>calc.__name__</code>을 찍었을 때 <code>calc</code>가 나온 것이 그 증거입니다. 그래서 이 <code>if</code> 아래에 둔 줄은 <strong>직접 실행할 때만</strong> 돌고, import될 때는 건너뜁니다. 시험용 출력이나 예제 코드를 여기에 넣어 둡니다.</p>
+<h2 id="필요한-것만-골라-오기--from과-as"><a href="#필요한-것만-골라-오기--from과-as">필요한 것만 골라 오기 — from과 as</a></h2>
+<p><code>calc.add</code>, <code>calc.TAX</code>, <code>calc.total</code>. 점 표기가 길다 싶으면 필요한 이름만 직접 가져올 수 있습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> calc </span><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> add, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">TAX</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(add(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), </span><span style="color:#005CC5;--shiki-dark:#79B8FF">TAX</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(calc.add(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span></code></pre>
+<pre><code>calc 모듈이 읽혔습니다
+3 0.1
+NameError: name &#x27;calc&#x27; is not defined
+</code></pre>
+<p>앞의 두 값은 잘 나왔습니다. <code>add</code>와 <code>TAX</code>를 점 없이 바로 씁니다. 그런데 마지막 줄에서 <code>NameError</code>. <code>from calc import add, TAX</code>는 <strong><code>add</code>와 <code>TAX</code>라는 이름표만</strong> 내 목록에 놓습니다. <code>calc</code>라는 이름표는 놓지 않습니다. 모듈은 읽히지만(그래서 첫 줄이 찍혔습니다) 그 이름으로 부를 수는 없습니다.</p>
+<p>이름이 마음에 안 들면 <code>as</code>로 바꿔 답니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> calc </span><span style="color:#D73A49;--shiki-dark:#F97583">as</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> c</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> calc </span><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> total </span><span style="color:#D73A49;--shiki-dark:#F97583">as</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> 합계</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(c.add(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(합계(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1200</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span></code></pre>
+<pre><code>9
+3600
+</code></pre>
+<p><code>import calc as c</code>는 선반을 <code>c</code>라는 짧은 이름표로 끌어옵니다. <code>from calc import total as 합계</code>는 함수 하나를 가져오면서 이름을 바꿔 답니다. 남들이 <code>import pandas as pd</code>, <code>import numpy as np</code>라고 쓰는 것이 이 문법입니다.</p>
+<p><img alt="세 갈래의 import 문장이 각각 내 파일의 이름표 목록에 무엇을 놓는지 그린 관계도. import calc는 calc 상자 하나, from calc import add는 add 이름표만, import calc as c는 c 이름표만 놓는다" src="/uploads/python-module-import-namespace.jpg" loading="lazy"/></p>
+<p><em>같은 파일을 읽어도 내 목록에 남는 이름표는 다릅니다.</em></p>
+<p>셋 중 무엇을 쓸지는 취향이 아니라 읽는 사람 기준으로 정합니다. 저는 <code>import 모듈</code> 쪽을 기본으로 씁니다. <code>add(1, 2)</code>만 보이면 이 <code>add</code>가 어디서 왔는지 파일을 뒤져야 하지만, <code>calc.add(1, 2)</code>는 그 자리에서 답이 나옵니다. <code>from</code>은 <code>from datetime import date</code>처럼 <strong>아주 자주 쓰는 한두 개</strong>에만 씁니다.</p>
+<p><code>from calc import *</code>처럼 별표로 전부 가져오는 문법도 있습니다. 자습서는 이 방식이 이미 정의해 둔 이름을 덮어쓸 수 있어 <strong>일반적으로 좋지 않게 여겨진다</strong>고 적었습니다. 쓰지 않는 쪽으로 배우는 편이 낫습니다.</p>
+<h2 id="파일-이름을-randompy로-지었더니"><a href="#파일-이름을-randompy로-지었더니">파일 이름을 random.py로 지었더니</a></h2>
+<p>로또 번호를 뽑는 연습을 합니다. 파일 이름은 <code>lotto.py</code>.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> random</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(random.randint(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span></code></pre>
+<pre><code>1
+</code></pre>
+<p>잘 됩니다. 이제 난수 관련 실험을 따로 정리하려고, 같은 폴더에 메모용 파일을 하나 더 만듭니다. 이름은 알아보기 쉽게 <code>random.py</code>로 정합니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;내가 만든 random.py 입니다&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<p>그리고 아까 잘 되던 <code>lotto.py</code>를 다시 돌립니다.</p>
+<pre><code>내가 만든 random.py 입니다
+Traceback (most recent call last):
+  File &quot;...\lotto.py&quot;, line 2, in &lt;module&gt;
+    print(random.randint(1, 10))
+          ^^^^^^^^^^^^^^
+AttributeError: module &#x27;random&#x27; has no attribute &#x27;randint&#x27; (consider renaming
+&#x27;...\random.py&#x27; since it has the same name as the standard library module named
+&#x27;random&#x27; and prevents importing that standard library module)
+</code></pre>
+<p><code>lotto.py</code>는 한 글자도 안 고쳤는데 터졌습니다. 옆에 파일 하나를 만들었을 뿐입니다.</p>
+<p><code>import random</code>을 만난 파이썬이 <code>random</code>이라는 이름의 모듈을 찾아 나섰고, 제일 먼저 뒤진 곳이 <strong>지금 돌리는 파일이 있는 폴더</strong>였습니다. 거기 <code>random.py</code>가 있으니 그걸 집었고, 표준 <code>random</code>은 쳐다보지도 않았습니다. 그래서 첫 줄에 &quot;내가 만든 random.py 입니다&quot;가 찍혔고, 그 안에 <code>randint</code>가 없으니 <code>AttributeError</code>가 났습니다.</p>
+<p>찾는 순서는 <code>sys.path</code>라는 목록에 들어 있습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">파이썬이 모듈을 찾는 순서의 첫 칸</span></div><pre class="runner__code"><code>import sys
+
+print(len(sys.path), &quot;곳을 순서대로 뒤집니다&quot;)
+print(&quot;첫 칸:&quot;, repr(sys.path[0]))
+for p in sys.path[1:4]:
+  print(&quot;  -&quot;, p)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<p>첫 칸이 빈 문자열이거나 실행 중인 스크립트의 폴더입니다. 자습서도 인터프리터가 <strong>입력 스크립트가 있는 디렉터리</strong>를 먼저 찾고 그 다음에 표준 라이브러리 경로를 본다고 설명합니다. 내 폴더가 언제나 앞입니다.</p>
+<p><img alt="이층 선반에 random이라는 똑같은 이름표가 붙은 상자가 위아래로 하나씩 놓여 있고, 1번이 붙은 내 폴더 상자를 손이 먼저 집는 장면" src="/uploads/python-module-import-samename.jpg" loading="lazy"/></p>
+<p><em>1번이 내 폴더입니다. 거기서 찾으면 2번 표준 모듈까지 차례가 가지 않습니다.</em></p>
+<p>그래서 파일 이름 짓기가 규칙이 됩니다. <code>random.py</code>, <code>math.py</code>, <code>time.py</code>, <code>json.py</code>, <code>email.py</code>, <code>test.py</code>, <code>string.py</code>. 표준 모듈과 같은 이름은 피합니다. 헷갈리면 <code>my_random.py</code>, <code>lotto_util.py</code>처럼 앞뒤에 뭔가를 붙입니다. 파이썬이 친절하게 이름을 바꿔 보라고 알려 주긴 하지만, 이 힌트가 안 나오는 경우도 있습니다. 표준 모듈을 import하지 않고 내 파일만 조용히 쓰고 있으면 에러 없이 엉뚱하게 동작합니다.</p>
+<p>한 가지 더. 폴더에 <code>__pycache__</code>가 생기고 그 안에 <code>calc.cpython-314.pyc</code> 같은 파일이 보일 텐데, 파이썬이 읽어 둔 것을 다음번에 빨리 쓰려고 저장해 둔 것입니다. 지워도 되고 그냥 둬도 됩니다. 손으로 고칠 파일은 아닙니다.</p>
+<h2 id="에러-두-줄을-읽습니다"><a href="#에러-두-줄을-읽습니다">에러 두 줄을 읽습니다</a></h2>
+<p>모듈 쪽에서 만나는 에러는 크게 둘입니다. 이름이 다릅니다.</p>
+<p>이름 자체를 못 찾으면 <code>ModuleNotFoundError</code>입니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">없는 모듈을 부르면</span></div><pre class="runner__code"><code>try:
+  import 없는모듈
+except ModuleNotFoundError as e:
+  print(type(e).__name__)
+  print(e)</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>ModuleNotFoundError
+No module named &#x27;없는모듈&#x27;
+</code></pre>
+<p>파일 이름 오타, 다른 폴더에 둔 경우, 아직 설치하지 않은 외부 라이브러리가 여기 해당합니다. 오타부터 보고, 그 다음 두 파일이 같은 폴더에 있는지 봅니다.</p>
+<p>모듈은 찾았는데 그 안에 없는 것을 꺼내려 하면 <code>AttributeError</code>입니다. 아까 <code>random.randint</code>가 그랬습니다. 이 에러가 나면 &quot;내가 부른 그 모듈이 정말 내가 생각한 그 모듈인가&quot;를 의심합니다. 확인은 한 줄이면 됩니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> random</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(random.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">__file__</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<p>표준 <code>random</code>이면 파이썬 설치 폴더 안쪽 경로가 나오고, 내 파일이 가로챘으면 작업 폴더 경로가 나옵니다.</p>
+<p><img alt="터미널에 찍힌 AttributeError 전문 가운데 이름을 바꿔 보라고 권하는 마지막 괄호 대목에 펜 동그라미가 쳐져 있고, 그 부분만 오른쪽 메모지에 크게 옮겨 적힌 그림" src="/uploads/python-module-import-error.jpg" loading="lazy"/></p>
+<p><em>긴 에러에서 실제로 읽을 곳은 뒤쪽 괄호 안입니다.</em></p>
+<p>에러 메시지가 길다고 넘기지 않는 편이 좋습니다. 파이썬은 원인 짐작까지 적어 주는데, 그 문장이 대개 마지막 줄 괄호 안에 있습니다.</p>
+<h2 id="표준-모듈은-이미-선반에-있습니다"><a href="#표준-모듈은-이미-선반에-있습니다">표준 모듈은 이미 선반에 있습니다</a></h2>
+<p>직접 만든 모듈만 import하는 것은 아닙니다. 파이썬을 깔면 따라오는 모듈이 200개가 넘습니다. 설치도 필요 없습니다.</p>
+<div class="runner"><div class="runner__bar"><span class="runner__label">표준 모듈 셋을 꺼내 쓰기</span></div><pre class="runner__code"><code>import math
+import random
+import datetime
+
+print(math.sqrt(16))
+print(math.floor(3.7), math.ceil(3.2))
+
+print(len(random.sample(range(1, 46), 6)))
+print(random.choice([&quot;아메리카노&quot;, &quot;라떼&quot;, &quot;녹차&quot;]))
+
+오늘 = datetime.date(2026, 9, 17)
+print(오늘, &quot;는 요일번호&quot;, 오늘.weekday())</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
+<pre><code>4.0
+3 4
+6
+(셋 중 무작위로 하나)
+2026-09-17 는 요일번호 3
+</code></pre>
+<p><code>math.sqrt(16)</code>이 <code>4</code>가 아니라 <code>4.0</code>으로 나온 것이 눈에 띕니다. 제곱근은 늘 실수로 돌려주니까요. <code>weekday()</code>가 돌려준 <code>3</code>은 목요일입니다. 월요일이 <code>0</code>이니 셋을 더하면 목요일.</p>
+<p>어떤 모듈이 있는지는 외우는 게 아니라 필요할 때 찾습니다. &quot;파이썬 날짜 차이&quot;, &quot;파이썬 폴더 목록&quot;처럼 하려는 일로 검색하면 표준 모듈 이름이 먼저 나옵니다. <code>os</code>는 파일과 폴더, <code>json</code>은 데이터 주고받기, <code>csv</code>는 표 파일, <code>re</code>는 문자열 패턴을 맡습니다. 시즌 4에서 자주 부르게 됩니다.</p>
+<h2 id="완성한-파일-두-개"><a href="#완성한-파일-두-개">완성한 파일 두 개</a></h2>
+<p>처음의 213줄짜리 계산기를 정리한 결과입니다. <code>calc.py</code>부터.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;&quot;&quot;가격 계산 함수 모음.&quot;&quot;&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">TAX</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0.1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> add</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a, b):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> total</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(price, count):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> price </span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> count</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> with_tax</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(price):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> round</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(price </span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> TAX</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">if</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> __name__</span><span style="color:#D73A49;--shiki-dark:#F97583"> ==</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;__main__&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">    print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;calc.py 자체 점검&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">    print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(add(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), total(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1200</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), with_tax(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10000</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span></code></pre>
+<p>맨 위 따옴표 세 개짜리 줄은 이 파일이 무엇을 하는지 적어 두는 자리입니다. 맨 아래 <code>if</code> 블록은 <code>calc.py</code>를 직접 돌릴 때만 실행되는 자체 점검이고요. 그리고 부르는 쪽 <code>main.py</code>.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> calc</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">가격 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1200</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">개수 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 3</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">합계 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> calc.total(가격, 개수)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;합계&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, 합계)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;세금 포함&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, calc.with_tax(합계))</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;세율&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, calc.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">TAX</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<pre><code>합계 3600
+세금 포함 3960
+세율 0.1
+</code></pre>
+<p><code>main.py</code>에는 계산식이 한 줄도 없습니다. 세율을 8퍼센트로 바꿀 일이 생기면 <code>calc.py</code>의 <code>TAX</code> 한 줄만 고칩니다. 이 계산을 쓰는 프로그램이 셋으로 늘어도 고칠 자리는 여전히 하나.</p>
+<p>문장마다 내 목록에 남는 것이 다릅니다.</p>
+<table><thead><tr><th>하려는 일</th><th>쓰는 문장</th><th>결과</th></tr></thead><tbody><tr><td>모듈 통째로 데려오기</td><td><code>import calc</code></td><td><code>calc</code>라는 이름표 하나. <code>calc.add</code>로 접근</td></tr><tr><td>필요한 것만 집어 오기</td><td><code>from calc import add</code></td><td><code>add</code> 이름표만. <code>calc</code>는 못 씀</td></tr><tr><td>짧은 이름으로 쓰기</td><td><code>import calc as c</code></td><td><code>c</code> 이름표만. <code>calc</code>는 못 씀</td></tr><tr><td>직접 실행할 때만 돌리기</td><td><code>if __name__ == &quot;__main__&quot;:</code></td><td>import될 때는 건너뜀</td></tr><tr><td>전부 가져오기</td><td><code>from calc import *</code></td><td>이름 충돌 위험. 권하지 않음</td></tr></tbody></table>
+<p>굳이 줄이면 이 정도입니다. <code>import</code>는 그 파일을 한 번 실행합니다. <code>from</code>으로 가져오면 모듈 이름표는 안 생깁니다. 그리고 파일 이름은 표준 모듈과 겹치지 않게 짓습니다.</p>
+<h2 id="출력을-맞혀-보면-어디서-갈리는지-보입니다"><a href="#출력을-맞혀-보면-어디서-갈리는지-보입니다">출력을 맞혀 보면 어디서 갈리는지 보입니다</a></h2>
+<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 4문제 + 4지선다 4문제</p><button class="quiz__btn">시작하기</button></div></div>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>파이썬 공식 자습서 6장 &quot;모듈&quot; — 모듈의 정의, <code>import</code>가 이름 공간에 하는 일, 초기화 코드가 한 번만 실행되는 규칙 <a href="https://docs.python.org/ko/3/tutorial/modules.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/modules.html</a></li>
+<li>같은 문서 6.1.1 &quot;모듈 검색 경로&quot; — 입력 스크립트가 있는 디렉터리를 먼저 찾는 순서와 <code>sys.path</code> <a href="https://docs.python.org/ko/3/tutorial/modules.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/modules.html</a></li>
+<li>같은 문서 6.4.1 — 별표로 전부 가져오는 방식을 권하지 않는 이유 <a href="https://docs.python.org/ko/3/tutorial/modules.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/tutorial/modules.html</a></li>
+<li>파이썬 표준 라이브러리 <code>random</code>·<code>math</code>·<code>datetime</code> 문서 <a href="https://docs.python.org/ko/3/library/index.html" target="_blank" rel="noopener noreferrer">https://docs.python.org/ko/3/library/index.html</a></li>
+</ul>
+<hr/>
+<p><em>포켓코딩(PYTHON2) 6편 · <a href="/posts/python-function-advanced/">5편(파이썬 함수 기본값과 가변 인자)</a>에서 이어집니다. 예제 코드는 강사 개인 GitHub 저장소의 강의 자료와 파이썬 공식 자습서의 예제를 바탕으로 다시 썼고, 출력은 전부 Python 3.14에서 실행해 받아 적었습니다. 다음 편은 예외 처리입니다. <code>try</code>와 <code>except</code>로 에러를 받아 내는 법, <code>finally</code>가 언제 도는지, 그리고 <code>except:</code> 하나로 전부 잡으면 왜 위험한지 봅니다.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-list-comprehension/"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다</h3><p>빈 리스트를 만들고 for로 돌며 append 하던 네 줄이 대괄호 한 줄이 됩니다. 어디서 왔고 무엇이 편해졌는지, 골라내는 if는 왜 뒤에 붙고 바꿔 넣는 if else는 왜 앞에 오는지, 이중 for와 elif는 왜 안 읽히는지를 브라우저에서 돌려 보며 가릅니다.</p><div class="post-card__meta"><time dateTime="2026-09-15T14:16">2026년 9월 15일 14:16</time><span>· <!-- -->파이썬, python, 리스트컴프리헨션</span></div></a><a class="post-card " href="/posts/python-tuple-set/"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 튜플은 못 고치고 집합은 중복을 버립니다 — (1,) 콤마의 이유</h3><p>대괄호를 소괄호로 바꿨을 뿐인데 값을 고치면 TypeError가 납니다. 왜 그런지, 고칠 수 없는 것을 어디에 쓰는지, 원소 하나짜리 튜플에 왜 쉼표가 붙는지, 같은 이름이 다섯 번 찍힌 명단에서 집합 한 줄로 세 명을 남기는 법까지 여덟 개 질문에 답합니다.</p><div class="post-card__meta"><time dateTime="2026-09-14T00:45">2026년 9월 14일 00:45</time><span>· <!-- -->파이썬, python, 튜플</span></div></a><a class="post-card " href="/posts/python-dict/"><span class="tag" style="align-self:flex-start">PYTHON</span><h3 style="margin-top:0.75rem">파이썬 딕셔너리는 번호가 아니라 이름표로 꺼냅니다 — 없는 키는 KeyError</h3><p>이름과 점수를 리스트 두 개로 관리하던 코드를 딕셔너리 한 개로 바꿉니다. 꺼내기·더하기·없는 것을 물었을 때 세 라운드로 견주고, 두 리스트가 어긋나면 왜 조용히 틀리는지, KeyError와 get의 None 중 무엇이 더 위험한지 브라우저에서 돌려 보며 가릅니다.</p><div class="post-card__meta"><time dateTime="2026-09-13T07:13">2026년 9월 13일 07:13</time><span>· <!-- -->파이썬, python, 딕셔너리</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
