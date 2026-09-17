@@ -90,6 +90,7 @@
   "src/components/PythonRunner.tsx": [],
   "src/components/Quiz.tsx": [],
   "src/components/ReadingProgress.tsx": [],
+  "src/components/SLink.tsx": [],
   "src/components/ScrollToTop.tsx": [],
   "src/components/Seo.tsx": [],
   "src/components/Sidebar.tsx": [],
