@@ -21,25 +21,11 @@
       <description>장바구니 함수를 세 번 불렀더니 첫 손님 사과가 셋째 손님 바구니에 들어 있었습니다. 기본값 basket=[]가 def 때 한 번만 만들어져 세 호출이 같은 리스트를 쓰기 때문입니다. None으로 고치는 법, 값을 몇 개든 받는 *args와 **kwargs, 함수 안에서 count += 1이 UnboundLocalError가 되는 이유와 global까지 실행 결과로 확인합니다.</description>
     </item>
     <item>
-      <title>스타벅스 스누피 MD 9종 가격표 — 매장 가기 전 확인할 7가지</title>
-      <link>https://pancoit.site/posts/starbucks-peanuts-pumpkin-md</link>
-      <guid isPermaLink="true">https://pancoit.site/posts/starbucks-peanuts-pumpkin-md</guid>
-      <pubDate>Wed, 16 Sep 2026 09:57:00 GMT</pubDate>
-      <description>스타벅스 코리아가 9월 15일에 낸 펌킨 피너츠 상품 9종의 가격은 9,000원부터 52,000원까지입니다. 매장은 1인 1회 품목당 2개까지이고, 핀 세트는 온라인에서만 팔며, 온라인에서 산 것은 매장에서 바꿔 주지 않습니다. 팔지 않는 매장 52곳과 교환 조건까지 공지 원문대로 옮겼습니다.</description>
-    </item>
-    <item>
       <title>파이썬 리스트 컴프리헨션 — for 네 줄이 한 줄로, 조건은 앞과 뒤가 다릅니다</title>
       <link>https://pancoit.site/posts/python-list-comprehension</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-list-comprehension</guid>
       <pubDate>Tue, 15 Sep 2026 14:16:00 GMT</pubDate>
       <description>빈 리스트를 만들고 for로 돌며 append 하던 네 줄이 대괄호 한 줄이 됩니다. 어디서 왔고 무엇이 편해졌는지, 골라내는 if는 왜 뒤에 붙고 바꿔 넣는 if else는 왜 앞에 오는지, 이중 for와 elif는 왜 안 읽히는지를 브라우저에서 돌려 보며 가릅니다.</description>
-    </item>
-    <item>
-      <title>추석 온누리상품권 환급 9월 16~20일 — 영수증 합산해 최대 4만 원</title>
-      <link>https://pancoit.site/posts/chuseok-onnuri-refund</link>
-      <guid isPermaLink="true">https://pancoit.site/posts/chuseok-onnuri-refund</guid>
-      <pubDate>Tue, 15 Sep 2026 10:44:00 GMT</pubDate>
-      <description>9월 16일 수요일부터 20일 일요일까지 전통시장에서 국산 농축산물이나 수산물을 34,000원어치 사면 온누리상품권 1만 원, 67,000원어치면 2만 원을 돌려줍니다. 농축산물과 수산물은 한도가 따로라 둘 다 하는 시장에서는 4만 원까지 받습니다. 행사 기간 안의 영수증은 합산되고, 휴대전화 번호나 신분증이 있어야 합니다.</description>
     </item>
     <item>
       <title>아이폰 듀오 vs 갤럭시 Z 폴드8 — Face ID·무게·주름·가격 비교</title>
@@ -77,13 +63,6 @@
       <description>회원 정보를 다듬는 여덟 줄에 실수가 세 개 숨어 있습니다. 셋 다 에러가 나지 않아서 출력을 보기 전까지 모릅니다. strip이 왜 안 먹는지, 괄호를 빠뜨리면 무엇이 담기는지, 슬라이싱이 왜 공백까지 잘라 오는지 브라우저에서 직접 돌려 보며 잡습니다.</description>
     </item>
     <item>
-      <title>옥토버페스트 서울 입장권에 맥주 500mL 포함입니다 — 둘이 132,000원</title>
-      <link>https://pancoit.site/posts/oktoberfest-seoul-price</link>
-      <guid isPermaLink="true">https://pancoit.site/posts/oktoberfest-seoul-price</guid>
-      <pubDate>Sat, 12 Sep 2026 09:08:00 GMT</pubDate>
-      <description>입장권은 월~목 20,000원, 금·토·일 25,000원이고 1인당 맥주 500mL가 들어 있습니다. 두 잔째부터 6,000~25,000원, 슈바인 학센은 49,000원입니다. 둘이 토요일에 가면 132,000원이 나옵니다. 값이 세 곳에 나뉘어 있어 한 자리에 모았습니다.</description>
-    </item>
-    <item>
       <title>중고폰 공장초기화, 복구되나요 — 진짜 위험은 다른 곳입니다</title>
       <link>https://pancoit.site/posts/used-phone-factory-reset</link>
       <guid isPermaLink="true">https://pancoit.site/posts/used-phone-factory-reset</guid>
@@ -96,13 +75,6 @@
       <guid isPermaLink="true">https://pancoit.site/posts/python1-review</guid>
       <pubDate>Fri, 11 Sep 2026 10:55:00 GMT</pubDate>
       <description>PYTHON1 열 편(print·변수·input·연산자·if·리스트·for·while·함수)을 개념 퀴즈 12문항과 직접 고쳐 실행하는 실습 문제 6개로 복습합니다. 입력은 문자열, range는 끝 제외, return 없으면 None 같은 여섯 함정을 브라우저에서 손으로 확인합니다.</description>
-    </item>
-    <item>
-      <title>아이폰 18 프로는 왜 210만 원이 아니었나</title>
-      <link>https://pancoit.site/posts/iphone18-price-forecast</link>
-      <guid isPermaLink="true">https://pancoit.site/posts/iphone18-price-forecast</guid>
-      <pubDate>Fri, 11 Sep 2026 00:58:00 GMT</pubDate>
-      <description>발표 전까지 검색 결과는 대부분 210만 원이었습니다. 애플이 공지한 값은 199만 원입니다. 11만 원이 어디서 벌어졌는지, 원가가 올랐다는 전망이 왜 가격을 맞히지 못했는지, 그리고 이름과 날짜는 어디까지 빗나갔는지 공식 보도자료로 확인했습니다.</description>
     </item>
     <item>
       <title>티빙 보상 신청 — 300만 원은 받는 돈이 아닙니다</title>
