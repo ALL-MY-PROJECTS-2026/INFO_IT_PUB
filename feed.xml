@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>공동인증서 갱신은 30일 전부터, 그런데 어디서 하느냐로 갈립니다</title>
+      <link>https://pancoit.site/posts/joint-certificate-renewal</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/joint-certificate-renewal</guid>
+      <pubDate>Sat, 19 Sep 2026 00:30:00 GMT</pubDate>
+      <description>만료 하루가 지나면 갱신이 아니라 재발급입니다. 공식 안내를 놓고 보면 갱신 시작일이 30일인 곳과 60일인 곳이 반반이고, 은행이냐 증권사냐로 갈리지도 않습니다. 이름이 비슷한 금융인증서는 유효기간이 아예 3년입니다.</description>
+    </item>
+    <item>
       <title>보안 업데이트 끝난 폰, 위험한가요 — 확인하는 법과 세 갈래</title>
       <link>https://pancoit.site/posts/phone-security-update-eol</link>
       <guid isPermaLink="true">https://pancoit.site/posts/phone-security-update-eol</guid>
