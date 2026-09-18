@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>보안 업데이트 끝난 폰, 위험한가요 — 확인하는 법과 세 갈래</title>
+      <link>https://pancoit.site/posts/phone-security-update-eol</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/phone-security-update-eol</guid>
+      <pubDate>Fri, 18 Sep 2026 10:17:00 GMT</pubDate>
+      <description>삼성과 구글이 공표한 보안 업데이트 기간은 최대 7년입니다. 다만 어느 날 갑자기 끊기는 것이 아니라 월간에서 분기로 줄다가 멈춥니다. 삼성이 기기를 월간·분기로 나눠 두었다는 사실부터, 내 폰 등급과 마지막 패치 날짜를 확인하는 법, 지원이 끝난 뒤 고를 수 있는 세 갈래를 공식 문서로 정리했습니다.</description>
+    </item>
+    <item>
       <title>파이썬 import가 내 파일을 먼저 찾습니다 — 모듈 나누기와 from</title>
       <link>https://pancoit.site/posts/python-module-import</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-module-import</guid>

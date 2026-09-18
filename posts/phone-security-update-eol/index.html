@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>보안 업데이트 끝난 폰, 위험한가요 — 확인하는 법과 세 갈래 — PANCO_IT</title>
+    <meta name="description" content="삼성과 구글이 공표한 보안 업데이트 기간은 최대 7년입니다. 다만 어느 날 갑자기 끊기는 것이 아니라 월간에서 분기로 줄다가 멈춥니다. 삼성이 기기를 월간·분기로 나눠 두었다는 사실부터, 내 폰 등급과 마지막 패치 날짜를 확인하는 법, 지원이 끝난 뒤 고를 수 있는 세 갈래를 공식 문서로 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/phone-security-update-eol/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="보안 업데이트 끝난 폰, 위험한가요 — 확인하는 법과 세 갈래 — PANCO_IT" />
+    <meta property="og:description" content="삼성과 구글이 공표한 보안 업데이트 기간은 최대 7년입니다. 다만 어느 날 갑자기 끊기는 것이 아니라 월간에서 분기로 줄다가 멈춥니다. 삼성이 기기를 월간·분기로 나눠 두었다는 사실부터, 내 폰 등급과 마지막 패치 날짜를 확인하는 법, 지원이 끝난 뒤 고를 수 있는 세 갈래를 공식 문서로 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/phone-security-update-eol/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-phone-eol-hero.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-18T10:17" />
+    <meta property="article:modified_time" content="2026-09-18T10:17" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="보안 업데이트 끝난 폰, 위험한가요 — 확인하는 법과 세 갈래 — PANCO_IT" />
+    <meta name="twitter:description" content="삼성과 구글이 공표한 보안 업데이트 기간은 최대 7년입니다. 다만 어느 날 갑자기 끊기는 것이 아니라 월간에서 분기로 줄다가 멈춥니다. 삼성이 기기를 월간·분기로 나눠 두었다는 사실부터, 내 폰 등급과 마지막 패치 날짜를 확인하는 법, 지원이 끝난 뒤 고를 수 있는 세 갈래를 공식 문서로 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-phone-eol-hero.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"보안 업데이트 끝난 폰, 위험한가요 — 확인하는 법과 세 갈래","description":"삼성과 구글이 공표한 보안 업데이트 기간은 최대 7년입니다. 다만 어느 날 갑자기 끊기는 것이 아니라 월간에서 분기로 줄다가 멈춥니다. 삼성이 기기를 월간·분기로 나눠 두었다는 사실부터, 내 폰 등급과 마지막 패치 날짜를 확인하는 법, 지원이 끝난 뒤 고를 수 있는 세 갈래를 공식 문서로 정리했습니다.","image":"https://pancoit.site/uploads/itnews-phone-eol-hero.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-18T10:17","dateModified":"2026-09-18T10:17","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/phone-security-update-eol/"},"keywords":"보안업데이트, 스마트폰보안, 갤럭시, 안드로이드, 지원종료"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D/"},{"@type":"ListItem","position":3,"name":"보안 업데이트 끝난 폰, 위험한가요 — 확인하는 법과 세 갈래","item":"https://pancoit.site/posts/phone-security-update-eol/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CEhBMoQO.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D/">IT소식</a></li><li><span aria-current="page">보안 업데이트 끝난 폰, 위험한가요 — 확인하는 법과 세 갈래</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D/">IT소식</a><h1 style="margin-top:0.75rem">보안 업데이트 끝난 폰, 위험한가요 — 확인하는 법과 세 갈래</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-18T10:17">2026년 9월 18일 10:17</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->보안업데이트</span><span class="tag">#<!-- -->스마트폰보안</span><span class="tag">#<!-- -->갤럭시</span><span class="tag">#<!-- -->안드로이드</span><span class="tag">#<!-- -->지원종료</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="스마트폰 보안 업데이트가 월간에서 분기로, 분기에서 종료로 단계를 밟는 모습을 담은 시간 띠" src="/uploads/itnews-phone-eol-hero.png" loading="lazy"/></p>
+<p><em>삼성과 구글이 말하는 최대 7년은 내내 같은 7년이 아닙니다. 매달에서 석 달에 한 번으로 줄다가 멈춥니다.</em></p>
+<p>삼성과 구글은 보안 업데이트를 <strong>최대 7년</strong> 준다고 밝혀 두었습니다. 다만 그 7년이 내내 같지는 않습니다. 폰을 4년쯤 쓰다 보면 이런 생각이 듭니다. 아직 멀쩡히 잘 되는데 바꿔야 하나. 배터리도 견딜 만하고 느려진 것도 참을 만한데, 어디선가 &quot;보안 업데이트 끝나면 위험하다&quot;는 말을 듣습니다.</p>
+<p>그런데 정작 <strong>내 폰이 언제 끝나는지, 이미 끝났는지</strong>는 알기 어렵습니다. 검색해 보면 질문만 잔뜩 나오고 답이 없죠.</p>
+<p>찾아보니 답이 있었습니다. 삼성과 구글 모두 공식 문서에 적어 두었고, 내 폰 등급도 확인할 수 있습니다. 다만 그 구조가 생각과 조금 다릅니다.</p>
+<h2 id="갑자기-끊기는-게-아닙니다"><a href="#갑자기-끊기는-게-아닙니다">갑자기 끊기는 게 아닙니다</a></h2>
+<p>먼저 가장 큰 오해부터 풀겠습니다. 많은 분이 지원 종료를 <strong>어느 날 스위치가 내려가는 일</strong>로 생각합니다. 어제까지 오던 업데이트가 오늘부터 안 온다는 식이죠.</p>
+<p>실제로는 그렇지 않습니다. 삼성 공식 문서는 이렇게 적고 있습니다.</p>
+<blockquote>
+<p>Samsung releases monthly, quarterly and biannual firmware security updates on selected Samsung devices listed below.</p>
+</blockquote>
+<p>번역하면 <strong>월간·분기·반기 단위로 보안 업데이트를 내보낸다</strong>는 뜻입니다. 기기마다 주기가 다르다는 말입니다.</p>
+<p>그러니까 순서가 이렇습니다.</p>
+<table><thead><tr><th>단계</th><th>무슨 일이 일어나나</th></tr></thead><tbody><tr><td>출시 직후</td><td><strong>매달</strong> 보안 패치를 받습니다</td></tr><tr><td>몇 해 지나면</td><td><strong>석 달에 한 번</strong>으로 줄어듭니다</td></tr><tr><td>더 지나면</td><td>목록에서 빠지고 패치가 멈춥니다</td></tr></tbody></table>
+<p>같은 문서 각주에도 그 이야기가 있습니다. 월간 대상 기기는 *&quot;정기 지원 기간이 끝나면 바뀔 수 있다&quot;*고 적혀 있습니다. 등급이 아래로 내려간다는 뜻입니다.</p>
+<p>이게 왜 중요하냐면, <strong>내 폰이 이미 분기로 내려왔다면 종료가 멀지 않았다는 신호</strong>이기 때문입니다. 아직 업데이트가 오니까 괜찮다고 볼 일이 아니라, 얼마나 자주 오는지를 봐야 합니다.</p>
+<h2 id="내-폰은-어느-등급인가요"><a href="#내-폰은-어느-등급인가요">내 폰은 어느 등급인가요</a></h2>
+<p>2026년 9월 18일 기준으로 삼성 공식 목록을 확인했습니다. 한국에서 많이 쓰는 기기만 추리면 이렇습니다.</p>
+<p><img alt="갤럭시 기기가 월간 등급과 분기 등급으로 나뉜 표. 월간에는 갤럭시 S23부터 S26까지와 폴드5부터 폴드8까지, 분기에는 갤럭시 S22와 S21 FE, 폴드4와 플립4, A 시리즈와 M 시리즈가 들어 있다" src="/uploads/itnews-phone-eol-tier.png" loading="lazy"/></p>
+<p><em>그림 1. 같은 갤럭시라도 등급이 다릅니다 (출처: 삼성 모바일 시큐리티 공식 목록, 2026-09-18 확인 · AI 생성)</em></p>
+<p><strong>월간 보안 업데이트를 받는 기기</strong>입니다.</p>
+<ul>
+<li>갤럭시 S 시리즈 — S23 · S24 · S25 · S26 계열 전부(플러스·울트라·FE 포함)</li>
+<li>폴더블 — Z 폴드5 · 폴드6 · 폴드7 · 폴드8 · Z 트라이폴드, Z 플립5 · 플립6 · 플립7 · 플립8</li>
+<li>기업용 모델 — A54 · A55 · A56 · A57 5G, XCover 계열</li>
+</ul>
+<p><strong>분기 보안 업데이트로 내려온 기기</strong>입니다.</p>
+<ul>
+<li>갤럭시 <strong>S22 · S22+ · S22 울트라</strong></li>
+<li>갤럭시 <strong>S21 FE 5G</strong></li>
+<li><strong>Z 폴드4 · Z 플립4</strong></li>
+<li>A 시리즈 대부분 — A04 · A05 · A06 · A07 · A14 · A15 · A16 · A17 · A23 · A24 · A25 · A26 · A27 · A33 · A34 · A35 · A36 · A37 · A73</li>
+<li>M 시리즈 대부분 — M04 · M05 · M06 · M07 · M14 · M15 계열</li>
+</ul>
+<p>S22가 눈에 띕니다. 2022년 2월에 나온 기기인데 벌써 분기로 내려왔습니다. 아직 쓰는 분이 많은 모델이죠.</p>
+<p>공식 안내는 월간·분기·반기 셋을 말하는데, <strong>오늘 확인한 기기 목록에는 월간과 분기 둘만 올라 있었습니다.</strong> 반기 등급에 해당하는 기기 목록은 그 페이지에서 찾지 못했습니다.</p>
+<h2 id="마지막-패치-날짜를-확인하는-법"><a href="#마지막-패치-날짜를-확인하는-법">마지막 패치 날짜를 확인하는 법</a></h2>
+<p>등급표보다 확실한 건 <strong>내 폰에 실제로 언제 패치가 들어왔는지</strong> 보는 것입니다. 설정에서 바로 확인됩니다.</p>
+<p><img alt="갤럭시와 픽셀에서 보안 업데이트를 확인하는 설정 경로를 각각 세 단계로 보여 주는 그림" src="/uploads/itnews-phone-eol-path.png" loading="lazy"/></p>
+<p><em>그림 2. 두 기기의 확인 경로 (출처: 삼성·구글 공식 안내, 2026-09-18 확인 · AI 생성)</em></p>
+<p><strong>갤럭시</strong>는 이렇습니다.</p>
+<ol>
+<li>설정을 엽니다</li>
+<li>맨 아래 <strong>소프트웨어 업데이트</strong>를 누릅니다</li>
+<li><strong>다운로드 및 설치</strong>를 눌러 최신 패치가 있는지 확인합니다</li>
+</ol>
+<p>여기서 화면에 뜨는 <strong>보안 패치 수준</strong> 날짜가 핵심입니다. 이 날짜가 지금으로부터 몇 달 전이면 분기 등급일 가능성이 큽니다. 1년 넘게 멈춰 있다면 지원이 끝났다고 봐도 됩니다.</p>
+<p><strong>구글 픽셀</strong>은 경로가 조금 다릅니다. 공식 문서가 적어 둔 그대로입니다.</p>
+<ol>
+<li>설정을 엽니다</li>
+<li><strong>시스템</strong>을 누릅니다</li>
+<li><strong>소프트웨어 업데이트</strong>를 누릅니다</li>
+</ol>
+<p>두 경우 모두 &quot;최신 상태입니다&quot;가 떠도 안심하긴 이릅니다. <strong>지원이 끝난 기기도 &quot;최신 상태&quot;라고 표시됩니다.</strong> 더 줄 게 없으니 최신이 맞는 셈이죠. 그래서 날짜를 봐야 합니다.</p>
+<h2 id="제조사마다-몇-년인가요"><a href="#제조사마다-몇-년인가요">제조사마다 몇 년인가요</a></h2>
+<p>여기서 회사마다 태도가 갈립니다.</p>
+<table><thead><tr><th>제조사</th><th>공표한 기간</th><th>기준</th></tr></thead><tbody><tr><td><strong>삼성</strong></td><td>최대 <strong>7년</strong></td><td>2024년 1월 발표. 대상 기기는 공식 목록에 명시</td></tr><tr><td><strong>구글 픽셀</strong></td><td><strong>7년</strong> (픽셀 8 이상)</td><td>미국 구글 스토어에서 <strong>처음 판매된 날</strong>부터</td></tr><tr><td><strong>애플</strong></td><td><strong>공표하지 않음</strong></td><td>연수를 숫자로 밝히지 않습니다</td></tr></tbody></table>
+<p>삼성은 2024년 1월에 <strong>최대 7년</strong>으로 늘리겠다고 발표했습니다. 여기서 &quot;최대&quot;라는 말이 걸립니다. 모든 기기가 7년은 아니고, 위에서 본 것처럼 도중에 등급이 내려갑니다.</p>
+<p>구글 픽셀은 조건이 구체적입니다. 공식 문서는 <strong>픽셀 8 이상</strong>에 대해 *&quot;미국 구글 스토어에서 기기가 처음 판매된 날로부터 7년&quot;*이라고 적었습니다. 내가 산 날이 아니라 그 모델이 처음 나온 날 기준입니다. 늦게 샀다면 남은 기간이 그만큼 짧습니다.</p>
+<p>애플은 이 숫자를 공표하지 않습니다. 새 iOS가 나올 때 지원 기기 목록을 발표하는 방식이라, <strong>몇 년인지는 결과로만 알 수 있습니다.</strong> 보통 오래 지원하는 편이지만 &quot;몇 년까지&quot;를 약속받은 것은 아닙니다.</p>
+<h2 id="끝났다면-어떻게-하나요"><a href="#끝났다면-어떻게-하나요">끝났다면 어떻게 하나요</a></h2>
+<p>지원이 끝난 걸 확인했다고 당장 폰을 바꿀 일은 아닙니다. 갈래가 셋입니다.</p>
+<p><img alt="지원이 끝난 뒤 고를 수 있는 세 갈래를 그대로 쓰기, 쓰임새 줄이기, 바꾸기로 나눈 그림" src="/uploads/itnews-phone-eol-choice.png" loading="lazy"/></p>
+<p><em>그림 3. 끝난 뒤의 세 갈래 (출처: 자체 정리 · AI 생성)</em></p>
+<p>그대로 쓰는 길이 있습니다. 지원 종료가 곧 고장은 아닙니다. 전화·문자·카카오톡은 그대로 되고 앱도 한동안 계속 업데이트됩니다. 운영체제 자체의 새 구멍이 안 막히는 것이지, 폰이 멈추는 게 아닙니다.</p>
+<p>쓰임새를 줄이는 길도 있습니다. 이쪽이 가장 현실적입니다. 은행 앱과 결제, 본인 인증은 지원되는 기기로 옮기고, 오래된 폰은 통화·사진·음악처럼 위험이 낮은 용도로 씁니다. 집에서 음악만 트는 폰이라면 지원 종료가 큰 문제가 아닙니다.</p>
+<p>바꾸는 길이 남습니다. 금융 거래를 그 폰으로 많이 한다면 바꾸는 편이 낫습니다. 다만 서두를 필요는 없고, 등급이 분기로 내려온 시점부터 다음 기기를 천천히 알아보면 됩니다.</p>
+<p><strong>위험은 폰의 나이가 아니라 그 폰으로 무엇을 하느냐에 달려 있습니다.</strong> 같은 S22라도 은행 업무용이냐 유튜브 전용이냐에 따라 답이 다릅니다.</p>
+<h2 id="지금-당장-줄일-수-있는-것"><a href="#지금-당장-줄일-수-있는-것">지금 당장 줄일 수 있는 것</a></h2>
+<p>바꾸지 않기로 했다면, 공격 받을 틈을 좁히는 방법이 있습니다. 패치를 대신하지는 못하지만 도움이 됩니다.</p>
+<ul>
+<li><strong>구글 플레이 프로텍트를 켜 둡니다.</strong> 플레이 스토어 → 프로필 → Play 프로텍트에서 확인합니다</li>
+<li><strong>출처를 알 수 없는 앱 설치를 꺼 둡니다.</strong> 문자로 온 링크에서 앱을 받는 경로가 여기로 열립니다</li>
+<li><strong>공용 와이파이에서 금융 업무를 하지 않습니다</strong></li>
+<li><strong>앱은 계속 업데이트합니다.</strong> 운영체제 지원이 끝나도 앱 자체의 보안 수정은 한동안 이어집니다</li>
+</ul>
+<p>마지막 항목이 은근히 중요합니다. <strong>지원 종료는 운영체제 이야기이지 앱 이야기가 아닙니다.</strong> 카카오톡이나 은행 앱은 별개로 업데이트를 받습니다. 그 앱들도 언젠가는 구형 안드로이드 지원을 끊습니다. 그때가 실질적인 갈아탈 시점입니다.</p>
+<h2 id="먼저-볼-것-하나"><a href="#먼저-볼-것-하나">먼저 볼 것 하나</a></h2>
+<p>순서는 이렇습니다.</p>
+<p>설정에서 <strong>보안 패치 날짜</strong>를 봅니다. 그 날짜가 석 달 안쪽이면 아직 월간이거나 분기 초입입니다. 반년 넘게 멈춰 있으면 분기에서도 밀려났을 가능성이 있고, 1년 넘었으면 끝났다고 보면 됩니다.</p>
+<p>그다음에 그 폰으로 <strong>돈이 오가는 일을 하는지</strong> 따져 봅니다. 답은 거기서 갈립니다.</p>
+<p>PC도 사정이 비슷합니다. 윈도우 10은 2025년 10월에 지원이 끝났는데 확장 보안 업데이트로 시간이 좀 더 생겼습니다. 그 이야기는 <a href="/posts/windows10-eol-esu/">윈도우 10 지원 끝났는데 그냥 써도 되나</a>에 적어 두었습니다.</p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li><a href="https://security.samsungmobile.com/workScope.smsb" target="_blank" rel="noopener noreferrer">삼성 모바일 시큐리티 — 보안 업데이트 대상 기기</a></li>
+<li><a href="https://support.google.com/pixelphone/answer/4457705?hl=ko" target="_blank" rel="noopener noreferrer">구글 픽셀 고객센터 — 소프트웨어 업데이트 제공 기간</a></li>
+</ul>
+<p>2026년 9월 18일에 위 공식 문서를 직접 열어 확인한 내용입니다. 대상 기기 목록과 지원 기간은 제조사가 바꿀 수 있으니, 실제 지원 여부는 기기의 설정 화면과 위 공식 페이지에서 확인하시기 바랍니다. 인포그래픽은 AI로 만들었고 문구와 수치는 위 문서로 대조했습니다.</p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/used-phone-factory-reset/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">중고폰 공장초기화, 복구되나요 — 진짜 위험은 다른 곳입니다</h3><p>공장초기화를 하면 사진이 되살아난다는 말이 검색 결과에 가득합니다. 안드로이드 10 이상과 요즘 아이폰은 암호화 키를 지우는 방식이라 내용 자체를 살리기 어렵습니다. 정작 초기화가 손대지 않는 자리는 따로 있습니다. 계정 잠금, 유심과 eSIM, SD카드, 연결해 둔 기기입니다.</p><div class="post-card__meta"><time dateTime="2026-09-11T18:00">2026년 9월 11일 18:00</time><span>· <!-- -->중고폰, 공장초기화, 개인정보</span></div></a><a class="post-card " href="/posts/zombie-phone-check/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">택배 문자 눌렀다면 좀비폰 확인방법 — 흔적 다섯, 신고는 다른 폰으로</h3><p>내 번호로 지인에게 이상한 문자가 갔다면 폰이 남의 손에 있을 수 있습니다. 카톡 해킹·번호 도용과 가르는 법, 설정 화면에서 3분 안에 보는 흔적 다섯, 공공 검사 도구 셋, 감염이 맞을 때의 순서를 2026년 9월 기준으로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-09-14T01:18">2026년 9월 14일 01:18</time><span>· <!-- -->좀비폰, 스미싱, 택배문자</span></div></a><a class="post-card " href="/posts/windows10-eol-esu/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">윈도우 10 지원 끝났는데 그냥 써도 되나 — 1년이 더 생겼습니다</h3><p>2025년 10월 지원이 끝난 윈도우 10, 지금 쓰는 PC를 어떻게 해야 할까요. 확장 보안 업데이트(ESU)가 2027년까지 연장된 배경과 무료로 받는 조건, ESU·업그레이드·교체 세 갈래를 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-08-19T19:20">2026년 8월 19일 19:20</time><span>· <!-- -->윈도우10, 윈도우11, ESU</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
