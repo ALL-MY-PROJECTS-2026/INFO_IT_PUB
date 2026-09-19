@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>윈도우 11 글자만 키우는 법, 안 커지는 앱이 있는 이유</title>
+      <link>https://pancoit.site/posts/windows11-text-size</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/windows11-text-size</guid>
+      <pubDate>Sat, 19 Sep 2026 21:00:00 GMT</pubDate>
+      <description>설정에는 손잡이가 둘입니다. 글자만 100~225%로 키우는 것과 화면 전부를 키우는 것인데, 하는 일도 대가도 다릅니다. 글자를 끝까지 키워도 따라오지 않는 프로그램이 있는 까닭은 마이크로소프트 개발 문서에 적혀 있습니다.</description>
+    </item>
+    <item>
       <title>공동인증서 갱신은 30일 전부터, 그런데 어디서 하느냐로 갈립니다</title>
       <link>https://pancoit.site/posts/joint-certificate-renewal</link>
       <guid isPermaLink="true">https://pancoit.site/posts/joint-certificate-renewal</guid>
