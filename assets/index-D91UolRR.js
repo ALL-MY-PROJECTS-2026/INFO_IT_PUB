@@ -8323,7 +8323,7 @@ print("합계는", total)`}),`
 `,s.jsx(e.li,{children:s.jsxs(e.strong,{children:["오른쪽 끝의 ",s.jsx(e.code,{children:"적용"})," 단추를 누릅니다"]})}),`
 `]}),`
 `,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-captext.png",alt:"설정 접근성 텍스트 크기 화면. 슬라이더 오른쪽에 적용 단추가 있다"})}),`
-`,s.jsx(e.p,{children:s.jsxs(e.em,{children:["그림. 실제 화면입니다. 슬라이더만 옮기면 바뀌지 않고 오른쪽 ",s.jsx(e.code,{children:"적용"}),"을 눌러야 합니다 (직접 캡처)"]})}),`
+`,s.jsx(e.p,{children:s.jsxs(e.em,{children:["그림. 슬라이더 오른쪽 끝에 붙어 있는 단추가 ",s.jsx(e.code,{children:"적용"}),"입니다"]})}),`
 `,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"5번을 빠뜨리면 아무 일도 일어나지 않습니다."}),' 슬라이더를 옮겨도 미리보기만 바뀌고 화면은 그대로입니다. 마이크로소프트 안내 문서에는 이 단추 이야기가 없어서 슬라이더까지만 하고 "안 된다"고 하시는 경우가 있습니다.']}),`
 `,s.jsxs(e.p,{children:['화면의 설명은 "Windows 및 앱 전체에 표시되는 텍스트 크기"입니다. 기본값이 ',s.jsx(e.strong,{children:"100%"})," 이고 ",s.jsx(e.strong,{children:"225%"})," 까지 올라갑니다. 창 크기도, 단추 크기도, 아이콘 크기도 건드리지 않습니다."]}),`
 `,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"한 번에 끝까지 올리지 마십시오."})," 한 칸씩 올리고 평소 쓰는 프로그램을 열어 보는 편이 낫습니다. 글자가 커지면 창 안에서 줄이 밀려 단추가 가려지는 일이 있습니다. 그럴 때는 한 칸 내리면 됩니다."]}),`
@@ -8333,7 +8333,7 @@ print("합계는", total)`}),`
 `,s.jsxs(e.p,{children:["시작 > ",s.jsx(e.strong,{children:"설정"})," > ",s.jsx(e.strong,{children:"시스템"})," > ",s.jsx(e.strong,{children:"디스플레이"})," > ",s.jsx(e.strong,{children:"배율 및 레이아웃"})," > ",s.jsx(e.strong,{children:"배율"})]}),`
 `]}),`
 `,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-capscale.png",alt:"설정 시스템 디스플레이의 배율 및 레이아웃 부분. 배율이 200퍼센트 권장으로 되어 있다"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:'그림. 실제 화면입니다. 항목 이름이 배율이고 설명은 "텍스트, 앱 및 기타 항목의 크기 변경"입니다 (직접 캡처)'})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 값 옆의 (권장)은 윈도우가 이 화면 크기에 맞다고 보는 값입니다"})}),`
 `,s.jsxs(e.p,{children:["찾으실 때 헷갈리는 점이 하나 있습니다. ",s.jsx(e.strong,{children:'화면에 적힌 이름은 "배율"인데, 마이크로소프트 한국어 안내 문서는 같은 것을 "크기 조정"이라고 적어 두었습니다.'}),' 문서를 보고 "크기 조정"을 찾으면 그 이름은 화면에 없습니다. 둘은 이름만 다르고 들어가는 곳이 같습니다.']}),`
 `,s.jsxs(e.p,{children:["목록에서 값을 고르는 방식이고, 목록에 없는 값을 직접 넣는 자리도 따로 있습니다. 위 화면에서 ",s.jsx(e.strong,{children:"200%(권장)"})," 이라고 적힌 것처럼, 윈도우가 화면 크기에 맞게 권하는 값에 (권장) 표시가 붙습니다."]}),`
 `,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{}),s.jsx(e.th,{children:"텍스트 크기"}),s.jsx(e.th,{children:"배율"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"어디에 있나"}),s.jsx(e.td,{children:"설정 > 접근성"}),s.jsx(e.td,{children:"설정 > 시스템 > 디스플레이"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"무엇이 커지나"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"글자만"})}),s.jsxs(e.td,{children:["글자·아이콘·단추·창 ",s.jsx(e.strong,{children:"전부"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"고르는 방식"}),s.jsx(e.td,{children:"슬라이더"}),s.jsx(e.td,{children:"목록에서 고르기"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"범위"}),s.jsxs(e.td,{children:["100% ~ ",s.jsx(e.strong,{children:"225%"})]}),s.jsxs(e.td,{children:["목록값 + 직접 입력 ",s.jsx(e.strong,{children:"100% ~ 500%"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"화면에 담기는 양"}),s.jsx(e.td,{children:"그대로"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"줄어듭니다"})})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"못 따라오는 프로그램"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"있습니다"})}),s.jsx(e.td,{children:"거의 없습니다"})]})]})]}),`
@@ -8379,7 +8379,7 @@ print("합계는", total)`}),`
 `,s.jsxs(e.p,{children:["시작 > ",s.jsx(e.strong,{children:"설정"})," > ",s.jsx(e.strong,{children:"접근성"})," > ",s.jsx(e.strong,{children:"마우스 포인터 및 터치"})]}),`
 `]}),`
 `,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-capmouse.png",alt:"설정 접근성 마우스 포인터 및 터치 화면. 포인터 스타일 네 가지와 크기 슬라이더가 있다"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 실제 화면입니다. 스타일 넷과 크기 슬라이더가 따로 있습니다 (직접 캡처)"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 세 번째 스타일은 배경에 따라 흑백이 뒤집혀 어디서나 눈에 띕니다"})}),`
 `,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"마우스 포인터 스타일"}),"이 넷 있습니다. 왼쪽부터 흰색, 검은색, 흑백이 뒤집히는 것, 그리고 색을 직접 고르는 것입니다. 세 번째는 배경이 밝으면 검게, 어두우면 희게 바뀌어서 어디서나 눈에 띕니다."]}),`
 `,s.jsxs(e.p,{children:["그 아래 ",s.jsx(e.strong,{children:"크기"})," 슬라이더로 화살표 자체를 키웁니다. 이 둘은 따로 놀기 때문에 색만 바꾸거나 크기만 키울 수 있습니다. 글자 크기를 올리셨다면 이 자리도 한 번 열어 보시기를 권합니다."]}),`
 `,s.jsx(e.h2,{id:"잠깐만-크게-보려면-어떻게-하나요",children:s.jsx(e.a,{href:"#잠깐만-크게-보려면-어떻게-하나요",children:"잠깐만 크게 보려면 어떻게 하나요"})}),`
