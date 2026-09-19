@@ -8305,82 +8305,105 @@ print("합계는", total)`}),`
 `,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.microsoft.com/ko-kr/windows/extended-security-updates",children:"Microsoft — 소비자용 확장 보안 업데이트(ESU)"})}),`
 `,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.boho.or.kr",children:"KISA 보호나라"})}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function At(n={}){const{wrapper:e}={...l(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(On,{...n})}):On(n)}const wt=Object.freeze(Object.defineProperty({__proto__:null,default:At,frontmatter:Ct},Symbol.toStringTag,{value:"Module"})),Dt={title:"윈도우 11 글자만 키우는 법, 안 커지는 앱이 있는 이유",description:"설정에는 손잡이가 둘입니다. 글자만 100~225%로 키우는 것과 화면 전부를 키우는 것인데, 하는 일도 대가도 다릅니다. 글자를 끝까지 키워도 따라오지 않는 프로그램이 있는 까닭은 마이크로소프트 개발 문서에 적혀 있습니다.",category:"IT소식",tags:["윈도우11","글자크기","화면배율","접근성","돋보기","생활IT"],date:"2026-09-19T21:00",draft:!1,cover:"/uploads/itnews-textsize-hero.png"};function Ln(n){const e={a:"a",code:"code",em:"em",h2:"h2",img:"img",li:"li",ol:"ol",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...l(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-hero.png",alt:"같은 문장이 작은 글자와 큰 글자로 두 번 놓인 그림"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 손잡이가 둘이고 하는 일이 다릅니다 (자체 제작)"})}),`
-`,s.jsxs(e.p,{children:["윈도우 11에서 글자를 키우는 자리는 2곳입니다. 하나는 글자만 100%에서 225%까지 키우고, 다른 하나는 화면에 있는 것 전부를 키웁니다. 그런데 앞의 것은 ",s.jsx(e.strong,{children:"따라오지 못하는 프로그램이 따로 있습니다."})]}),`
-`,s.jsxs(e.p,{children:["그래서 설정에서 글자를 키우고 나면 ",s.jsx(e.strong,{children:"키운 티가 나는 곳과 그대로인 곳이 갈립니다."})," 메모장은 커졌는데 자주 쓰는 프로그램 하나만 예전 그대로인 식입니다. 설정을 잘못 만진 것이 아닙니다. 어느 종류가 못 따라오는지는 마이크로소프트가 개발자용 문서에 적어 두었습니다."]}),`
-`,s.jsx(e.p,{children:"2026년 9월 기준입니다. 아래 수치는 윈도우 11 홈(빌드 10.0.26200)에서 직접 확인했습니다."}),`
-`,s.jsx(e.h2,{id:"무엇이-다른가요--글자만과-화면-전부",children:s.jsx(e.a,{href:"#무엇이-다른가요--글자만과-화면-전부",children:"무엇이 다른가요 — 글자만과 화면 전부"})}),`
-`,s.jsx(e.p,{children:"이름이 비슷해서 헷갈립니다. 그런데 완전히 다른 설정입니다."}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-knobs.png",alt:"글자만 커지는 쪽과 화면 전부가 커지는 쪽을 나란히 놓은 그림"})}),`
-`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{}),s.jsx(e.th,{children:"텍스트 크기"}),s.jsx(e.th,{children:"화면 배율"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"어디에 있나"}),s.jsx(e.td,{children:"설정 > 접근성 > 텍스트 크기"}),s.jsx(e.td,{children:"설정 > 시스템 > 디스플레이 > 배율"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"무엇이 커지나"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"글자만"})}),s.jsxs(e.td,{children:["글자·아이콘·버튼·창 ",s.jsx(e.strong,{children:"전부"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"범위"}),s.jsxs(e.td,{children:["100% ~ ",s.jsx(e.strong,{children:"225%"})]}),s.jsxs(e.td,{children:["목록값 + 사용자 지정 ",s.jsx(e.strong,{children:"100% ~ 500%"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"화면에 담기는 양"}),s.jsx(e.td,{children:"그대로"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"줄어듭니다"})})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"못 따라오는 프로그램"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"있습니다"})}),s.jsx(e.td,{children:"거의 없습니다"})]})]})]}),`
-`,s.jsx(e.p,{children:'마이크로소프트 문서는 텍스트 크기를 이렇게 설명합니다. 화면 일부를 확대하는 돋보기나 해상도 변경과 달리 "글자만 크기를 바꾸는" 설정이라고 합니다. 기본값 100%에서 225%까지 올라갑니다.'}),`
-`,s.jsxs(e.p,{children:["배율 쪽은 사용자 지정으로 100%에서 500%까지 넣을 수 있습니다. 그런데 ",s.jsx(e.strong,{children:"마이크로소프트가 직접 권하지 않는다고 적어 두었습니다."})," 목록에 없는 값을 넣으면 글자가 흐려지거나 창이 화면 밖으로 밀려나는 일이 생기기 때문입니다."]}),`
-`,s.jsxs(e.p,{children:["그래서 순서가 있습니다. 글자만 작아서 불편한 것이라면 ",s.jsx(e.strong,{children:"텍스트 크기부터"})," 만지는 편이 잃는 것이 적습니다. 배율은 그다음입니다."]}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function At(n={}){const{wrapper:e}={...l(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(On,{...n})}):On(n)}const wt=Object.freeze(Object.defineProperty({__proto__:null,default:At,frontmatter:Ct},Symbol.toStringTag,{value:"Module"})),Dt={title:"윈도우 11 글자만 키우는 법, 안 커지는 앱이 있는 이유",description:"글자를 키우는 자리는 2곳입니다. 접근성의 텍스트 크기는 100~225%로 글자만 키우고, 디스플레이의 배율은 화면에 있는 것 전부를 키웁니다. 텍스트 크기를 따라오지 못하는 프로그램이 따로 있는 까닭은 마이크로소프트 개발 문서에 적혀 있습니다.",category:"IT소식",tags:["윈도우11","글자크기","화면배율","접근성","돋보기","생활IT"],date:"2026-09-19T21:00",draft:!1,cover:"/uploads/itnews-textsize-hero.png"};function Ln(n){const e={a:"a",blockquote:"blockquote",code:"code",em:"em",h2:"h2",img:"img",li:"li",ol:"ol",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...l(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-hero.png",alt:"같은 문장이 작은 글자와 큰 글자로 두 번 놓인 그림"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 자리가 둘이고 하는 일이 다릅니다 (자체 제작)"})}),`
+`,s.jsx(e.p,{children:"윈도우 11에서 글자를 키우는 자리는 2곳입니다. 하나는 글자만 100%에서 225%까지 키우고, 다른 하나는 화면에 있는 것 전부를 키웁니다. 둘은 이름도 다르고 들어가는 길도 다릅니다."}),`
+`,s.jsxs(e.p,{children:["먼저 ",s.jsx(e.strong,{children:"글자만 키우는 쪽"}),"을 해 보시고, 그것으로 부족할 때 두 번째로 가시면 됩니다. 그런데 첫 번째에는 ",s.jsx(e.strong,{children:"따라오지 못하는 프로그램이 따로 있습니다."})," 어느 종류가 못 따라오는지는 마이크로소프트가 개발자용 문서에 적어 두었습니다."]}),`
+`,s.jsx(e.p,{children:"2026년 9월 기준입니다. 설정 이름은 마이크로소프트 한국어 안내 문서 표기를 따랐고, 아래 측정값은 윈도우 11 홈(빌드 10.0.26200)에서 직접 확인했습니다."}),`
+`,s.jsx(e.h2,{id:"글자만-키우는-법",children:s.jsx(e.a,{href:"#글자만-키우는-법",children:"글자만 키우는 법"})}),`
+`,s.jsx(e.p,{children:"마이크로소프트 안내 문서에 적힌 길입니다."}),`
+`,s.jsxs(e.blockquote,{children:[`
+`,s.jsxs(e.p,{children:["시작 > ",s.jsx(e.strong,{children:"설정"})," > ",s.jsx(e.strong,{children:"접근성"})," > ",s.jsx(e.strong,{children:"텍스트 크기"})]}),`
+`]}),`
+`,s.jsxs(e.ol,{children:[`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"시작"})," 단추를 누르고 ",s.jsx(e.strong,{children:"설정"}),"을 엽니다. 키보드로는 ",s.jsx(e.code,{children:"윈도우 키"})," 와 ",s.jsx(e.code,{children:"I"})," 를 같이 누르면 바로 열립니다"]}),`
+`,s.jsxs(e.li,{children:["왼쪽 목록에서 ",s.jsx(e.strong,{children:"접근성"}),"을 고릅니다"]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"텍스트 크기"}),"를 누릅니다"]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"슬라이더를 오른쪽으로"})," 끕니다. 위쪽 미리보기 상자의 문장이 같이 커집니다"]}),`
+`,s.jsx(e.li,{children:s.jsxs(e.strong,{children:["오른쪽 끝의 ",s.jsx(e.code,{children:"적용"})," 단추를 누릅니다"]})}),`
+`]}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-captext.png",alt:"설정 접근성 텍스트 크기 화면. 슬라이더 오른쪽에 적용 단추가 있다"})}),`
+`,s.jsx(e.p,{children:s.jsxs(e.em,{children:["그림. 실제 화면입니다. 슬라이더만 옮기면 바뀌지 않고 오른쪽 ",s.jsx(e.code,{children:"적용"}),"을 눌러야 합니다 (직접 캡처)"]})}),`
+`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"5번을 빠뜨리면 아무 일도 일어나지 않습니다."}),' 슬라이더를 옮겨도 미리보기만 바뀌고 화면은 그대로입니다. 마이크로소프트 안내 문서에는 이 단추 이야기가 없어서 슬라이더까지만 하고 "안 된다"고 하시는 경우가 있습니다.']}),`
+`,s.jsxs(e.p,{children:['화면의 설명은 "Windows 및 앱 전체에 표시되는 텍스트 크기"입니다. 기본값이 ',s.jsx(e.strong,{children:"100%"})," 이고 ",s.jsx(e.strong,{children:"225%"})," 까지 올라갑니다. 창 크기도, 단추 크기도, 아이콘 크기도 건드리지 않습니다."]}),`
+`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"한 번에 끝까지 올리지 마십시오."})," 한 칸씩 올리고 평소 쓰는 프로그램을 열어 보는 편이 낫습니다. 글자가 커지면 창 안에서 줄이 밀려 단추가 가려지는 일이 있습니다. 그럴 때는 한 칸 내리면 됩니다."]}),`
+`,s.jsx(e.h2,{id:"화면-전부를-키우려면",children:s.jsx(e.a,{href:"#화면-전부를-키우려면",children:"화면 전부를 키우려면"})}),`
+`,s.jsx(e.p,{children:"글자만 키워서는 부족할 때 가는 자리입니다. 이름이 다릅니다."}),`
+`,s.jsxs(e.blockquote,{children:[`
+`,s.jsxs(e.p,{children:["시작 > ",s.jsx(e.strong,{children:"설정"})," > ",s.jsx(e.strong,{children:"시스템"})," > ",s.jsx(e.strong,{children:"디스플레이"})," > ",s.jsx(e.strong,{children:"배율 및 레이아웃"})," > ",s.jsx(e.strong,{children:"배율"})]}),`
+`]}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-capscale.png",alt:"설정 시스템 디스플레이의 배율 및 레이아웃 부분. 배율이 200퍼센트 권장으로 되어 있다"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:'그림. 실제 화면입니다. 항목 이름이 배율이고 설명은 "텍스트, 앱 및 기타 항목의 크기 변경"입니다 (직접 캡처)'})}),`
+`,s.jsxs(e.p,{children:["찾으실 때 헷갈리는 점이 하나 있습니다. ",s.jsx(e.strong,{children:'화면에 적힌 이름은 "배율"인데, 마이크로소프트 한국어 안내 문서는 같은 것을 "크기 조정"이라고 적어 두었습니다.'}),' 문서를 보고 "크기 조정"을 찾으면 그 이름은 화면에 없습니다. 둘은 이름만 다르고 들어가는 곳이 같습니다.']}),`
+`,s.jsxs(e.p,{children:["목록에서 값을 고르는 방식이고, 목록에 없는 값을 직접 넣는 자리도 따로 있습니다. 위 화면에서 ",s.jsx(e.strong,{children:"200%(권장)"})," 이라고 적힌 것처럼, 윈도우가 화면 크기에 맞게 권하는 값에 (권장) 표시가 붙습니다."]}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{}),s.jsx(e.th,{children:"텍스트 크기"}),s.jsx(e.th,{children:"배율"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"어디에 있나"}),s.jsx(e.td,{children:"설정 > 접근성"}),s.jsx(e.td,{children:"설정 > 시스템 > 디스플레이"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"무엇이 커지나"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"글자만"})}),s.jsxs(e.td,{children:["글자·아이콘·단추·창 ",s.jsx(e.strong,{children:"전부"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"고르는 방식"}),s.jsx(e.td,{children:"슬라이더"}),s.jsx(e.td,{children:"목록에서 고르기"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"범위"}),s.jsxs(e.td,{children:["100% ~ ",s.jsx(e.strong,{children:"225%"})]}),s.jsxs(e.td,{children:["목록값 + 직접 입력 ",s.jsx(e.strong,{children:"100% ~ 500%"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"화면에 담기는 양"}),s.jsx(e.td,{children:"그대로"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"줄어듭니다"})})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"못 따라오는 프로그램"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"있습니다"})}),s.jsx(e.td,{children:"거의 없습니다"})]})]})]}),`
+`,s.jsxs(e.p,{children:["직접 입력은 100%에서 500%까지 받습니다. 그런데 ",s.jsx(e.strong,{children:"마이크로소프트가 권하지 않는다고 적어 두었습니다."})," 목록에 없는 값을 넣으면 글자가 흐려지거나 창이 화면 밖으로 밀려나는 일이 생기기 때문입니다. ",s.jsx(e.strong,{children:"목록에 있는 값부터"})," 써 보시고, 그것으로 부족할 때만 마지막에 직접 넣으십시오."]}),`
 `,s.jsx(e.h2,{id:"왜-어떤-프로그램은-안-커지나요",children:s.jsx(e.a,{href:"#왜-어떤-프로그램은-안-커지나요",children:"왜 어떤 프로그램은 안 커지나요"})}),`
-`,s.jsxs(e.p,{children:["여기가 이 글의 핵심입니다. 텍스트 크기를 225%까지 올려도 ",s.jsx(e.strong,{children:"어떤 프로그램은 미동도 하지 않습니다."})]}),`
-`,s.jsxs(e.p,{children:["마이크로소프트 개발자 문서 ",s.jsx(e.code,{children:"Text scaling"})," 에 그 이유가 적혀 있습니다. 프로그램이 ",s.jsx(e.strong,{children:"어떤 기술로 화면을 그렸느냐"}),"에 따라 갈립니다."]}),`
-`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"프로그램이 쓴 기술"}),s.jsx(e.th,{children:"텍스트 크기를 따라오나"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"WinUI"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"기본으로 따라옵니다"})})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"Win32"}),s.jsxs(e.td,{children:[s.jsx(e.strong,{children:"일부만"})," — 메뉴·아이콘·도구 모음까지"]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"DirectWrite"}),s.jsx(e.td,{children:"따라오지 않습니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"GDI"}),s.jsx(e.td,{children:"따라오지 않습니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"XAML SwapChainPanel"}),s.jsx(e.td,{children:"따라오지 않습니다"})]})]})]}),`
+`,s.jsxs(e.p,{children:["여기가 이 글에서 가장 말씀드리고 싶은 부분입니다. 텍스트 크기를 225%까지 올려도 ",s.jsx(e.strong,{children:"어떤 프로그램은 미동도 하지 않습니다."})]}),`
+`,s.jsxs(e.p,{children:["마이크로소프트 개발자 문서 ",s.jsx(e.code,{children:"Text scaling"})," 에 그 이유가 적혀 있습니다. 프로그램을 ",s.jsx(e.strong,{children:"무엇으로 만들었느냐"}),"에 따라 갈립니다."]}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-follow.png",alt:"텍스트 크기를 따라오는 것과 못 따라오는 것을 갈라 놓은 그림"})}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"프로그램을 만든 방식"}),s.jsx(e.th,{children:"텍스트 크기를 따라오나"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"WinUI"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"기본으로 따라옵니다"})})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"Win32"}),s.jsxs(e.td,{children:[s.jsx(e.strong,{children:"일부만"})," — 메뉴·아이콘·도구 모음까지"]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"DirectWrite"}),s.jsx(e.td,{children:"따라오지 않습니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"GDI"}),s.jsx(e.td,{children:"따라오지 않습니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"XAML SwapChainPanel"}),s.jsx(e.td,{children:"따라오지 않습니다"})]})]})]}),`
 `,s.jsx(e.p,{children:"문서의 표현은 이렇습니다. DirectWrite와 GDI, XAML SwapChainPanel은 텍스트 배율을 기본 지원하지 않는다고 적혀 있습니다. Win32는 지원하되 메뉴와 아이콘, 도구 모음으로 제한된다고 합니다."}),`
-`,s.jsx(e.p,{children:"어려운 이름들이지만 뜻은 단순합니다."}),`
+`,s.jsxs(e.p,{children:["낯선 이름들이지만 쓰는 사람이 알아 둘 것은 하나입니다. ",s.jsx(e.strong,{children:"화면에 글자를 그리는 방식이 여러 가지이고, 그중 일부만 이 설정과 이어져 있습니다."})," 어떤 방식으로 만들었는지는 프로그램 겉모습으로 알 수 없습니다."]}),`
+`,s.jsx(e.p,{children:"그래서 이런 일이 생깁니다."}),`
 `,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"최근에 새로 만든 프로그램"}),"은 따라옵니다"]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"오래전에 만들어져 계속 쓰이는 프로그램"}),"은 글자 그리는 방식이 옛것이라 따라오지 못합니다"]}),`
-`,s.jsx(e.li,{children:"같은 회사가 만든 프로그램끼리도 갈릴 수 있습니다"}),`
-`,s.jsx(e.li,{children:"메뉴 글자는 커졌는데 본문 글자만 그대로인 경우도 여기 해당합니다"}),`
+`,s.jsxs(e.li,{children:["메뉴 글자는 커졌는데 ",s.jsx(e.strong,{children:"본문 글자만 그대로"})," 남습니다. Win32가 메뉴까지만 따라오기 때문입니다"]}),`
+`,s.jsxs(e.li,{children:["같은 회사가 만든 프로그램인데도 ",s.jsx(e.strong,{children:"하나는 커지고 하나는 안 커집니다"})]}),`
+`,s.jsx(e.li,{children:"새로 나온 프로그램이라고 다 커지는 것도, 오래된 프로그램이라고 다 안 커지는 것도 아닙니다"}),`
 `]}),`
-`,s.jsxs(e.p,{children:["따라오지 못하는 것은 고장이 아닙니다. 그 프로그램이 글자를 그리는 방식이 이 설정과 ",s.jsx(e.strong,{children:"연결돼 있지 않은 것"}),"입니다. 설정을 몇 번 껐다 켜도 달라지지 않습니다. 프로그램을 다시 깔아도 마찬가지입니다."]}),`
-`,s.jsxs(e.p,{children:["그래서 그런 프로그램은 ",s.jsx(e.strong,{children:"배율 쪽으로 풀어야 합니다."})," 배율은 화면 전체를 확대하는 방식입니다. 프로그램이 무엇으로 만들어졌든 상관이 없습니다. 이 점이 두 손잡이를 갈라 쓰는 기준이 됩니다."]}),`
-`,s.jsxs(e.p,{children:["프로그램 자체에 글자 크기 메뉴가 따로 있는 경우도 많습니다. 웹 브라우저는 ",s.jsx(e.code,{children:"Ctrl"})," 키를 누른 채 ",s.jsx(e.code,{children:"+"})," 를 누르면 그 사이트만 커집니다. 문서 프로그램에는 보기 배율이 따로 있습니다. ",s.jsx(e.strong,{children:"한 프로그램만 불편한 것이라면"})," 윈도우 설정보다 그 프로그램 안을 먼저 보는 편이 빠릅니다."]}),`
+`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"따라오지 못하는 것은 고장이 아닙니다."})," 설정을 몇 번 껐다 켜도 달라지지 않습니다. 그 프로그램이 글자를 그리는 방식이 이 설정과 이어져 있지 않은 것뿐입니다."]}),`
+`,s.jsxs(e.p,{children:["그런 프로그램은 ",s.jsx(e.strong,{children:"배율으로 풀어야 합니다."})," 배율은 화면 전체를 확대하는 방식이라 프로그램을 무엇으로 만들었든 상관이 없습니다. 이것이 두 자리를 갈라 쓰는 기준입니다."]}),`
+`,s.jsxs(e.p,{children:["프로그램 안에 글자 크기 메뉴가 따로 있는 경우도 많습니다. 웹 브라우저는 ",s.jsx(e.code,{children:"Ctrl"})," 키를 누른 채 ",s.jsx(e.code,{children:"+"})," 를 누르면 보고 있는 사이트만 커집니다. ",s.jsx(e.strong,{children:"한 프로그램만 불편한 것이라면"})," 윈도우 설정보다 그 프로그램 안을 먼저 보는 편이 빠릅니다."]}),`
 `,s.jsx(e.h2,{id:"폴더-이름만-키울-수는-없나요",children:s.jsx(e.a,{href:"#폴더-이름만-키울-수는-없나요",children:"폴더 이름만 키울 수는 없나요"})}),`
-`,s.jsxs(e.p,{children:["검색창에 ",s.jsx(e.code,{children:"윈도우11 폴더 글자 크기"})," 를 넣어 보면 자동완성이 줄줄이 나옵니다. ",s.jsx(e.code,{children:"아이콘 글자 크기"})," 와 ",s.jsx(e.code,{children:"탐색기 글자 크기"})," 도 같이 뜹니다. 찾는 분이 그만큼 많다는 뜻입니다. 그런데 ",s.jsx(e.strong,{children:"지금 윈도우 설정에는 그 자리가 없습니다."})]}),`
-`,s.jsxs(e.p,{children:["예전 윈도우에는 제목 표시줄과 메뉴, 아이콘 이름의 글꼴 크기를 ",s.jsx(e.strong,{children:"항목별로 따로"}),' 정하는 화면이 있었습니다. 그 화면이 없어진 뒤로 "아이콘 이름만 키우고 싶다"는 요구가 갈 곳을 잃었습니다. 답이 없으니 검색만 쌓였습니다.']}),`
-`,s.jsx(e.p,{children:"지금 할 수 있는 것은 이만큼입니다."}),`
+`,s.jsxs(e.p,{children:["검색창에 ",s.jsx(e.code,{children:"윈도우11 폴더 글자 크기"})," 를 넣어 보면 자동완성이 줄줄이 나옵니다. ",s.jsx(e.code,{children:"아이콘 글자 크기"})," 와 ",s.jsx(e.code,{children:"탐색기 글자 크기"})," 도 같이 뜹니다. 찾는 분이 그만큼 많다는 뜻입니다. 그런데 ",s.jsx(e.strong,{children:"지금 윈도우 설정에는 항목별로 글꼴 크기를 정하는 자리가 없습니다."})]}),`
+`,s.jsx(e.p,{children:'예전 윈도우에는 제목 표시줄과 메뉴, 아이콘 이름의 글꼴 크기를 따로따로 정하는 화면이 있었습니다. 그 화면이 사라진 뒤로 "아이콘 이름만 키우고 싶다"는 요구가 갈 곳을 잃었습니다. 답이 없으니 검색만 쌓였습니다.'}),`
+`,s.jsx(e.p,{children:"아이콘이 안 보여서 오신 것이라면 순서는 이렇습니다."}),`
 `,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"아이콘 그림 크기"}),"는 바꿀 수 있습니다. 바탕 화면이나 폴더 안에서 ",s.jsx(e.code,{children:"Ctrl"})," 을 누른 채 마우스 휠을 굴리면 커집니다"]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"그런데 이름 글자는 이 방법으로 안 커집니다."})," 그림만 커지고 글자는 그대로 남습니다"]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"이름 글자까지 키우려면 배율"}),"로 가야 합니다. 텍스트 크기로도 일부 올라가지만 배율만큼 확실하지 않습니다"]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"아이콘 그림 크기"}),"만 바꾸려면 바탕 화면이나 폴더 안에서 ",s.jsx(e.code,{children:"Ctrl"})," 을 누른 채 마우스 휠을 굴립니다"]}),`
+`,s.jsxs(e.li,{children:["그런데 이 방법은 ",s.jsx(e.strong,{children:"그림만 키웁니다."})," 아래 붙은 이름 글자는 그대로 남습니다"]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"이름 글자까지 키우려면 배율"}),"으로 가야 합니다"]}),`
 `]}),`
-`,s.jsxs(e.p,{children:["바탕 화면 아이콘이 안 보여서 오신 것이라면 답은 ",s.jsx(e.code,{children:"Ctrl"})," + 휠이 아니라 배율입니다. 아이콘을 키워 봐야 이름은 그대로라서 결국 같은 자리로 돌아오게 됩니다."]}),`
+`,s.jsx(e.p,{children:"그림을 키워 봐야 이름은 그대로라서, 아이콘 이름이 안 읽히는 것이 문제라면 결국 배율으로 돌아오게 됩니다."}),`
 `,s.jsx(e.h2,{id:"배율을-올리면-무엇을-잃나요",children:s.jsx(e.a,{href:"#배율을-올리면-무엇을-잃나요",children:"배율을 올리면 무엇을 잃나요"})}),`
 `,s.jsxs(e.p,{children:["배율은 만능처럼 보입니다. 그런데 ",s.jsx(e.strong,{children:"대가가 있습니다."})," 글자와 아이콘이 커지는 만큼 ",s.jsx(e.strong,{children:"화면에 담기는 양이 줄어듭니다."})]}),`
 `,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-scale.png",alt:"같은 화면이 배율에 따라 담는 양이 달라지는 것을 나타낸 그림"})}),`
 `,s.jsx(e.p,{children:"이 글을 쓴 노트북에서 직접 재 봤습니다."}),`
 `,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"항목"}),s.jsx(e.th,{children:"값"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"화면의 실제 픽셀"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"2880 × 1800"})})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"설정된 배율"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"200%"})})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"프로그램이 받는 화면 크기"}),s.jsx(e.td,{children:s.jsx(e.strong,{children:"1440 × 900"})})]})]})]}),`
-`,s.jsxs(e.p,{children:["2880 × 1800짜리 화면입니다. 그런데 ",s.jsx(e.strong,{children:"프로그램은 1440 × 900짜리 화면으로 알고 그립니다."})," 글자는 두 배로 크고 선명하게 보입니다. 대신 문서를 열면 한 화면에 들어오는 줄 수가 1440 × 900 화면과 같아집니다."]}),`
-`,s.jsxs(e.p,{children:["배율을 150%로 낮추면 반대가 됩니다. 글자는 작아지고 한 화면에 들어오는 양은 늘어납니다. ",s.jsx(e.strong,{children:"어느 쪽이 편한지는 하는 일에 따라 다릅니다."})," 문서를 길게 보거나 표를 넓게 봐야 한다면 배율을 낮추고 텍스트 크기로 보충하는 편이 낫습니다. 웹을 읽는 시간이 대부분이라면 배율을 올리는 편이 눈에 편합니다."]}),`
-`,s.jsxs(e.p,{children:["배율을 바꾼 뒤에는 ",s.jsx(e.strong,{children:"프로그램을 껐다 켜 보십시오."})," 켜져 있던 프로그램은 바뀐 배율을 바로 못 받는 일이 있습니다. 그러면 글자가 뿌옇게 번져 보입니다. 껐다 켜면 제 크기로 다시 그립니다."]}),`
-`,s.jsx(e.h2,{id:"둘을-같이-써도-되나요",children:s.jsx(e.a,{href:"#둘을-같이-써도-되나요",children:"둘을 같이 써도 되나요"})}),`
-`,s.jsxs(e.p,{children:["됩니다. 오히려 ",s.jsx(e.strong,{children:"같이 쓰는 편이 나은 경우"}),"가 많습니다."]}),`
-`,s.jsx(e.p,{children:"배율만 올리면 화면이 좁아지고, 텍스트 크기만 올리면 안 따라오는 프로그램이 남습니다. 그래서 두 개를 나눠 올리는 방법이 있습니다."}),`
-`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"이런 분"}),s.jsx(e.th,{children:"배율"}),s.jsx(e.th,{children:"텍스트 크기"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"문서를 넓게 봐야 한다"}),s.jsx(e.td,{children:"낮게"}),s.jsx(e.td,{children:"높게"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"눈이 많이 불편하다"}),s.jsx(e.td,{children:"높게"}),s.jsx(e.td,{children:"조금 더"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"특정 프로그램만 문제다"}),s.jsx(e.td,{children:"높게"}),s.jsx(e.td,{children:"기본"})]})]})]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"한 번에 끝까지 올리지 마십시오."})," 한 단계씩 올리고 평소 쓰는 프로그램을 열어 확인하는 편이 낫습니다. 너무 올리면 버튼이 창 밖으로 밀려 눌리지 않는 일이 생깁니다. 그때는 한 단계 내리면 됩니다."]}),`
-`,s.jsx(e.p,{children:"설정을 바꿨는데 화면이 이상해져 되돌리기 어려워지면, 로그아웃했다가 다시 로그인해 보십시오. 대부분 정리됩니다."}),`
-`,s.jsx(e.h2,{id:"잠깐만-크게-보려면-어떻게-하나요",children:s.jsx(e.a,{href:"#잠깐만-크게-보려면-어떻게-하나요",children:"잠깐만 크게 보려면 어떻게 하나요"})}),`
-`,s.jsxs(e.p,{children:["설정을 바꾸지 않고 ",s.jsx(e.strong,{children:"그때그때 확대하는 방법"}),"도 있습니다. 윈도우에 들어 있는 돋보기입니다."]}),`
-`,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:["켜기는 ",s.jsx(e.code,{children:"윈도우 키"})," 와 ",s.jsx(e.code,{children:"+"})," 를 같이 누릅니다"]}),`
-`,s.jsxs(e.li,{children:["끄기는 ",s.jsx(e.code,{children:"윈도우 키"})," 와 ",s.jsx(e.code,{children:"Esc"})," 입니다"]}),`
-`,s.jsxs(e.li,{children:["켜진 뒤에는 ",s.jsx(e.code,{children:"윈도우 키"})," 와 ",s.jsx(e.code,{children:"+"}),", ",s.jsx(e.code,{children:"-"})," 로 배율을 올리고 내립니다"]}),`
+`,s.jsxs(e.p,{children:["앞 절 캡처에 나온 ",s.jsx(e.strong,{children:"디스플레이 해상도 2880 × 1800(권장)"})," 과 ",s.jsx(e.strong,{children:"배율 200%(권장)"})," 가 이 표의 앞 두 줄입니다."]}),`
+`,s.jsxs(e.p,{children:["2880 × 1800짜리 화면입니다. 그런데 ",s.jsx(e.strong,{children:"프로그램은 1440 × 900짜리 화면으로 알고 그립니다."})," 글자는 두 배 크기로, 대신 촘촘한 점으로 그려져 크고 선명합니다. 다만 문서를 열면 한 화면에 들어오는 줄 수가 1440 × 900 화면과 같아집니다."]}),`
+`,s.jsxs(e.p,{children:["배율을 낮추면 반대가 됩니다. 글자는 작아지고 한 화면에 들어오는 양은 늘어납니다. ",s.jsx(e.strong,{children:"어느 쪽이 편한지는 하시는 일에 따라 다릅니다."})," 문서를 길게 보거나 표를 넓게 봐야 한다면 배율을 낮추고 텍스트 크기로 보충하는 편이 낫습니다. 웹을 읽는 시간이 대부분이라면 배율을 올리는 편이 눈에 편합니다."]}),`
+`,s.jsxs(e.p,{children:["배율을 바꾼 뒤 ",s.jsx(e.strong,{children:"글자가 뿌옇게 번져 보이는 프로그램"}),"이 있으면 그 프로그램을 껐다 켜 보십시오. 켜져 있던 상태에서 바뀐 값을 바로 못 받는 경우가 있습니다."]}),`
+`,s.jsx(e.h2,{id:"마우스-화살표도-같이-키우면-낫습니다",children:s.jsx(e.a,{href:"#마우스-화살표도-같이-키우면-낫습니다",children:"마우스 화살표도 같이 키우면 낫습니다"})}),`
+`,s.jsxs(e.p,{children:["글자를 키우고 나면 이번에는 ",s.jsx(e.strong,{children:"마우스 화살표가 작아 보입니다."})," 글자만 커졌으니 상대적으로 그렇게 느껴집니다. 이것도 같은 접근성 안에 있습니다."]}),`
+`,s.jsxs(e.blockquote,{children:[`
+`,s.jsxs(e.p,{children:["시작 > ",s.jsx(e.strong,{children:"설정"})," > ",s.jsx(e.strong,{children:"접근성"})," > ",s.jsx(e.strong,{children:"마우스 포인터 및 터치"})]}),`
 `]}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-textsize-capmouse.png",alt:"설정 접근성 마우스 포인터 및 터치 화면. 포인터 스타일 네 가지와 크기 슬라이더가 있다"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 실제 화면입니다. 스타일 넷과 크기 슬라이더가 따로 있습니다 (직접 캡처)"})}),`
+`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:"마우스 포인터 스타일"}),"이 넷 있습니다. 왼쪽부터 흰색, 검은색, 흑백이 뒤집히는 것, 그리고 색을 직접 고르는 것입니다. 세 번째는 배경이 밝으면 검게, 어두우면 희게 바뀌어서 어디서나 눈에 띕니다."]}),`
+`,s.jsxs(e.p,{children:["그 아래 ",s.jsx(e.strong,{children:"크기"})," 슬라이더로 화살표 자체를 키웁니다. 이 둘은 따로 놀기 때문에 색만 바꾸거나 크기만 키울 수 있습니다. 글자 크기를 올리셨다면 이 자리도 한 번 열어 보시기를 권합니다."]}),`
+`,s.jsx(e.h2,{id:"잠깐만-크게-보려면-어떻게-하나요",children:s.jsx(e.a,{href:"#잠깐만-크게-보려면-어떻게-하나요",children:"잠깐만 크게 보려면 어떻게 하나요"})}),`
+`,s.jsxs(e.p,{children:["설정을 바꾸지 않고 ",s.jsx(e.strong,{children:"그때그때 확대하는 방법"}),"도 있습니다. 윈도우에 들어 있는 돋보기입니다. 안내 문서에 적힌 단축키는 이렇습니다."]}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"하려는 것"}),s.jsx(e.th,{children:"누르는 키"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"켜기"}),s.jsxs(e.td,{children:[s.jsx(e.code,{children:"윈도우 키"})," + ",s.jsx(e.code,{children:"+"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"더 크게"}),s.jsxs(e.td,{children:[s.jsx(e.code,{children:"윈도우 키"})," + ",s.jsx(e.code,{children:"+"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"작게"}),s.jsxs(e.td,{children:[s.jsx(e.code,{children:"윈도우 키"})," + ",s.jsx(e.code,{children:"-"})]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"끄기"}),s.jsxs(e.td,{children:[s.jsx(e.code,{children:"윈도우 키"})," + ",s.jsx(e.code,{children:"Esc"})]})]})]})]}),`
+`,s.jsx(e.p,{children:"켜는 키와 더 크게 하는 키가 같습니다. 처음 누르면 켜지고, 또 누르면 그만큼 더 커집니다."}),`
 `,s.jsxs(e.p,{children:["작은 글씨 하나를 잠깐 읽을 때 쓰면 편합니다. 다만 화면 일부만 크게 보여 주는 방식이라 ",s.jsx(e.strong,{children:"종일 켜 놓기에는 불편합니다."})," 늘 불편하시다면 돋보기가 아니라 앞의 두 설정으로 가는 편이 낫습니다."]}),`
 `,s.jsx(e.h2,{id:"어디부터-손대면-되나요",children:s.jsx(e.a,{href:"#어디부터-손대면-되나요",children:"어디부터 손대면 되나요"})}),`
 `,s.jsx(e.p,{children:"불편한 범위에 따라 들어가는 자리가 다릅니다. 위에서부터 해 보시면 됩니다."}),`
 `,s.jsxs(e.ol,{children:[`
 `,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"한 프로그램만 불편하다"})," — 그 프로그램 안의 글자 크기나 보기 배율을 먼저 봅니다. 브라우저는 ",s.jsx(e.code,{children:"Ctrl"})," + ",s.jsx(e.code,{children:"+"})," 입니다"]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"글자만 작다, 나머지는 괜찮다"})," — 설정 > 접근성 > 텍스트 크기로 갑니다. 슬라이더를 조금씩 올리며 확인합니다"]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"글자도 아이콘도 버튼도 다 작다"})," — 설정 > 시스템 > 디스플레이 > 배율로 갑니다. ",s.jsx(e.strong,{children:"목록에 있는 값부터"})," 써 봅니다"]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"글자만 작다, 나머지는 괜찮다"})," — 설정 > 접근성 > 텍스트 크기로 갑니다. 슬라이더를 한 칸씩 올리며 확인합니다"]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"글자도 아이콘도 단추도 다 작다"})," — 설정 > 시스템 > 디스플레이 > 배율으로 갑니다. ",s.jsx(e.strong,{children:"목록에 있는 값부터"})," 써 봅니다"]}),`
 `,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"2번을 했는데 특정 프로그램만 그대로다"})," — 그 프로그램은 못 따라오는 종류입니다. 3번으로 갑니다"]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"화살표가 안 보인다"})," — 설정 > 접근성 > 마우스 포인터 및 터치로 갑니다"]}),`
 `,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"잠깐만 크게 보면 된다"})," — 돋보기를 씁니다"]}),`
 `]}),`
-`,s.jsx(e.p,{children:"배율은 목록에 있는 값부터 쓰십시오. 사용자 지정은 마이크로소프트도 권하지 않는다고 적어 둔 자리입니다. 목록값으로 부족할 때만 마지막에 씁니다."}),`
 `,s.jsx(e.h2,{id:"증상별로-어디를-보나",children:s.jsx(e.a,{href:"#증상별로-어디를-보나",children:"증상별로 어디를 보나"})}),`
-`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"이런 증상이면"}),s.jsx(e.th,{children:"여기를 봅니다"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"글자를 키웠는데 한 프로그램만 그대로"}),s.jsx(e.td,{children:"그 프로그램은 못 따라오는 종류입니다. 배율로 갑니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"아이콘은 커졌는데 이름은 그대로"}),s.jsxs(e.td,{children:[s.jsx(e.code,{children:"Ctrl"}),"+휠은 그림만 키웁니다. 배율로 갑니다"]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"글자가 뿌옇게 보인다"}),s.jsx(e.td,{children:"배율을 바꾼 뒤라면 프로그램을 껐다 켭니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"창이 화면 밖으로 나간다"}),s.jsx(e.td,{children:"사용자 지정 배율을 목록값으로 되돌립니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"웹 사이트 글자만 작다"}),s.jsxs(e.td,{children:["브라우저에서 ",s.jsx(e.code,{children:"Ctrl"})," + ",s.jsx(e.code,{children:"+"})," 를 누릅니다"]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"항목별로 글꼴 크기를 정하고 싶다"}),s.jsx(e.td,{children:"지금 설정에는 그 자리가 없습니다"})]})]})]}),`
-`,s.jsx(e.p,{children:"기준을 갈라 두면 헤매지 않습니다. 글자만 불편하면 접근성이고, 전부 불편하면 디스플레이입니다. 접근성으로는 안 되는 프로그램이 있다는 것만 알고 계시면 됩니다."}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"이런 증상이면"}),s.jsx(e.th,{children:"여기를 봅니다"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"글자를 키웠는데 한 프로그램만 그대로"}),s.jsx(e.td,{children:"못 따라오는 종류입니다. 배율으로 갑니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"메뉴는 커졌는데 본문만 그대로"}),s.jsx(e.td,{children:"같은 이유입니다. 배율으로 갑니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"아이콘은 커졌는데 이름은 그대로"}),s.jsxs(e.td,{children:[s.jsx(e.code,{children:"Ctrl"}),"+휠은 그림만 키웁니다. 배율으로 갑니다"]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"글자가 뿌옇게 보인다"}),s.jsx(e.td,{children:"배율을 바꾼 뒤라면 그 프로그램을 껐다 켭니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"창이 화면 밖으로 나간다"}),s.jsx(e.td,{children:"직접 입력한 값을 목록값으로 되돌립니다"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"웹 사이트 글자만 작다"}),s.jsxs(e.td,{children:["브라우저에서 ",s.jsx(e.code,{children:"Ctrl"})," + ",s.jsx(e.code,{children:"+"})," 를 누릅니다"]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"마우스 화살표가 안 보인다"}),s.jsx(e.td,{children:"설정 > 접근성 > 마우스 포인터 및 터치"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"항목별로 글꼴 크기를 정하고 싶다"}),s.jsx(e.td,{children:"지금 설정에는 그 자리가 없습니다"})]})]})]}),`
+`,s.jsx(e.p,{children:"기준을 갈라 두면 헤매지 않습니다. 글자만 불편하면 접근성이고, 전부 불편하면 디스플레이입니다. 접근성으로는 안 되는 프로그램이 따로 있다는 것만 알고 계시면 됩니다."}),`
 `,s.jsx(e.h2,{id:"참고-자료",children:s.jsx(e.a,{href:"#참고-자료",children:"참고 자료"})}),`
 `,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.a,{href:"https://support.microsoft.com/en-us/windows/make-windows-easier-to-see-c97c2b0d-cadb-93f0-5fd1-59ccfe19345d",children:"Microsoft — Make Windows easier to see"})," (2026-09-19 확인) — 텍스트 크기와 배율의 설정 경로, 사용자 지정 배율 100~500%와 권장하지 않는다는 문구"]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.a,{href:"https://learn.microsoft.com/en-us/windows/apps/design/input/text-scaling",children:"Microsoft Learn — Text scaling (Windows apps)"})," (2026-09-19 확인) — 텍스트 배율 100~225% 범위, WinUI 기본 지원, DirectWrite·GDI·XAML SwapChainPanel 미지원, Win32는 메뉴·아이콘·도구 모음으로 제한"]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.a,{href:"https://support.microsoft.com/ko-kr/windows/windows%EB%A5%BC-%EB%8D%94-%EC%89%BD%EA%B2%8C-%EB%B3%BC-%EC%88%98-%EC%9E%88%EB%8F%84%EB%A1%9D-%EB%A7%8C%EB%93%A4%EA%B8%B0-c97c2b0d-cadb-93f0-5fd1-59ccfe19345d",children:"Microsoft — Windows를 더 쉽게 볼 수 있도록 만들기"})," (2026-09-20 확인) — 텍스트 크기·배율·마우스 포인터 및 터치의 설정 경로, 돋보기 단축키, 직접 입력 100~500%와 권장하지 않는다는 문구"]}),`
+`,s.jsxs(e.li,{children:[s.jsx(e.a,{href:"https://learn.microsoft.com/en-us/windows/apps/design/input/text-scaling",children:"Microsoft Learn — Text scaling (Windows apps)"})," (2026-09-20 확인) — 텍스트 배율 100~225% 범위, WinUI 기본 지원, DirectWrite·GDI·XAML SwapChainPanel 미지원, Win32는 메뉴·아이콘·도구 모음으로 제한"]}),`
 `,s.jsx(e.li,{children:"본문의 해상도와 배율 수치는 윈도우 11 홈 빌드 10.0.26200에서 직접 측정했습니다."}),`
 `]})]})}function Nt(n={}){const{wrapper:e}={...l(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(Ln,{...n})}):Ln(n)}const Bt=Object.freeze(Object.defineProperty({__proto__:null,default:Nt,frontmatter:Dt},Symbol.toStringTag,{value:"Module"})),_t={title:"택배 문자 눌렀다면 좀비폰 확인방법 — 흔적 다섯, 신고는 다른 폰으로",date:"2026-09-14T01:18",description:"내 번호로 지인에게 이상한 문자가 갔다면 폰이 남의 손에 있을 수 있습니다. 카톡 해킹·번호 도용과 가르는 법, 설정 화면에서 3분 안에 보는 흔적 다섯, 공공 검사 도구 셋, 감염이 맞을 때의 순서를 2026년 9월 기준으로 정리했습니다.",category:"IT소식",tags:["좀비폰","스미싱","택배문자","보이스피싱","악성앱","스마트폰보안","추석"],cover:"/uploads/itnews-zombie-phone-hero.jpg",draft:!1};function $n(n){const e={a:"a",em:"em",h2:"h2",img:"img",li:"li",ol:"ol",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...l(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-zombie-phone-hero.jpg",alt:"택배 상자 옆에서 검은 스마트폰을 들고 화면을 보는 사람의 손"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"이미지 출처: Pexels, Mike Jones"})}),`
