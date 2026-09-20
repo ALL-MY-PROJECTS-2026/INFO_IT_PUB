@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>와이파이 비밀번호 확인, PC는 글자 갤럭시는 QR입니다</title>
+      <link>https://pancoit.site/posts/wifi-password-check</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/wifi-password-check</guid>
+      <pubDate>Sun, 20 Sep 2026 07:10:00 GMT</pubDate>
+      <description>집 와이파이 비밀번호를 잊었을 때 공유기 스티커부터 뒤집으면 절반은 틀립니다. 이미 접속해 둔 기기가 그 값을 갖고 있습니다. 윈도우 11은 설정에서 표시 단추 한 번, 아이폰은 암호 칸을 한 번 누르면 글자로 나오고, 갤럭시는 QR 코드로만 내줍니다.</description>
+    </item>
+    <item>
       <title>윈도우 11 글자만 키우는 법, 안 커지는 앱이 있는 이유</title>
       <link>https://pancoit.site/posts/windows11-text-size</link>
       <guid isPermaLink="true">https://pancoit.site/posts/windows11-text-size</guid>
