@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>아이폰 마이그레이션, 카톡은 따로 백업합니다 — 재실행·나중에 하기 순서</title>
+      <link>https://pancoit.site/posts/iphone-migration-redo</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/iphone-migration-redo</guid>
+      <pubDate>Mon, 21 Sep 2026 03:44:00 GMT</pubDate>
+      <description>새 아이폰에서 '아무것도 전송 안 함'을 눌렀거나 전송이 중간에 끊겼으면 어디서부터 다시 하는지, 카톡 대화가 왜 안 넘어오는지, 유심과 eSIM은 어떻게 넘기는지를 Apple 지원 문서와 카카오 안내 기준으로 적었습니다.</description>
+    </item>
+    <item>
       <title>와이파이 비밀번호 확인, PC는 글자 갤럭시는 QR입니다</title>
       <link>https://pancoit.site/posts/wifi-password-check</link>
       <guid isPermaLink="true">https://pancoit.site/posts/wifi-password-check</guid>
