@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>삼성 냉장고 업데이트 뒤 멈춤, 원인은 오배포 — 껐다 켜지 말고 접수하세요 — PANCO_IT</title>
+    <meta name="description" content="2026년 9월 22일 스마트싱스 앱의 냉장고 업데이트를 누른 뒤 비스포크 AI 4도어 냉장고가 멈춘 일을, 삼성전자가 밝힌 원인(테스트 SW 오배포), 전원 재시작이 소용없는 이유, 추석 연휴 수리 일정, 아직 알림만 떠 있는 집이 할 일까지 9월 23일 기준으로 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/samsung-fridge-update-outage/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="삼성 냉장고 업데이트 뒤 멈춤, 원인은 오배포 — 껐다 켜지 말고 접수하세요 — PANCO_IT" />
+    <meta property="og:description" content="2026년 9월 22일 스마트싱스 앱의 냉장고 업데이트를 누른 뒤 비스포크 AI 4도어 냉장고가 멈춘 일을, 삼성전자가 밝힌 원인(테스트 SW 오배포), 전원 재시작이 소용없는 이유, 추석 연휴 수리 일정, 아직 알림만 떠 있는 집이 할 일까지 9월 23일 기준으로 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/samsung-fridge-update-outage/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-fridge-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-23T02:46" />
+    <meta property="article:modified_time" content="2026-09-23T02:46" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="삼성 냉장고 업데이트 뒤 멈춤, 원인은 오배포 — 껐다 켜지 말고 접수하세요 — PANCO_IT" />
+    <meta name="twitter:description" content="2026년 9월 22일 스마트싱스 앱의 냉장고 업데이트를 누른 뒤 비스포크 AI 4도어 냉장고가 멈춘 일을, 삼성전자가 밝힌 원인(테스트 SW 오배포), 전원 재시작이 소용없는 이유, 추석 연휴 수리 일정, 아직 알림만 떠 있는 집이 할 일까지 9월 23일 기준으로 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-fridge-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"삼성 냉장고 업데이트 뒤 멈춤, 원인은 오배포 — 껐다 켜지 말고 접수하세요","description":"2026년 9월 22일 스마트싱스 앱의 냉장고 업데이트를 누른 뒤 비스포크 AI 4도어 냉장고가 멈춘 일을, 삼성전자가 밝힌 원인(테스트 SW 오배포), 전원 재시작이 소용없는 이유, 추석 연휴 수리 일정, 아직 알림만 떠 있는 집이 할 일까지 9월 23일 기준으로 정리했습니다.","image":"https://pancoit.site/uploads/itnews-fridge-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-23T02:46","dateModified":"2026-09-23T02:46","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/samsung-fridge-update-outage/"},"keywords":"삼성냉장고, 스마트싱스, 냉장고업데이트, 비스포크AI, 펌웨어업데이트, 삼성전자서비스, 추석연휴수리, 생활IT"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D/"},{"@type":"ListItem","position":3,"name":"삼성 냉장고 업데이트 뒤 멈춤, 원인은 오배포 — 껐다 켜지 말고 접수하세요","item":"https://pancoit.site/posts/samsung-fridge-update-outage/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CZBkABmY.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D/">IT소식</a></li><li><span aria-current="page">삼성 냉장고 업데이트 뒤 멈춤, 원인은 오배포 — 껐다 켜지 말고 접수하세요</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D/">IT소식</a><h1 style="margin-top:0.75rem">삼성 냉장고 업데이트 뒤 멈춤, 원인은 오배포 — 껐다 켜지 말고 접수하세요</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-23T02:46">2026년 9월 23일 02:46</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->삼성냉장고</span><span class="tag">#<!-- -->스마트싱스</span><span class="tag">#<!-- -->냉장고업데이트</span><span class="tag">#<!-- -->비스포크AI</span><span class="tag">#<!-- -->펌웨어업데이트</span><span class="tag">#<!-- -->삼성전자서비스</span><span class="tag">#<!-- -->추석연휴수리</span><span class="tag">#<!-- -->생활IT</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="흰 냉장고 문을 열고 안을 들여다보는 사람" src="/uploads/itnews-fridge-hero.jpg" loading="lazy"/></p>
+<p><em>이미지 출처: Pexels (pexels.com) · Shvetsa · Pexels License</em></p>
+<p>9월 22일 낮에 스마트싱스 앱에 뜬 냉장고 업데이트 알림을 누른 집들이, 그날 저녁 조명이 꺼지고 냉기가 빠진 냉장고를 마주했습니다. 삼성전자는 23일 오전에 &quot;테스트 과정에서 소프트웨어가 잘못 배포됐다&quot;고 밝혔습니다. 추석 연휴를 이틀 앞둔 시점이라 명절 음식이 들어 있던 냉장고가 많았습니다.</p>
+<p>아래는 파이낸셜뉴스, 아이뉴스24, 스타뉴스, 한국일보 기사 넷과 삼성전자서비스 안내를 2026년 9월 23일 오전 기준으로 대조한 것입니다. 무엇이 일어났는지, 왜 전원을 껐다 켜도 돌아오지 않는지부터 봅니다. 그다음 지금 멈춰 있는 집과 아직 알림만 떠 있는 집이 각각 무엇을 하면 되는지로 이어집니다.</p>
+<h2 id="냉장고에서-무엇이-보였나요"><a href="#냉장고에서-무엇이-보였나요">냉장고에서 무엇이 보였나요</a></h2>
+<p>파이낸셜뉴스가 인용한 삼성멤버스 게시글의 문장이 이 일의 시작입니다. &quot;22일 오전에 스마트싱스로 냉장고 업데이트하라고 떠서 했는데 저녁에 냉장고 여니까 조명 안 들어오고 냉장 냉동 안 되고 아예 전원 꺼져 있어요.&quot; 낮에 알림을 눌렀고, 퇴근해서 문을 열었더니 안이 캄캄했다는 이야기가 22일 오후부터 23일 오전까지 삼성멤버스에 수십 건 올라왔습니다.</p>
+<p>증상은 세 갈래로 모입니다. 냉장고 문 바깥 패널에 &quot;업데이트 중, SmartThings 앱에서 진행 상황을 확인&quot;이라는 문구가 몇 시간째 그대로 떠 있습니다. 스마트싱스 앱을 열면 그 냉장고가 오프라인으로 표시됩니다. 문을 열면 조명이 켜지지 않고 냉장실과 냉동실의 냉기가 빠져 있습니다. 스타뉴스는 전원을 아예 차단한 집에서는 패널 화면까지 꺼지고 냉기가 완전히 빠졌다는 사례도 전했습니다.</p>
+<p><img alt="패널 문구, 조명과 냉기, 앱 표시 세 칸과 아래 재시작이 통하지 않았다는 띠를 놓은 증상 그림" src="/uploads/itnews-fridge-symptoms.png" loading="lazy"/></p>
+<p><em>그림. 보도된 증상 세 갈래입니다. 하나라도 맞으면 전원을 껐다 켜지 말고 접수합니다 (파이낸셜뉴스·스타뉴스·한국일보 기사를 바탕으로 자체 제작)</em></p>
+<p>문제가 난 제품은 대부분 2024년 이후에 나온 비스포크 AI 4도어 냉장고 시리즈라고 세 매체가 같은 말을 했습니다. 이 냉장고들은 문에 화면이 달려 있고 스마트싱스 앱과 와이파이로 이어져 있는 제품군입니다. 그래서 냉장고 본체의 제어 프로그램을 앱을 통해 새로 받을 수 있고, 이번에 알림으로 온 것이 바로 그 프로그램이었습니다.</p>
+<h2 id="전원이나-와이파이-문제는-아니었나요"><a href="#전원이나-와이파이-문제는-아니었나요">전원이나 와이파이 문제는 아니었나요</a></h2>
+<p>냉장고가 멈추면 누구나 먼저 코드를 뽑게 됩니다. 이번에는 그것이 통하지 않은 경우입니다. 파이낸셜뉴스에 실린 사례를 보면 코드를 뽑고 5분 뒤에 다시 꽂아도, 30분을 기다렸다가 꽂아도, 두꺼비집을 내렸다 올려도 전원이 들어오지 않았습니다. 아이뉴스24도 전원을 껐다 켜거나 차단기를 내렸다 올려도 정상화되지 않았다는 주장이 이어졌다고 썼습니다.</p>
+<p>와이파이 쪽도 아닙니다. 앱에 오프라인이라고 뜨는 것은 원인이 아니라 결과입니다. 냉장고 본체가 정상으로 켜지지 않으니 앱과 통신할 상대가 없어진 것입니다. 공유기를 껐다 켜거나 앱에서 기기를 지웠다 다시 등록해도 본체는 그대로입니다. 오히려 이 상태에서 기기를 삭제하면 나중에 수리 뒤 재등록 절차가 하나 더 늘어납니다.</p>
+<p>한국일보에는 반대 경우도 있었습니다. 앱에는 냉장실과 냉동실 온도가 정상으로 나오는데 실제로 돌고 있는지 걱정된다는 사용자입니다. 앱의 표시는 마지막으로 받은 값일 수 있습니다. 이런 집은 앱 화면보다 문을 열어 조명과 냉기를 직접 확인하는 쪽이 정확합니다.</p>
+<h2 id="사용자가-잘못-누른-것인가요"><a href="#사용자가-잘못-누른-것인가요">사용자가 잘못 누른 것인가요</a></h2>
+<p>아닙니다. 스타뉴스에 따르면 이번 업데이트 항목은 &#x27;코드 안정화&#x27; 같은 단순한 이름으로 표시돼 있었습니다. 그래서 별 걱정 없이 진행했다는 소비자가 있었습니다. 평소에 폰이나 텔레비전에서 보던 것과 같은 알림이었고, 누르는 것 말고 사용자가 선택할 것은 없었습니다.</p>
+<p>같은 기사에는 문제가 확인됐다면 업데이트를 미리 막아뒀어야 한다는 지적이 커뮤니티에서 나왔다는 대목도 있습니다. 배포를 멈춘 시점과 처음 알림이 나간 시점 사이에 얼마나 많은 집이 눌렀는지는 삼성전자가 밝히지 않았습니다. 알려진 것은 삼성멤버스에 올라온 글이 수십 건이라는 것까지입니다.</p>
+<h2 id="삼성전자는-원인을-무엇이라고-했나요"><a href="#삼성전자는-원인을-무엇이라고-했나요">삼성전자는 원인을 무엇이라고 했나요</a></h2>
+<p>아이뉴스24가 23일 오전 11시에 전한 삼성전자 관계자의 말입니다. &quot;어제 오후 냉장고 SW 업데이트 관련 테스트 과정에서 SW가 오배포됐으며 오류 인지 후 배포는 즉각 중단했다.&quot; 그리고 &quot;추석 기간 중 고객 불편을 최소화하기 위해 최선을 다하겠다&quot;고 했습니다. 같은 기사에 따르면 22일 오후 테스트 과정에서 일부 고객에게 소프트웨어가 잘못 배포됐고, 삼성전자는 오류를 인지한 직후 해당 소프트웨어의 배포를 중단했습니다.</p>
+<p><img alt="9월 22일 낮 알림, 저녁 멈춤, 인지 직후 배포 중단, 23일 오전 오배포 인정을 네 지점으로 놓은 시간 순서 그림" src="/uploads/itnews-fridge-timeline.png" loading="lazy"/></p>
+<p><em>그림. 9월 22일 낮부터 23일 아침까지의 순서입니다 (파이낸셜뉴스·아이뉴스24·스타뉴스 기사를 바탕으로 자체 제작)</em></p>
+<p>여기서 &quot;테스트 과정&quot;이라는 말이 중요합니다. 일반 고객에게 내보내려고 만든 완성본이 아니라, 아직 시험 중이던 소프트웨어가 일반 고객의 냉장고로 나갔다는 뜻입니다. 냉장고 하드웨어에 결함이 생긴 것이 아니라 본체에 들어간 프로그램이 잘못된 것이므로, 수리는 그 프로그램을 정상 판으로 다시 넣는 일이 됩니다. 이 작업을 원격으로 할 수 있는지, 엔지니어가 와야 하는지는 삼성전자가 공식적으로 나누어 말하지 않았습니다. 스타뉴스는 원격으로 해결하기 어려워 엔지니어 방문이 필요한 경우 연휴에도 방문한다고 했으니, 두 경우가 다 있는 것으로 읽힙니다.</p>
+<h2 id="앱에서-누른-것이-왜-냉장고-전체를-멈추나요"><a href="#앱에서-누른-것이-왜-냉장고-전체를-멈추나요">앱에서 누른 것이 왜 냉장고 전체를 멈추나요</a></h2>
+<p>폰 앱을 업데이트하다 실패하면 그 앱만 안 열립니다. 냉장고는 다릅니다. 스마트싱스 앱에 뜬 알림은 폰 앱을 바꾸는 것이 아니라 냉장고 본체 안의 제어 프로그램, 그러니까 펌웨어를 바꾸는 허락을 받는 창구입니다. 삼성전자서비스의 패밀리허브 안내 페이지도 이 기능을 &quot;인터넷에 연결되어 있는 경우 자동으로 업그레이드를 하는 기능&quot;이라고 설명하고, 업데이트 팝업이 뜨면 본체의 설정 메뉴에서 진행한다고 안내합니다.</p>
+<p><img alt="스마트싱스 앱, 삼성 서버, 냉장고 메인보드, 보드가 맡는 압축기·조명·패널·온도 표시를 네 칸으로 이어 놓은 그림" src="/uploads/itnews-fridge-why.png" loading="lazy"/></p>
+<p><em>그림. 앱은 창구이고 실제로 바뀌는 것은 본체의 제어 프로그램입니다 (삼성전자서비스 안내와 보도 내용을 바탕으로 자체 제작)</em></p>
+<p>그 제어 프로그램은 압축기를 언제 돌릴지, 조명을 언제 켤지, 문 패널에 무엇을 띄울지, 온도를 어떻게 읽을지를 전부 맡고 있습니다. 그래서 이 프로그램이 잘못된 판으로 바뀌면 냉장고의 한 기능이 아니라 전부가 멈춥니다. 패널에 &quot;업데이트 중&quot;이 고정된 채로 있는 것은 새 프로그램이 정상으로 켜지지 못한 상태에서 마지막 화면이 남은 것으로 볼 수 있습니다.</p>
+<p>폰의 앱을 지우거나 다시 설치해도 냉장고는 돌아오지 않습니다. 잘못된 것이 폰이 아니라 냉장고 안에 있기 때문입니다. 또 본체가 정상으로 켜지지 않으면 와이파이로 정상 판을 다시 받는 길도 막히기 쉽습니다. 이 점은 삼성전자가 설명한 것이 아니라 제어 프로그램이 작동하는 구조에서 필자가 추론한 것이니, 우리 집 냉장고가 원격으로 되는지 방문이 필요한지는 접수 때 상담사에게 확인하는 것이 정확합니다.</p>
+<h2 id="지금-멈춰-있다면-무엇을-하면-되나요"><a href="#지금-멈춰-있다면-무엇을-하면-되나요">지금 멈춰 있다면 무엇을 하면 되나요</a></h2>
+<p>코드를 뽑았다 꽂는 시도를 반복하지 않는 것이 먼저입니다. 보도된 사례에서 전원 재시작은 효과가 없었고, 전원을 차단한 집은 패널까지 꺼지고 냉기가 완전히 빠졌습니다. 냉장고 문은 가능한 한 열지 않고, 상하기 쉬운 것부터 아이스박스나 이웃집 냉장고로 옮기는 것이 냉기를 지키는 방법입니다.</p>
+<p>접수는 삼성전자서비스 전화 1588-3366, 삼성전자서비스 앱, 홈페이지 출장 예약 가운데 편한 곳으로 합니다. 접수할 때는 &quot;스마트싱스 업데이트 뒤 멈춤&quot;이라고 증상을 말하면 됩니다. 스타뉴스에 따르면 삼성전자서비스는 이 건을 긴급으로 처리하고 고객별 상황을 확인해 조치한다고 했습니다.</p>
+<p><img alt="접수, 24·25일 출장, 알림 누르지 않기, 음식 기록을 네 칸으로 놓은 할 일 그림" src="/uploads/itnews-fridge-todo.png" loading="lazy"/></p>
+<p><em>그림. 9월 23일 기준으로 삼성전자 발표와 보도에서 확인된 것만 넣었습니다 (파이낸셜뉴스·스타뉴스·한국일보 기사를 바탕으로 자체 제작)</em></p>
+<p>연휴 일정은 삼성전자서비스가 22일에 밝힌 내용입니다.</p>
+<table><thead><tr><th>날짜</th><th>서비스센터</th><th>출장·긴급 수리</th></tr></thead><tbody><tr><td>9월 24일(연휴 첫날)</td><td>휴무</td><td>컨택센터 상담사와 출장 엔지니어가 비상 당직, 냉동·냉장 안 됨 같은 긴급 증상은 출장 대응</td></tr><tr><td>9월 25일(추석)</td><td>휴무</td><td>위와 같음</td></tr><tr><td>9월 26일과 27일</td><td>주말케어센터 9곳(삼성강남·홍대·중동·성남·구성·대전·광산·남대구·동래) 사전 예약</td><td>원격으로 어려우면 엔지니어 방문</td></tr></tbody></table>
+<p>표의 긴급 수리 대상은 한국일보가 전한 대로 냉동·냉장이 안 되는 긴급 증상입니다. 이번 일은 그 정의에 정확히 들어갑니다. 다만 첫 접수 때 가장 빠른 방문일이 10월 1일이라는 답을 들었다는 사례와, 직원이 퇴근해 빠른 조치가 어렵다는 답을 들었다는 사례가 스타뉴스에 실렸습니다. 삼성전자가 23일 오전에 대응을 밝힌 뒤 예약 사정이 바뀌었을 수 있으니, 이미 먼 날짜로 잡혔다면 다시 전화해 이번 업데이트 건임을 말하고 당기는 것이 좋습니다.</p>
+<p>상한 음식은 사진을 찍고 영수증을 모아 둡니다. 9월 23일 오전 기준으로 삼성전자가 식품 피해 보상을 하겠다고 밝힌 내용은 확인되지 않았습니다. 보상이 정해지면 근거가 필요해지고, 정해지지 않더라도 소비자원 상담 같은 다음 단계에서 쓰입니다.</p>
+<h2 id="아직-알림만-떠-있는-냉장고는-어떻게-하나요"><a href="#아직-알림만-떠-있는-냉장고는-어떻게-하나요">아직 알림만 떠 있는 냉장고는 어떻게 하나요</a></h2>
+<p>누르지 않습니다. 삼성전자가 배포를 중단했다고 했으니 새로 알림이 오지는 않을 것으로 보이지만, 22일에 받은 알림이 폰이나 냉장고 패널에 남아 있는 집이 있을 수 있습니다. 문제가 된 판인지 정상 판인지 알림 화면만으로는 구별할 수 없습니다. 삼성전자가 정상 판을 다시 내보낸다고 알리기 전까지는 알림을 그대로 두는 것이 안전합니다.</p>
+<p>업데이트를 자동으로 받는 설정이 걱정되는 분도 있을 것입니다. 삼성전자서비스 안내에 따르면 패밀리허브 냉장고는 인터넷에 연결돼 있으면 업데이트 팝업이 뜨고 사용자가 본체 설정 메뉴에서 진행하는 방식입니다. 이번에 문제가 된 비스포크 AI 4도어에서 스마트싱스 앱의 기기 설정에 자동 업데이트 항목이 있는지, 있다면 어떤 이름인지는 삼성전자의 공식 안내 페이지에서 찾지 못했습니다. 그래서 특정 메뉴 이름을 들어 끄라고 안내할 수 없습니다. 앱에서 그 냉장고를 열어 설정 항목을 한 번 훑어보고, 자동 설치라는 이름의 항목이 있다면 연휴 동안은 꺼 두는 것을 권합니다.</p>
+<h2 id="다음에-또-알림이-오면-무엇을-보고-누르나요"><a href="#다음에-또-알림이-오면-무엇을-보고-누르나요">다음에 또 알림이 오면 무엇을 보고 누르나요</a></h2>
+<p>이번 일에서 배울 것은 냉장고를 업데이트하지 말라는 것이 아닙니다. 업데이트는 보안과 기능 보완을 위해 필요하고, 정상 판은 문제를 일으키지 않습니다. 바꿔야 할 것은 누르는 때와 누르기 전에 보는 것입니다.</p>
+<p>연휴나 주말, 긴 외출을 앞둔 날에는 미룹니다. 이번에도 문제가 커진 이유는 낮에 누르고 저녁까지 아무도 냉장고를 열지 않았기 때문입니다. 집에 사람이 있고 서비스센터가 여는 평일 낮에 누르면, 이상이 생겨도 그날 안에 접수가 됩니다.</p>
+<p>알림에 적힌 항목과 버전을 한 번 읽습니다. 이번 알림은 &#x27;코드 안정화&#x27; 같은 이름이었습니다. 무엇을 고치는지 알 수 없는 짧은 이름이라면 하루 이틀 두고 삼성멤버스나 뉴스에 같은 이름의 문제가 올라오지 않는지 본 뒤 눌러도 늦지 않습니다. 냉장고는 폰과 달리 업데이트를 며칠 미룬다고 잃는 것이 없습니다.</p>
+<p>이상이 생기면 재시작을 반복하지 않고 바로 접수합니다. 그리고 냉장고 안의 사진을 먼저 찍습니다. 이 순서는 이번 일이 아니더라도 냉장고가 멈춘 모든 경우에 같습니다.</p>
+<h2 id="묻고-답하기로-다시-보면"><a href="#묻고-답하기로-다시-보면">묻고 답하기로 다시 보면</a></h2>
+<table><thead><tr><th>물음</th><th>답</th></tr></thead><tbody><tr><td>어떤 냉장고인가요</td><td>대부분 2024년 이후 출시된 비스포크 AI 4도어 시리즈입니다</td></tr><tr><td>언제 무엇을 눌렀나요</td><td>9월 22일 낮 스마트싱스 앱에 뜬 냉장고 펌웨어 업데이트 알림입니다</td></tr><tr><td>원인은 무엇인가요</td><td>삼성전자는 테스트 과정의 소프트웨어가 일부 고객에게 잘못 배포됐다고 밝혔습니다</td></tr><tr><td>껐다 켜면 되나요</td><td>보도된 사례에서는 5분·30분 뒤 재연결, 차단기 조작 모두 효과가 없었습니다</td></tr><tr><td>어디로 접수하나요</td><td>삼성전자서비스 1588-3366, 앱, 홈페이지 출장 예약입니다</td></tr><tr><td>연휴에도 오나요</td><td>24·25일은 센터 휴무이지만 비상 당직 출장이 있고, 26일과 27일은 주말케어센터 9곳이 예약을 받습니다</td></tr><tr><td>아직 안 눌렀는데요</td><td>배포는 중단됐습니다. 남아 있는 알림은 누르지 않습니다</td></tr><tr><td>음식 보상은요</td><td>9월 23일 오전 기준 발표된 것이 없습니다. 사진과 영수증을 남겨 둡니다</td></tr></tbody></table>
+<p>위 내용은 2026년 9월 23일 오전까지의 보도와 삼성전자 발표 기준입니다. 정상 판 재배포나 보상 방침이 새로 나오면 해당 절을 고치고 수정 이력에 남깁니다.</p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>아이뉴스24, <a href="https://www.inews24.com/view/2008746" target="_blank" rel="noopener noreferrer">삼성전자 &quot;냉장고 SW 오배포 즉각 중단…추석 고객 불편 최소화&quot;</a> — 2026년 9월 23일 11:00</li>
+<li>파이낸셜뉴스, <a href="https://www.fnnews.com/news/202609230824495692" target="_blank" rel="noopener noreferrer">&quot;냉장고 살려내&quot;…삼성냉장고 업데이트 눌렀다가 먹통, &quot;긴급수리 갑니다&quot;</a> — 2026년 9월 23일 10:10</li>
+<li>스타뉴스, <a href="https://www.starnewskorea.com/business-life/2026/09/23/2026092310312665794" target="_blank" rel="noopener noreferrer">삼성전자 냉장고, 작동 오류 수십건 발생...삼성전자 서비스 긴급 조치 나서</a> — 2026년 9월 23일 10:41</li>
+<li>한국일보, <a href="https://www.hankooki.com/news/articleView.html?idxno=344169" target="_blank" rel="noopener noreferrer">&quot;추석 앞두고 음식 상할 판&quot;…삼성전자 냉장고, 업데이트 후 &#x27;먹통&#x27; 잇따라</a> — 2026년 9월 23일 10:05</li>
+<li>삼성전자서비스, <a href="https://www.samsungsvc.co.kr/solution/25439" target="_blank" rel="noopener noreferrer">패밀리허브로 자동 업데이트가 되었는지 확인하고 싶어요(OTN 업데이트 안내)</a> — 2023년 12월 13일</li>
+<li><a href="https://www.samsungsvc.co.kr/" target="_blank" rel="noopener noreferrer">삼성전자서비스 출장 예약</a> — 전화 1588-3366</li>
+</ul></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/googlebook-vs-chromebook/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">구글북은 크롬북이 아닙니다 — 10월 4일 899달러, 한국 출시는 미정</h3><p>구글이 9월 21일 공개한 구글북이 크롬북과 무엇이 다른지, 다섯 종의 칩·화면·값은 어떻게 갈리는지, 지금 쓰는 크롬북은 어떻게 되는지, 한국에서는 언제 살 수 있는지, 노트북을 지금 사야 하는 사람은 무엇을 보고 고르면 되는지를 구글 공식 블로그와 제조사 발표 기준으로 적었습니다.</p><div class="post-card__meta"><time dateTime="2026-09-22T01:36">2026년 9월 22일 01:36</time><span>· <!-- -->구글북, 크롬북, 구글북OS</span></div></a><a class="post-card " href="/posts/mobile-id-issue-apps/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">모바일 신분증 발급, 정부24 말고 은행 앱에서도 됩니다 — 10월부터 11개</h3><p>모바일 주민등록증과 운전면허증을 어느 앱에서 받을 수 있는지, 주민센터를 꼭 가야 하는지, 은행 창구와 병원에서 실물 대신 되는지, 폰을 잃어버리면 어떻게 되는지를 행정안전부 안내와 8월 28일 시행된 전자정부법 시행령 기준으로 적었습니다.</p><div class="post-card__meta"><time dateTime="2026-09-21T07:29">2026년 9월 21일 07:29</time><span>· <!-- -->모바일신분증, 모바일주민등록증, 모바일운전면허증</span></div></a><a class="post-card " href="/posts/iphone-migration-redo/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">아이폰 마이그레이션, 카톡은 따로 백업합니다 — 재실행·나중에 하기 순서</h3><p>새 아이폰에서 &#x27;아무것도 전송 안 함&#x27;을 눌렀거나 전송이 중간에 끊겼으면 어디서부터 다시 하는지, 카톡 대화가 왜 안 넘어오는지, 유심과 eSIM은 어떻게 넘기는지를 Apple 지원 문서와 카카오 안내 기준으로 적었습니다.</p><div class="post-card__meta"><time dateTime="2026-09-21T03:44">2026년 9월 21일 03:44</time><span>· <!-- -->아이폰마이그레이션, 아이폰데이터옮기기, 빠른시작</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
