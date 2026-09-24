@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>보일러 점검 표시, 숫자만 검색하면 틀립니다 — 세 회사 공식 순서</title>
+      <link>https://pancoit.site/posts/boiler-error-code-first-check</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/boiler-error-code-first-check</guid>
+      <pubDate>Thu, 24 Sep 2026 11:25:00 GMT</pubDate>
+      <description>실내온도조절기에 점검 글씨와 숫자가 뜨면 사람들은 숫자만 검색하고 전기코드를 뺐다 꽂습니다. 경동나비엔 셀프가이드, 귀뚜라미 자가진단매뉴얼, 린나이 FAQ를 2026년 9월 24일 기준으로 대조해, 같은 숫자가 회사마다 다른 뜻인 이유, 세 회사가 똑같이 먼저 하라는 순서, 리셋으로 되는 코드와 바로 점검을 불러야 하는 코드를 갈랐습니다.</description>
+    </item>
+    <item>
       <title>삼성 냉장고 업데이트 뒤 멈춤, 원인은 오배포 — 껐다 켜지 말고 접수하세요</title>
       <link>https://pancoit.site/posts/samsung-fridge-update-outage</link>
       <guid isPermaLink="true">https://pancoit.site/posts/samsung-fridge-update-outage</guid>
