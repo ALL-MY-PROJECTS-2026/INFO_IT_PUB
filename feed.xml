@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>카톡 용량 줄이기, 지운 사진은 다시 못 받을 수 있습니다</title>
+      <link>https://pancoit.site/posts/kakaotalk-storage-cache</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/kakaotalk-storage-cache</guid>
+      <pubDate>Fri, 25 Sep 2026 07:36:00 GMT</pubDate>
+      <description>카카오톡 용량을 줄이는 버튼은 여러 개이고, 누르는 곳마다 사라지는 것이 다릅니다. 카카오 고객센터, 구글 Android 고객센터, 애플 지원 문서를 2026년 9월 25일 기준으로 대조해 대화와 사진을 남긴 채 용량만 줄이는 순서와, 지운 사진을 다시 받을 수 없게 되는 조건을 정리했습니다.</description>
+    </item>
+    <item>
       <title>보일러 점검 표시, 숫자만 검색하면 틀립니다 — 세 회사 공식 순서</title>
       <link>https://pancoit.site/posts/boiler-error-code-first-check</link>
       <guid isPermaLink="true">https://pancoit.site/posts/boiler-error-code-first-check</guid>

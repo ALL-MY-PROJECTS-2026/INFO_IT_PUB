@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>카톡 용량 줄이기, 지운 사진은 다시 못 받을 수 있습니다 — PANCO_IT</title>
+    <meta name="description" content="카카오톡 용량을 줄이는 버튼은 여러 개이고, 누르는 곳마다 사라지는 것이 다릅니다. 카카오 고객센터, 구글 Android 고객센터, 애플 지원 문서를 2026년 9월 25일 기준으로 대조해 대화와 사진을 남긴 채 용량만 줄이는 순서와, 지운 사진을 다시 받을 수 없게 되는 조건을 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/kakaotalk-storage-cache/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="카톡 용량 줄이기, 지운 사진은 다시 못 받을 수 있습니다 — PANCO_IT" />
+    <meta property="og:description" content="카카오톡 용량을 줄이는 버튼은 여러 개이고, 누르는 곳마다 사라지는 것이 다릅니다. 카카오 고객센터, 구글 Android 고객센터, 애플 지원 문서를 2026년 9월 25일 기준으로 대조해 대화와 사진을 남긴 채 용량만 줄이는 순서와, 지운 사진을 다시 받을 수 없게 되는 조건을 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/kakaotalk-storage-cache/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-kakao-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-09-25T07:36" />
+    <meta property="article:modified_time" content="2026-09-25T07:36" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="카톡 용량 줄이기, 지운 사진은 다시 못 받을 수 있습니다 — PANCO_IT" />
+    <meta name="twitter:description" content="카카오톡 용량을 줄이는 버튼은 여러 개이고, 누르는 곳마다 사라지는 것이 다릅니다. 카카오 고객센터, 구글 Android 고객센터, 애플 지원 문서를 2026년 9월 25일 기준으로 대조해 대화와 사진을 남긴 채 용량만 줄이는 순서와, 지운 사진을 다시 받을 수 없게 되는 조건을 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-kakao-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"카톡 용량 줄이기, 지운 사진은 다시 못 받을 수 있습니다","description":"카카오톡 용량을 줄이는 버튼은 여러 개이고, 누르는 곳마다 사라지는 것이 다릅니다. 카카오 고객센터, 구글 Android 고객센터, 애플 지원 문서를 2026년 9월 25일 기준으로 대조해 대화와 사진을 남긴 채 용량만 줄이는 순서와, 지운 사진을 다시 받을 수 없게 되는 조건을 정리했습니다.","image":"https://pancoit.site/uploads/itnews-kakao-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-09-25T07:36","dateModified":"2026-09-25T07:36","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/kakaotalk-storage-cache/"},"keywords":"카톡용량줄이기, 카카오톡저장공간, 카톡캐시삭제, 미디어데이터삭제, 톡클라우드, 휴대폰저장공간, 생활IT"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D/"},{"@type":"ListItem","position":3,"name":"카톡 용량 줄이기, 지운 사진은 다시 못 받을 수 있습니다","item":"https://pancoit.site/posts/kakaotalk-storage-cache/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CO7z5sFf.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D/">IT소식</a></li><li><span aria-current="page">카톡 용량 줄이기, 지운 사진은 다시 못 받을 수 있습니다</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D/">IT소식</a><h1 style="margin-top:0.75rem">카톡 용량 줄이기, 지운 사진은 다시 못 받을 수 있습니다</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-09-25T07:36">2026년 9월 25일 07:36</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->카톡용량줄이기</span><span class="tag">#<!-- -->카카오톡저장공간</span><span class="tag">#<!-- -->카톡캐시삭제</span><span class="tag">#<!-- -->미디어데이터삭제</span><span class="tag">#<!-- -->톡클라우드</span><span class="tag">#<!-- -->휴대폰저장공간</span><span class="tag">#<!-- -->생활IT</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="나무 탁자 위에 놓인 스마트폰 화면에 거의 가득 찬 저장 공간 막대가 보이고, 그 위로 사진 썸네일과 말풍선 모양 카드가 떠 있는 그림" src="/uploads/itnews-kakao-hero.jpg" loading="lazy"/></p>
+<p><em>그림. 저장 공간이 거의 찬 휴대폰과 채팅방에 쌓인 사진 (자체 제작)</em></p>
+<p>휴대폰에 저장 공간이 부족하다는 알림이 뜹니다. 설정의 저장 공간 화면에서 맨 위에 있는 앱은 카카오톡입니다. 이때 바라는 것은 보통 3가지입니다. 대화는 남기고, 아끼는 사진과 동영상도 남기고, 용량만 줄이는 것입니다.</p>
+<p>세 가지를 한꺼번에 지키려면 버튼을 고르는 순서가 중요합니다. 용량을 줄이는 버튼은 카카오톡 안과 휴대폰 설정 안을 합쳐 다섯 곳에 있습니다. 누르는 곳마다 사라지는 것이 다릅니다. 그리고 채팅방에서 받은 사진은 카카오 서버에 잠깐만 머뭅니다. 지운 뒤 그 기간이 지나면 다시 받을 수 없습니다. 근거는 카카오 고객센터 도움말, 구글 Android 고객센터, 애플 지원 문서입니다. 모두 2026년 9월 25일 기준입니다.</p>
+<h2 id="카톡-용량-줄이기-무엇을-남기고-무엇을-지우나요"><a href="#카톡-용량-줄이기-무엇을-남기고-무엇을-지우나요">카톡 용량 줄이기, 무엇을 남기고 무엇을 지우나요</a></h2>
+<p>먼저 남길 것과 지울 것을 나눕니다. 남길 것은 대화 글, 필요한 사진과 동영상, 계정과 설정입니다. 지워도 되는 것은 이미 폰 사진첩에 저장해 둔 사진의 사본, 다시 볼 일이 없는 채팅방의 사진과 동영상, 앱이 빨리 열리려고 쌓아 둔 임시 데이터입니다.</p>
+<p>카카오톡이 커지는 이유도 대부분 여기에 있습니다. 채팅방에서 사진이나 동영상을 열어 보면 그 파일이 폰에 저장되고, 단체방이 많을수록 이 파일이 쌓입니다. 카카오 고객센터의 「저장공간 확보는 어떻게 하나요?」 도움말은 카카오톡이 쓰는 용량을 채팅방별로 관리하는 메뉴를 이렇게 적었습니다.</p>
+<p>카카오톡 &gt; 더보기(…) &gt; 설정 &gt; 데이터 및 저장공간 &gt; 채팅방 저장공간 관리</p>
+<p>이 메뉴에 들어가면 어느 채팅방이 얼마를 쓰는지 방별로 나옵니다. 용량을 줄이는 작업은 여기서 큰 방을 찾는 것부터 시작합니다. 아이폰이라면 애플 지원 문서가 안내하는 &#x27;설정 &gt; 일반 &gt; iPhone 저장 공간&#x27;에서 카카오톡이 전체에서 얼마를 차지하는지도 같이 볼 수 있습니다. 애플은 이 목록의 사용량에 캐시된 데이터와 임시 데이터가 포함되지 않을 수 있다고 적었습니다.</p>
+<p><img alt="카카오 고객센터 도움말 「저장공간 확보는 어떻게 하나요?」 본문. 카카오톡 더보기 설정 데이터 및 저장공간 채팅방 저장공간 관리 경로, 미디어 데이터 모두 삭제를 선택하면 모든 채팅방의 사진과 동영상 등 미디어 파일을 삭제할 수 있고, 삭제 후 저장 기간이 만료된 미디어 파일은 다시 다운로드할 수 없다는 문구" src="/uploads/itnews-kakao-official-storage.jpg" loading="lazy"/></p>
+<p><em>캡처. 카카오 고객센터 「저장공간 확보는 어떻게 하나요?」 원문 (출처: 카카오 고객센터 도움말, 2026-09-25 확인)</em></p>
+<h2 id="누르는-곳마다-무엇이-사라지나요"><a href="#누르는-곳마다-무엇이-사라지나요">누르는 곳마다 무엇이 사라지나요</a></h2>
+<p>용량을 줄이는 버튼은 크게 다섯 곳에 있습니다. 이름이 비슷해서 헷갈리지만 지우는 대상이 다릅니다.</p>
+<table><thead><tr><th>누르는 곳</th><th>지워지는 것</th><th>되돌릴 수 있나</th><th>근거</th></tr></thead><tbody><tr><td>카카오톡 · 미디어 데이터 모두 삭제</td><td>모든 채팅방의 사진·동영상 등 미디어 파일</td><td>서버 보관 기간 안이면 다시 받기, 지나면 불가</td><td>카카오 고객센터</td></tr><tr><td>카카오톡 · 대화 내용 삭제</td><td>그 채팅방의 대화</td><td>백업하지 않았으면 복구 불가</td><td>카카오 고객센터</td></tr><tr><td>안드로이드 설정 · 캐시 지우기</td><td>앱의 임시 데이터</td><td>시간이 지나면 다시 쌓임</td><td>구글 Android 고객센터</td></tr><tr><td>안드로이드 설정 · 저장용량 비우기</td><td>앱 데이터 전부</td><td>완전히 삭제</td><td>구글 Android 고객센터</td></tr><tr><td>아이폰 설정 · 앱 정리</td><td>앱만, 문서와 데이터는 기기에 남음</td><td>다시 설치하면 이어서 사용</td><td>애플 지원</td></tr></tbody></table>
+<p>첫째 줄이 이 글의 중심입니다. 카카오 도움말은 &#x27;미디어 데이터 모두 삭제&#x27;가 모든 채팅방의 사진과 동영상 파일을 지운다고 적었습니다. 바로 다음 줄은 경고입니다. 삭제 후 저장 기간이 만료된 미디어 파일은 다시 다운로드할 수 없습니다. 대화 글은 이 버튼으로 지워지지 않습니다. 지워지는 것은 사진과 동영상 파일입니다.</p>
+<p>둘째 줄은 반대로 대화 글을 지우는 버튼입니다. 카카오 고객센터의 「삭제한 대화 내용을 복구할 수 있나요?」 도움말에 따르면 개인 간 대화 내용은 각자의 휴대 기기에만 있습니다. 백업하지 않은 대화가 지워지면 복구가 안 됩니다. 용량을 줄이려고 대화방을 통째로 지우는 것은 사진 정리와 다른 결정입니다.</p>
+<p>넷째 줄은 가장 조심할 버튼입니다. 안드로이드 휴대폰의 설정 앱에서 카카오톡을 고르면 &#x27;캐시 지우기&#x27;와 &#x27;저장용량 비우기&#x27;(제조사에 따라 &#x27;데이터 삭제&#x27;)가 나란히 있습니다. 구글 Android 고객센터는 둘을 이렇게 나눕니다. 캐시 지우기는 임시 데이터 삭제이고, 저장용량 비우기는 모든 앱 데이터의 완전한 삭제입니다. 앱 안에서 데이터를 먼저 지워 보라는 권고도 붙어 있습니다. 카카오톡의 대화가 기기에만 있다는 카카오의 설명과 겹치면, 백업 없이 저장용량 비우기를 누르는 것은 대화를 지우는 것과 같습니다.</p>
+<p>다섯째 줄의 아이폰 &#x27;앱 정리&#x27;는 카카오톡에서 앱 자체 크기만큼만 공간을 돌려줍니다. 애플 지원 문서에 따르면 앱 정리를 해도 앱이 쓰던 공간만 확보되고, 앱에서 생성된 문서와 데이터는 기기에 남습니다. 카카오톡에서 큰 것은 앱 자체가 아니라 그 데이터입니다. 반대로 &#x27;앱 삭제&#x27;는 앱과 관련 데이터가 함께 지워집니다.</p>
+<p><img alt="누르는 곳마다 사라지는 것이 다릅니다. 카톡 미디어 데이터 모두 삭제는 모든 채팅방의 사진과 동영상 파일이 지워지고 보관 기간 안이면 다시 받기, 지나면 불가. 카톡 대화내용 삭제는 백업이 없으면 복구 불가. 안드로이드 캐시 지우기는 임시 데이터, 다시 쌓임. 안드로이드 저장용량 비우기는 앱 데이터 전부 완전히 삭제. 아이폰 앱 정리는 앱만 지워지고 문서와 데이터는 남음" src="/uploads/itnews-kakao-buttons.jpg" loading="lazy"/></p>
+<p><em>그림. 버튼 다섯 곳과 지워지는 것 (카카오 고객센터·구글 Android 고객센터·애플 지원 문서를 바탕으로 자체 제작)</em></p>
+<h2 id="지운-사진을-다시-받을-수-있나요"><a href="#지운-사진을-다시-받을-수-있나요">지운 사진을 다시 받을 수 있나요</a></h2>
+<p>받을 수 있는 기간이 정해져 있지 않다는 것이 답입니다. 카카오 고객센터의 「사진/동영상 등 파일 저장 기간 및 경과 후 복구 방법을 알려주세요」 도움말이 근거입니다. 카카오톡으로 보낸 사진과 동영상, 파일은 서버에 일시적으로만 저장됩니다. 메시지를 받고 일정 기간이 지나면 저장도 다운로드도 할 수 없습니다. 그 기간은 시스템 부하와 성능에 따라 수시로 바뀌어 정확한 안내가 어렵다고 적혀 있습니다. 서비스 제공 목적이 끝나면 지우고, 별도의 보관 정책은 없다는 설명도 같은 곳에 있습니다.</p>
+<p>그래서 순서가 생깁니다. 폰에서 미디어 파일을 지우면 그 사진을 다시 볼 방법은 서버에 남은 원본을 다시 받는 것뿐입니다. 받은 지 오래된 사진일수록 서버에서 이미 지워졌을 가능성이 큽니다. 몇 해 전 단체방에 올라온 가족사진을 폰에만 두고 있었다면, 미디어 데이터를 지우는 순간 그 사진은 사라질 수 있습니다. 같은 도움말은 보관이 필요한 사진과 동영상, 파일은 받을 때 가급적 바로 저장해 보관하라고 권했습니다.</p>
+<p><img alt="카카오 고객센터 도움말 「사진/동영상 등 파일 저장 기간 및 경과 후 복구 방법을 알려주세요」 본문. 카카오톡에 전송된 멀티미디어는 서버에 일시적으로 저장되며 메시지 수신 후 일정 기간 경과 시 저장 및 다운로드를 할 수 없고, 임시 저장 기간은 수시로 변경되어 정확한 안내가 어렵고, 보관이 필요한 멀티미디어는 수신 시 바로 저장하라는 문구" src="/uploads/itnews-kakao-official-period.jpg" loading="lazy"/></p>
+<p><em>캡처. 카카오 고객센터의 파일 저장 기간 안내 원문 (출처: 카카오 고객센터 도움말, 2026-09-25 확인)</em></p>
+<p>유료 구독 서비스인 톡클라우드는 이 문제를 줄여 줍니다. 카카오 도움말은 톡클라우드를 구독하면 카카오톡 대화와 미디어 파일을 만료 없이 보관한다고 적었습니다. 다만 조건이 둘 붙어 있습니다. 구독한 뒤 모든 기기에서 과거 데이터 보관을 해야 하고, 그 백업을 하는 시점에 이미 만료된 사진과 동영상, 파일은 백업에서 빠집니다. 도움말은 채팅방에서 열어 보지 않아 폰에 남아 있지 않은 파일이 제외된다고 설명했습니다. 구독을 나중에 시작해도 이미 만료된 사진은 되살아나지 않습니다.</p>
+<p><img alt="받은 사진은 서버에 잠깐만 있습니다. 받음 서버에 임시 저장, 보관 중 다시 받기 가능, 기간 지남 기간은 수시로 바뀜, 만료 폰에 남은 사본만 남음. 톡클라우드 구독은 대화와 미디어를 만료 없이 보관하지만 이미 만료되고 폰에 없는 파일은 제외. 구독하지 않으면 남길 사진은 받을 때 바로 저장, 지운 뒤 만료되면 다시 받을 수 없음" src="/uploads/itnews-kakao-expire.jpg" loading="lazy"/></p>
+<p><em>그림. 채팅방 사진이 서버에서 만료되는 흐름과 톡클라우드의 범위 (카카오 고객센터 도움말을 바탕으로 자체 제작)</em></p>
+<h2 id="그러면-어떤-순서로-누르나요"><a href="#그러면-어떤-순서로-누르나요">그러면 어떤 순서로 누르나요</a></h2>
+<p>앞의 조건을 모두 지키는 순서는 다섯 단계입니다.</p>
+<ol>
+<li><strong>방별 용량부터 봅니다.</strong> 카카오톡 &gt; 더보기 &gt; 설정 &gt; 데이터 및 저장공간 &gt; 채팅방 저장공간 관리에서 용량이 큰 채팅방을 찾습니다. 사진이 많이 오가는 단체방이 위에 오기 쉽습니다.</li>
+<li><strong>남길 사진과 동영상을 먼저 저장합니다.</strong> 큰 방에 들어가 아끼는 사진을 사진첩에 저장합니다. 이미 폰 사진첩에 저장했거나 클라우드에 올려 둔 것은 건너뜁니다.</li>
+<li><strong>큰 방부터 미디어를 정리합니다.</strong> 채팅방 저장공간 관리에서 방별로 지우거나, 모두 저장을 마쳤다면 &#x27;미디어 데이터 모두 삭제&#x27;를 누릅니다. 대화 글은 남습니다.</li>
+<li><strong>대화를 지울 생각이면 백업을 먼저 합니다.</strong> 백업하지 않고 지운 대화는 복구가 안 된다는 것이 카카오의 안내입니다.</li>
+<li><strong>저장용량 비우기와 앱 삭제는 마지막까지 누르지 않습니다.</strong> 대화 백업이 끝나지 않았다면 이 두 버튼은 대화를 함께 지웁니다.</li>
+</ol>
+<p><img alt="지우기 전에 이 순서로. 1 방별 용량부터, 2 남길 사진은 먼저 저장, 3 큰 방부터 미디어 정리 대화 글은 그대로, 4 대화를 지울 거면 백업 먼저, 5 저장용량 비우기와 앱 삭제는 마지막까지 보류, 경로 카카오톡 더보기 설정 데이터 및 저장공간 채팅방 저장공간 관리" src="/uploads/itnews-kakao-order.jpg" loading="lazy"/></p>
+<p><em>그림. 대화와 사진을 남기고 용량만 줄이는 다섯 단계 (카카오 고객센터·구글 Android 고객센터 도움말을 바탕으로 자체 제작)</em></p>
+<p>2단계를 건너뛰고 3단계로 가는 것이 가장 흔한 실수입니다. 미디어 삭제 버튼은 대화를 남기니 안전해 보입니다. 하지만 사진이 서버에서 이미 만료됐다면 지운 순간부터 그 사진은 다시 받을 수 없습니다. 저장은 몇 장만 골라도 됩니다. 모든 사진을 옮길 필요는 없고, 다시 받을 수 없으면 곤란한 사진만 옮기면 됩니다.</p>
+<h2 id="끝내기-전에-걸리기-쉬운-경우는-무엇인가요"><a href="#끝내기-전에-걸리기-쉬운-경우는-무엇인가요">끝내기 전에 걸리기 쉬운 경우는 무엇인가요</a></h2>
+<h3 id="캐시를-지웠는데-며칠-뒤-다시-커졌습니다"><a href="#캐시를-지웠는데-며칠-뒤-다시-커졌습니다">캐시를 지웠는데 며칠 뒤 다시 커졌습니다</a></h3>
+<p>정상입니다. 구글 Android 고객센터는 캐시된 데이터를 삭제하면 일시적으로 저장 공간이 확보되지만 시간이 지나면 다시 쌓이는 단기 해결책이라고 적었습니다. 채팅방 사진을 열어 볼 때마다 파일이 다시 쌓이므로, 용량 관리는 한 번에 끝나는 일이 아니라 몇 달에 한 번 반복하는 일입니다.</p>
+<h3 id="톡클라우드를-구독-중입니다"><a href="#톡클라우드를-구독-중입니다">톡클라우드를 구독 중입니다</a></h3>
+<p>이미 톡클라우드에 백업된 미디어는 기기의 캐시 데이터를 지워도 채팅방에서 계속 볼 수 있다고 카카오 도움말이 적었습니다. 톡클라우드 도움말 안에는 &#x27;카카오톡 용량 자동 관리&#x27;도 있습니다. 채팅방 저장공간 관리 안의 메뉴로, 켜 두면 미디어 캐시 데이터를 정해진 최적화 용량까지 자동으로 지워 카카오톡을 일정한 크기로 유지합니다. 이 설명은 톡클라우드에 백업된 미디어를 전제로 하므로, 구독하지 않았다면 앞의 2단계(먼저 저장)를 건너뛰지 않습니다.</p>
+<h3 id="아이폰에서-앱-정리를-했는데-줄지-않습니다"><a href="#아이폰에서-앱-정리를-했는데-줄지-않습니다">아이폰에서 앱 정리를 했는데 줄지 않습니다</a></h3>
+<p>위에서 본 대로 앱 정리는 문서와 데이터를 남기는 기능입니다. 카카오톡의 용량은 카카오톡 안의 채팅방 저장공간 관리에서 줄입니다.</p>
+<h3 id="카카오톡을-줄여도-폰-저장-공간이-여전히-부족합니다"><a href="#카카오톡을-줄여도-폰-저장-공간이-여전히-부족합니다">카카오톡을 줄여도 폰 저장 공간이 여전히 부족합니다</a></h3>
+<p>카카오톡만의 문제가 아닐 수 있습니다. 삼성전자서비스는 저장 공간 부족의 원인으로 내려받은 앱과 용량이 큰 동영상, 사진, 음악을 꼽습니다. 조치는 쓰지 않는 앱 삭제, 그리고 중요한 사진과 동영상을 PC로 백업한 뒤 정리하는 것입니다. 애플은 설정의 저장 공간 화면에 나오는 추천 사항을 확인하라고 적었습니다. 사진첩 자체가 큰 경우라면 카카오톡을 아무리 정리해도 체감이 작습니다.</p>
+<h2 id="카톡-용량을-찾을-때-같이-검색하는-것"><a href="#카톡-용량을-찾을-때-같이-검색하는-것">카톡 용량을 찾을 때 같이 검색하는 것</a></h2>
+<p>&quot;카톡 캐시 삭제하면 사진도 지워지나요&quot;라는 물음에는 어느 버튼을 말하는지에 따라 답이 다릅니다. 안드로이드 설정의 캐시 지우기는 임시 데이터를 지우는 것이고, 카카오톡 안의 미디어 데이터 삭제는 채팅방 사진 파일을 지우는 것입니다. 사진이 사라질 수 있는 쪽은 뒤의 것이고, 서버 보관 기간이 지났을 때입니다.</p>
+<p>&quot;카톡 용량 확인&quot;은 카카오톡 안에서는 채팅방 저장공간 관리, 아이폰 전체에서는 &#x27;설정 &gt; 일반 &gt; iPhone 저장 공간&#x27;에서 봅니다. 안드로이드는 설정 앱에서 애플리케이션 목록의 카카오톡을 누르면 나오는데, 메뉴 이름은 제조사마다 다릅니다.</p>
+<p>&quot;카톡 용량 줄이기 아이폰&quot;과 &quot;갤럭시&quot;의 차이는 휴대폰 설정 쪽 버튼뿐입니다. 카카오톡 안의 메뉴와 사진 보관 기간은 두 폰이 같습니다.</p>
+<h2 id="이-글이-확인한-범위"><a href="#이-글이-확인한-범위">이 글이 확인한 범위</a></h2>
+<p>카카오톡 안의 메뉴 경로와 삭제 범위, 파일 보관 기간, 톡클라우드 조건은 카카오 고객센터 도움말 여섯 건의 원문으로 확인했습니다. 카카오 고객센터의 도움말 주소는 바로 열면 첫 화면으로 돌아가는 경우가 있어, 고객센터 검색창에 도움말 제목을 넣어 찾는 편이 확실합니다. 캐시 지우기와 저장용량 비우기의 차이는 구글 Android 고객센터, 앱 정리와 앱 삭제의 차이는 애플 지원 문서가 근거입니다. 카카오톡 앱은 업데이트마다 메뉴 이름과 위치가 바뀔 수 있으니, 화면이 다르면 카카오 고객센터의 최신 도움말이 이 글보다 우선입니다. 톡클라우드의 요금과 용량 구성은 이 글에서 다루지 않았습니다.</p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>카카오 고객센터 「저장공간 확보는 어떻게 하나요?」 — <a href="https://cs.kakao.com/helps_html/1073209403" target="_blank" rel="noopener noreferrer">https://cs.kakao.com/helps_html/1073209403</a> (2026-09-25 확인)</li>
+<li>카카오 고객센터 「사진/동영상 등 파일 저장 기간 및 경과 후 복구 방법을 알려주세요.」 — <a href="https://cs.kakao.com/helps_html/1073209398" target="_blank" rel="noopener noreferrer">https://cs.kakao.com/helps_html/1073209398</a> (2026-09-25 확인)</li>
+<li>카카오 고객센터 「삭제한 대화 내용을 복구할 수 있나요?」 — <a href="https://cs.kakao.com/helps_html/1073209352" target="_blank" rel="noopener noreferrer">https://cs.kakao.com/helps_html/1073209352</a> (2026-09-25 확인)</li>
+<li>카카오 고객센터 「톡클라우드는 어떤 서비스인가요?」 · 「구독 이전 주고받은 미디어 파일 만료되었어요.」 · 「카카오톡 용량 자동 관리는 무엇인가요?」 — <a href="https://cs.kakao.com/helps_html/1073196176" target="_blank" rel="noopener noreferrer">https://cs.kakao.com/helps_html/1073196176</a> · <a href="https://cs.kakao.com/helps_html/1073206513" target="_blank" rel="noopener noreferrer">https://cs.kakao.com/helps_html/1073206513</a> · <a href="https://cs.kakao.com/helps_html/1073196248" target="_blank" rel="noopener noreferrer">https://cs.kakao.com/helps_html/1073196248</a> (2026-09-25 확인)</li>
+<li>구글 Android 고객센터 「Android 기기에 저장용량 확보하기」 · 「설치된 Android 앱이 제대로 작동하지 않는 문제 해결」 — <a href="https://support.google.com/android/answer/7431795?hl=ko" target="_blank" rel="noopener noreferrer">https://support.google.com/android/answer/7431795?hl=ko</a> · <a href="https://support.google.com/android/answer/2668665?hl=ko" target="_blank" rel="noopener noreferrer">https://support.google.com/android/answer/2668665?hl=ko</a> (2026-09-25 확인)</li>
+<li>애플 지원 「iPhone 및 iPad의 저장 공간을 확인하는 방법」 — <a href="https://support.apple.com/ko-kr/108429" target="_blank" rel="noopener noreferrer">https://support.apple.com/ko-kr/108429</a> (2026-09-25 확인)</li>
+<li>삼성전자서비스 「[삼성 스마트폰] 메모리 저장공간이 부족합니다.」 — <a href="https://www.samsungsvc.co.kr/solution/39991" target="_blank" rel="noopener noreferrer">https://www.samsungsvc.co.kr/solution/39991</a> (게시 2020-01-17, 2026-09-25 확인)</li>
+</ul>
+<p>위 공식 도움말을 읽고 버튼별로 사라지는 것과 누르는 순서를 새로 짠 해설이고, 각 회사의 문장을 그대로 옮기지 않았습니다. 내용은 2026년 9월 25일 기준이며, 카카오가 보관 기간과 메뉴를 바꾸면 카카오 고객센터의 안내가 이 글보다 우선입니다.</p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/boiler-error-code-first-check/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">보일러 점검 표시, 숫자만 검색하면 틀립니다 — 세 회사 공식 순서</h3><p>실내온도조절기에 점검 글씨와 숫자가 뜨면 사람들은 숫자만 검색하고 전기코드를 뺐다 꽂습니다. 경동나비엔 셀프가이드, 귀뚜라미 자가진단매뉴얼, 린나이 FAQ를 2026년 9월 24일 기준으로 대조해, 같은 숫자가 회사마다 다른 뜻인 이유, 세 회사가 똑같이 먼저 하라는 순서, 리셋으로 되는 코드와 바로 점검을 불러야 하는 코드를 갈랐습니다.</p><div class="post-card__meta"><time dateTime="2026-09-24T11:25">2026년 9월 24일 11:25</time><span>· <!-- -->보일러점검표시, 보일러에러코드, 경동나비엔</span></div></a><a class="post-card " href="/posts/samsung-fridge-update-outage/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">삼성 냉장고 업데이트 뒤 멈춤, 원인은 오배포 — 껐다 켜지 말고 접수하세요</h3><p>2026년 9월 22일 스마트싱스 앱의 냉장고 업데이트를 누른 뒤 비스포크 AI 4도어 냉장고가 멈춘 일을, 삼성전자가 밝힌 원인(테스트 SW 오배포), 전원 재시작이 소용없는 이유, 추석 연휴 수리 일정, 아직 알림만 떠 있는 집이 할 일까지 9월 23일 기준으로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-09-23T02:46">2026년 9월 23일 02:46</time><span>· <!-- -->삼성냉장고, 스마트싱스, 냉장고업데이트</span></div></a><a class="post-card " href="/posts/googlebook-vs-chromebook/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">구글북은 크롬북이 아닙니다 — 10월 4일 899달러, 한국 출시는 미정</h3><p>구글이 9월 21일 공개한 구글북이 크롬북과 무엇이 다른지, 다섯 종의 칩·화면·값은 어떻게 갈리는지, 지금 쓰는 크롬북은 어떻게 되는지, 한국에서는 언제 살 수 있는지, 노트북을 지금 사야 하는 사람은 무엇을 보고 고르면 되는지를 구글 공식 블로그와 제조사 발표 기준으로 적었습니다.</p><div class="post-card__meta"><time dateTime="2026-09-22T01:36">2026년 9월 22일 01:36</time><span>· <!-- -->구글북, 크롬북, 구글북OS</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
