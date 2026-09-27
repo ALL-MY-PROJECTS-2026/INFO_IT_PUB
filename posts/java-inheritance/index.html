@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -71,7 +71,7 @@
 <h2 id="상속이-뭔가요"><a href="#상속이-뭔가요">상속이 뭔가요?</a></h2>
 <p>상속은 <strong>한 클래스가 다른 클래스의 필드와 메서드를 물려받는 것</strong>입니다. 물려주는 쪽을 부모(상위) 클래스, 물려받는 쪽을 자식(하위) 클래스라고 합니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 부모의 특징을 물려받는 것과 같습니다. 아이는 부모에게 받은 것(눈·머리색)에 자기만의 개성을 더하죠. 자동차로 치면 &#x27;기본 모델&#x27;을 공통으로 두고, 거기에 옵션을 더해 여러 모델을 만드는 것과 같습니다. 공통은 물려받고, 다른 점만 추가하는 것입니다.</p>
+<p>부모의 특징을 물려받는 것과 같습니다. 아이는 부모에게 받은 것(눈·머리색)에 자기만의 개성을 더하죠. 자동차로 치면 &#x27;기본 모델&#x27;을 공통으로 두고, 거기에 옵션을 더해 여러 모델을 만드는 것과 같습니다. 공통은 물려받고, 다른 점만 추가하는 것입니다.</p>
 </blockquote>
 <h2 id="extends로-물려받기"><a href="#extends로-물려받기">extends로 물려받기</a></h2>
 <p>상속은 <code>extends</code> 키워드로 표시합니다. 공통 기능을 부모 클래스에 모으고, 자식은 그걸 물려받습니다.</p>
@@ -114,12 +114,12 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <p>이제 <code>Dog</code>의 <code>eat()</code>은 부모 것 대신 이 내용으로 동작합니다. 공통은 물려받되, 다르게 할 부분만 골라 바꾸는 것입니다.</p>
-<h2 id="단골-함정--아무-때나-상속하지-않기"><a href="#단골-함정--아무-때나-상속하지-않기">단골 함정 — 아무 때나 상속하지 않기</a></h2>
+<h2 id="is-a-관계가-아니면-상속하지-않습니다"><a href="#is-a-관계가-아니면-상속하지-않습니다">is-a 관계가 아니면 상속하지 않습니다</a></h2>
 <p>상속은 <strong>&#x27;~은 ~이다(is-a)&#x27; 관계</strong>일 때만 씁니다. &quot;개는 동물이다&quot;는 자연스럽지만, &quot;개는 목줄이다&quot;는 말이 안 되죠. 그냥 코드를 재사용하고 싶다고 관계가 어색한데 상속하면, 나중에 구조가 꼬입니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#D73A49;--shiki-dark:#F97583"> extends</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Animal</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { }   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// OK: 개는 동물이다</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#D73A49;--shiki-dark:#F97583"> extends</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Leash</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { }    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이상함: 개는 목줄이 아니다</span></span></code></pre>
 <p>또 하나. 부모의 <code>private</code> 필드는 상속돼도 자식이 <strong>직접 접근하지는 못합니다.</strong> 이럴 땐 부모가 만든 getter/setter 같은 공개 메서드로 접근해야 합니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="dog가-물려받은-eat과-새-bark-실행"><a href="#dog가-물려받은-eat과-새-bark-실행">Dog가 물려받은 eat()과 새 bark() 실행</a></h2>
 <p>아래 코드를 돌려 보고, <code>Cat extends Animal</code> 클래스를 하나 더 만들어 <code>eat()</code>을 물려 써 보세요.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">상속 — extends로 물려받기</span></div><pre class="runner__code"><code>class Animal {
   String name;
@@ -142,12 +142,12 @@ public class Main {
       d.bark();   // 새로 추가한 메서드
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="extendssuper오버라이딩-용어"><a href="#extendssuper오버라이딩-용어">extends·super·오버라이딩 용어</a></h2>
 <table><thead><tr><th>용어</th><th>뜻</th></tr></thead><tbody><tr><td>상속</td><td>부모 클래스의 필드·메서드를 물려받는 것</td></tr><tr><td>extends</td><td>상속을 표시하는 키워드 <code>class 자식 extends 부모</code></td></tr><tr><td>super</td><td>부모의 생성자·메서드를 부를 때 <code>super.eat()</code></td></tr><tr><td>오버라이딩</td><td>물려받은 메서드를 자식이 다시 정의 <code>@Override</code></td></tr><tr><td>is-a</td><td>상속은 &quot;~은 ~이다&quot; 관계일 때만</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 상속은 공통 기능을 부모에 모아 두고 <code>extends</code>로 물려받아, 자식은 다른 점만 더하는 것입니다. 부모 것을 부를 땐 <code>super</code>, 다르게 바꿀 땐 <strong>오버라이딩</strong>을 씁니다. 단, &quot;~은 ~이다&quot; 관계가 성립할 때만 상속하세요.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>상속은 공통 기능을 부모에 모아 두고 <code>extends</code>로 물려받아, 자식은 다른 점만 더하는 것입니다. 부모 것을 부를 땐 <code>super</code>, 다르게 바꿀 땐 <strong>오버라이딩</strong>을 씁니다. 단, &quot;~은 ~이다&quot; 관계가 성립할 때만 상속하세요.</p>
+<h2 id="물려받기와-다시-정의하기-구분"><a href="#물려받기와-다시-정의하기-구분">물려받기와 다시 정의하기 구분</a></h2>
+<p>상속을 써도 되는 관계, extends 키워드, 오버라이딩과 오버로딩의 구별, super의 쓰임을 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA2) 7편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 다형성 — 하나의 타입으로 여러 자식을 다루기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-polymorphism/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 다형성 — 하나의 타입으로 여러 객체를 다루기(POLYMORPHISM)</h3><p>자바 다형성을 왕초보 눈높이로 정리합니다. 부모 타입 하나로 여러 자식 객체를 담고, 같은 메서드 호출이 객체에 따라 다르게 동작하는 원리를 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-05T09:40">2026년 8월 5일 09:40</time><span>· <!-- -->자바, JAVA, 다형성</span></div></a><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

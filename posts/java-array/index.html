@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -71,7 +71,7 @@
 <h2 id="배열이-뭔가요"><a href="#배열이-뭔가요">배열이 뭔가요?</a></h2>
 <p>배열은 <strong>같은 타입의 값 여러 개를 번호 붙은 칸에 나란히 담는 상자 묶음</strong>입니다. 이름은 하나만 짓고, 각 칸은 번호(인덱스)로 구분합니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 학교 사물함과 같습니다. 사물함마다 이름표를 붙이지 않고, 한 줄로 세워 놓고 0번, 1번, 2번… 번호를 매기죠. &quot;3번 칸에 넣어 줘&quot;라고 하면 끝입니다. 배열이 바로 이 번호 달린 사물함 한 줄입니다.</p>
+<p>학교 사물함과 같습니다. 사물함마다 이름표를 붙이지 않고, 한 줄로 세워 놓고 0번, 1번, 2번… 번호를 매기죠. &quot;3번 칸에 넣어 줘&quot;라고 하면 끝입니다. 배열이 바로 이 번호 달린 사물함 한 줄입니다.</p>
 </blockquote>
 <h2 id="만들고-넣고-꺼내기"><a href="#만들고-넣고-꺼내기">만들고, 넣고, 꺼내기</a></h2>
 <p>배열은 두 가지 방법으로 만듭니다. 칸만 먼저 만들거나, 값과 함께 만들거나.</p>
@@ -98,7 +98,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <p>값이 5개든 100개든 코드는 그대로입니다. 조건을 <code>i &lt; scores.length</code>로 써 두면 배열 길이가 바뀌어도 반복문을 고칠 필요가 없습니다. 번호가 필요 없고 값만 차례로 쓰면 되는 경우라면 아래의 for-each 쪽이 더 짧고 실수도 적습니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="점수-배열로-평균과-최고점-구하기"><a href="#점수-배열로-평균과-최고점-구하기">점수 배열로 평균과 최고점 구하기</a></h2>
 <p>점수 배열에서 평균과 최고점을 구하는 코드입니다. 배열 값을 바꿔 보고, 최저점을 구하는 코드도 직접 추가해 보세요.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">배열로 평균과 최고점 구하기</span></div><pre class="runner__code"><code>public class Main {
   public static void main(String[] args) {
@@ -116,19 +116,19 @@
       System.out.println(&quot;최고점: &quot; + max);                    // 95
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
-<h2 id="단골-함정--없는-칸을-부르면-프로그램이-멈춘다"><a href="#단골-함정--없는-칸을-부르면-프로그램이-멈춘다">단골 함정 — 없는 칸을 부르면 프로그램이 멈춘다</a></h2>
+<h2 id="없는-칸-번호를-부르면-실행-중에-멈춥니다"><a href="#없는-칸-번호를-부르면-실행-중에-멈춥니다">없는 칸 번호를 부르면 실행 중에 멈춥니다</a></h2>
 <p>길이 5인 배열에서 <code>scores[5]</code>를 부르면 어떻게 될까요. 컴파일은 통과하지만, <strong>실행하는 순간 오류가 나면서 프로그램이 멈춥니다.</strong></p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[] scores </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(scores[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]);</span></span>
 <span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 실행 오류: ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5</span></span></code></pre>
 <p><code>ArrayIndexOutOfBoundsException</code>(배열 범위를 벗어난 인덱스)은 자바 초보가 가장 자주 만나는 실행 오류입니다. 이 메시지가 보이면 &quot;없는 칸 번호를 불렀구나&quot;라고 읽으면 됩니다. 대부분 반복문 조건을 <code>i &lt;= scores.length</code>처럼 등호까지 넣어서 생깁니다. 조건은 항상 <code>i &lt; scores.length</code>, 즉 등호 없이 씁니다.</p>
 <p>하나 더. 배열의 길이는 <code>scores.length</code>처럼 괄호 없이, 문자열의 길이는 <code>name.length()</code>처럼 <strong>괄호를 붙여</strong> 씁니다. 배열은 length가 값(필드)이고 문자열은 기능(메서드)이라 표기가 다릅니다. 괄호 유무로 오류가 나면 이 차이를 떠올리세요.</p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="배열의-인덱스와-길이-규칙"><a href="#배열의-인덱스와-길이-규칙">배열의 인덱스와 길이 규칙</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>배열</td><td>같은 타입 값 여러 개를 번호 붙은 칸에 담는 묶음</td></tr><tr><td>만들기</td><td><code>new int[5]</code> 또는 <code>{90, 85, 70}</code></td></tr><tr><td>인덱스</td><td>0부터 시작, 마지막은 길이 - 1</td></tr><tr><td>길이</td><td><code>배열.length</code> (문자열은 <code>length()</code>)</td></tr><tr><td>대표 오류</td><td>없는 칸 접근 → ArrayIndexOutOfBoundsException</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 배열은 <strong>번호(0부터) 달린 사물함 한 줄</strong>입니다. <code>length</code>와 반복문을 묶으면 값이 몇 개든 한 번에 처리할 수 있고, 반복 조건에서 등호 없는 <strong><code>i &lt; length</code></strong> 규칙만 지키면 대표 오류의 대부분을 피할 수 있습니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>배열은 <strong>번호(0부터) 달린 사물함 한 줄</strong>입니다. <code>length</code>와 반복문을 묶으면 값이 몇 개든 한 번에 처리할 수 있고, 반복 조건에서 등호 없는 <strong><code>i &lt; length</code></strong> 규칙만 지키면 대표 오류의 대부분을 피할 수 있습니다.</p>
+<h2 id="0번-칸과-length를-구분하고-있나요"><a href="#0번-칸과-length를-구분하고-있나요">0번 칸과 length를 구분하고 있나요?</a></h2>
+<p>첫 칸과 마지막 칸의 번호, 길이를 얻는 코드, 범위를 벗어났을 때 나는 오류를 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA2) 5편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: static — 객체 없이 쓰는 공용 멤버.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a><a class="post-card " href="/posts/java-optional/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</h3><p>자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-30T13:30">2026년 8월 30일 13:30</time><span>· <!-- -->자바, JAVA, Optional</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

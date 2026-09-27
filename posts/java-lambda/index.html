@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -87,7 +87,7 @@
 <p>그런데 더하기 한 번 하자고 클래스 파일을 새로 만드는 건 과합니다. 그래서 자바는 <strong>이름 없이 그 자리에서 만들어 쓰고 버리는</strong> 익명 클래스를 제공했습니다. 위의 <code>new Calculator() { ... }</code>가 바로 그것입니다.</p>
 <p>문제는 익명 클래스도 여전히 장황하다는 데 있었습니다. 인터페이스 이름을 다시 적고, 메서드 이름과 반환형과 매개변수 타입을 전부 다시 적어야 합니다. 그런데 잘 보면 <strong>그 정보는 전부 인터페이스에 이미 적혀 있습니다.</strong> 컴파일러가 알고 있는 것을 사람이 한 번 더 받아 적는 셈이죠.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 택배 송장과 같습니다. 받는 사람 주소가 이미 시스템에 등록돼 있는데, 송장에 그 주소를 손으로 다시 옮겨 적으라고 하는 상황입니다. 람다는 &quot;이미 아는 건 적지 말고 <strong>내용물만</strong> 넣으세요&quot;로 바꾼 것입니다.</p>
+<p>택배 송장과 같습니다. 받는 사람 주소가 이미 시스템에 등록돼 있는데, 송장에 그 주소를 손으로 다시 옮겨 적으라고 하는 상황입니다. 람다는 &quot;이미 아는 건 적지 말고 <strong>내용물만</strong> 넣으세요&quot;로 바꾼 것입니다.</p>
 </blockquote>
 <h2 id="화살표가-하는-일"><a href="#화살표가-하는-일">화살표가 하는 일</a></h2>
 <p>람다식의 문법은 화살표 하나가 전부입니다. 왼쪽에 받을 값, 오른쪽에 할 일을 씁니다.</p>
@@ -106,7 +106,7 @@
 <p><strong>셋째, 할 일이 식 하나뿐이면 중괄호와 <code>return</code>을 함께 생략합니다.</strong></p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">(a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b</span></span></code></pre>
 <p>이 세 번째가 앞의 두 개와 성격이 다릅니다. 앞의 둘은 &quot;적어도 되고 안 적어도 되는&quot; 선택이지만, 세 번째는 <strong>중괄호와 <code>return</code>이 한 몸</strong>이라는 규칙입니다. 이 점이 바로 오늘의 함정으로 이어집니다.</p>
-<h2 id="단골-함정--중괄호를-열었으면-return을-써야-합니다"><a href="#단골-함정--중괄호를-열었으면-return을-써야-합니다">단골 함정 — 중괄호를 열었으면 return을 써야 합니다</a></h2>
+<h2 id="중괄호를-열면-return도-써야-컴파일됩니다"><a href="#중괄호를-열면-return도-써야-컴파일됩니다">중괄호를 열면 return도 써야 컴파일됩니다</a></h2>
 <p>가장 자주 나오는 컴파일 오류입니다. 중괄호를 쓰면서 <code>return</code>을 빠뜨리는 경우죠.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Calculator add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b; };        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 컴파일 오류</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Calculator add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { </span><span style="color:#D73A49;--shiki-dark:#F97583">return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b; }; </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상</span></span>
@@ -118,7 +118,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">(String s) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">length</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()             </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상</span></span></code></pre>
 <p>정리하면 이렇습니다. <strong>타입을 적을 거면 괄호도 적고, 중괄호를 열 거면 <code>return</code>도 쓴다.</strong> 둘 다 &quot;반만 생략&quot;이 안 되는 짝입니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="사칙연산을-람다로-만들어-비교하기"><a href="#사칙연산을-람다로-만들어-비교하기">사칙연산을 람다로 만들어 비교하기</a></h2>
 <p>사칙연산을 람다로 만들어 봅니다. 네 가지가 각각 다른 축약 단계로 쓰여 있으니 비교하며 읽어 보시기 바랍니다. 실행한 뒤 <code>mul</code> 줄에서 <code>return</code>을 지우고 다시 돌려 보면 위의 함정을 직접 확인할 수 있습니다.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">람다로 만든 사칙연산</span></div><pre class="runner__code"><code>interface Calculator {
   int calculate(int a, int b);       // 추상 메서드 하나
@@ -200,12 +200,12 @@ public class Main {
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
 <p><code>sort</code>에 넘긴 람다를 눈여겨보시기 바랍니다. <code>b.getAge() - a.getAge()</code>는 <strong>뒤 사람이 더 나이가 많으면 양수</strong>가 되고, 자바는 그 부호를 보고 순서를 정합니다. 기준을 바꾸고 싶으면 람다만 갈아 끼우면 됩니다. 클래스를 새로 만들 필요도, 기존 코드를 고칠 필요도 없습니다.</p>
 <p><strong>여기까지가 람다의 본질입니다.</strong> 지금까지 자바에서 넘길 수 있는 것은 값과 객체뿐이었는데, 람다부터는 <strong>&quot;할 일&quot;을 넘길 수 있게 되었습니다.</strong></p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="람다-문법과-생략-조건"><a href="#람다-문법과-생략-조건">람다 문법과 생략 조건</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>람다식</td><td>추상 메서드 하나짜리 인터페이스의 구현을 화살표로 줄여 쓴 것</td></tr><tr><td>기본 문법</td><td><code>(매개변수) -&gt; { 할 일 }</code></td></tr><tr><td>타입 생략</td><td>항상 가능 (컴파일러가 추론)</td></tr><tr><td>괄호 생략</td><td>매개변수가 <strong>정확히 1개</strong>일 때만</td></tr><tr><td>중괄호 생략</td><td>할 일이 <strong>식 하나</strong>일 때, <code>return</code>도 함께 생략</td></tr><tr><td>쓸 수 있는 곳</td><td>추상 메서드가 1개인 인터페이스(함수형 인터페이스)</td></tr><tr><td>대표 활용</td><td><code>list.forEach(...)</code>, <code>list.sort(...)</code></td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 람다는 새로운 기능이 아니라 <strong>짧게 쓰는 표기법</strong>입니다. 익명 클래스에서 컴파일러가 이미 아는 정보를 지운 결과이고, 지울 수 있는 이유는 추상 메서드가 하나뿐이기 때문입니다. 그리고 생략에는 짝이 있습니다. <strong>타입을 적으면 괄호도 적고, 중괄호를 열면 <code>return</code>도 씁니다.</strong></p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>문법 자체보다 생략 조건에서 많이 틀립니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>람다는 새로운 기능이 아니라 <strong>짧게 쓰는 표기법</strong>입니다. 익명 클래스에서 컴파일러가 이미 아는 정보를 지운 결과이고, 지울 수 있는 이유는 추상 메서드가 하나뿐이기 때문입니다. 그리고 생략에는 짝이 있습니다. <strong>타입을 적으면 괄호도 적고, 중괄호를 열면 <code>return</code>도 씁니다.</strong></p>
+<h2 id="괄호와-return은-어디까지-생략되나요"><a href="#괄호와-return은-어디까지-생략되나요">괄호와 return은 어디까지 생략되나요?</a></h2>
+<p>문법 자체보다 생략 조건에서 많이 틀립니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->6<!-- -->개</p><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA4) 1편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-functional-interface/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE)</h3><p>람다를 쓰려면 먼저 그 람다가 들어갈 자리가 있어야 합니다. 추상 메서드 하나짜리 인터페이스를 직접 만들고 @FunctionalInterface로 실수를 막는 법, 그리고 자바가 미리 준비해 둔 Supplier·Consumer·Function·Predicate까지 브라우저에서 실행하며 정리합니다.</p><div class="post-card__meta"><time dateTime="2026-08-26T21:10">2026년 8월 26일 21:10</time><span>· <!-- -->자바, JAVA, 함수형인터페이스</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -71,7 +71,7 @@
 <h2 id="scanner가-뭔가요"><a href="#scanner가-뭔가요">Scanner가 뭔가요?</a></h2>
 <p><strong>Scanner는 키보드로 들어온 입력을 대신 받아 적어 주는 도우미</strong>입니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> Scanner는 <strong>주문을 받아 적는 종업원</strong>입니다. 손님(사용자)이 말하면(키보드 입력), 종업원이 받아 적어 주방(프로그램)에 넘깁니다. 우리는 &quot;정수로 받아 줘&quot;, &quot;한 줄 통째로 받아 줘&quot; 하고 시키기만 하면 됩니다.</p>
+<p>Scanner는 <strong>주문을 받아 적는 종업원</strong>입니다. 손님(사용자)이 말하면(키보드 입력), 종업원이 받아 적어 주방(프로그램)에 넘깁니다. 우리는 &quot;정수로 받아 줘&quot;, &quot;한 줄 통째로 받아 줘&quot; 하고 시키기만 하면 됩니다.</p>
 </blockquote>
 <p>쓰기 전에 딱 한 줄, <strong>Scanner를 준비</strong>합니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.util.Scanner;   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 맨 위에 한 번</span></span>
@@ -81,7 +81,7 @@
 <h2 id="자료형마다-받는-메서드가-다릅니다"><a href="#자료형마다-받는-메서드가-다릅니다">자료형마다 받는 메서드가 다릅니다</a></h2>
 <p>무엇을 받을지에 따라 부르는 명령이 다릅니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 종업원에게 &quot;숫자로 받아 줘&quot;, &quot;글자로 받아 줘&quot;라고 종류를 알려 주는 것과 같습니다.</p>
+<p>종업원에게 &quot;숫자로 받아 줘&quot;, &quot;글자로 받아 줘&quot;라고 종류를 알려 주는 것과 같습니다.</p>
 </blockquote>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> num </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> sc.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">nextInt</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();      </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정수 하나</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">double</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> d </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> sc.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">nextDouble</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();  </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 실수 하나</span></span>
@@ -90,9 +90,9 @@
 <p><img alt="Scanner 메서드 4종 비교: nextInt(정수), nextDouble(실수), next(단어·공백 앞까지), nextLine(한 줄·공백 포함)" src="/uploads/java-scanner-input-methods-r3.png" loading="lazy"/></p>
 <table><thead><tr><th>메서드</th><th>받는 것</th><th>특징</th></tr></thead><tbody><tr><td><code>nextInt()</code></td><td>정수</td><td>숫자만</td></tr><tr><td><code>nextDouble()</code></td><td>실수</td><td>소수점 가능</td></tr><tr><td><code>next()</code></td><td>단어</td><td><strong>공백 앞까지만</strong></td></tr><tr><td><code>nextLine()</code></td><td>한 줄</td><td><strong>공백 포함, 엔터 전까지</strong></td></tr></tbody></table>
 <blockquote>
-<p><strong>함정 —</strong> <code>next()</code>는 띄어쓰기를 만나면 거기서 끊습니다. <code>&quot;대구 달서구&quot;</code>를 <code>next()</code>로 받으면 <code>&quot;대구&quot;</code>만 들어옵니다. 주소처럼 띄어쓰기가 있는 값은 <code>nextLine()</code>으로 받아야 합니다.</p>
+<p><code>next()</code>는 띄어쓰기를 만나면 거기서 끊습니다. <code>&quot;대구 달서구&quot;</code>를 <code>next()</code>로 받으면 <code>&quot;대구&quot;</code>만 들어옵니다. 주소처럼 띄어쓰기가 있는 값은 <code>nextLine()</code>으로 받아야 합니다.</p>
 </blockquote>
-<h2 id="단골-함정--nextint-다음의-nextline은-엔터를-삼킵니다"><a href="#단골-함정--nextint-다음의-nextline은-엔터를-삼킵니다">단골 함정 — nextInt 다음의 nextLine은 엔터를 삼킵니다</a></h2>
+<h2 id="nextint-다음의-nextline은-엔터를-삼킵니다"><a href="#nextint-다음의-nextline은-엔터를-삼킵니다">nextInt 다음의 nextLine은 엔터를 삼킵니다</a></h2>
 <p>여기서 초보가 <strong>거의 다 한 번은</strong> 당합니다. 이름을 물었는데 입력할 새도 없이 넘어가 버립니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;나이? &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> age </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> sc.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">nextInt</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 25 입력하고 [엔터]</span></span>
@@ -110,12 +110,12 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;이름? &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">String name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> sc.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">nextLine</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이제 정상 입력</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">printf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;%s님, %d세%n&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, name, age);</span></span></code></pre>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="입력-종류별로-부를-메서드"><a href="#입력-종류별로-부를-메서드">입력 종류별로 부를 메서드</a></h2>
 <table><thead><tr><th>상황</th><th>메서드</th><th>주의</th></tr></thead><tbody><tr><td>정수·실수</td><td><code>nextInt</code> / <code>nextDouble</code></td><td>숫자만</td></tr><tr><td>단어(공백 없음)</td><td><code>next</code></td><td>공백 앞까지</td></tr><tr><td>문장(공백 포함)</td><td><code>nextLine</code></td><td>엔터 전까지</td></tr><tr><td>숫자 뒤에 한 줄 받기</td><td><code>nextLine</code> 하나 버리고 받기</td><td><strong>엔터 삼킴 방지</strong></td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> Scanner는 입력을 받아 적는 종업원이고, 받을 종류에 맞는 메서드를 부릅니다. 숫자를 받은 뒤 문장을 받을 땐 <strong>버리는 <code>nextLine()</code> 한 번</strong>을 꼭 넣습니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 2문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>Scanner는 입력을 받아 적는 종업원이고, 받을 종류에 맞는 메서드를 부릅니다. 숫자를 받은 뒤 문장을 받을 땐 <strong>버리는 <code>nextLine()</code> 한 번</strong>을 꼭 넣습니다.</p>
+<h2 id="next와-nextline-중-무엇을-부를지-고르기"><a href="#next와-nextline-중-무엇을-부를지-고르기">next와 nextLine 중 무엇을 부를지 고르기</a></h2>
+<p>공백이 있는 값을 어떤 메서드로 받는지, 숫자 뒤에 한 줄을 받을 때 무엇을 끼워 넣는지 묻는 문제입니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->4<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 2문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA1) 4편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 연산자 — 계산·비교·비트.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a><a class="post-card " href="/posts/java-optional/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</h3><p>자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-30T13:30">2026년 8월 30일 13:30</time><span>· <!-- -->자바, JAVA, Optional</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

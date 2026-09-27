@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -71,7 +71,7 @@
 <h2 id="integer의-정체--래퍼-클래스"><a href="#integer의-정체--래퍼-클래스">Integer의 정체 — 래퍼 클래스</a></h2>
 <p><code>Integer</code>는 <code>int</code> 값 하나를 <strong>클래스로 감싼 것</strong>입니다. 이런 클래스를 래퍼 클래스(Wrapper class)라고 부릅니다. 랩(wrap), 즉 포장한다는 뜻 그대로입니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 알사탕(기본형 값)과 포장지에 싼 사탕(래퍼 객체)의 관계입니다. 내용물은 같지만, 포장이 있어야 들어갈 수 있는 자리가 있습니다. 선물 상자(컬렉션)에는 포장된 사탕만 담는 것이죠.</p>
+<p>알사탕(기본형 값)과 포장지에 싼 사탕(래퍼 객체)의 관계입니다. 내용물은 같지만, 포장이 있어야 들어갈 수 있는 자리가 있습니다. 선물 상자(컬렉션)에는 포장된 사탕만 담는 것이죠.</p>
 </blockquote>
 <p>왜 이런 게 필요할까요. 자바의 기본형 8개는 클래스가 아닙니다. 그런데 제네릭과 컬렉션의 타입 자리에는 <strong>클래스만</strong> 올 수 있습니다. 그래서 자바는 기본형마다 짝이 되는 포장 클래스를 만들어 뒀습니다. <code>int</code>는 <code>Integer</code>, <code>double</code>은 <code>Double</code>, <code>char</code>는 <code>Character</code>, <code>boolean</code>은 <code>Boolean</code>. 나머지도 규칙은 같습니다. 대부분 첫 글자만 대문자로 바뀐 이름이고, <code>int</code>와 <code>char</code>만 풀네임이 됩니다.</p>
 <h2 id="포장과-풀기는-자동입니다--오토박싱"><a href="#포장과-풀기는-자동입니다--오토박싱">포장과 풀기는 자동입니다 — 오토박싱</a></h2>
@@ -90,7 +90,7 @@
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">double</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> d </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Double.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">parseDouble</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;3.14&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// &quot;3.14&quot; → 3.14</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">String s </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> String.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">valueOf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">100</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);           </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 100 → &quot;100&quot; (반대 방향)</span></span></code></pre>
 <p>화면이나 파일에서 읽은 값은 전부 문자열로 들어옵니다. <code>&quot;85&quot; + 15</code>를 계산하면 <code>100</code>이 아니라 <code>&quot;8515&quot;</code>가 되죠. JAVA1에서 배운 문자열 연결입니다. 그래서 <strong>계산하려면 먼저 숫자로 바꾸는</strong> 이 한 줄이 실무에서 수없이 쓰입니다. 숫자가 아닌 문자열을 넣으면 <code>NumberFormatException</code>이 터진다는 것도 기억해 두세요. 1편에서 배운 try-catch가 필요한 대표 상황입니다.</p>
-<h2 id="단골-함정--는-128부터-거짓말을-합니다"><a href="#단골-함정--는-128부터-거짓말을-합니다">단골 함정 — ==는 128부터 거짓말을 합니다</a></h2>
+<h2 id="래퍼끼리-는-128부터-false가-납니다"><a href="#래퍼끼리-는-128부터-false가-납니다">래퍼끼리 ==는 128부터 false가 납니다</a></h2>
 <p>여기가 오늘의 함정입니다. 래퍼끼리 <code>==</code>로 비교하면 이상한 일이 벌어집니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Integer a </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 127</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, b </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 127</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(a </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b);      </span><span style="color:#6A737D;--shiki-dark:#6A737D">// true</span></span>
@@ -120,7 +120,7 @@
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> java.time.temporal.ChronoUnit;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">long</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> dday </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ChronoUnit.DAYS.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">between</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(today, exam);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 오늘부터 시험까지 며칠</span></span></code></pre>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="점수-합산-128-비교-수능-디데이-계산"><a href="#점수-합산-128-비교-수능-디데이-계산">점수 합산, 128 비교, 수능 디데이 계산</a></h2>
 <p>오늘 배운 것을 한 번에 돌려 봅니다. 문자열 점수를 숫자로 바꿔 합산하고, 128 함정을 실험하고, 시험 디데이를 계산합니다. <code>exam</code> 날짜를 여러분의 실제 일정으로 바꿔 보세요.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">래퍼와 날짜 한 번에 익히기</span></div><pre class="runner__code"><code>import java.util.ArrayList;
 import java.time.LocalDate;
@@ -153,12 +153,12 @@ public class Main {
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
 <p>두 번째 실험의 출력이 그림 1에서 본 그대로 나오는지 확인해 보세요. 같은 128인데 <code>==</code>는 <code>false</code>, <code>equals</code>는 <code>true</code>가 나옵니다.</p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="래퍼-클래스와-localdate-사용법"><a href="#래퍼-클래스와-localdate-사용법">래퍼 클래스와 LocalDate 사용법</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>래퍼 클래스</td><td>기본형을 감싼 클래스 — <code>Integer</code>, <code>Double</code>, <code>Character</code>, <code>Boolean</code></td></tr><tr><td>왜 필요한가</td><td>컬렉션·제네릭에는 클래스 타입만 올 수 있어서</td></tr><tr><td>오토박싱</td><td>포장·풀기를 컴파일러가 자동 처리</td></tr><tr><td>문자열→숫자</td><td><code>Integer.parseInt(&quot;85&quot;)</code> — 실패 시 <code>NumberFormatException</code></td></tr><tr><td>비교 함정</td><td>래퍼끼리 <code>==</code>는 상자 비교(128부터 false) → <strong>equals 사용</strong></td></tr><tr><td>날짜</td><td><code>LocalDate.now()</code> · <code>of()</code> · <code>plusDays()</code> — 원본 불변, 결과를 받아서 사용</td></tr><tr><td>디데이</td><td><code>ChronoUnit.DAYS.between(시작, 끝)</code></td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 래퍼는 기본형이 클래스 자리에 들어가기 위한 <strong>포장지</strong>이고, 포장은 자동이지만 <strong>비교만은 equals</strong>로 해야 합니다. 날짜는 <code>LocalDate</code>가 표준이고, 계산 결과는 늘 <strong>새 객체로 돌려받는다</strong>는 것만 지키면 디데이 계산까지 한 줄로 끝납니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>래퍼는 기본형이 클래스 자리에 들어가기 위한 <strong>포장지</strong>이고, 포장은 자동이지만 <strong>비교만은 equals</strong>로 해야 합니다. 날짜는 <code>LocalDate</code>가 표준이고, 계산 결과는 늘 <strong>새 객체로 돌려받는다</strong>는 것만 지키면 디데이 계산까지 한 줄로 끝납니다.</p>
+<h2 id="integer-비교와-plusdays-결과-확인"><a href="#integer-비교와-plusdays-결과-확인">Integer 비교와 plusDays 결과 확인</a></h2>
+<p>오토박싱으로 int를 넣을 수 있는지, <code>plusDays</code>가 원본을 바꾸는지, <code>128 == 128</code>의 결과, 문자열 변환과 남은 일수 계산 코드를 묻는 문제입니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA3) 5편 · 다음 편: 파일 입출력 — 파일을 읽고 쓰는 법.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a><a class="post-card " href="/posts/java-optional/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</h3><p>자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-30T13:30">2026년 8월 30일 13:30</time><span>· <!-- -->자바, JAVA, Optional</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

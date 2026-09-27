@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -71,7 +71,7 @@
 <h2 id="클래스는-설계도-객체는-실물"><a href="#클래스는-설계도-객체는-실물">클래스는 설계도, 객체는 실물</a></h2>
 <p>가장 먼저 잡아야 할 그림은 이것 하나입니다. <strong>클래스는 설계도</strong>이고, <strong>객체는 그 설계도로 찍어낸 실물</strong>입니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 붕어빵 틀이 클래스라면, 그 틀로 구워 낸 붕어빵 하나하나가 객체입니다. 틀은 하나여도 붕어빵은 여러 개 나오듯, 클래스 하나로 객체를 얼마든지 만들 수 있습니다. 틀 자체는 먹을 수 없다는 점도 중요합니다. 실제로 쓰는 것은 언제나 찍어낸 실물(객체)입니다.</p>
+<p>붕어빵 틀이 클래스라면, 그 틀로 구워 낸 붕어빵 하나하나가 객체입니다. 틀은 하나여도 붕어빵은 여러 개 나오듯, 클래스 하나로 객체를 얼마든지 만들 수 있습니다. 틀 자체는 먹을 수 없다는 점도 중요합니다. 실제로 쓰는 것은 언제나 찍어낸 실물(객체)입니다.</p>
 </blockquote>
 <h2 id="클래스-만들기--필드와-메서드"><a href="#클래스-만들기--필드와-메서드">클래스 만들기 — 필드와 메서드</a></h2>
 <p>클래스 안에는 두 가지를 담습니다. 객체가 <strong>가진 데이터</strong>(필드)와 객체가 <strong>하는 동작</strong>(메서드)입니다.</p>
@@ -90,7 +90,7 @@
 <p><img alt="객체를 쓰는 3단계: 클래스 정의, new로 생성, 점으로 사용" src="/uploads/java-classes-steps-r3.png" loading="lazy"/></p>
 <p><em>정의하고(설계도), 찍어내고(new), 점으로 불러 씁니다.</em></p>
 <p>순서는 늘 같습니다. <strong>클래스를 정의</strong>하고, <code>new</code>로 <strong>객체를 생성</strong>하고, <code>.</code>으로 <strong>멤버를 사용</strong>합니다. 이 세 박자가 객체지향의 기본 리듬입니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="dog-객체를-만들고-bark-부르기"><a href="#dog-객체를-만들고-bark-부르기">Dog 객체를 만들고 bark() 부르기</a></h2>
 <p>아래 코드를 그대로 돌려 보고, <code>name</code>을 바꾸거나 <code>bark()</code>를 한 번 더 호출해 결과가 어떻게 달라지는지 확인해 보세요.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">Dog 클래스와 객체</span></div><pre class="runner__code"><code>class Dog {
   String name;
@@ -107,19 +107,19 @@ public class Main {
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
 <p>설계도(<code>Dog</code>) 하나로 <code>d2</code>, <code>d3</code>처럼 객체를 여러 개 만들어 각각 다른 이름을 넣어 보면, &quot;틀 하나로 실물 여러 개&quot;라는 말이 손에 잡힙니다.</p>
-<h2 id="단골-함정--new를-빼먹기"><a href="#단골-함정--new를-빼먹기">단골 함정 — new를 빼먹기</a></h2>
+<h2 id="new-없이-선언만-하면-쓸-수-없습니다"><a href="#new-없이-선언만-하면-쓸-수-없습니다">new 없이 선언만 하면 쓸 수 없습니다</a></h2>
 <p>가장 자주 막히는 곳입니다. 변수를 선언만 하고 <code>new</code>로 객체를 만들지 않으면, 이름표만 있고 실물이 없어 사용할 수 없습니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Dog d;        </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이름표만 만든 상태 (실물 없음)</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">d.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">bark</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 오류: 가리키는 객체가 없어 호출 불가</span></span></code></pre>
 <blockquote>
 <p><strong>규칙 —</strong> 객체는 반드시 <code>new</code>로 <strong>만들어서</strong> 변수에 연결해야 씁니다. 선언(<code>Dog d;</code>)은 &quot;상자를 놓은 것&quot;일 뿐이고, 그 안에 실물을 담는 일은 <code>new Dog()</code>가 합니다. 실행 중 &quot;가리키는 값이 없다&quot;는 오류가 난다면, 십중팔구 <code>new</code>를 빠뜨린 것입니다.</p>
 </blockquote>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="클래스객체필드메서드new의-뜻"><a href="#클래스객체필드메서드new의-뜻">클래스·객체·필드·메서드·new의 뜻</a></h2>
 <table><thead><tr><th>용어</th><th>뜻</th><th>비유</th></tr></thead><tbody><tr><td>클래스</td><td>데이터와 동작을 묶은 설계도</td><td>붕어빵 틀</td></tr><tr><td>객체</td><td>클래스로 만든 실물</td><td>붕어빵</td></tr><tr><td>필드</td><td>객체가 가진 데이터</td><td>붕어빵 속 재료</td></tr><tr><td>메서드</td><td>객체가 하는 동작</td><td>붕어빵이 하는 일</td></tr><tr><td>new</td><td>객체를 만드는 명령</td><td>틀로 굽기</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 클래스는 설계도, 객체는 실물입니다. 클래스 안에 <strong>필드(데이터)</strong> 와 <strong>메서드(동작)</strong> 를 담고, <code>new</code>로 객체를 만든 뒤 <code>.</code>으로 꺼내 씁니다. <code>new</code>를 빼먹으면 실물이 없어 쓸 수 없습니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>클래스는 설계도, 객체는 실물입니다. 클래스 안에 <strong>필드(데이터)</strong> 와 <strong>메서드(동작)</strong> 를 담고, <code>new</code>로 객체를 만든 뒤 <code>.</code>으로 꺼내 씁니다. <code>new</code>를 빼먹으면 실물이 없어 쓸 수 없습니다.</p>
+<h2 id="설계도와-실물-어디까지-구분되나요"><a href="#설계도와-실물-어디까지-구분되나요">설계도와 실물, 어디까지 구분되나요?</a></h2>
+<p>클래스와 객체의 관계, 객체를 만드는 명령, 필드라는 이름, new가 빠진 코드를 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA2) 1편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 메서드 — 코드에 이름을 붙여 재사용하기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java2-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 객체지향 12문제로 복습 — JAVA2 총정리</h3><p>자바 객체지향 JAVA2 시즌(클래스·메서드·생성자·캡슐화·배열·static·상속·다형성)을 개념 퀴즈와 직접 푸는 실습 문제로 복습합니다. 브라우저에서 바로 코드를 고쳐 실행하며 자주 틀리는 함정을 몸에 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-06T10:00">2026년 8월 6일 10:00</time><span>· <!-- -->자바, JAVA, 객체지향</span></div></a><a class="post-card " href="/posts/java-polymorphism/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 다형성 — 하나의 타입으로 여러 객체를 다루기(POLYMORPHISM)</h3><p>자바 다형성을 왕초보 눈높이로 정리합니다. 부모 타입 하나로 여러 자식 객체를 담고, 같은 메서드 호출이 객체에 따라 다르게 동작하는 원리를 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-05T09:40">2026년 8월 5일 09:40</time><span>· <!-- -->자바, JAVA, 다형성</span></div></a><a class="post-card " href="/posts/java-constructor/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 생성자 — 객체를 만들 때 처음 값을 채우는 법(CONSTRUCTOR)</h3><p>자바 생성자를 왕초보 눈높이로 정리합니다. new로 객체를 만드는 순간 자동으로 초기값을 채우는 원리, this의 쓰임, 기본 생성자 함정까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-07-31T11:00">2026년 7월 31일 11:00</time><span>· <!-- -->자바, JAVA, 생성자</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

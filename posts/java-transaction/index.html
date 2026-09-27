@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -124,7 +124,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <p>핵심은 <strong><code>rollback()</code>이 <code>catch</code> 안에 있다</strong>는 점입니다. 예외가 나야 되돌릴 일이 생기니 당연한 자리인데, 처음에는 <code>commit()</code> 옆에 나란히 쓰는 실수가 잦습니다.</p>
-<h2 id="직접-확인해-보기"><a href="#직접-확인해-보기">직접 확인해 보기</a></h2>
+<h2 id="입금-중-오류를-내고-잔액-되돌리기"><a href="#입금-중-오류를-내고-잔액-되돌리기">입금 중 오류를 내고 잔액 되돌리기</a></h2>
 <p>DB 없이도 원리는 그대로 볼 수 있습니다. 아래 코드는 트랜잭션을 흉내 낸 것입니다. <strong>입금 도중 일부러 오류를 내고</strong>, 되돌리기 전후의 잔액을 비교합니다.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">트랜잭션 흉내내기</span></div><pre class="runner__code"><code>public class Main {
   static int 내잔액 = 50000;
@@ -158,12 +158,12 @@
 <p>&quot;그럼 다 묶으면 좋은 거 아닌가요?&quot; 싶지만 그렇지 않습니다.</p>
 <p>트랜잭션이 열려 있는 동안 DB는 그 데이터를 <strong>다른 사람이 못 건드리게 잠급니다.</strong> 길게 열어 두면 다른 요청들이 줄을 서서 기다리게 되죠.</p>
 <p>기준은 간단합니다. <strong>&quot;같이 성공하거나 같이 실패해야 하는 것&quot;만 한 묶음으로.</strong> 이체라면 출금과 입금 둘뿐입니다. 그 사이에 이메일 발송이나 오래 걸리는 계산을 끼워 넣지 마세요.</p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="이체를-묶을-때-쓰는-메서드와-자리"><a href="#이체를-묶을-때-쓰는-메서드와-자리">이체를 묶을 때 쓰는 메서드와 자리</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>트랜잭션</td><td>여러 작업을 하나로 묶는 단위</td></tr><tr><td>원칙</td><td>전부 성공 아니면 전부 취소</td></tr><tr><td><code>setAutoCommit(false)</code></td><td>자동 저장 끄기 — 묶기의 시작</td></tr><tr><td><code>commit()</code></td><td>확정 저장</td></tr><tr><td><code>rollback()</code></td><td>전부 취소 — <strong>catch 안에서</strong></td></tr><tr><td><code>finally</code></td><td><code>setAutoCommit(true)</code> 복구 후 <code>close()</code></td></tr><tr><td>범위</td><td>같이 성패해야 하는 것만 짧게</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 자동 저장을 끄고, 작업들을 실행하고, 성공하면 <code>commit</code>, 실패하면 <code>rollback</code>. 그리고 되돌리는 코드는 반드시 <code>catch</code> 안에 둡니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>자동 저장을 끄고, 작업들을 실행하고, 성공하면 <code>commit</code>, 실패하면 <code>rollback</code>. 그리고 되돌리는 코드는 반드시 <code>catch</code> 안에 둡니다.</p>
+<h2 id="commit과-rollback은-어디에-두나"><a href="#commit과-rollback은-어디에-두나">commit과 rollback은 어디에 두나</a></h2>
+<p>자동 커밋의 기본값, 묶기 전에 먼저 부를 메서드, <code>rollback()</code>을 둘 자리, 범위를 짧게 잡는 이유를 묻는 문제입니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA3) 11편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: JAVA3 총정리 — 예외부터 트랜잭션까지 문제로 복습.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-jdbc/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 JDBC — 데이터베이스에 말 거는 법(CONNECTION·PREPAREDSTATEMENT)</h3><p>자바에서 데이터베이스를 다루는 JDBC를 입문자 눈높이로 정리합니다. 연결 4단계, Connection·PreparedStatement·ResultSet 세 객체의 역할, 닫는 순서, 그리고 물음표 하나가 막아 주는 SQL 인젝션까지 짚습니다.</p><div class="post-card__meta"><time dateTime="2026-08-20T16:40">2026년 8월 20일 16:40</time><span>· <!-- -->자바, JAVA, JDBC</span></div></a><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

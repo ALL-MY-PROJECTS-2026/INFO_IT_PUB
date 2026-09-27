@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -72,10 +72,10 @@
 <table><thead><tr><th>편</th><th>핵심</th><th>대표 함정</th></tr></thead><tbody><tr><td>1. 예외 처리</td><td><code>try</code>·<code>catch</code>로 죽지 않게</td><td><code>finally</code>를 안 쓰고 자원 방치</td></tr><tr><td>2. 다중 catch·던지기</td><td>예외마다 다르게 대응</td><td>넓은 예외를 먼저 잡기</td></tr><tr><td>3. 제네릭</td><td>담을 타입을 나중에 지정</td><td>타입 없이 쓰고 형변환</td></tr><tr><td>4. 컬렉션</td><td>List·Set·Map</td><td>Set에 중복 넣고 기대하기</td></tr><tr><td>5. 래퍼·날짜</td><td>기본형을 객체로</td><td><code>==</code>로 객체 값 비교</td></tr><tr><td>6. 파일 입출력</td><td>껐다 켜도 남기기</td><td><code>flush</code>·<code>close</code> 누락</td></tr><tr><td>7. 스레드</td><td>여러 일을 동시에</td><td>공유 값 동시 수정</td></tr><tr><td>8. 소켓</td><td>두 프로그램 연결</td><td>서버를 나중에 켜기</td></tr><tr><td>9. 채팅</td><td>소켓 + 스레드</td><td>한 스레드로 만들기</td></tr><tr><td>10. JDBC</td><td>DB에 말 걸기</td><td>문자열로 SQL 조립</td></tr><tr><td>11. 트랜잭션</td><td>전부 성공 또는 전부 취소</td><td>자동 커밋을 안 끄기</td></tr></tbody></table>
 <p><img alt="JAVA3에서 자주 틀리는 다섯 가지 함정" src="/uploads/java3-review-traps-r4.jpg" loading="lazy"/></p>
 <p><em>그림 1. catch 순서·flush·닫는 순서·SQL 조립·자동 커밋 — 이 다섯이 단골입니다.</em></p>
-<h2 id="1단계--개념-빠른-점검"><a href="#1단계--개념-빠른-점검">1단계 — 개념 빠른 점검</a></h2>
-<p>먼저 개념을 퀴즈로 확인합니다. 해설에 <strong>몇 편 내용인지</strong> 적어 두었으니, 막히는 부분은 그 편으로 돌아가 보세요. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 4문제 + 4지선다 8문제</p><button class="quiz__btn">시작하기</button></div></div>
-<h2 id="2단계--직접-풀어-보기"><a href="#2단계--직접-풀어-보기">2단계 — 직접 풀어 보기</a></h2>
+<h2 id="finally에서-자동-커밋까지-개념-묻기"><a href="#finally에서-자동-커밋까지-개념-묻기">finally에서 자동 커밋까지 개념 묻기</a></h2>
+<p>먼저 개념을 퀴즈로 확인합니다. 해설에 <strong>몇 편 내용인지</strong> 적어 두었으니, 막히는 부분은 그 편으로 돌아가 보세요.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->12<!-- -->개</p><p class="quiz__meta">OX 4문제 + 4지선다 8문제</p><button class="quiz__btn">시작하기</button></div></div>
+<h2 id="예외-순서-컬렉션-롤백-코드-손보기"><a href="#예외-순서-컬렉션-롤백-코드-손보기">예외 순서, 컬렉션, 롤백 코드 손보기</a></h2>
 <p>이제 눈으로 읽는 대신 <strong>직접 고쳐 실행</strong>해 봅니다. 편집기에서 코드를 바꿔 돌려 보고, 아래 &#x27;정답 보기&#x27;로 확인하세요.</p>
 <h3 id="문제-1-실행-순서-예측하기-예외"><a href="#문제-1-실행-순서-예측하기-예외">문제 1. 실행 순서 예측하기 (예외)</a></h3>
 <p>돌리기 전에 무엇이 어떤 순서로 찍힐지 예측해 보세요.</p>
@@ -180,7 +180,7 @@ public class Main {
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
 <details class="answer"><summary>정답 보기</summary><p><code>fail</code>이 <code>true</code>면 출금까지 갔다가 예외가 나고, <code>catch</code>에서 시작 상태로 되돌려 <strong>잔액이 그대로</strong> 남습니다. <code>false</code>로 바꾸면 두 작업이 모두 끝나 10,000원이 이동합니다. 11편의 <code>conn.rollback()</code>이 하는 일이 바로 이것입니다. 다만 실제 DB에서는 이렇게 백업 변수를 직접 만들 필요 없이 <strong><code>setAutoCommit(false)</code> 하나로</strong> 같은 보호를 받습니다.</p></details>
-<h2 id="이것만-기억하면-됩니다"><a href="#이것만-기억하면-됩니다">이것만 기억하면 됩니다</a></h2>
+<h2 id="catch-순서부터-자동-커밋까지-막히는-곳"><a href="#catch-순서부터-자동-커밋까지-막히는-곳">catch 순서부터 자동 커밋까지 막히는 곳</a></h2>
 <p>JAVA3에서 자주 막히는 <strong>다섯 가지</strong>를 다시 짚습니다.</p>
 <ul>
 <li><strong>catch 순서</strong>: 좁은 예외부터, <code>Exception</code>은 맨 마지막(2편).</li>

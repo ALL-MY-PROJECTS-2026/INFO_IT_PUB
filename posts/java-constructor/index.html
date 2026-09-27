@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -71,7 +71,7 @@
 <h2 id="생성자가-뭔가요"><a href="#생성자가-뭔가요">생성자가 뭔가요?</a></h2>
 <p>생성자는 <strong><code>new</code>로 객체를 만들 때 자동으로 딱 한 번 실행되는 특별한 메서드</strong>입니다. 여기서 객체의 초기값을 채웁니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 붕어빵 틀에 반죽과 팥을 넣는 순간과 같습니다. 빵을 찍어내는(new) 그 순간에 속을 채워 넣죠. 나중에 하나씩 뜯어 팥을 넣는 게 아니라, 만들 때 이미 채워져 나옵니다. 생성자가 바로 그 &#x27;만들 때 채우는&#x27; 일을 맡습니다.</p>
+<p>붕어빵 틀에 반죽과 팥을 넣는 순간과 같습니다. 빵을 찍어내는(new) 그 순간에 속을 채워 넣죠. 나중에 하나씩 뜯어 팥을 넣는 게 아니라, 만들 때 이미 채워져 나옵니다. 생성자가 바로 그 &#x27;만들 때 채우는&#x27; 일을 맡습니다.</p>
 </blockquote>
 <h2 id="생성자-만들기"><a href="#생성자-만들기">생성자 만들기</a></h2>
 <p>생성자는 두 가지 규칙만 지키면 됩니다. <strong>이름을 클래스와 똑같이</strong> 짓고, <strong>반환타입을 쓰지 않는</strong> 것입니다.</p>
@@ -95,12 +95,12 @@
 <p>위 생성자에서 <code>this.name = name</code>이 낯설 수 있습니다. 매개변수 이름(<code>name</code>)과 필드 이름(<code>name</code>)이 같을 때, **<code>this.name</code>은 &quot;이 객체의 필드&quot;**를 가리킵니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.name </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> name;   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이 객체의 필드 name  ←  매개변수 name</span></span></code></pre>
 <p>왼쪽 <code>this.name</code>은 객체가 가진 필드, 오른쪽 <code>name</code>은 밖에서 받은 매개변수입니다. <code>this</code>를 붙여 둘을 구분하는 것입니다.</p>
-<h2 id="단골-함정--기본-생성자가-사라진다"><a href="#단골-함정--기본-생성자가-사라진다">단골 함정 — 기본 생성자가 사라진다</a></h2>
+<h2 id="매개변수-생성자를-만들면-new-dog가-막힙니다"><a href="#매개변수-생성자를-만들면-new-dog가-막힙니다">매개변수 생성자를 만들면 new Dog()가 막힙니다</a></h2>
 <p>생성자를 하나도 안 만들면, 자바가 <strong>매개변수 없는 기본 생성자</strong>를 몰래 만들어 줍니다. 그래서 <code>new Dog()</code>가 됩니다. 그런데 <strong>매개변수 있는 생성자를 직접 만들면, 이 기본 생성자는 사라집니다.</strong></p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Dog d </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();            </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 오류: 매개변수 생성자만 있으면 new Dog() 불가</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Dog d </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#D73A49;--shiki-dark:#F97583"> new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Dog</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;바둑이&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);  </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상</span></span></code></pre>
 <p><code>new Dog()</code>도 쓰고 싶다면, 매개변수 없는 생성자를 <strong>직접 하나 더</strong> 만들어 두면 됩니다. 이렇게 이름이 같고 매개변수만 다른 생성자를 여러 개 두는 것도 가능합니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="이름과-나이를-넘겨-dog-두-마리-만들기"><a href="#이름과-나이를-넘겨-dog-두-마리-만들기">이름과 나이를 넘겨 Dog 두 마리 만들기</a></h2>
 <p>아래 코드를 돌려 보고, <code>new Dog(...)</code>에 다른 이름과 나이를 넣어 객체를 여러 개 만들어 보세요.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">생성자로 객체 만들기</span></div><pre class="runner__code"><code>class Dog {
   String name;
@@ -122,12 +122,12 @@ public class Main {
       d2.info();                   // 초코 (5살)
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="생성자를-쓸-때-지키는-규칙"><a href="#생성자를-쓸-때-지키는-규칙">생성자를 쓸 때 지키는 규칙</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>생성자란</td><td>new 할 때 자동 실행되는 초기화용 메서드</td></tr><tr><td>이름</td><td>클래스명과 똑같이</td></tr><tr><td>반환타입</td><td>쓰지 않음 (void도 안 됨)</td></tr><tr><td>this.필드</td><td>매개변수와 이름이 같을 때 &quot;이 객체의 필드&quot;</td></tr><tr><td>기본 생성자</td><td>직접 안 만들면 자동 제공, 매개변수 생성자 만들면 사라짐</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 생성자는 객체를 만드는 순간 초기값을 채워 주는 특별한 메서드입니다. <strong>이름은 클래스명과 같게, 반환타입은 쓰지 않고</strong>, 매개변수로 값을 받아 <code>this</code>로 필드에 담습니다. 매개변수 생성자를 만들면 기본 생성자는 사라진다는 점만 기억하세요.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>생성자는 객체를 만드는 순간 초기값을 채워 주는 특별한 메서드입니다. <strong>이름은 클래스명과 같게, 반환타입은 쓰지 않고</strong>, 매개변수로 값을 받아 <code>this</code>로 필드에 담습니다. 매개변수 생성자를 만들면 기본 생성자는 사라진다는 점만 기억하세요.</p>
+<h2 id="생성자-이름반환타입this-점검"><a href="#생성자-이름반환타입this-점검">생성자 이름·반환타입·this 점검</a></h2>
+<p>생성자가 실행되는 때, 이름과 반환타입 규칙, this.name이 가리키는 것, 기본 생성자가 사라지는 경우를 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA2) 3편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 캡슐화 — 필드를 숨기고 안전하게 다루는 법.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-class-object/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 클래스와 객체 — 설계도와 실물(객체지향 첫걸음)</h3><p>자바 객체지향의 출발점인 클래스와 객체를 왕초보 눈높이로 정리합니다. 설계도와 실물 비유로 개념을 잡고, 필드·메서드·new를 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-07-29T11:20">2026년 7월 29일 11:20</time><span>· <!-- -->자바, JAVA, 클래스</span></div></a><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

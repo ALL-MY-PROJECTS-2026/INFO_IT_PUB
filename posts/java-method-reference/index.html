@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -76,7 +76,7 @@
 <p>두 줄은 같은 일을 합니다. 차이를 보시면, 위 코드에서 람다가 하는 일은 <strong>받은 값을 그대로 <code>println</code>에 넘기는 것뿐</strong>입니다. <code>s</code>를 받아서 <code>s</code>를 넘깁니다. 중간에 가공하는 것도, 조건을 따지는 것도 없죠.</p>
 <p>이럴 때 자바는 이렇게 말합니다. &quot;그냥 넘기기만 할 거면 <strong>누구에게 넘길지만 알려 달라</strong>.&quot; 그래서 받는 변수와 넘기는 과정을 지우고 <code>System.out::println</code>만 남깁니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 택배를 대신 부쳐 주는 상황과 같습니다. &quot;물건을 받아서 우체국에 가져다 주세요&quot;라고 말할 수도 있지만, 하는 일이 전달뿐이라면 <strong>&quot;우체국&quot;</strong> 한 단어면 충분합니다. 받고 넘기는 동작은 어차피 정해져 있으니까요.</p>
+<p>택배를 대신 부쳐 주는 상황과 같습니다. &quot;물건을 받아서 우체국에 가져다 주세요&quot;라고 말할 수도 있지만, 하는 일이 전달뿐이라면 <strong>&quot;우체국&quot;</strong> 한 단어면 충분합니다. 받고 넘기는 동작은 어차피 정해져 있으니까요.</p>
 </blockquote>
 <p>핵심 조건은 하나입니다. <strong>람다 본문이 기존 메서드를 그대로 호출하기만 할 때</strong>, 그때만 줄일 수 있습니다.</p>
 <h2 id="네-가지-형태가-있습니다"><a href="#네-가지-형태가-있습니다">네 가지 형태가 있습니다</a></h2>
@@ -109,7 +109,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Greeter a </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> makeGreeter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;철수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// &quot;철수&quot;를 품은 람다</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Greeter b </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> makeGreeter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;영희&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// &quot;영희&quot;를 품은 람다</span></span></code></pre>
 <p><code>makeGreeter</code>가 끝나면 <code>name</code>은 사라질 것 같은데, 돌려받은 람다는 그 값을 계속 기억합니다. <strong>람다가 값을 복사해 들고 갔기 때문</strong>입니다.</p>
-<h2 id="단골-함정--붙잡은-변수는-바꿀-수-없습니다"><a href="#단골-함정--붙잡은-변수는-바꿀-수-없습니다">단골 함정 — 붙잡은 변수는 바꿀 수 없습니다</a></h2>
+<h2 id="람다가-붙잡은-지역변수는-바꿀-수-없습니다"><a href="#람다가-붙잡은-지역변수는-바꿀-수-없습니다">람다가 붙잡은 지역변수는 바꿀 수 없습니다</a></h2>
 <p>여기서 초보자가 반드시 한 번 만나는 오류가 나옵니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 100</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Greeter g </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> () </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;값: &quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n;</span></span>
@@ -124,7 +124,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Runnable r </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> () </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> box[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상 동작합니다</span></span></code></pre>
 <p>배열은 왜 될까요. 람다가 붙잡은 것은 <strong>배열 자체가 아니라 배열이 있는 주소</strong>입니다. <code>box</code>라는 변수(주소)는 바뀌지 않고, 바뀌는 것은 그 주소가 가리키는 <strong>상자 안의 값</strong>이죠. 그래서 규칙을 어기지 않습니다. 클래스의 필드나 static 변수도 같은 이유로 자유롭게 바꿀 수 있습니다.</p>
 <p>정리하면 <strong>&quot;바꾸지 못하는 것은 변수 자체이지 그 안에 든 내용물이 아니다&quot;</strong> 입니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="touppercaseparseint클로저-예제-실행"><a href="#touppercaseparseint클로저-예제-실행">toUpperCase·parseInt·클로저 예제 실행</a></h2>
 <p>메서드 참조 네 형태와 클로저를 한 번에 확인합니다. 마지막 블록의 주석을 풀면 위에서 본 컴파일 오류를 직접 보실 수 있습니다.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">메서드 참조 네 형태와 클로저</span></div><pre class="runner__code"><code>import java.util.List;
 import java.util.stream.Collectors;
@@ -175,12 +175,12 @@ public class Main {
       System.out.println(g.say());
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="메서드-참조-형태와-캡처-규칙"><a href="#메서드-참조-형태와-캡처-규칙">메서드 참조 형태와 캡처 규칙</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>메서드 참조</td><td>람다가 기존 메서드를 <strong>부르기만</strong> 할 때 쓰는 축약 표기</td></tr><tr><td>정적 메서드</td><td><code>Integer::parseInt</code> — 받은 값이 인자로 들어감</td></tr><tr><td>임의 객체</td><td><code>String::toUpperCase</code> — <strong>받은 값이 주체</strong>가 됨</td></tr><tr><td>생성자</td><td><code>Person::new</code> — 새로 만들어 돌려줌</td></tr><tr><td>못 쓰는 경우</td><td>가공이 더 붙거나, 두 번 부르거나, 인자 순서를 바꿀 때</td></tr><tr><td>클로저</td><td>람다가 바깥 변수를 붙잡아 기억하는 것</td></tr><tr><td>사실상 final</td><td>캡처한 <strong>지역변수는 수정 불가</strong>. 배열·필드는 내용물 변경 가능</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 메서드 참조는 <strong>&quot;그냥 부르기만 할 때&quot;</strong> 쓰는 축약입니다. 조건에 안 맞으면 람다로 두는 편이 낫습니다. 그리고 람다가 붙잡은 지역변수는 바꿀 수 없는데, 이는 <strong>값을 복사해 갔기 때문</strong>입니다. 배열이나 필드가 되는 이유는 복사한 것이 주소라서, 바뀌는 대상이 변수가 아니라 그 안의 내용물이기 때문입니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p><code>String::toUpperCase</code> 형태와 캡처 규칙에서 많이 틀립니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>메서드 참조는 <strong>&quot;그냥 부르기만 할 때&quot;</strong> 쓰는 축약입니다. 조건에 안 맞으면 람다로 두는 편이 낫습니다. 그리고 람다가 붙잡은 지역변수는 바꿀 수 없는데, 이는 <strong>값을 복사해 갔기 때문</strong>입니다. 배열이나 필드가 되는 이유는 복사한 것이 주소라서, 바뀌는 대상이 변수가 아니라 그 안의 내용물이기 때문입니다.</p>
+<h2 id="줄일-수-있는-람다와-줄일-수-없는-람다"><a href="#줄일-수-있는-람다와-줄일-수-없는-람다">줄일 수 있는 람다와 줄일 수 없는 람다</a></h2>
+<p><code>String::toUpperCase</code> 형태와 캡처 규칙에서 많이 틀립니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->6<!-- -->개</p><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA4) 7편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: JAVA4 총정리 — 모던 자바 한 번에 복습.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-lambda/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA)</h3><p>자바 람다식을 입문자 눈높이로 정리합니다. 익명 클래스가 왜 장황했는지, 화살표로 어디까지 줄일 수 있는지, 중괄호를 쓰면 왜 return을 빠뜨리는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-26T10:32">2026년 8월 26일 10:32</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-functional-interface/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 함수형 인터페이스 — 람다가 들어갈 자리 직접 만들기(FUNCTIONAL INTERFACE)</h3><p>람다를 쓰려면 먼저 그 람다가 들어갈 자리가 있어야 합니다. 추상 메서드 하나짜리 인터페이스를 직접 만들고 @FunctionalInterface로 실수를 막는 법, 그리고 자바가 미리 준비해 둔 Supplier·Consumer·Function·Predicate까지 브라우저에서 실행하며 정리합니다.</p><div class="post-card__meta"><time dateTime="2026-08-26T21:10">2026년 8월 26일 21:10</time><span>· <!-- -->자바, JAVA, 함수형인터페이스</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

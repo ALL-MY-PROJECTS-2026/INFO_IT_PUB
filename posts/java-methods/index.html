@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -71,7 +71,7 @@
 <h2 id="메서드가-뭔가요"><a href="#메서드가-뭔가요">메서드가 뭔가요?</a></h2>
 <p>메서드는 <strong>일 하나를 이름 붙여 묶어 둔 코드 덩어리</strong>입니다. 이름을 부르면 그 안의 코드가 실행됩니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 자판기 버튼과 같습니다. &#x27;커피&#x27; 버튼을 누르면 안에서 정해진 과정이 돌아가 커피가 나옵니다. 버튼을 누를 때마다 커피 만드는 법을 새로 설명하지 않죠. 메서드도 한 번 정의해 두면, 이름만 불러 몇 번이든 다시 쓸 수 있습니다.</p>
+<p>자판기 버튼과 같습니다. &#x27;커피&#x27; 버튼을 누르면 안에서 정해진 과정이 돌아가 커피가 나옵니다. 버튼을 누를 때마다 커피 만드는 법을 새로 설명하지 않죠. 메서드도 한 번 정의해 두면, 이름만 불러 몇 번이든 다시 쓸 수 있습니다.</p>
 </blockquote>
 <h2 id="메서드-만들고-부르기"><a href="#메서드-만들고-부르기">메서드 만들고 부르기</a></h2>
 <p>가장 단순한 메서드부터 봅니다. 인사말을 출력하는 일을 <code>sayHello</code>라는 이름으로 묶습니다.</p>
@@ -99,12 +99,12 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;----------&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <p>정리하면 이렇습니다. 결과를 돌려줘야 하면 <code>int</code>·<code>String</code> 같은 타입과 <code>return</code>을, 그냥 실행만 하면 <code>void</code>를 씁니다.</p>
-<h2 id="단골-함정--호출할-때-괄호"><a href="#단골-함정--호출할-때-괄호">단골 함정 — 호출할 때 괄호</a></h2>
+<h2 id="괄호-없이-이름만-쓰면-호출되지-않습니다"><a href="#괄호-없이-이름만-쓰면-호출되지-않습니다">괄호 없이 이름만 쓰면 호출되지 않습니다</a></h2>
 <p>메서드를 부를 때 <strong>괄호 <code>()</code> 를 빠뜨리는</strong> 실수가 잦습니다. 괄호가 있어야 &quot;지금 실행하라&quot;는 뜻이 됩니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">sayHello;     </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 오류: 괄호가 없어 실행 명령이 아님</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">sayHello</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 정상: 메서드 실행</span></span></code></pre>
 <p>또 하나. <code>return</code> 타입을 <code>int</code>로 적어 놓고 아무것도 돌려주지 않으면 오류가 납니다. <strong>반환타입과 실제 <code>return</code> 값의 종류가 맞아야</strong> 합니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="add와-sayhello를-정의하고-부르기"><a href="#add와-sayhello를-정의하고-부르기">add와 sayHello를 정의하고 부르기</a></h2>
 <p>아래 코드를 돌려 보고, <code>add</code>에 다른 숫자를 넣거나 새로운 메서드를 하나 더 만들어 불러 보세요.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">메서드 만들고 부르기</span></div><pre class="runner__code"><code>public class Main {
   // 두 수를 더해 결과를 돌려주는 메서드
@@ -122,12 +122,12 @@
       System.out.println(add(10, 20));
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="메서드를-이루는-부품과-호출-방법"><a href="#메서드를-이루는-부품과-호출-방법">메서드를 이루는 부품과 호출 방법</a></h2>
 <table><thead><tr><th>용어</th><th>뜻</th></tr></thead><tbody><tr><td>메서드</td><td>일 하나를 이름 붙여 묶은 코드</td></tr><tr><td>매개변수</td><td>메서드가 받는 입력값 <code>(int a, int b)</code></td></tr><tr><td>반환값</td><td>메서드가 돌려주는 결과 <code>return</code></td></tr><tr><td>반환타입</td><td>돌려줄 값의 종류 <code>int</code>, 없으면 <code>void</code></td></tr><tr><td>호출</td><td>이름 뒤 <code>()</code> 를 붙여 실행</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 메서드는 반복되는 코드를 이름 붙여 재사용하는 것입니다. 값을 받으려면 <strong>매개변수</strong>, 결과를 돌려주려면 <strong>반환타입과 <code>return</code></strong>, 돌려줄 게 없으면 <strong><code>void</code></strong> 를 씁니다. 부를 때는 <strong>이름 뒤에 괄호</strong>를 잊지 마세요.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>메서드는 반복되는 코드를 이름 붙여 재사용하는 것입니다. 값을 받으려면 <strong>매개변수</strong>, 결과를 돌려주려면 <strong>반환타입과 <code>return</code></strong>, 돌려줄 게 없으면 <strong><code>void</code></strong> 를 씁니다. 부를 때는 <strong>이름 뒤에 괄호</strong>를 잊지 마세요.</p>
+<h2 id="add4-6은-무엇을-돌려줄까요"><a href="#add4-6은-무엇을-돌려줄까요">add(4, 6)은 무엇을 돌려줄까요?</a></h2>
+<p>메서드를 쓰는 이유, void의 뜻, 매개변수라는 이름, add(4, 6)의 반환값, 호출할 때 붙이는 괄호를 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA2) 2편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 생성자 — 객체를 만들 때 처음 값을 채우는 법.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a><a class="post-card " href="/posts/java-optional/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</h3><p>자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-30T13:30">2026년 8월 30일 13:30</time><span>· <!-- -->자바, JAVA, Optional</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

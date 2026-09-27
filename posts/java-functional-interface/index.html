@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -78,7 +78,7 @@
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Calculator add </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (a, b) </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> a </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> b;</span></span></code></pre>
 <p>왼쪽에 <code>Calculator</code>가 있으니 &quot;아, <code>calculate(int, int)</code>를 구현하는 거구나&quot; 하고 판단합니다. 이 자리 역할을 하는 것이 <strong>함수형 인터페이스</strong>입니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 람다는 열쇠고, 함수형 인터페이스는 자물쇠입니다. 열쇠만 들고 있으면 아무 일도 못 합니다. 어느 자물쇠에 꽂을지가 정해져야 비로소 의미가 생깁니다.</p>
+<p>람다는 열쇠고, 함수형 인터페이스는 자물쇠입니다. 열쇠만 들고 있으면 아무 일도 못 합니다. 어느 자물쇠에 꽂을지가 정해져야 비로소 의미가 생깁니다.</p>
 </blockquote>
 <h2 id="직접-만들어-보기"><a href="#직접-만들어-보기">직접 만들어 보기</a></h2>
 <p>조건은 하나뿐입니다. <strong>추상 메서드가 정확히 하나.</strong></p>
@@ -145,7 +145,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">nums.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">removeIf</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> n </span><span style="color:#D73A49;--shiki-dark:#F97583">%</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F97583"> !=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);       </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 홀수를 제거</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(nums);             </span><span style="color:#6A737D;--shiki-dark:#6A737D">// [2, 4, 6]</span></span></code></pre>
 <p><code>removeIf</code>가 받는 것이 바로 <code>Predicate</code>입니다. 조건을 <strong>값으로 넘겨</strong> 컬렉션이 알아서 걸러 내게 하는 것이죠. 다음 편에서 다룰 스트림도 이 방식을 그대로 씁니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="직접-만든-greeter와-표준-인터페이스-실행"><a href="#직접-만든-greeter와-표준-인터페이스-실행">직접 만든 Greeter와 표준 인터페이스 실행</a></h2>
 <p>네 가지를 한 번에 확인해 봅니다. 각 줄이 무엇을 받고 무엇을 주는지 보면서 돌려 보세요.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">함수형 인터페이스 네 가지</span></div><pre class="runner__code"><code>import java.util.function.*;
 import java.util.*;
@@ -182,16 +182,16 @@ public class Main {
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
 <p><code>Greeter</code>를 하나 더 만들어 다른 인사말을 넣어 보거나, <code>predicate</code>의 조건을 <code>n &gt; 3</code>으로 바꿔 보면 감이 더 옵니다.</p>
-<h2 id="단골-함정"><a href="#단골-함정">단골 함정</a></h2>
+<h2 id="람다-자리를-잘못-만들-때-나는-오류"><a href="#람다-자리를-잘못-만들-때-나는-오류">람다 자리를 잘못 만들 때 나는 오류</a></h2>
 <p><strong>첫째, 추상 메서드를 두 개 만드는 것.</strong> 가장 흔합니다. <code>@FunctionalInterface</code>를 붙여 두면 인터페이스 파일에서 바로 걸립니다.</p>
 <p><strong>둘째, 제네릭 타입을 빠뜨리는 것.</strong> <code>Function twice = n -&gt; n * 2;</code> 처럼 쓰면 타입 정보가 없어 컴파일 오류나 형변환 문제가 생깁니다. JAVA3 3편에서 본 제네릭 그대로, <code>Function&lt;Integer, Integer&gt;</code>처럼 <strong>받을 타입과 줄 타입을 적어야</strong> 합니다.</p>
 <p><strong>셋째, Consumer에 값을 돌려주게 하는 것.</strong> <code>Consumer</code>는 반환형이 <code>void</code>입니다. <code>s -&gt; s.length()</code>처럼 값을 돌려주는 람다는 여기 들어갈 수 없습니다. 돌려주고 싶다면 <code>Function</code>을 써야 합니다.</p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="람다-자리의-조건과-javautilfunction"><a href="#람다-자리의-조건과-javautilfunction">람다 자리의 조건과 java.util.function</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>함수형 인터페이스</td><td>추상 메서드가 <strong>정확히 하나</strong>인 인터페이스</td></tr><tr><td>왜 필요한가</td><td>람다에는 타입이 없어 들어갈 자리가 필요함</td></tr><tr><td><code>@FunctionalInterface</code></td><td>추상 메서드가 늘면 인터페이스에서 바로 오류</td></tr><tr><td><code>default</code>·<code>static</code></td><td>몸통이 있어 개수에서 제외</td></tr><tr><td>Supplier / Consumer</td><td>주기만 / 받기만</td></tr><tr><td>Function / Predicate</td><td>바꿔서 주기 / 참·거짓 판단</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 함수형 인터페이스는 <strong>람다가 들어갈 자리</strong>입니다. 조건은 추상 메서드 하나뿐이고, <code>@FunctionalInterface</code>를 붙이면 나중에 누가 실수로 늘리는 것을 막아 줍니다. 그리고 자주 쓰는 자리는 이미 <code>java.util.function</code>에 만들어져 있으니, <strong>먼저 찾아보고 없을 때 만드는</strong> 순서가 좋습니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>함수형 인터페이스는 <strong>람다가 들어갈 자리</strong>입니다. 조건은 추상 메서드 하나뿐이고, <code>@FunctionalInterface</code>를 붙이면 나중에 누가 실수로 늘리는 것을 막아 줍니다. 그리고 자주 쓰는 자리는 이미 <code>java.util.function</code>에 만들어져 있으니, <strong>먼저 찾아보고 없을 때 만드는</strong> 순서가 좋습니다.</p>
+<h2 id="추상-메서드-개수와-표준-인터페이스-구별"><a href="#추상-메서드-개수와-표준-인터페이스-구별">추상 메서드 개수와 표준 인터페이스 구별</a></h2>
+<p>추상 메서드를 세는 규칙, @FunctionalInterface의 역할, Consumer와 Predicate의 구별, 람다에 타입이 없는 이유를 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA4) 2편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 스트림 — 컬렉션을 흐름으로 다루기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a><a class="post-card " href="/posts/java-lambda/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 람다식 — 메서드를 값처럼 넘기기(LAMBDA)</h3><p>자바 람다식을 입문자 눈높이로 정리합니다. 익명 클래스가 왜 장황했는지, 화살표로 어디까지 줄일 수 있는지, 중괄호를 쓰면 왜 return을 빠뜨리는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-26T10:32">2026년 8월 26일 10:32</time><span>· <!-- -->자바, JAVA, 람다</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

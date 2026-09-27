@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -72,10 +72,10 @@
 <table><thead><tr><th>편</th><th>핵심</th><th>대표 함정</th></tr></thead><tbody><tr><td>1. 클래스·객체</td><td>설계도와 실물</td><td><code>new</code> 빼먹기</td></tr><tr><td>2. 메서드</td><td>이름 붙여 재사용</td><td>호출 시 괄호 <code>()</code></td></tr><tr><td>3. 생성자</td><td><code>new</code> 때 초기화</td><td>반환타입 쓰면 메서드가 됨</td></tr><tr><td>4. 캡슐화</td><td>private + getter/setter</td><td>private 직접 접근</td></tr><tr><td>5. 배열</td><td>값 여러 개, 인덱스</td><td>범위 밖(0 ~ length−1)</td></tr><tr><td>6. static</td><td>공용 멤버</td><td>인스턴스 필드 직접 사용</td></tr><tr><td>7. 상속</td><td><code>extends</code>로 물려받기</td><td>is-a 아닌데 상속</td></tr><tr><td>8. 다형성</td><td>같은 호출, 다른 동작</td><td>부모 타입으로 자식 메서드</td></tr></tbody></table>
 <p><img alt="JAVA2에서 자주 틀리는 5대 함정" src="/uploads/java2-review-traps-r3.png" loading="lazy"/></p>
 <p><em>그림 1. new·생성자·인덱스·static·자식 메서드 — 이 다섯만 조심하면 됩니다.</em></p>
-<h2 id="1단계--개념-빠른-점검"><a href="#1단계--개념-빠른-점검">1단계 — 개념 빠른 점검</a></h2>
-<p>먼저 개념을 퀴즈로 확인합니다. 해설에 <strong>몇 편 내용인지</strong> 표시해 두었으니, 헷갈리는 부분은 그 편으로 돌아가 보세요. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 4문제 + 4지선다 8문제</p><button class="quiz__btn">시작하기</button></div></div>
-<h2 id="2단계--직접-풀어-보기"><a href="#2단계--직접-풀어-보기">2단계 — 직접 풀어 보기</a></h2>
+<h2 id="new-생성자-super를-제대로-아는지"><a href="#new-생성자-super를-제대로-아는지">new, 생성자, super를 제대로 아는지</a></h2>
+<p>먼저 개념을 퀴즈로 확인합니다. 해설에 <strong>몇 편 내용인지</strong> 표시해 두었으니, 헷갈리는 부분은 그 편으로 돌아가 보세요.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->12<!-- -->개</p><p class="quiz__meta">OX 4문제 + 4지선다 8문제</p><button class="quiz__btn">시작하기</button></div></div>
+<h2 id="출력-예측과-생성자setter-고치기"><a href="#출력-예측과-생성자setter-고치기">출력 예측과 생성자·setter 고치기</a></h2>
 <p>이제 눈으로 읽는 대신 <strong>직접 고쳐 실행</strong>해 봅니다. 각 문제의 편집기에서 코드를 바꿔 돌려 보고, 아래 &#x27;정답 보기&#x27;로 확인하세요. 편집기 헤더의 <strong>크게 보기</strong>를 누르면 넓게 볼 수 있습니다.</p>
 <h3 id="문제-1-출력-예측하기-배열length"><a href="#문제-1-출력-예측하기-배열length">문제 1. 출력 예측하기 (배열·length)</a></h3>
 <p>돌리기 전에 결과를 예측해 보세요. 그다음 실행해 맞는지 확인합니다.</p>
@@ -157,7 +157,7 @@ public class Main {
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
 <details class="answer"><summary>정답 보기</summary><p><code>this.age = age;</code> 앞에 <code>if (age &lt; 0) return;</code> 를 넣으면 됩니다. 그러면 −5는 걸러져 나이가 그대로 0으로 유지됩니다. 이렇게 <strong>필드를 private으로 숨기고 setter에서 검증</strong>하는 것이 캡슐화의 핵심입니다.</p></details>
-<h2 id="이것만-기억하면-됩니다"><a href="#이것만-기억하면-됩니다">이것만 기억하면 됩니다</a></h2>
+<h2 id="new-누락부터-자식-메서드-호출까지"><a href="#new-누락부터-자식-메서드-호출까지">new 누락부터 자식 메서드 호출까지</a></h2>
 <p>JAVA2에서 자주 막히는 <strong>5대 함정</strong>을 다시 짚습니다.</p>
 <ul>
 <li><strong>new 누락</strong>: 객체는 <code>new</code>로 만들어야 씁니다(1편).</li>

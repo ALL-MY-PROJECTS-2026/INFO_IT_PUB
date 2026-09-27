@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -117,7 +117,7 @@
 <p>세 가지를 배우고 나면 반드시 이 질문이 옵니다. 고르는 기준은 의외로 단순합니다.</p>
 <table><thead><tr><th>상황</th><th>그릇</th><th>이유</th></tr></thead><tbody><tr><td>순서가 중요하다, 번호로 꺼낸다</td><td><strong>List</strong></td><td>넣은 순서 유지, <code>get(번호)</code></td></tr><tr><td>중복이 있으면 안 된다</td><td><strong>Set</strong></td><td>겹치는 값 자동 제거</td></tr><tr><td>이름표로 찾고 싶다</td><td><strong>Map</strong></td><td>키로 값을 바로 꺼냄</td></tr></tbody></table>
 <p>출석부처럼 순서가 필요하면 List, 방문자 집계처럼 중복만 거르면 Set, 성적표처럼 &quot;누구의 점수&quot;를 찾으면 Map입니다. 셋을 섞어 쓰는 경우도 흔합니다. 아래 실행 예제가 바로 그 상황입니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="출석-기록-하나로-listsetmap-써-보기"><a href="#출석-기록-하나로-listsetmap-써-보기">출석 기록 하나로 List·Set·Map 써 보기</a></h2>
 <p>한 반의 출석 기록으로 세 그릇을 한 번에 써 봅니다. 마지막 줄에서 <strong>없는 이름표를 꺼내면</strong> 무엇이 나오는지 꼭 확인해 보세요.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">출석부로 익히는 세 그릇</span></div><pre class="runner__code"><code>import java.util.ArrayList;
 import java.util.HashSet;
@@ -147,18 +147,18 @@ public class Main {
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
 <p><code>new HashSet&lt;&gt;(tapLog)</code>처럼 List를 통째로 넣어 중복만 걸러내는 것도 실무에서 자주 쓰는 요령입니다.</p>
-<h2 id="단골-함정--없는-키를-꺼내면-null이-옵니다"><a href="#단골-함정--없는-키를-꺼내면-null이-옵니다">단골 함정 — 없는 키를 꺼내면 null이 옵니다</a></h2>
+<h2 id="map에서-없는-키를-꺼내면-null이-옵니다"><a href="#map에서-없는-키를-꺼내면-null이-옵니다">Map에서 없는 키를 꺼내면 null이 옵니다</a></h2>
 <p>방금 실행에서 봤듯, Map에서 <strong>없는 키를 <code>get</code>하면 오류가 나는 게 아니라 <code>null</code>이 조용히 돌아옵니다.</strong> 이 null을 모르고 계산에 쓰는 순간 <code>NullPointerException</code>이 터집니다. 1편에서 배운 그 예외가 여기서 가장 자주 나옵니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Integer c </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> count.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">get</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;민수&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// null</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> total </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> c </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;               </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 실행 중 NullPointerException!</span></span></code></pre>
 <p>그래서 Map을 읽을 때는 위 예제처럼 <strong>null 확인을 먼저</strong> 하거나, <code>count.getOrDefault(&quot;민수&quot;, 0)</code>처럼 없을 때 쓸 기본값을 함께 주는 습관을 들입니다.</p>
 <p>하나 더. Set과 Map은 <strong>출력 순서가 넣은 순서와 다를 수 있습니다.</strong> <code>[철수, 영희]</code>로 넣었는데 <code>[영희, 철수]</code>로 나와도 고장이 아닙니다. 애초에 순서를 기억하지 않는 그릇이니, 순서가 필요하면 처음부터 List를 골라야 합니다.</p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="listsetmap의-차이"><a href="#listsetmap의-차이">List·Set·Map의 차이</a></h2>
 <table><thead><tr><th>항목</th><th>List</th><th>Set</th><th>Map</th></tr></thead><tbody><tr><td>담는 방식</td><td>순서대로</td><td>중복 없이</td><td>키-값 짝으로</td></tr><tr><td>중복</td><td>허용</td><td>자동 제거</td><td>키는 불가(덮어씀)</td></tr><tr><td>꺼내기</td><td><code>get(번호)</code></td><td><code>contains(값)</code></td><td><code>get(키)</code></td></tr><tr><td>대표 구현</td><td><code>ArrayList</code></td><td><code>HashSet</code></td><td><code>HashMap</code></td></tr><tr><td>쓰는 상황</td><td>출석부·목록</td><td>방문자 집계</td><td>성적표·전화번호부</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 컬렉션은 <strong>크기가 저절로 변하는 그릇</strong>이고, 고르는 기준은 세 마디입니다. 순서가 필요하면 List, 중복을 거르려면 Set, 이름표로 찾으려면 Map. 그리고 Map의 <code>get</code>은 없는 키에 <strong>null</strong>을 돌려준다는 것, 이것이 오늘의 함정이었습니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>컬렉션은 <strong>크기가 저절로 변하는 그릇</strong>이고, 고르는 기준은 세 마디입니다. 순서가 필요하면 List, 중복을 거르려면 Set, 이름표로 찾으려면 Map. 그리고 Map의 <code>get</code>은 없는 키에 <strong>null</strong>을 돌려준다는 것, 이것이 오늘의 함정이었습니다.</p>
+<h2 id="상황에-맞는-그릇을-고를-수-있나요"><a href="#상황에-맞는-그릇을-고를-수-있나요">상황에 맞는 그릇을 고를 수 있나요?</a></h2>
+<p>크기 변화, Set의 중복 처리, 성적표에 맞는 그릇, 없는 키의 반환값, 꺾쇠 안의 타입을 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA3) 4편 · 다음 편: 래퍼 클래스와 날짜 — 기본형을 감싸고 시간을 다루기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a><a class="post-card " href="/posts/java-optional/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</h3><p>자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-30T13:30">2026년 8월 30일 13:30</time><span>· <!-- -->자바, JAVA, Optional</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

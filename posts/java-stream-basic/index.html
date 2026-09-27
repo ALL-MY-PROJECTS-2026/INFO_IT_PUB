@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -87,7 +87,7 @@
 <h2 id="흐름으로-다룬다는-것"><a href="#흐름으로-다룬다는-것">흐름으로 다룬다는 것</a></h2>
 <p>스트림(Stream)은 <strong>컬렉션의 원소를 하나씩 흘려보내면서 처리하는 통로</strong>입니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 공장 컨베이어 벨트를 떠올리면 됩니다. 벨트 위로 물건이 하나씩 지나가고, 중간중간에 검사기와 가공기가 놓여 있습니다. 불량품을 빼내는 검사기가 <code>filter</code>, 모양을 바꾸는 가공기가 <code>map</code>입니다. 벨트 끝에는 상자가 놓여 있고, 통과한 물건이 거기 담깁니다. 그게 <code>collect</code>입니다.</p>
+<p>공장 컨베이어 벨트를 떠올리면 됩니다. 벨트 위로 물건이 하나씩 지나가고, 중간중간에 검사기와 가공기가 놓여 있습니다. 불량품을 빼내는 검사기가 <code>filter</code>, 모양을 바꾸는 가공기가 <code>map</code>입니다. 벨트 끝에는 상자가 놓여 있고, 통과한 물건이 거기 담깁니다. 그게 <code>collect</code>입니다.</p>
 </blockquote>
 <p><img alt="스트림 3단계: 열기, 손보기, 닫기" src="/uploads/java-stream-steps-r4.jpg" loading="lazy"/></p>
 <p><em>그림 1. 세 토막의 순서는 바뀌지 않습니다. 특히 마지막이 없으면 앞의 둘도 돌지 않습니다.</em></p>
@@ -125,7 +125,7 @@
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(s </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> s.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">toUpperCase</span><span style="color:#24292E;--shiki-dark:#E1E4E8">())   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이것과</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String</span><span style="color:#D73A49;--shiki-dark:#F97583">::</span><span style="color:#24292E;--shiki-dark:#E1E4E8">toUpperCase)    </span><span style="color:#6A737D;--shiki-dark:#6A737D">// 이것은 같습니다</span></span></code></pre>
 <p>지금은 &quot;람다를 더 줄인 표기&quot;라고만 알아 두시면 충분합니다. 규칙이 몇 가지 더 있어서 뒤에 따로 한 편을 잡아 다루겠습니다. 다만 남의 코드를 읽을 때 자주 나오니, 눈에 익혀 두면 좋습니다.</p>
-<h2 id="단골-함정--최종-연산이-없으면-아무-일도-없습니다"><a href="#단골-함정--최종-연산이-없으면-아무-일도-없습니다">단골 함정 — 최종 연산이 없으면 아무 일도 없습니다</a></h2>
+<h2 id="최종-연산이-없으면-filter도-돌지-않습니다"><a href="#최종-연산이-없으면-filter도-돌지-않습니다">최종 연산이 없으면 filter도 돌지 않습니다</a></h2>
 <p>가장 많이 겪는 일입니다. 아래 코드는 오류도 없고 경고도 없지만, <strong>아무것도 출력하지 않습니다.</strong></p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">nums.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">stream</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    .</span><span style="color:#6F42C1;--shiki-dark:#B392F0">filter</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="color:#D73A49;--shiki-dark:#F97583">-&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
@@ -135,7 +135,7 @@
 <p><code>filter</code>를 분명히 불렀는데 왜 검사조차 안 할까요. 중간 연산은 <strong>주문서를 적어 두기만 할 뿐, 실제로 일을 시작하지 않기 때문</strong>입니다. 자바는 최종 연산이 나타나는 순간에야 흐름을 돌립니다. 이런 성질을 <strong>지연 연산</strong>이라고 합니다.</p>
 <p>주문만 받고 요리를 시작하지 않는 주방과 같습니다. &quot;나가요&quot;라는 신호, 그러니까 <code>collect</code>나 <code>forEach</code>가 있어야 그제서야 불을 켭니다. 위 코드 끝에 <code>.collect(Collectors.toList())</code> 한 줄을 붙이면 그때 비로소 검사 로그가 찍힙니다.</p>
 <p>이게 왜 이렇게 설계됐냐면, 그래야 <strong>필요한 만큼만 일할 수 있기</strong> 때문입니다. 100만 개짜리 리스트에서 조건에 맞는 첫 번째만 찾을 때, 지연 연산 덕분에 100만 개를 다 훑지 않고 찾는 즉시 멈출 수 있습니다.</p>
-<h2 id="직접-실행해-보기"><a href="#직접-실행해-보기">직접 실행해 보기</a></h2>
+<h2 id="짝수-거르기-홀수-제곱-collect-빼-보기"><a href="#짝수-거르기-홀수-제곱-collect-빼-보기">짝수 거르기, 홀수 제곱, collect 빼 보기</a></h2>
 <p>앞의 내용을 한 번에 확인해 봅니다. 특히 마지막 블록에서 <strong>최종 연산이 없으면 정말 아무 일도 안 일어나는지</strong> 직접 보시기 바랍니다.</p>
 <div class="runner"><div class="runner__bar"><span class="runner__label">filter와 map, 그리고 지연 연산</span></div><pre class="runner__code"><code>import java.util.List;
 import java.util.stream.Collectors;
@@ -191,12 +191,12 @@ public class Main {
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">System.out.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">println</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(nums);   </span><span style="color:#6A737D;--shiki-dark:#6A737D">// [1, 2, 3, 4, 5, 6] — 그대로입니다</span></span></code></pre>
 <p>걸러진 결과는 <strong>새로 만들어진 리스트</strong>이고, <code>nums</code>는 손대지 않은 채 남습니다. 그래서 결과를 쓰려면 반드시 변수에 받아야 합니다. 2편에서 본 <code>removeIf</code>가 원본을 직접 고쳤던 것과 정확히 반대라, 둘을 나란히 기억해 두면 헷갈리지 않습니다.</p>
 <p>한 가지 덧붙이면, 스트림은 <strong>한 번 쓰면 끝</strong>입니다. 최종 연산을 두 번 부르면 예외가 납니다. 다시 처리하려면 <code>nums.stream()</code>으로 흐름을 새로 열어야 합니다.</p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="스트림-구조와-filtermapcollect의-역할"><a href="#스트림-구조와-filtermapcollect의-역할">스트림 구조와 filter·map·collect의 역할</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>스트림</td><td>컬렉션 원소를 하나씩 흘려보내며 처리하는 통로</td></tr><tr><td>구조</td><td><code>stream()</code> → 중간 연산 → 최종 연산</td></tr><tr><td><code>filter</code></td><td>조건에 맞는 것만 통과. <code>Predicate</code>를 받음</td></tr><tr><td><code>map</code></td><td>원소를 다른 값으로 변환. <code>Function</code>을 받음. <strong>개수는 그대로</strong></td></tr><tr><td><code>collect</code></td><td>결과를 리스트 등으로 모으는 최종 연산</td></tr><tr><td>지연 연산</td><td>최종 연산이 없으면 중간 연산도 실행되지 않음</td></tr><tr><td>원본</td><td>바뀌지 않음. 결과는 새 컬렉션</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 스트림은 <strong>거르고(<code>filter</code>) 바꾸고(<code>map</code>) 담는(<code>collect</code>)</strong> 세 동작이 전부입니다. 그리고 담지 않으면 거르지도 바꾸지도 않습니다. 2편에서 만든 <code>Predicate</code>와 <code>Function</code>이 각각 <code>filter</code>와 <code>map</code>의 자리에 들어간다는 것까지 이으면, 지난 두 편이 왜 필요했는지가 분명해집니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>지연 연산과 <code>map</code>의 개수 규칙에서 많이 틀립니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>스트림은 <strong>거르고(<code>filter</code>) 바꾸고(<code>map</code>) 담는(<code>collect</code>)</strong> 세 동작이 전부입니다. 그리고 담지 않으면 거르지도 바꾸지도 않습니다. 2편에서 만든 <code>Predicate</code>와 <code>Function</code>이 각각 <code>filter</code>와 <code>map</code>의 자리에 들어간다는 것까지 이으면, 지난 두 편이 왜 필요했는지가 분명해집니다.</p>
+<h2 id="지연-연산과-map-개수-규칙-되짚기"><a href="#지연-연산과-map-개수-규칙-되짚기">지연 연산과 map 개수 규칙 되짚기</a></h2>
+<p>최종 연산 없이 <code>filter</code>가 도는지, <code>map</code>이 개수를 바꾸는지, 원본 리스트가 남는지를 묻는 문제입니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->6<!-- -->개</p><p class="quiz__meta">OX 3문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA4) 3편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-stream-terminal/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 스트림 최종 연산 — 합치고, 세고, 찾기(COLLECT·REDUCE·FIND)</h3><p>스트림의 최종 연산을 입문자 눈높이로 정리합니다. 중간 연산만 늘어놓으면 왜 아무 일도 일어나지 않는지, collect·count·reduce·findFirst는 각각 언제 쓰는지, 스트림이 일회용이라는 말이 무슨 뜻인지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-29T13:20">2026년 8월 29일 13:20</time><span>· <!-- -->자바, JAVA, 스트림</span></div></a><a class="post-card " href="/posts/java-stream-intermediate/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 스트림 중개 연산 — 정렬하고 중복 없애고 잘라 내기(SORTED·DISTINCT·LIMIT)</h3><p>스트림의 중간 연산을 입문자 눈높이로 정리합니다. flatMap이 map과 무엇이 다른지, distinct가 객체에서 왜 안 먹히는지, sorted와 limit의 순서를 바꾸면 왜 답이 달라지는지까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-28T11:26">2026년 8월 28일 11:26</time><span>· <!-- -->자바, JAVA, 스트림</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

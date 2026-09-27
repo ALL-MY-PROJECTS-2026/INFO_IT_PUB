@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -110,9 +110,8 @@
 <li><code>package-lock.json</code>이나 <code>requirements.txt</code>처럼 <strong>버전을 고정하는 파일을 커밋</strong>해 두면, 나중에 같은 이름이 다른 내용으로 바뀌는 상황을 줄일 수 있습니다.</li>
 </ol>
 <p><strong>개발자가 아니라면</strong> 직접 할 일은 많지 않습니다. 다만 알아 둘 것은 있습니다. 요즘 앱과 서비스는 남이 만든 부품 수백 개를 조립해 만듭니다. 그중 하나가 오염되면 사용자에게까지 내려옵니다. 그래서 <strong>앱과 운영체제 업데이트를 미루지 않는 것</strong>이 여전히 가장 확실한 방어입니다.</p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="슬롭스쿼팅은-어떻게-막을-수-있나"><a href="#슬롭스쿼팅은-어떻게-막을-수-있나">슬롭스쿼팅은 어떻게 막을 수 있나</a></h2>
 <table><thead><tr><th>질문</th><th>답</th></tr></thead><tbody><tr><td>슬롭스쿼팅이 뭔가요</td><td>AI가 지어낸 없는 라이브러리 이름을 공격자가 미리 등록해 두는 공격</td></tr><tr><td>왜 생기나요</td><td>AI가 코드를 지을 때 존재하지 않는 패키지를 추천하기 때문</td></tr><tr><td>얼마나 자주요</td><td>추천 패키지의 19.7%가 실재하지 않았습니다 (LLM 16종 측정)</td></tr><tr><td>왜 위험한가요</td><td>같은 질문에 같은 가짜 이름이 반복돼, 공격자가 표적을 예측할 수 있습니다</td></tr><tr><td>실제 피해가 있었나요</td><td>2026년 7월 기준 확인된 공격 사례는 없습니다. 실증 실험만 있었습니다</td></tr><tr><td>어떻게 막나요</td><td>설치 전에 공식 저장소에서 이름·배포일·다운로드 수를 확인합니다</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong></p>
 <p>첫째, AI가 알려준 라이브러리 이름은 <strong>코드가 아니라 추천</strong>입니다. 실행 전에 실재하는지 확인해야 합니다.</p>
 <p>둘째, 위험한 것은 AI가 틀린다는 사실이 아니라 <strong>같은 방식으로 반복해서 틀린다</strong>는 점입니다.</p>
 <p>셋째, 막는 비용이 아주 쌉니다. <strong>공식 저장소에서 이름 한 번 검색하는 30초</strong>면 이 공격은 성립하지 않습니다.</p>

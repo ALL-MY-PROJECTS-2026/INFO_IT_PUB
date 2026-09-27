@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -77,7 +77,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 안녕하세요 3번 출력</span></span></code></pre>
 <blockquote>
-<p><strong>쉽게 —</strong> <code>while</code>은 &quot;조건이 만족되는 동안 계속 돌아라&quot;입니다. 물이 끓을 때까지 불을 켜 두는 것과 같습니다. 언젠가 멈추려면 조건을 <strong>거짓으로 만들 장치</strong>(i++)가 반드시 있어야 합니다.</p>
+<p><code>while</code>은 &quot;조건이 만족되는 동안 계속 돌아라&quot;입니다. 물이 끓을 때까지 불을 켜 두는 것과 같습니다. 언젠가 멈추려면 조건을 <strong>거짓으로 만들 장치</strong>(i++)가 반드시 있어야 합니다.</p>
 </blockquote>
 <h2 id="for--횟수가-정해졌을-때"><a href="#for--횟수가-정해졌을-때">for — 횟수가 정해졌을 때</a></h2>
 <p>몇 번 돌지 아는 경우엔 <code>for</code>가 깔끔합니다. <strong>시작·조건·증감</strong>을 한 줄에 모읍니다.</p>
@@ -88,7 +88,7 @@
 <p>괄호 안 세 부분은 이렇게 읽습니다.</p>
 <table><thead><tr><th>부분</th><th>예</th><th>뜻</th></tr></thead><tbody><tr><td>시작</td><td><code>int i = 1</code></td><td>i를 1부터</td></tr><tr><td>조건</td><td><code>i &lt;= 5</code></td><td>i가 5 이하인 동안</td></tr><tr><td>증감</td><td><code>i++</code></td><td>한 번 돌 때마다 1씩</td></tr></tbody></table>
 <blockquote>
-<p><strong>쉽게 —</strong> <code>for</code>는 &quot;1번부터 5번까지 순서대로&quot;라고 횟수를 못 박아 두는 반복입니다. 1부터 n까지 합 구하기처럼 <strong>정해진 범위</strong>를 훑을 때 제격입니다.</p>
+<p><code>for</code>는 &quot;1번부터 5번까지 순서대로&quot;라고 횟수를 못 박아 두는 반복입니다. 1부터 n까지 합 구하기처럼 <strong>정해진 범위</strong>를 훑을 때 제격입니다.</p>
 </blockquote>
 <h2 id="break와-continue--멈추기-건너뛰기"><a href="#break와-continue--멈추기-건너뛰기">break와 continue — 멈추기, 건너뛰기</a></h2>
 <p>반복 도중 흐름을 바꾸는 두 명령입니다.</p>
@@ -101,7 +101,7 @@
 <li><code>break</code> — 반복문을 <strong>완전히 빠져나감</strong></li>
 <li><code>continue</code> — 이번 회차만 건너뛰고 <strong>다음 회차로</strong></li>
 </ul>
-<h2 id="단골-함정--무한루프"><a href="#단골-함정--무한루프">단골 함정 — 무한루프</a></h2>
+<h2 id="증감식을-빼먹으면-반복이-끝나지-않습니다"><a href="#증감식을-빼먹으면-반복이-끝나지-않습니다">증감식을 빼먹으면 반복이 끝나지 않습니다</a></h2>
 <p>반복을 멈추려면 조건이 <strong>언젠가 거짓</strong>이 되어야 합니다. 증감식을 빼먹으면 조건이 영원히 참이라 끝없이 돕니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">while</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (i </span><span style="color:#D73A49;--shiki-dark:#F97583">&lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
@@ -113,12 +113,12 @@
 <blockquote>
 <p><strong>규칙 —</strong> 반복문 안에는 <strong>조건을 거짓으로 바꿀 장치</strong>(보통 <code>i++</code>)가 반드시 있어야 합니다. 프로그램이 멈추지 않고 화면이 계속 쏟아진다면, 십중팔구 이 증감식을 빠뜨린 것입니다.</p>
 </blockquote>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="whileforbreakcontinue의-쓰임새"><a href="#whileforbreakcontinue의-쓰임새">while·for·break·continue의 쓰임새</a></h2>
 <table><thead><tr><th>상황</th><th>문법</th></tr></thead><tbody><tr><td>조건이 참인 동안</td><td><code>while</code></td></tr><tr><td>횟수가 정해진 반복</td><td><code>for</code></td></tr><tr><td>반복 즉시 종료</td><td><code>break</code></td></tr><tr><td>이번 회차만 건너뛰기</td><td><code>continue</code></td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> <code>while</code>은 조건 동안, <code>for</code>는 정해진 횟수만큼 돕니다. 반드시 <strong>멈출 장치</strong>(증감식)를 넣어 무한루프를 피하고, <code>break</code>는 완전 종료, <code>continue</code>는 한 번 건너뛰기입니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p><code>while</code>은 조건 동안, <code>for</code>는 정해진 횟수만큼 돕니다. 반드시 <strong>멈출 장치</strong>(증감식)를 넣어 무한루프를 피하고, <code>break</code>는 완전 종료, <code>continue</code>는 한 번 건너뛰기입니다.</p>
+<h2 id="반복-횟수와-멈추는-조건-계산"><a href="#반복-횟수와-멈추는-조건-계산">반복 횟수와 멈추는 조건 계산</a></h2>
+<p>for를 쓰는 경우, 증감식을 뺀 while, break와 continue의 차이, for문의 반복 횟수를 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA1) 7편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: (총정리) 기초 12문제로 복습.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a><a class="post-card " href="/posts/java-optional/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 Optional — null을 다루는 새로운 방법(ORELSE·IFPRESENT)</h3><p>자바에서 가장 자주 만나는 NullPointerException을 줄여 주는 Optional을 입문자 눈높이로 정리합니다. 값이 없을 수도 있다는 사실을 타입으로 알리는 방법, orElse와 orElseGet의 차이, get()을 쓰면 안 되는 이유까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-30T13:30">2026년 8월 30일 13:30</time><span>· <!-- -->자바, JAVA, Optional</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

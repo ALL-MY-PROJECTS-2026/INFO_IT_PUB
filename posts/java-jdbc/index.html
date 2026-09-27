@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -73,7 +73,7 @@
 <p>JDBC(Java Database Connectivity)는 <strong>자바와 데이터베이스 사이의 표준 통역기</strong>입니다.</p>
 <p>세상에는 MySQL, 오라클, PostgreSQL처럼 DB 제품이 여럿 있고 저마다 말투가 조금씩 다릅니다. JDBC는 그 사이에 서서 &quot;자바 쪽에서는 이렇게만 부르면 된다&quot;는 공통 규칙을 제공합니다. 덕분에 DB를 바꿔도 자바 코드는 크게 손대지 않습니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 해외 거래처와 일하는 상황과 같습니다. 상대가 어느 나라 사람이든 나는 통역사에게 한국어로 말하면 되죠. 통역사(드라이버)만 그 나라 사람으로 바꿔 끼우면 됩니다. JDBC가 정해 둔 것은 &quot;통역사에게 말 거는 방식&quot;입니다.</p>
+<p>해외 거래처와 일하는 상황과 같습니다. 상대가 어느 나라 사람이든 나는 통역사에게 한국어로 말하면 되죠. 통역사(드라이버)만 그 나라 사람으로 바꿔 끼우면 됩니다. JDBC가 정해 둔 것은 &quot;통역사에게 말 거는 방식&quot;입니다.</p>
 </blockquote>
 <h2 id="세-명의-담당자"><a href="#세-명의-담당자">세 명의 담당자</a></h2>
 <p>JDBC를 쓸 때 계속 등장하는 객체가 셋입니다. 역할을 사람에 빗대면 헷갈리지 않습니다.</p>
@@ -148,12 +148,12 @@
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
 <p>출력된 두 번째 SQL을 소리 내어 읽어 보면 조건이 왜 무너지는지 바로 보입니다.</p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="jdbc-객체의-역할과-닫는-순서"><a href="#jdbc-객체의-역할과-닫는-순서">JDBC 객체의 역할과 닫는 순서</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>JDBC</td><td>자바와 DB 사이의 표준 통역 규칙</td></tr><tr><td>Connection</td><td>DB와 이어진 연결 (전화선)</td></tr><tr><td>PreparedStatement</td><td>SQL을 담아 보내는 질문지</td></tr><tr><td>ResultSet</td><td>조회 결과표, <code>next()</code>로 한 줄씩</td></tr><tr><td>조회 vs 변경</td><td><code>executeQuery</code> / <code>executeUpdate</code></td></tr><tr><td>안전</td><td>값은 물음표 자리표시자로 — 이어 붙이기 금지</td></tr><tr><td>닫기</td><td>만든 반대 순서로, <code>finally</code>에서</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> JDBC는 <strong>연결하고, 질문지를 보내고, 결과표를 읽는</strong> 세 박자입니다. 자원은 만든 반대 순서로 닫고, 사용자 입력은 절대 문자열로 이어 붙이지 말고 <strong>물음표에 값으로 채워 넣으세요.</strong></p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>JDBC는 <strong>연결하고, 질문지를 보내고, 결과표를 읽는</strong> 세 박자입니다. 자원은 만든 반대 순서로 닫고, 사용자 입력은 절대 문자열로 이어 붙이지 말고 <strong>물음표에 값으로 채워 넣으세요.</strong></p>
+<h2 id="rsnext와-물음표는-왜-쓰나요"><a href="#rsnext와-물음표는-왜-쓰나요">rs.next()와 물음표는 왜 쓰나요?</a></h2>
+<p>ResultSet이 생기는 경우, 자원을 닫는 순서, rs.next()의 쓰임, SQL 인젝션을 막는 방법을 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA3) 10편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 트랜잭션 — 여러 작업을 하나로 묶기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-transaction/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 트랜잭션 — 여러 작업을 하나로 묶기(COMMIT·ROLLBACK)</h3><p>계좌이체처럼 여러 작업이 전부 성공하거나 전부 취소되어야 할 때 쓰는 트랜잭션을 입문자 눈높이로 정리합니다. setAutoCommit(false)·commit·rollback의 순서, catch에서 되돌리는 이유, finally 정리까지 코드로 확인합니다.</p><div class="post-card__meta"><time dateTime="2026-08-22T15:25">2026년 8월 22일 15:25</time><span>· <!-- -->자바, JAVA, 트랜잭션</span></div></a><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a><a class="post-card " href="/posts/java-method-reference/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 메서드 참조와 클로저 — 콜론 두 개의 정체(METHOD REFERENCE)</h3><p>스트림 코드에 자주 나오는 System.out::println의 정체를 입문자 눈높이로 정리합니다. 메서드 참조 네 가지 형태, 언제 쓸 수 있고 언제 못 쓰는지, 그리고 람다가 바깥 변수를 붙잡는 클로저와 사실상 final 규칙까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-31T10:39">2026년 8월 31일 10:39</time><span>· <!-- -->자바, JAVA, 메서드참조</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--

@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-CdP6I63A.js"></script>
+    <script type="module" crossorigin src="/assets/index-CcFQYWw9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
   </head>
@@ -76,7 +76,7 @@
 <p>해법은 7편에서 배운 것입니다. <strong>받는 일과 보내는 일을 각각 다른 스레드에 맡기면</strong> 됩니다.</p>
 <p>받기 스레드는 오로지 듣기만 합니다. <code>readUTF()</code>에서 멈춰 있어도 상관없습니다. 그동안 보내기 스레드가 따로 돌면서 키보드 입력을 받아 보내면 되니까요. 서로 방해하지 않습니다.</p>
 <blockquote>
-<p><strong>쉽게 —</strong> 전화 통화와 같습니다. 내 귀는 계속 듣고 있고, 내 입은 언제든 말할 수 있죠. 귀와 입이 각각 따로 움직이기 때문에 대화가 됩니다. 스레드를 둘로 나눈다는 건 프로그램에 귀와 입을 따로 달아 주는 일입니다.</p>
+<p>전화 통화와 같습니다. 내 귀는 계속 듣고 있고, 내 입은 언제든 말할 수 있죠. 귀와 입이 각각 따로 움직이기 때문에 대화가 됩니다. 스레드를 둘로 나눈다는 건 프로그램에 귀와 입을 따로 달아 주는 일입니다.</p>
 </blockquote>
 <p><img alt="메시지 한 줄이 입력에서 상대 화면까지 가는 4단계" src="/uploads/java-chat-flow-r4.jpg" loading="lazy"/></p>
 <p><em>그림 1. 서버와 클라이언트가 거울처럼 같은 구조를 갖습니다.</em></p>
@@ -191,16 +191,16 @@
   }
 }</code></pre><button class="runner__run" type="button">▶ 컴파일러에서 직접 풀어 보기</button><p class="runner__note">📱 코드 실행(실습)은 <b>태블릿·PC</b>에서 이용할 수 있어요. 모바일에서는 위 코드를 눈으로 따라가며 확인하세요.</p></div>
 <p>앞쪽은 상대 메시지 3개가 다 끝난 뒤에야 내 답장이 나옵니다. 뒤쪽은 둘이 섞여 나오죠. <strong>이 차이가 곧 무전기와 채팅의 차이</strong>입니다.</p>
-<h2 id="단골-함정"><a href="#단골-함정">단골 함정</a></h2>
+<h2 id="채팅이-먹통이-되는-흔한-원인"><a href="#채팅이-먹통이-되는-흔한-원인">채팅이 먹통이 되는 흔한 원인</a></h2>
 <p><strong>join을 빼먹는 것.</strong> 스레드를 시작해 놓고 바로 <code>close()</code>를 부르면, 아직 대화 중인데 통로가 닫혀 버립니다. 두 스레드가 끝난 뒤에 닫아야 합니다.</p>
 <p><strong>flush를 빼먹는 것.</strong> 6편과 8편에서 본 그대로입니다. 보냈다고 생각했는데 버퍼에 고여 있으면 상대는 아무것도 못 받고 계속 기다립니다. 채팅이 먹통이 되는 흔한 원인입니다.</p>
 <p><strong>서버를 나중에 켜는 것.</strong> 8편에서 본 순서 그대로, 받는 쪽이 먼저 켜져 있어야 합니다.</p>
-<h2 id="한-장-정리"><a href="#한-장-정리">한 장 정리</a></h2>
+<h2 id="받기보내기-스레드의-구조"><a href="#받기보내기-스레드의-구조">받기·보내기 스레드의 구조</a></h2>
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>왜 스레드 둘</td><td>받기가 멈춰 있어도 보내기가 따로 돌아야 대화가 됨</td></tr><tr><td>받기 스레드</td><td><code>while</code>로 계속 <code>readUTF()</code>, 받은 것 출력</td></tr><tr><td>보내기 스레드</td><td><code>while</code>로 계속 입력받아 <code>writeUTF()</code> 후 <code>flush()</code></td></tr><tr><td>서버·클라이언트</td><td>연결 방법만 다르고 스레드 구조는 동일</td></tr><tr><td>종료 약속</td><td>특정 글자가 오면 종료 — 이런 규칙이 프로토콜</td></tr><tr><td>끊김 대비</td><td><code>EOFException</code>을 잡아 안내 후 반복문 종료</td></tr></tbody></table>
-<p><strong>이것만 기억하면 됩니다.</strong> 채팅은 <strong>소켓(8편)으로 통로를 만들고, 스레드(7편)로 귀와 입을 따로 다는 것</strong>입니다. 한 스레드로는 받는 동안 보낼 수 없어 무전기가 되고, 둘로 나누면 비로소 대화가 됩니다.</p>
-<h2 id="미니-퀴즈"><a href="#미니-퀴즈">미니 퀴즈</a></h2>
-<p>개념을 제대로 잡았는지 직접 풀어 봅니다. 정답은 눌러야 나옵니다.</p>
-<div class="quiz"><div class="quiz__start"><h3 class="quiz__h">미니 퀴즈</h3><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
+<p>채팅은 <strong>소켓(8편)으로 통로를 만들고, 스레드(7편)로 귀와 입을 따로 다는 것</strong>입니다. 한 스레드로는 받는 동안 보낼 수 없어 무전기가 되고, 둘로 나누면 비로소 대화가 됩니다.</p>
+<h2 id="스레드-분리와-종료-처리-점검"><a href="#스레드-분리와-종료-처리-점검">스레드 분리와 종료 처리 점검</a></h2>
+<p>스레드를 둘로 나누는 이유, 상대가 끊겼을 때 나는 예외, flush와 프로토콜을 묻습니다.</p>
+<div class="quiz"><div class="quiz__start"><p class="quiz__h">문제 <!-- -->5<!-- -->개</p><p class="quiz__meta">OX 2문제 + 4지선다 3문제</p><button class="quiz__btn">시작하기</button></div></div>
 <hr/>
 <p><em>포켓코딩(JAVA3) 9편 · 예제 출처: 강사 개인 GitHub 저장소. 다음 편: 데이터베이스 연결 — JDBC로 자바와 DB 잇기.</em></p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/java-socket/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 네트워크 — 소켓으로 두 프로그램 연결하기(SOCKET)</h3><p>자바 소켓 통신을 입문자 눈높이로 정리합니다. IP와 포트가 무엇인지, 서버와 클라이언트 코드가 어떻게 다른지, accept가 멈추는 이유와 여러 명을 받으려면 왜 스레드가 필요한지까지 예제로 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-18T08:00">2026년 8월 18일 08:00</time><span>· <!-- -->자바, JAVA, 네트워크</span></div></a><a class="post-card " href="/posts/java-thread/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">자바 스레드 — 여러 일을 동시에 시키기(THREAD·SYNCHRONIZED)</h3><p>자바 스레드를 입문자 눈높이로 정리합니다. 순차 실행과 동시 실행의 차이, Runnable로 스레드 만드는 법, start와 run의 함정, 공유 변수가 어긋나는 이유와 synchronized까지 브라우저에서 바로 실행하며 익힙니다.</p><div class="post-card__meta"><time dateTime="2026-08-13T15:00">2026년 8월 13일 15:00</time><span>· <!-- -->자바, JAVA, 스레드</span></div></a><a class="post-card " href="/posts/java4-review/"><span class="tag" style="align-self:flex-start">JAVA</span><h3 style="margin-top:0.75rem">모던 자바 12문제로 복습 — JAVA4 총정리</h3><p>일곱 편, 열두 문제, 고장 난 코드 다섯 개. 람다부터 Optional까지 JAVA4 시즌 전체를 지도 한 장으로 되짚고, 시즌 내내 마주친 에러 화면을 직접 고치며 마무리합니다.</p><div class="post-card__meta"><time dateTime="2026-09-01T11:01">2026년 9월 1일 11:01</time><span>· <!-- -->자바, JAVA, 람다</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
     <!--
