@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>갤러리 원드라이브 동기화 종료, 사진은 지워지지 않았습니다 — PANCO_IT</title>
+    <meta name="description" content="2026년 9월 30일부터 삼성 갤러리와 OneDrive의 직접 동기화가 끝났습니다. 갤러리에서 사라진 사진은 OneDrive에 그대로 남아 있고, OneDrive 앱이나 onedrive.com에서 보고 내려받을 수 있습니다. 무료 5GB를 넘긴 계정이 겪는 읽기 전용·동결·삭제 순서와 삼성 보너스 만료, 카메라 백업 설정까지 삼성 클라우드와 Microsoft 지원 문서로 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/samsung-gallery-onedrive-end/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="갤러리 원드라이브 동기화 종료, 사진은 지워지지 않았습니다 — PANCO_IT" />
+    <meta property="og:description" content="2026년 9월 30일부터 삼성 갤러리와 OneDrive의 직접 동기화가 끝났습니다. 갤러리에서 사라진 사진은 OneDrive에 그대로 남아 있고, OneDrive 앱이나 onedrive.com에서 보고 내려받을 수 있습니다. 무료 5GB를 넘긴 계정이 겪는 읽기 전용·동결·삭제 순서와 삼성 보너스 만료, 카메라 백업 설정까지 삼성 클라우드와 Microsoft 지원 문서로 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/samsung-gallery-onedrive-end/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/itnews-od-hero.jpg" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-10-04T07:34" />
+    <meta property="article:modified_time" content="2026-10-04T07:34" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="갤러리 원드라이브 동기화 종료, 사진은 지워지지 않았습니다 — PANCO_IT" />
+    <meta name="twitter:description" content="2026년 9월 30일부터 삼성 갤러리와 OneDrive의 직접 동기화가 끝났습니다. 갤러리에서 사라진 사진은 OneDrive에 그대로 남아 있고, OneDrive 앱이나 onedrive.com에서 보고 내려받을 수 있습니다. 무료 5GB를 넘긴 계정이 겪는 읽기 전용·동결·삭제 순서와 삼성 보너스 만료, 카메라 백업 설정까지 삼성 클라우드와 Microsoft 지원 문서로 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/itnews-od-hero.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"갤러리 원드라이브 동기화 종료, 사진은 지워지지 않았습니다","description":"2026년 9월 30일부터 삼성 갤러리와 OneDrive의 직접 동기화가 끝났습니다. 갤러리에서 사라진 사진은 OneDrive에 그대로 남아 있고, OneDrive 앱이나 onedrive.com에서 보고 내려받을 수 있습니다. 무료 5GB를 넘긴 계정이 겪는 읽기 전용·동결·삭제 순서와 삼성 보너스 만료, 카메라 백업 설정까지 삼성 클라우드와 Microsoft 지원 문서로 정리했습니다.","image":"https://pancoit.site/uploads/itnews-od-hero.jpg","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-10-04T07:34","dateModified":"2026-10-04T07:34","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/samsung-gallery-onedrive-end/"},"keywords":"갤러리원드라이브, 원드라이브동기화종료, 삼성갤러리, OneDrive, 카메라백업, 갤럭시사진백업, 생활IT"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"IT소식","item":"https://pancoit.site/category/IT%EC%86%8C%EC%8B%9D/"},{"@type":"ListItem","position":3,"name":"갤러리 원드라이브 동기화 종료, 사진은 지워지지 않았습니다","item":"https://pancoit.site/posts/samsung-gallery-onedrive-end/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BEkvB40b.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Cz8z7SNS.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/IT%EC%86%8C%EC%8B%9D/">IT소식</a></li><li><span aria-current="page">갤러리 원드라이브 동기화 종료, 사진은 지워지지 않았습니다</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/IT%EC%86%8C%EC%8B%9D/">IT소식</a><h1 style="margin-top:0.75rem">갤러리 원드라이브 동기화 종료, 사진은 지워지지 않았습니다</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-10-04T07:34">2026년 10월 4일 07:34</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->갤러리원드라이브</span><span class="tag">#<!-- -->원드라이브동기화종료</span><span class="tag">#<!-- -->삼성갤러리</span><span class="tag">#<!-- -->OneDrive</span><span class="tag">#<!-- -->카메라백업</span><span class="tag">#<!-- -->갤럭시사진백업</span><span class="tag">#<!-- -->생활IT</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="책상 위에 화면이 위로 놓인 휴대폰, 화면의 사진 칸 가운데 일부는 풍경 사진이고 여러 칸은 빈 회색 칸, 휴대폰 위에 떠 있는 구름 모양과 휴대폰을 잇는 점선이 가운데에서 끊어진 그림" src="/uploads/itnews-od-hero.jpg" loading="lazy"/></p>
+<p><em>그림. 사진 칸 일부가 비어 버린 휴대폰과 연결이 끊긴 구름 (자체 제작)</em></p>
+<p>삼성 갤러리 앱과 Microsoft OneDrive의 직접 동기화가 2026년 9월 30일부로 끝났습니다. 그 뒤로 갤러리에서 OneDrive에만 있던 사진과 동영상이 보이지 않게 됐습니다. 삼성 클라우드와 Microsoft 지원 문서는 둘 다 같은 말을 합니다. OneDrive에 저장된 사진은 지워지지 않았습니다. OneDrive 앱이나 onedrive.com에서 계속 볼 수 있습니다. 다만 무료 저장 공간 5GB를 넘긴 계정은 6개월 뒤 파일이 삭제될 수 있습니다.</p>
+<p>용량을 넘긴 계정은 읽기 전용, 동결, 삭제 순서를 밟습니다. 삼성 기기에서 받은 OneDrive 보너스 용량이 끝난 계정이 여기에 걸리기 쉽습니다. 아래는 삼성 클라우드 「OneDrive 동기화 종료 예정」 안내와 Microsoft 지원 문서 네 편을 2026년 10월 4일에 직접 열어 확인한 내용입니다.</p>
+<h2 id="갤러리에서-사라진-사진은-지워진-건가요"><a href="#갤러리에서-사라진-사진은-지워진-건가요">갤러리에서 사라진 사진은 지워진 건가요</a></h2>
+<p>지워지지 않았습니다. 삼성 클라우드 안내의 2번 문항은 갤러리 동기화로 OneDrive에 저장해 두었던 사진과 동영상이 &quot;OneDrive에 그대로 유지되며, OneDrive 앱에서 확인 가능&quot;하다고 적고 있습니다. 같은 문서 맨 위에는 별도 조치를 하지 않으면 갤러리에서는 사진과 동영상이 사라진다는 문장도 있습니다. 갤러리 화면에서 빠진 것과 파일이 지워진 것은 다른 일입니다.</p>
+<p><img alt="삼성 클라우드 OneDrive 동기화 종료 예정 안내 캡처, 2026년 9월 30일 이후로 갤러리는 더 이상 Microsoft OneDrive와 동기화되지 않습니다, 사진과 동영상은 OneDrive에 안전하게 보관되지만 별도의 조치를 취하지 않으면 갤러리에서는 사진과 동영상이 사라집니다, 1번 언제 종료되나요 26년 9월 30일 이후 종료 MS계정과 삼성계정의 연결 정보도 모두 삭제, 2번 기존 OneDrive에 저장된 사진과 동영상은 OneDrive에 그대로 유지되며 OneDrive 앱에서 확인 가능" src="/uploads/itnews-official-samsung-cloud-onedrive-end.jpg" loading="lazy"/></p>
+<p><em>캡처. 종료 날짜와 기존 사진 처리를 적은 삼성 안내 (출처: 삼성 클라우드, 2026-10-04 확인)</em></p>
+<p>Microsoft 쪽 문서도 같습니다. 「Samsung Gallery 동기화 및 OneDrive에 대한 변경 내용」은 2026년 5월 14일에 마지막으로 고쳐졌습니다. OneDrive에 이미 저장된 사진과 비디오는 안전하고 변하지 않은 상태로 남는다고 적었습니다. 삭제되거나 수정되지 않는다는 문장도 따로 있습니다. 같은 문서는 2026년 9월 30일 이후 OneDrive에 저장된 모든 사진이 삼성 갤러리 앱에서 사라진다고도 밝혀 두었습니다.</p>
+<p><img alt="Microsoft 지원 문서 캡처, 기존 Samsung Gallery 사진은 어떻게 되나요, OneDrive에 이미 저장된 사진과 비디오, 그들은 안전하고 변하지 않은 상태로 유지됩니다, OneDrive를 사용할 수 있는 모든 장치에서 계속 액세스할 수 있습니다, 삭제되거나 수정되지 않습니다" src="/uploads/itnews-official-ms-existing-photos.jpg" loading="lazy"/></p>
+<p><em>캡처. 기존 사진은 삭제·수정되지 않는다는 Microsoft 안내 (출처: Microsoft 지원, 2026-10-04 확인)</em></p>
+<p>모든 사진이 빠지지는 않았습니다. 삼성 안내가 내려받기를 권하는 대상은 OneDrive에 저장해 둔 사진입니다. 휴대폰 안에 파일로 들어 있는 사진은 동기화와 관계없이 기기 갤러리에 남습니다. 그래서 같은 앨범 안에서도 어떤 사진은 보이고 어떤 사진은 빠지는 일이 생깁니다.</p>
+<p><img alt="9월 30일 뒤 사진이 어디에 있는지 두 칸으로 나눈 그림, 왼쪽 갤러리 앱 칸에 OneDrive에만 있던 사진은 보이지 않음, 휴대폰에 저장된 사진은 그대로 보임, 오른쪽 OneDrive 칸에 동기화된 사진과 동영상은 삭제 수정 없이 그대로, OneDrive 앱과 onedrive.com에서 보기, 아래 띠에 삼성 계정과 Microsoft 계정의 연결 정보는 삭제됩니다" src="/uploads/itnews-od-1-where.jpg" loading="lazy"/></p>
+<p><em>그림. 9월 30일 뒤 갤러리와 OneDrive에서 보이는 사진 (삼성 클라우드·Microsoft 지원 안내를 바탕으로 자체 제작)</em></p>
+<h2 id="사라진-사진은-어디서-다시-보고-내려받나요"><a href="#사라진-사진은-어디서-다시-보고-내려받나요">사라진 사진은 어디서 다시 보고 내려받나요</a></h2>
+<p>OneDrive 앱이나 웹 브라우저의 onedrive.com에서 봅니다. 두 곳 모두 Microsoft 계정으로 로그인해야 합니다. 이 계정은 갤럭시에 로그인해 둔 삼성 계정과 다를 수 있다고 Microsoft 문서가 따로 적어 두었습니다. 예전에 갤러리 설정에서 OneDrive를 연결할 때 쓴 이메일 주소가 그 계정입니다.</p>
+<p>삼성 안내 3번 문항은 갤러리 안에서 원본을 휴대폰으로 받는 두 가지 경로를 적었습니다. 사진을 골라 받을 때는 갤러리의 사진 탭에서 사진을 길게 눌러 선택한 뒤 더보기에서 다운로드를 누릅니다. 앨범째 받을 때는 갤러리 메뉴의 설정에서 &#x27;OneDrive에 동기화&#x27;로 들어가 원본 다운로드를 고릅니다.</p>
+<p><img alt="삼성 클라우드 안내 3번 문항 캡처, OneDrive에 저장된 사진과 동영상의 원본을 기기에 다운로드 방법, 사진이나 동영상 여러 개를 선택해 다운로드할 경우 기기의 용량이 허용되는 항목까지만 다운로드, 1 사진 동영상별 다운로드 갤러리 사진 좌측 하단 길게 눌러 선택 모드 진입 더보기 우측 하단 다운로드, 2 앨범별 다운로드 갤러리 메뉴 우측 하단 설정 OneDrive에 동기화 원본 다운로드 다운로드할 앨범 선택 다운로드, 4번 서비스가 종료되면 사용할 수 없는 기능 네 가지, 5번 OneDrive 앱의 카메라 백업 기능으로 계속 저장 가능" src="/uploads/itnews-official-samsung-cloud-download.jpg" loading="lazy"/></p>
+<p><em>캡처. 원본 다운로드 두 경로와 종료 뒤 사라지는 기능 (출처: 삼성 클라우드, 2026-10-04 확인)</em></p>
+<p>다만 삼성 안내는 이 경로를 &quot;종료일 이전까지&quot; 쓰라고 적었습니다. 종료일이 지난 지금은 갤러리 메뉴가 그대로 남아 있다고 장담할 수 없습니다. 같은 안내 2번 문항이 OneDrive 앱으로도 내려받을 수 있다고 적어 두었으니, 메뉴가 보이지 않으면 OneDrive 앱으로 가면 됩니다.</p>
+<p>여러 장을 한꺼번에 받을 때는 휴대폰 남은 공간부터 보셔야 합니다. 삼성 안내에는 사진이나 동영상 여러 개를 골라 받으면 기기 용량이 허락하는 항목까지만 받아진다고 적혀 있습니다. 수천 장을 받다가 중간에 멈추면 어디까지 받았는지 헷갈리기 쉬우니 앨범 단위로 나눠 받는 편이 확인하기 편합니다.</p>
+<p><img alt="원본을 휴대폰으로 받는 두 길을 카드 두 장으로 정리한 그림, 왼쪽 사진 동영상 골라 받기 1 갤러리 사진 2 길게 눌러 선택 3 더보기 다운로드, 오른쪽 앨범째 받기 1 갤러리 메뉴 설정 2 OneDrive에 동기화 3 원본 다운로드 앨범 선택, 아래 회색 칸에 여러 개를 받으면 휴대폰 용량이 허락하는 만큼만 받아집니다 종료 뒤에는 OneDrive 앱에서 받습니다" src="/uploads/itnews-od-2-download.jpg" loading="lazy"/></p>
+<p><em>그림. 원본을 휴대폰으로 받는 두 경로 (삼성 클라우드 안내를 바탕으로 자체 제작)</em></p>
+<h2 id="무료-5gb를-넘긴-계정은-어떻게-되나요"><a href="#무료-5gb를-넘긴-계정은-어떻게-되나요">무료 5GB를 넘긴 계정은 어떻게 되나요</a></h2>
+<p>이번 종료에서 가장 늦게 드러나는 문제입니다. Microsoft 「스토리지 할당량」 문서의 표를 보면 구독이 없는 무료 계정의 클라우드 저장소는 5GB입니다. 이 5GB에는 OneDrive의 파일과 사진뿐 아니라 Outlook.com 메일 첨부 파일도 들어갑니다. 유료 요금제는 기본 100GB, 개인 1TB입니다.</p>
+<p>할당량을 넘기면 단계가 나뉩니다. 넘긴 때부터 카메라 앨범 같은 새 파일을 올리거나 동기화할 수 없습니다. 있던 파일은 남지만 읽기 전용이 됩니다. 3개월이 지나면 OneDrive 계정이 동결됩니다. 6개월이 지나면 Microsoft가 OneDrive와 그 안의 모든 파일을 삭제할 수 있습니다. 한 번 삭제된 파일은 복구할 수 없다고 문서에 적혀 있습니다.</p>
+<p><img alt="Microsoft 지원 스토리지 할당량 문서 캡처, Microsoft 저장소 할당량을 초과하는 경우 발생하는 일, OneDrive 카메라 앨범과 같은 새 파일을 업로드 편집 또는 동기화할 수 없습니다 기존 파일은 유지되지만 읽기 전용입니다, Outlook.com 전자 메일을 보내거나 받을 수 없습니다, Microsoft Teams 첨부 파일 메시지, 3개월 후 OneDrive 계정이 동결됩니다, 6개월 후 Microsoft는 OneDrive와 그 안의 모든 파일을 삭제할 수 있습니다 한 번 삭제되면 복구할 수 없습니다" src="/uploads/itnews-official-ms-quota-over.jpg" loading="lazy"/></p>
+<p><em>캡처. 할당량을 넘긴 뒤의 단계 (출처: Microsoft 지원 「Microsoft 스토리지 할당량」, 2026-10-04 확인)</em></p>
+<p>갤럭시 사용자가 여기에 걸리는 길은 보너스 용량입니다. Microsoft 문서 「Samsung OneDrive 보너스가 만료되면 어떻게 하나요?」는 일부 삼성 기기가 제한된 기간 동안 OneDrive 저장 공간을 더 준다고 설명합니다. 보너스가 끝난 뒤에도 파일을 열고 내려받을 수는 있습니다. 그러나 저장 용량 한도를 넘으면 계정이 동결된다고 적었습니다. 그 기준이 모든 사용자에게 무료로 주는 5GB입니다.</p>
+<p>갤러리에서 사진이 안 보이면 OneDrive를 열 일도 줄어듭니다. 그 사이 용량 초과 알림을 놓치면 위 순서가 그대로 진행될 수 있습니다. 사진이 5GB를 넘게 쌓여 있다면 손을 써 두는 편이 안전합니다. 휴대폰이나 컴퓨터로 내려받아 두거나, 유료 요금제로 용량을 늘리면 됩니다.</p>
+<p><img alt="무료 5GB를 넘기면 생기는 일을 세 칸 시간 순서로 정리한 그림, 넘긴 때부터 새 사진 업로드 동기화 안 됨 있던 파일은 읽기 전용, 3개월 뒤 OneDrive 계정 동결, 6개월 뒤 OneDrive와 모든 파일 삭제될 수 있음 삭제되면 복구 불가, 아래 띠에 무료 저장 공간은 계정마다 5GB 삼성 보너스가 끝나면 이 기준" src="/uploads/itnews-od-3-quota.jpg" loading="lazy"/></p>
+<p><em>그림. 할당량 초과 뒤 단계 (Microsoft 스토리지 할당량·삼성 보너스 안내를 바탕으로 자체 제작)</em></p>
+<p>계정에 지금 얼마가 쌓였는지는 Microsoft 계정 대시보드의 저장소 영역에서 보라고 같은 문서가 안내합니다. 컴퓨터에 OneDrive를 깔아 두었다면 작업 표시줄의 OneDrive 아이콘에도 상태가 뜹니다. 빨간 원에 흰 빼기 표시가 있는 구름 아이콘이 용량 초과 표시입니다.</p>
+<h2 id="새-사진을-계속-onedrive에-올리려면"><a href="#새-사진을-계속-onedrive에-올리려면">새 사진을 계속 OneDrive에 올리려면</a></h2>
+<p>갤러리 설정으로는 더 이상 안 되고, OneDrive 앱의 카메라 백업을 켜야 합니다. Microsoft 문서의 순서는 이렇습니다. OneDrive 앱을 열고 Microsoft 계정으로 로그인합니다. 앱 왼쪽 위의 계정 프로필을 누른 뒤 카메라 백업을 고릅니다. 맞는 계정인지 확인하고 카메라 백업을 켭니다. 사진과 동영상 접근 권한을 묻는 창이 뜨면 허용합니다.</p>
+<p>권한은 &#x27;모든 사진과 동영상&#x27;으로 줘야 합니다. 백업이 백그라운드에서 제대로 돌게 하려면 모든 사진과 동영상 접근이 필요하다고 Microsoft 문서가 적었습니다. 새 사진이 올라가지 않을 때 볼 곳도 적혀 있습니다. 카메라 백업이 켜져 있는지, 계정이 맞는지, 저장 공간이 남았는지, 인터넷 연결이 안정적인지입니다.</p>
+<p><img alt="새 사진을 계속 OneDrive에 올리는 순서 여섯 칸, 1 OneDrive 앱 열기, 2 Microsoft 계정으로 로그인, 3 왼쪽 위 계정 프로필, 4 카메라 백업 선택, 5 계정 확인 뒤 켜기, 6 사진 동영상 접근 허용, 아래 띠에 Microsoft 계정은 삼성 계정과 다를 수 있습니다" src="/uploads/itnews-od-4-backup.jpg" loading="lazy"/></p>
+<p><em>그림. OneDrive 카메라 백업을 켜는 순서 (Microsoft 지원 안내를 바탕으로 자체 제작)</em></p>
+<p>무료 5GB 계정에서 카메라 백업을 켜면 그 5GB를 금방 채울 수 있습니다. 앞 절의 할당량 단계가 그대로 적용되니, 켜기 전에 남은 용량을 먼저 보시는 것이 순서입니다.</p>
+<h2 id="tv와-냉장고-화면에서도-안-보이나요"><a href="#tv와-냉장고-화면에서도-안-보이나요">TV와 냉장고 화면에서도 안 보이나요</a></h2>
+<p>안 보입니다. 삼성 안내 4번 문항이 종료와 함께 쓸 수 없게 되는 기능을 적어 두었습니다. OneDrive와 갤러리 동기화 자체, 스토리 동기화 같은 갤러리 일부 기능, 삼성 TV와 모니터의 갤러리 앱에서 OneDrive와 동기화된 사진을 보는 기능, 삼성 가전의 패밀리 허브 갤러리 앱에서 같은 사진을 보는 기능입니다.</p>
+<p>거실 TV나 냉장고 화면에 가족사진을 띄워 두던 집이라면 그 화면이 비었을 수 있습니다. 고장은 아닙니다. 사진 파일은 OneDrive에 남아 있으니 서비스 센터를 부르기 전에 이 목록부터 보시면 됩니다.</p>
+<p><img alt="함께 끝난 기능 네 칸, 동기화 원 아이콘 OneDrive와 갤러리 동기화, 필름 아이콘 스토리 동기화 등 갤러리 일부 기능, TV 아이콘 삼성 TV 모니터 갤러리 앱에서 OneDrive 사진 보기, 냉장고 아이콘 패밀리 허브 갤러리 앱에서 OneDrive 사진 보기, 아래 줄에 사진 파일은 OneDrive에 그대로 남습니다" src="/uploads/itnews-od-5-features.jpg" loading="lazy"/></p>
+<p><em>그림. 동기화 종료와 함께 끝난 기능 (삼성 클라우드 안내 4번 문항을 바탕으로 자체 제작)</em></p>
+<h2 id="다시-연결하거나-새로-연결할-수는-없나요"><a href="#다시-연결하거나-새로-연결할-수는-없나요">다시 연결하거나 새로 연결할 수는 없나요</a></h2>
+<p>없습니다. 삼성 안내 1번 문항은 종료와 함께 Microsoft 계정과 삼성 계정의 연결 정보가 모두 삭제된다고 적었습니다. 5번 문항은 &#x27;OneDrive와 갤러리 동기화&#x27;를 종료일 뒤에는 쓸 수 없고, 대신 OneDrive 앱의 카메라 백업을 쓰라고 안내합니다.</p>
+<p>새로 연결할 수 없게 된 날짜는 Microsoft 문서끼리 다르게 적혀 있습니다. 변경 내용 문서는 2026년 9월 30일 이후 신규 사용자가 연결할 수 없다고 하고, 보너스 안내 문서는 2026년 5월 1일부터 신규 사용자가 연결할 수 없다고 합니다. 어느 쪽이든 지금은 둘 다 지난 날짜라 결과는 같습니다.</p>
+<p>삼성 안내에는 &quot;세부적인 일정은 회사의 사정 등에 따라 추후 변경될 수 있습니다&quot;라는 문장도 있습니다. 해외 매체는 9월 30일보다 앞서 일부 기기에서 OneDrive 백업 메뉴가 먼저 사라졌다고 전하기도 했습니다. 기기마다 메뉴가 사라진 날짜가 달랐을 수 있습니다.</p>
+<h2 id="구글-포토로-옮기라는-안내가-있었나요"><a href="#구글-포토로-옮기라는-안내가-있었나요">구글 포토로 옮기라는 안내가 있었나요</a></h2>
+<p>확인한 범위에서는 없었습니다. 삼성 클라우드 안내와 Microsoft 지원 문서가 대안으로 적은 것은 OneDrive 앱의 카메라 백업 하나뿐입니다. 이데일리는 9월 30일 기사에서 해외 일부 지역에 구글 포토 연동이 순차 적용되고 있고 국내 제공 일정은 공개되지 않았다고 전했습니다. 국내 일정을 밝힌 삼성의 공식 공지는 찾지 못했습니다.</p>
+<p>OneDrive 말고 다른 곳에 사진을 두고 싶다면 순서는 같습니다. 먼저 OneDrive 앱이나 onedrive.com에서 사진을 내려받아 휴대폰이나 컴퓨터에 두고, 그다음 원하는 백업 서비스에 올립니다. OneDrive 계정이 동결되기 전에 내려받기를 끝내 두는 것이 이 순서의 핵심입니다.</p>
+<h2 id="용량과-단계가-바뀌었는지-확인하려면"><a href="#용량과-단계가-바뀌었는지-확인하려면">용량과 단계가 바뀌었는지 확인하려면</a></h2>
+<p>여기 적은 날짜와 용량은 2026년 10월 4일에 연 삼성 클라우드 안내와 Microsoft 지원 문서 네 편을 기준으로 합니다. 무료 용량과 요금제, 할당량 초과 뒤 단계는 Microsoft가 문서를 고치면 바뀔 수 있습니다. 나중에 보신다면 「Microsoft 스토리지 할당량」 문서의 표와 &#x27;초과하는 경우 발생하는 일&#x27; 부분을 먼저 다시 보시면 됩니다.</p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>삼성 클라우드 「OneDrive 동기화 종료 예정」 — <a href="https://www.samsungcloud.com/ko/about/sync-with-onedrive-ending-soon" target="_blank" rel="noopener noreferrer">https://www.samsungcloud.com/ko/about/sync-with-onedrive-ending-soon</a> (2026-10-04 확인)</li>
+<li>Microsoft 지원 「Samsung Gallery 동기화 및 OneDrive에 대한 변경 내용」 — <a href="https://support.microsoft.com/ko-kr/onedrive/changes-to-samsung-gallery-sync-and-onedrive" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/ko-kr/onedrive/changes-to-samsung-gallery-sync-and-onedrive</a> (2026-05-14 업데이트, 2026-10-04 확인)</li>
+<li>Microsoft 지원 「OneDrive에서 Samsung 갤러리 사용」 — <a href="https://support.microsoft.com/ko-kr/onedrive/using-samsung-gallery-with-onedrive" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/ko-kr/onedrive/using-samsung-gallery-with-onedrive</a> (2026-10-04 확인)</li>
+<li>Microsoft 지원 「Microsoft 스토리지 할당량」 — <a href="https://support.microsoft.com/ko-kr/onedrive/microsoft-storage-quotas" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/ko-kr/onedrive/microsoft-storage-quotas</a> (2026-10-04 확인)</li>
+<li>Microsoft 지원 「Samsung OneDrive 보너스가 만료되면 어떻게 하나요?」 — <a href="https://support.microsoft.com/ko-kr/onedrive/what-do-i-do-when-my-samsung-onedrive-bonus-expires" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/ko-kr/onedrive/what-do-i-do-when-my-samsung-onedrive-bonus-expires</a> (2026-10-04 확인)</li>
+<li>이데일리 「삼성 갤러리, 7년 만에 원드라이브 결별…구글 연동 확대[모닝폰]」 — 2026-09-30</li>
+<li>Android Authority 「Samsung Gallery starts quietly ending OneDrive support ahead of schedule」 — <a href="https://www.androidauthority.com/samsung-gallery-onedrive-support-disappearing-3672657/" target="_blank" rel="noopener noreferrer">https://www.androidauthority.com/samsung-gallery-onedrive-support-disappearing-3672657/</a></li>
+</ul>
+<p>삼성과 Microsoft의 공식 안내를 직접 열어 맞춰 본 해설이며, 문서의 문장을 그대로 옮기지 않았습니다. 내용은 2026년 10월 4일 기준입니다.</p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">IT 지식을 정리하는 개발자</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/galaxy-s26-price-hike/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">갤럭시 S26 가격 인상, 1TB만 오른 폭이 다릅니다</h3><p>갤럭시 S26 시리즈 출고가가 2026년 10월 1일부터 올랐습니다. 256GB와 512GB는 모델과 관계없이 149,600원씩, 울트라 1TB만 276,100원이 올랐습니다. 삼성전자 뉴스룸의 출시 가격과 10월 2일 삼성닷컴 기준가를 일곱 가지 모두 맞춰 보고, 삼성닷컴 화면의 기준가·혜택가·카드 결제일 할인가가 각각 무엇인지, 값이 그대로인 S26 FE와 차이가 얼마로 벌어졌는지 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-02T01:06">2026년 10월 2일 01:06</time><span>· <!-- -->갤럭시S26, 갤럭시S26가격, 갤럭시S26가격인상</span></div></a><a class="post-card " href="/posts/iphone-duo-preorder-esim/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">아이폰 듀오 사전예약, 쓰던 유심은 그대로 못 씁니다</h3><p>애플의 첫 폴더블 아이폰 듀오는 한국에서 2026년 10월 16일(금) 오후 9시 사전 주문, 10월 23일(금) 출시입니다. 가격은 256GB 329만 원부터 2TB 509만 원까지이고, 전 세계 eSIM 전용이라 실물 유심을 꽂을 칸이 없습니다. 애플 지원 문서의 대한민국 통신사 목록으로 eSIM을 여는 방법, 목록에 없는 알뜰폰과 빠른 전송, 상자 구성과 보상 판매까지 애플 공식 자료로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-01T01:30">2026년 10월 1일 01:30</time><span>· <!-- -->아이폰듀오, 아이폰듀오사전예약, 아이폰듀오가격</span></div></a><a class="post-card " href="/posts/meta-muse-korea/"><span class="tag" style="align-self:flex-start">IT소식</span><h3 style="margin-top:0.75rem">메타 뮤즈 한국 출시 전, 무료인데 카드를 등록하는 이유</h3><p>메타의 개인 AI 에이전트 뮤즈(Muse)는 2026년 9월 30일 기준 미국과 캐나다에서만 쓸 수 있고 한국 출시 일정은 발표되지 않았습니다. 메타 고객 센터의 구독 요건, 무료·Power·Maximum 요금제와 무료로 시작해도 결제 카드를 등록하는 이유, 전용 가상 컴퓨터에서 대신 일하는 방식과 국내에서 쓸 수 있는 AI 에이전트까지 메타 공식 문서로 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-09-30T01:36">2026년 9월 30일 01:36</time><span>· <!-- -->메타뮤즈, MetaMuse, 메타뮤즈한국</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">어려운 IT를 누구나 이해할 수 있게, 쉽고 친근하게 풀어주는 블로그입니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/stats/">방문 통계</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

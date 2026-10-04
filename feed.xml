@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>갤러리 원드라이브 동기화 종료, 사진은 지워지지 않았습니다</title>
+      <link>https://pancoit.site/posts/samsung-gallery-onedrive-end</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/samsung-gallery-onedrive-end</guid>
+      <pubDate>Sun, 04 Oct 2026 07:34:00 GMT</pubDate>
+      <description>2026년 9월 30일부터 삼성 갤러리와 OneDrive의 직접 동기화가 끝났습니다. 갤러리에서 사라진 사진은 OneDrive에 그대로 남아 있고, OneDrive 앱이나 onedrive.com에서 보고 내려받을 수 있습니다. 무료 5GB를 넘긴 계정이 겪는 읽기 전용·동결·삭제 순서와 삼성 보너스 만료, 카메라 백업 설정까지 삼성 클라우드와 Microsoft 지원 문서로 정리했습니다.</description>
+    </item>
+    <item>
       <title>갤럭시 S26 가격 인상, 1TB만 오른 폭이 다릅니다</title>
       <link>https://pancoit.site/posts/galaxy-s26-price-hike</link>
       <guid isPermaLink="true">https://pancoit.site/posts/galaxy-s26-price-hike</guid>
