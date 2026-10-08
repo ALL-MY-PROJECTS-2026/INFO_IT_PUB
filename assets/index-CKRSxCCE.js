@@ -762,65 +762,64 @@ import{r as a,a as Mr,L as Tr,N as Or,u as K,O as qr,R as q,b as pr,c as kr,d as
 `,s.jsxs(e.li,{children:["베타뉴스, 전남광주 전통시장 60곳서 온누리상품권 환급…최대 4만원 (2026년 9월 11일): ",s.jsx(e.a,{href:"https://www.betanews.net/article/view/beta202609110006",children:"https://www.betanews.net/article/view/beta202609110006"})]}),`
 `,s.jsxs(e.li,{children:["경북도민일보, 추석 장바구니 물가 잡는다… 추석 맞이 농축산물 온누리상품권 환급행사 (2026년 9월): ",s.jsx(e.a,{href:"https://www.hidomin.com/news/articleView.html?idxno=721054",children:"https://www.hidomin.com/news/articleView.html?idxno=721054"})]}),`
 `,s.jsxs(e.li,{children:["국제뉴스, 강원, 9월 16~20일 수산물 전통시장 온누리상품권 환급행사…최대 30% 환급 (2026년 9월): ",s.jsx(e.a,{href:"https://www.gukjenews.com/news/articleView.html?idxno=3691783",children:"https://www.gukjenews.com/news/articleView.html?idxno=3691783"})]}),`
-`]})]})}function Qi(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(js,{...n})}):js(n)}const Ki=Object.freeze(Object.defineProperty({__proto__:null,default:Qi,frontmatter:Hi},Symbol.toStringTag,{value:"Module"})),Wi={title:"딥페이크 — AI가 만든 가짜 얼굴·목소리, 어떻게 속지 않을까",date:"2026-07-27T14:00",description:"AI가 진짜 같은 가짜 영상·목소리를 만드는 딥페이크. 무엇인지, 왜 위험한지, 그리고 사기에 속지 않는 확인법까지 초보 눈높이로 정리했습니다.",category:"IT소식",tags:["AI","딥페이크","보안","사기예방"],cover:"/uploads/itnews-deepfake-hero.jpg",draft:!1};function ps(n){const e={a:"a",blockquote:"blockquote",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-deepfake-hero.jpg",alt:"얼굴에 스캔 라인이 비친 인물 — 딥페이크·얼굴 합성 개념 이미지"})}),`
-`,s.jsx(e.p,{children:s.jsxs(e.em,{children:["이미지 출처: Pexels · Pexels License (",s.jsx(e.a,{href:"https://www.pexels.com/photo/8090294/",children:"https://www.pexels.com/photo/8090294/"}),")"]})}),`
-`,s.jsxs(e.p,{children:['"영상 통화로 얼굴까지 봤는데 사기였다"는 뉴스가 심심찮게 들립니다. 얼굴도, 목소리도 분명 아는 사람이었는데 말입니다. 이런 일을 가능하게 만든 것이 바로 ',s.jsx(e.strong,{children:"딥페이크"}),"입니다. 오늘은 딥페이크가 무엇인지, 그리고 속지 않는 법까지 쉽게 정리하겠습니다."]}),`
-`,s.jsx(e.h2,{id:"딥페이크가-대체-뭔가요",children:s.jsx(e.a,{href:"#딥페이크가-대체-뭔가요",children:"딥페이크가 대체 뭔가요?"})}),`
-`,s.jsxs(e.p,{children:["딥페이크는 AI가 ",s.jsx(e.strong,{children:"진짜처럼 보이는 가짜 얼굴·목소리·영상"}),"을 만들어 내는 기술입니다. 딥러닝(deep learning)과 가짜(fake)를 합친 말입니다."]}),`
-`,s.jsxs(e.blockquote,{children:[`
-`,s.jsxs(e.p,{children:["예전에는 사진 한 장 합성하는 데도 손이 많이 갔습니다. 딥페이크는 사진·영상 여러 장을 AI에게 보여 주면 ",s.jsx(e.strong,{children:"그 사람의 얼굴 습관을 통째로 흉내 내는"})," 방식입니다. 마치 성대모사에 능한 사람이 목소리를 따라 하듯, AI가 얼굴과 말투를 따라 합니다."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"왜-지금-문제가-되나요",children:s.jsx(e.a,{href:"#왜-지금-문제가-되나요",children:"왜 지금 문제가 되나요?"})}),`
-`,s.jsxs(e.p,{children:["예전에는 전문가만 겨우 만들던 것이, 이제는 ",s.jsx(e.strong,{children:"사진 몇 장과 짧은 음성만으로도"})," 꽤 그럴듯하게 만들어집니다. 만들기 쉬워진 만큼 ",s.jsx(e.strong,{children:"사기에 악용되는 경우"}),"가 늘었습니다. 대표적인 것이 지인·상사·유명인을 사칭해 돈이나 정보를 요구하는 수법입니다."]}),`
-`,s.jsx(e.h2,{id:"어떻게-만들어지나요",children:s.jsx(e.a,{href:"#어떻게-만들어지나요",children:"어떻게 만들어지나요?"})}),`
-`,s.jsx(e.p,{children:"원리만 간단히 짚겠습니다(악용법이 아니라 이해를 위해서입니다)."}),`
-`,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"학습"}),": AI에게 특정 인물의 얼굴·목소리 데이터를 많이 보여 줍니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"생성"}),": 학습한 특징으로 새로운 표정·문장을 만들어 냅니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"합성"}),": 그 결과를 실제 영상·통화에 얹습니다."]}),`
-`]}),`
-`,s.jsx(e.p,{children:'핵심은 **"많이 공개된 얼굴·목소리일수록 흉내 내기 쉽다"**는 점입니다. 그래서 공개 영상이 많은 유명인이 자주 표적이 됩니다.'}),`
-`,s.jsx(e.h2,{id:"어느-저녁의-영상-통화--사기는-이렇게-걸려-옵니다",children:s.jsx(e.a,{href:"#어느-저녁의-영상-통화--사기는-이렇게-걸려-옵니다",children:"어느 저녁의 영상 통화 — 사기는 이렇게 걸려 옵니다"})}),`
-`,s.jsxs(e.p,{children:["전형적인 수법을 한 장면으로 보겠습니다. 저녁에 모르는 번호로 영상 통화가 옵니다. 화면에는 ",s.jsx(e.strong,{children:"자녀의 얼굴"}),'이 뜨고, 울먹이는 목소리로 "폰이 고장 나서 친구 폰으로 걸었어. 지금 급하게 돈이 필요해"라고 말합니다. 얼굴도 목소리도 분명 내 아이입니다. 다급한 마음에 계좌번호를 받아 적게 됩니다.']}),`
-`,s.jsxs(e.p,{children:["그런데 이 장면에는 사기의 재료가 전부 들어 있습니다. ① SNS에 올라온 아이의 사진·영상 몇 개로 ",s.jsx(e.strong,{children:"얼굴과 목소리를 학습"}),'시키고 ② "폰이 고장 났다"며 ',s.jsx(e.strong,{children:"원래 번호로 확인할 길을 미리 차단"}),"하고 ③ ",s.jsx(e.strong,{children:"급하다며 생각할 시간을 뺏는"})," 것입니다. 딥페이크 사기의 공식은 기술이 아니라 이 세 가지 심리 장치에 있습니다."]}),`
-`,s.jsxs(e.p,{children:["그래서 대응도 기술이 아니라 절차입니다. 전화를 끊고, ",s.jsx(e.strong,{children:"평소 알던 번호로 직접 다시 걸어"})," 확인하는 것. 이 한 번의 재확인이 대부분의 피해를 막습니다."]}),`
-`,s.jsx(e.h2,{id:"이렇게-구별하세요",children:s.jsx(e.a,{href:"#이렇게-구별하세요",children:"이렇게 구별하세요"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-deepfake-diagram.png",alt:"딥페이크 흔한 사기 수법과 속지 않는 확인법을 비교한 그림"})}),`
-`,s.jsxs(e.p,{children:["가장 확실한 방법은 ",s.jsx(e.strong,{children:"채널을 바꿔 다시 확인"}),"하는 것입니다. 영상 통화로 돈을 요구받았다면, 끊고 ",s.jsx(e.strong,{children:"평소 알던 번호로 직접 전화"}),"해 되묻습니다. 딥페이크는 실시간 대화에서 ",s.jsx(e.strong,{children:"입 모양·눈 깜빡임·목소리 끝음"}),"이 미묘하게 어색한 경우가 많습니다."]}),`
-`,s.jsx(e.p,{children:"기억해 두면 좋은 관찰 포인트를 정리하면 이렇습니다."}),`
-`,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"입과 소리의 어긋남"}),": 발음과 입 모양이 미세하게 안 맞거나, 웃음소리 끝이 뭉개집니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"부자연스러운 깜빡임·경계선"}),": 눈 깜빡임이 드물거나, 얼굴과 목·머리카락 경계가 흔들립니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"화면 전환 회피"}),': "옆모습 보여줘", "손으로 얼굴 가려 봐" 같은 요청에 응하지 못하거나 화질이 급격히 나빠집니다.']}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"맥락의 비약"}),": 처음 보는 번호, 급한 돈, 비밀 유지 요구 — 내용 자체가 사기의 패턴입니다."]}),`
-`]}),`
-`,s.jsxs(e.p,{children:["다만 이런 티는 기술이 좋아질수록 줄어듭니다. 그래서 관찰은 보조 수단으로 두고, ",s.jsx(e.strong,{children:'"다른 경로로 재확인"을 기본 절차'}),"로 삼는 것이 안전합니다."]}),`
-`,s.jsx(e.h2,{id:"영상-통화로-얼굴을-봤으면-진짜일까",children:s.jsx(e.a,{href:"#영상-통화로-얼굴을-봤으면-진짜일까",children:"영상 통화로 얼굴을 봤으면 진짜일까"})}),`
-`,s.jsxs(e.blockquote,{children:[`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:'① "영상까지 봤으니 진짜다"?'})," 아닙니다. 얼굴과 목소리는 이제 ",s.jsx(e.strong,{children:"가장 쉽게 위조되는"})," 요소입니다. 봤다는 사실이 신원 확인이 되지 못합니다."]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:'② "나는 유명인이 아니라 안전하다"?'})," 사진 몇 장이면 충분하기 때문에 ",s.jsx(e.strong,{children:"일반인도 표적"}),"이 됩니다. SNS 공개 사진이 재료가 됩니다."]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:'③ "기술로 100% 걸러진다"?'})," 탐지 기술도 발전하지만 ",s.jsx(e.strong,{children:"완벽하지 않습니다."}),' 결국 "급하게 돈·정보를 요구하면 일단 의심"하는 습관이 가장 강력합니다.']}),`
-`]}),`
-`,s.jsx(e.h2,{id:"그래서-나는-뭘-하면-되나요",children:s.jsx(e.a,{href:"#그래서-나는-뭘-하면-되나요",children:"그래서 나는 뭘 하면 되나요?"})}),`
-`,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:["돈·계좌·인증번호를 요구하면 ",s.jsx(e.strong,{children:"무조건 다른 경로로 재확인"}),"합니다."]}),`
-`,s.jsx(e.li,{children:'가족·지인과 **"급할 때 확인하는 암호 한마디"**를 미리 정해 둡니다.'}),`
-`,s.jsxs(e.li,{children:["SNS의 공개 범위를 점검하고, 얼굴·목소리가 담긴 게시물은 ",s.jsx(e.strong,{children:"아는 사람에게만"})," 공개하는 것을 고려합니다."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"이미-속아서-보냈다면",children:s.jsx(e.a,{href:"#이미-속아서-보냈다면",children:"이미 속아서 보냈다면"})}),`
-`,s.jsxs(e.p,{children:["당황하지 말고 빠르게 움직이는 것이 손해를 줄입니다. 돈을 보냈다면 ",s.jsx(e.strong,{children:"즉시 112(경찰)와 송금한 은행 콜센터에 지급정지"}),"를 요청합니다. 빠를수록 돈이 인출되기 전에 묶을 가능성이 커집니다. 이어서 경찰서에 피해 신고를 접수하고, 통화 화면·계좌번호·문자 등 ",s.jsx(e.strong,{children:"증거를 캡처해 보관"}),"합니다. 내 얼굴로 만들어진 가짜 영상·사진을 발견했다면, 해당 플랫폼에 삭제를 요청하고 방송통신심의위원회 등 기관에 심의를 신청할 수 있습니다. 혼자 해결하려 하지 말고 공식 창구부터 잡는 것이 순서입니다. 부끄러워할 일이 아니라, 누구든 당할 수 있는 범죄를 신고하는 것입니다."]}),`
-`,s.jsx(e.h2,{id:"딥페이크-구별과-송금-전-재확인",children:s.jsx(e.a,{href:"#딥페이크-구별과-송금-전-재확인",children:"딥페이크 구별과 송금 전 재확인"})}),`
-`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"질문"}),s.jsx(e.th,{children:"답"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"딥페이크란"}),s.jsx(e.td,{children:"AI가 만든 진짜 같은 가짜 얼굴·목소리·영상"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"왜 위험한가"}),s.jsxs(e.td,{children:["만들기 쉬워져 ",s.jsx(e.strong,{children:"사칭 사기"}),"에 악용"]})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"어떻게 구별"}),s.jsx(e.td,{children:"다른 경로로 재확인, 어색한 입·눈·목소리"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"나의 대응"}),s.jsx(e.td,{children:"급한 돈·정보 요구는 일단 의심, 송금 전 멈춤"})]})]})]}),`
-`,s.jsxs(e.p,{children:["얼굴과 목소리는 더 이상 신원 증명이 아닙니다. ",s.jsx(e.strong,{children:"급하게 돈이나 정보를 요구하면 채널을 바꿔 확인"}),"하고, 확인 전에는 송금하지 않습니다."]}),`
-`,s.jsx(e.hr,{}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"기준 시점: 2026년 7월. 딥페이크 기술과 탐지 방법은 빠르게 변하므로, 최신 수법은 공식 기관 공지를 참고하시기 바랍니다."})}),`
+`]})]})}function Qi(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(js,{...n})}):js(n)}const Ki=Object.freeze(Object.defineProperty({__proto__:null,default:Qi,frontmatter:Hi},Symbol.toStringTag,{value:"Module"})),Wi={title:"딥페이크 사기, 아이 울음소리 전화와 유명인 투자 광고",date:"2026-07-27T14:00",updated:"2026-10-08",description:"AI로 가족 목소리를 흉내 내 돈을 요구하는 전화와, AI로 만든 유명 전문가 얼굴로 투자 단톡방에 끌어들이는 광고가 실제로 퍼지고 있습니다. 금융감독원 소비자경보, 경찰청·과학기술정보통신부 보도자료, 유튜브·페이스북 고객센터 안내로 수법과 대응, 통신사 AI 탐지 앱 설정, 사칭 광고 신고 방법을 정리했습니다.",category:"IT소식",tags:["AI","딥페이크","딥보이스","보이스피싱","투자리딩방","사기예방","생활IT"],cover:"/uploads/itnews-deepfake-hero.jpg",draft:!1};function ps(n){const e={a:"a",em:"em",h2:"h2",img:"img",li:"li",p:"p",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-deepfake-hero.jpg",alt:"AI가 만든 가짜 얼굴과 목소리를 경계하는 개념 그림"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. AI로 만든 가짜 얼굴·목소리를 가리는 딥페이크 사기 (자체 제작)"})}),`
+`,s.jsx(e.p,{children:"딥페이크는 인공지능으로 실제 사람처럼 보이는 가짜 영상이나 목소리를 만드는 기술입니다. 경찰청은 목소리만 흉내 내는 딥보이스를, 인공지능이 특정 인물의 목소리를 학습해 그 사람처럼 말하는 가짜 음성을 만드는 기술이라고 설명합니다. 사기에서는 두 가지로 쓰입니다. 가족 목소리로 다급하게 돈을 요구하는 전화, 그리고 유명 전문가의 얼굴과 목소리로 투자 단톡방에 끌어들이는 광고입니다."}),`
+`,s.jsx(e.p,{children:"금융감독원은 2026년 들어 두 수법 모두에 소비자경보를 냈습니다. 1월 26일에는 AI 딥페이크로 실제 전문가인 척하는 불법 투자 리딩방을, 2월 1일에는 AI로 조작한 아이 울음소리로 부모에게 돈을 요구하는 보이스피싱을 경고했습니다. 아래는 2026년 10월 8일에 금융감독원, 경찰청, 과학기술정보통신부, 유튜브와 페이스북 고객센터의 공식 안내를 직접 열어 확인한 내용입니다."}),`
+`,s.jsx(e.h2,{id:"아이-울음소리로-걸려-오는-전화",children:s.jsx(e.a,{href:"#아이-울음소리로-걸려-오는-전화",children:"아이 울음소리로 걸려 오는 전화"})}),`
+`,s.jsx(e.p,{children:"금감원 소비자경보 2026-4호의 제목은 '울면서 엄마 부르는 아이 목소리, 알고 보니 AI 보이스피싱'입니다. 사기범은 AI로 조작한 아이 울음소리로 부모를 불안하게 만든 뒤 50만 원 같은 소액을 바로 보내라고 요구합니다. 금감원은 예금이나 적금을 깨거나 대출을 받지 않고도 바로 보낼 수 있는 금액이라 순식간에 범행이 끝나는 것이 특징이라고 설명합니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-fss-ai-voice.jpg",alt:"금융감독원 소비자경보 캡처, 울면서 엄마 부르는 아이 목소리 알고보니 AI 보이스피싱, 등록일 2026-02-01, AI로 조작한 아이의 울음소리로 부모의 불안감을 자극하고 소액 송금을 요구하여 단시간에 범죄를 일으키는 것이 특징, 소비자 유의사항 자녀의 울음소리와 함께 금전 요구를 받았다면 보이스피싱을 의심하세요, 사기범의 전화를 일단 끊고 자녀의 안전을 직접 확인해야 합니다, 피해를 입었다면 신속히 보이스피싱 신고 후 지급정지를 요청하세요, 통신사의 AI 보이스피싱 탐지 서비스 등을 적극 활용하세요, 보이스피싱 전화번호를 제보해주세요"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"금융감독원 소비자경보 2026-4호 (출처: fss.or.kr, 2026년 2월 1일 등록 · 10월 8일 캡처)"})}),`
+`,s.jsx(e.p,{children:"금감원이 내놓은 대응은 다섯 가지입니다. 아이 울음소리와 함께 돈을 요구받으면 보이스피싱부터 의심합니다. 전화를 일단 끊고 자녀에게 직접 연락해 안전을 확인합니다. 사기범은 전화를 끊지 못하게 압박하는 경향이 있어, 끊지 못하게 한다면 무조건 보이스피싱으로 의심하라고 금감원은 덧붙였습니다."}),`
+`,s.jsx(e.p,{children:"이미 돈을 보냈다면 112에 바로 신고하고 그 계좌의 지급정지를 요청합니다. 걸려 온 번호는 제보합니다. 금감원 안내에 따르면 제보한 의심 번호는 통신사를 거쳐 10분 안에 긴급 차단됩니다."}),`
+`,s.jsx(e.h2,{id:"경찰청이-본-수법-sns에-올린-목소리가-재료가-됩니다",children:s.jsx(e.a,{href:"#경찰청이-본-수법-sns에-올린-목소리가-재료가-됩니다",children:"경찰청이 본 수법, SNS에 올린 목소리가 재료가 됩니다"})}),`
+`,s.jsx(e.p,{children:"경찰청 국가수사본부는 2024년 11월 '딥페이크를 이용해 자녀를 납치했다'는 사기에 주의하라는 보도자료를 냈습니다. 딥페이크로 자녀 얼굴을 합성한 가짜 영상을 부모에게 보내고 '자녀를 납치했다'며 돈을 요구한, 외국인을 노린 전화금융사기가 실제로 일어났다는 내용입니다. 경찰은 국내에서도 비슷한 사건이 생길 수 있다고 봤습니다. 같은 자료는 SNS 등에 공개된 본인과 가족의 영상, 사진, 목소리가 범죄조직의 표적이 될 수 있다고 경고했습니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-police-deepvoice.jpg",alt:"경찰청 국가수사본부 보도자료 캡처, 딥페이크 이용 자녀 납치했다 사기 주의, 급속히 발달 중인 인공지능 기술의 범죄 악용 우려 10월에 실제 사례도 발생해, 자녀 얼굴은 물론 목소리까지 복제, 딥보이스는 인공지능 기술을 통해 특정 인물의 목소리를 학습하여 그 사람처럼 말하는 가짜 음성을 생성하는 기술"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:'경찰청 국가수사본부 보도자료 「딥페이크 이용, "자녀 납치했다" 사기 주의」 (출처: police.go.kr, 2024년 11월 · 2026년 10월 8일 캡처)'})}),`
+`,s.jsx(e.p,{children:"경찰청이 권하는 대응도 금감원과 같습니다. 전화를 받는 중이라면 통화를 이어 가면서 다른 사람이나 문자메시지로 112에 신고해 자녀의 안전을 확인합니다. 이 자료에는 그해 9월까지 납치를 빙자한 전화금융사기가 174건이었다는 숫자도 있습니다. 딥페이크만 센 숫자가 아니라 납치 빙자 사기 전체입니다."}),`
+`,s.jsx(e.p,{children:"가족 영상과 목소리를 누구나 볼 수 있게 올려 두었다면 공개 범위를 친구나 가족으로 좁히는 것이 경찰청 권고에 맞습니다."}),`
+`,s.jsx(e.h2,{id:"통화-중에-ai가-잡아-주는-앱",children:s.jsx(e.a,{href:"#통화-중에-ai가-잡아-주는-앱",children:"통화 중에 AI가 잡아 주는 앱"})}),`
+`,s.jsx(e.p,{children:"과학기술정보통신부는 2026년 2월 통화 중에 보이스피싱을 잡아내는 AI 기능을 안내했습니다. 삼성 '전화' 앱, SK텔레콤 '에이닷 전화', KT '후후', LG유플러스 '익시오' 네 가지입니다. 외부 서버가 아니라 휴대폰 안의 인공지능(온디바이스 AI)으로 분석한다고 적혀 있습니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-msit-ai-detect-apps.jpg",alt:"과학기술정보통신부 보도자료 캡처, 인공지능으로 통화 중 사기전화 보이스피싱 잡는다, 삼성전자 전화 SKT 에이닷 전화 KT 후후 LGU+ 익시오 앱에서 인공지능 전화 금융사기 탐지, 외부 서버가 아닌 스마트폰 기기 자체의 인공지능 On-Device AI 기반"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"과학기술정보통신부 보도자료 「인공지능으로 통화 중 사기전화(보이스피싱) 잡는다!」 (출처: msit.go.kr, 2026년 2월 12일 · 10월 8일 캡처)"})}),`
+`,s.jsx(e.p,{children:"갤럭시는 One UI 8.0 이상이면 삼성 전화 앱에 기능이 들어 있고 기본으로 켜져 있습니다. 확인하는 곳은 전화 앱 › 더보기 › 통화 설정 › '전화 금융사기(보이스피싱) 의심 전화 알림'입니다. 모르는 번호와 통화할 때 분석이 시작되고, 의심되면 소리와 진동으로 '주의'나 '위험'을 알립니다."}),`
+`,s.jsx(e.p,{children:"통신사 앱은 조건이 다릅니다. SKT 에이닷 전화는 앱 설정 › 인공지능 보안 › 인공지능 전화 금융사기 탐지에서 엔진을 내려받으면 켜집니다. KT 후후는 통신사와 상관없이 안드로이드 9 이상에서 쓸 수 있고, '후후' 앱과 '후후 통화녹음' 앱을 함께 깔아야 합니다. LG유플러스 익시오는 LG유플러스 가입자가 쓰고, 처음 실행할 때 서비스에 가입하면 기능이 켜집니다. SKT와 LG유플러스는 아이폰(iOS 17 이상) 가입자도 쓸 수 있습니다."}),`
+`,s.jsx(e.p,{children:"딥보이스를 직접 가려내는 기능도 있습니다. 과기정통부 자료에 따르면 KT 후후는 신고된 사기범의 목소리와 변조된 목소리를 함께 분석하고, LG유플러스 익시오는 '안티딥보이스' 기능을 넣었습니다. KT는 2025년 한 해 4,680만 건이 넘는 통화에서 보이스피싱 3천여 건을 막았고, 탐지 정확도가 4분기에 97.2%까지 올랐다고 밝혔습니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-msit-kt-deepvoice.jpg",alt:"과학기술정보통신부 보도자료의 KT 후후 설명 캡처, 실시간 인공지능 전화 금융사기 탐지 2.0, 전화 금융사기 시나리오 신고된 범인의 성문 변조된 목소리 인공지능 음성조작 딥보이스 탐지, 딥보이스 정의 각주"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"같은 보도자료의 KT 후후 딥보이스 탐지 설명 (출처: msit.go.kr, 2026년 10월 8일 캡처)"})}),`
+`,s.jsx(e.h2,{id:"유명-전문가-얼굴로-끌어들이는-투자-광고",children:s.jsx(e.a,{href:"#유명-전문가-얼굴로-끌어들이는-투자-광고",children:"유명 전문가 얼굴로 끌어들이는 투자 광고"})}),`
+`,s.jsx(e.p,{children:"두 번째 수법은 투자입니다. 금감원 소비자경보 2026-3호는 주식 시장이 달아오른 틈을 타 불법 리딩방이 늘고 있다며, 인공지능 딥페이크 기술을 악용해 실제 존재하는 전문가인 척하면서 투자자의 의심을 막고 신뢰를 쌓는다고 경고했습니다. 첨부 자료에는 AI로 얼굴과 목소리까지 그럴듯하게 꾸민다는 설명이 있습니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-fss-leading-deepfake.jpg",alt:"금융감독원 소비자경보 캡처, 코스피 및 코스닥 열풍 속 불법 리딩방이 기승을, 등록일 2026-01-26, 특히 인공지능 AI 딥페이크 기술을 악용해 실제 존재하는 전문가인 척 행세하여 교묘하게 투자자들의 의심을 차단하고 신뢰를 형성하고 있습니다, 금융감독원 홈페이지 민원 신고 불법금융신고센터 사이버불법금융행위제보"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"금융감독원 소비자경보 2026-3호 (출처: fss.or.kr, 2026년 1월 26일 등록 · 10월 8일 캡처)"})}),`
+`,s.jsx(e.p,{children:"금감원이 짚은 확인법은 구체적입니다. 명함에 적힌 전화번호는 가짜일 수 있으니, 그 회사 대표번호를 직접 검색해 연락합니다. 제도권 금융회사는 단체 채팅방에서 주식거래 앱 설치를 권하지 않습니다. 유명인이 광고에 나와 단톡방 입장을 권하더라도 회사와 본인 확인이 먼저입니다. 이런 광고나 단톡방은 금감원 누리집의 '민원·신고 › 불법금융신고센터 › 사이버불법금융행위제보'로 신고합니다."}),`
+`,s.jsx(e.h2,{id:"사칭-광고와-영상은-플랫폼에-신고합니다",children:s.jsx(e.a,{href:"#사칭-광고와-영상은-플랫폼에-신고합니다",children:"사칭 광고와 영상은 플랫폼에 신고합니다"})}),`
+`,s.jsx(e.p,{children:"유튜브는 고객센터의 '명의 도용 관련 정책'에서, AI를 사용해 유명인이 영상에 자발적으로 참여하거나 제품을 직접 광고하는 것처럼 보이게 만든 콘텐츠를 허용하지 않는다고 밝힙니다. 내 얼굴이나 목소리를 AI로 흉내 낸 영상을 찾았다면 개인정보 보호 가이드라인에 따라 삭제를 요청할 수 있다고 안내합니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-youtube-impersonation.jpg",alt:"유튜브 고객센터 캡처, 명의 도용 관련 정책, 정책 소개와 신고·삭제 요청 안내, 허용되지 않는 콘텐츠 예시, AI를 사용하여 유명인이 동영상에 자발적으로 참여하거나 제품을 직접 광고하는 것처럼 보여주는 콘텐츠"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"유튜브 고객센터 「명의 도용 관련 정책」 (출처: support.google.com/youtube, 2026년 10월 8일 캡처)"})}),`
+`,s.jsx(e.p,{children:"페이스북은 고객센터에서 유명인이나 정치인 같은 공인을 사칭하는 프로필이나 페이지를 발견하면 알려 달라고 안내하고, 페이스북 계정이 없어도 사칭을 신고할 수 있다고 적어 두었습니다. 인스타그램에도 같은 사칭 계정 신고 도움말이 있습니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-facebook-impersonation.jpg",alt:"페이스북 고객센터 캡처, 회원님이나 타인을 사칭하는 Facebook 프로필 또는 페이지 신고하기, 공인 예 유명인 정치인을 사칭하는 프로필 또는 페이지를 발견한 경우 저희에게 알려주시기 바랍니다, 프로필 신고하기 단계, 페이지 신고하기 단계, 계정 없이 신고하기, Facebook 계정이 없어도 사칭을 신고할 수 있습니다"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"페이스북 고객센터 사칭 신고 도움말 (출처: facebook.com/help, 2026년 10월 8일 캡처)"})}),`
+`,s.jsx(e.h2,{id:"돈을-보냈다면-지급정지부터",children:s.jsx(e.a,{href:"#돈을-보냈다면-지급정지부터",children:"돈을 보냈다면 지급정지부터"})}),`
+`,s.jsxs(e.p,{children:["딥페이크든 일반 보이스피싱이든 돈이 나갔다면 순서는 같습니다. 은행 콜센터나 112, 금감원 1332로 연락해 지급정지를 신청합니다. 그 뒤 개인정보 노출 등록(pd.fss.or.kr), 계좌 일괄 지급정지(payinfo.or.kr), 명의도용 휴대폰 개통 차단(msafer.or.kr) 순으로 2차 피해를 막습니다. 이 순서는 ",s.jsx(e.a,{href:"/posts/smishing-scam/",children:"스미싱 글"}),"에 화면과 함께 자세히 정리했습니다."]}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-fss-contacts-112-1332-118.jpg",alt:"금융감독원 보이스피싱지킴이 캡처, 피싱피해시 주요 연락처, 경찰청 국번없이 112 피싱사기 피해신고, 금융감독원 국번없이 1332 피싱사기 관련 문의 상담, 한국인터넷진흥원 국번없이 118 금융기관 등 사칭한 스팸메시지 신고"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"금융감독원 보이스피싱지킴이 「피싱피해시 주요 연락처」 (출처: fss.or.kr, 2026년 10월 8일 캡처)"})}),`
+`,s.jsx(e.p,{children:"전기통신금융사기 통합대응단의 신고대응센터(1394)는 24시간 운영합니다. 피해 상담과 의심 번호·사이트 제보, 지급정지 지원을 함께 받습니다."}),`
+`,s.jsx(e.h2,{id:"상황별로-할-일을-표-하나로",children:s.jsx(e.a,{href:"#상황별로-할-일을-표-하나로",children:"상황별로 할 일을 표 하나로"})}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"상황"}),s.jsx(e.th,{children:"공식 안내가 말하는 것"}),s.jsx(e.th,{children:"연락처"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"가족 울음소리·납치 전화"}),s.jsx(e.td,{children:"전화를 끊고 가족에게 직접 확인, 끊지 못하게 하면 사기로 의심"}),s.jsx(e.td,{children:"112(통화 중이면 문자로)"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"돈을 보냈다"}),s.jsx(e.td,{children:"즉시 신고하고 계좌 지급정지 요청"}),s.jsx(e.td,{children:"112 · 1332 · 은행 콜센터"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"의심 번호를 받았다"}),s.jsx(e.td,{children:"번호 제보(10분 안에 긴급 차단)"}),s.jsx(e.td,{children:"1394 · 112"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"유명인 얼굴의 투자 광고"}),s.jsx(e.td,{children:"회사 대표번호로 직접 확인, 단톡방 앱 설치 권유는 의심"}),s.jsx(e.td,{children:"금감원 사이버불법금융행위제보"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"내 얼굴·목소리가 도용된 영상"}),s.jsx(e.td,{children:"플랫폼에 사칭 신고·삭제 요청"}),s.jsx(e.td,{children:"유튜브·페이스북·인스타그램 고객센터"})]})]})]}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"2026년 10월 8일 각 기관 공식 안내 기준. 2025~2026년 딥페이크 사기만 따로 센 정부 통계는 이번에 찾지 못했습니다."})}),`
 `,s.jsx(e.h2,{id:"참고-자료",children:s.jsx(e.a,{href:"#참고-자료",children:"참고 자료"})}),`
-`,s.jsx(e.p,{children:"딥페이크·사칭 사기 대응은 공식 기관의 안내를 바탕으로 정리했습니다."}),`
+`,s.jsx(e.p,{children:"이 글은 아래 자료를 2026년 10월 8일에 직접 열어 확인하고 다시 정리한 것입니다. 2026년 7월 27일에 처음 쓴 글을 이날 기준으로 고쳐 썼습니다."}),`
 `,s.jsxs(e.ul,{children:[`
-`,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.boho.or.kr",children:"한국인터넷진흥원(KISA) 보호나라"})}),`
-`,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.police.go.kr",children:"경찰청"})}),`
+`,s.jsxs(e.li,{children:["금융감독원 소비자경보 2026-4호 「울면서 엄마 부르는 아이 목소리... 알고보니 AI 보이스피싱」(2026-02-01) — ",s.jsx(e.a,{href:"https://www.fss.or.kr/fss/bbs/B0000188/view.do?nttId=209831&menuNo=200218",children:"fss.or.kr"})]}),`
+`,s.jsxs(e.li,{children:["금융감독원 소비자경보 2026-3호 「코스피 및 코스닥 열풍 속 불법 리딩방이 기승을…」(2026-01-26) — ",s.jsx(e.a,{href:"https://www.fss.or.kr/fss/bbs/B0000188/view.do?nttId=209363&menuNo=200218",children:"fss.or.kr"})]}),`
+`,s.jsxs(e.li,{children:["금융감독원 보이스피싱지킴이 「피싱피해시 주요 연락처」 — ",s.jsx(e.a,{href:"https://www.fss.or.kr/fss/main/contents.do?menuNo=200366",children:"fss.or.kr"})]}),`
+`,s.jsxs(e.li,{children:['경찰청 국가수사본부 보도자료 「딥페이크 이용, "자녀 납치했다" 사기 주의」(2024-11) — ',s.jsx(e.a,{href:"https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1002&q_bbscttSn=20241107140847002",children:"police.go.kr"})]}),`
+`,s.jsxs(e.li,{children:["과학기술정보통신부 보도자료 「인공지능으로 통화 중 사기전화(보이스피싱) 잡는다!」(2026-02-12) — ",s.jsx(e.a,{href:"https://www.msit.go.kr/bbs/view.do?sCode=user&mId=307&mPid=208&bbsSeqNo=94&nttSeqNo=3186896",children:"msit.go.kr"})]}),`
+`,s.jsxs(e.li,{children:["유튜브 고객센터 「명의 도용 관련 정책」 — ",s.jsx(e.a,{href:"https://support.google.com/youtube/answer/2801947?hl=ko",children:"support.google.com/youtube/answer/2801947"})]}),`
+`,s.jsxs(e.li,{children:["페이스북 고객센터 사칭 신고 도움말 — ",s.jsx(e.a,{href:"https://www.facebook.com/help/174210519303259?locale=ko_KR",children:"facebook.com/help"})]}),`
+`,s.jsxs(e.li,{children:["피싱안심SOS 전기통신금융사기 통합대응단 — ",s.jsx(e.a,{href:"https://www.counterscam112.go.kr/",children:"counterscam112.go.kr"})]}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 공식 자료와 신뢰할 수 있는 기술 매체 보도를 교차 참고해 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function Yi(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(ps,{...n})}):ps(n)}const Zi=Object.freeze(Object.defineProperty({__proto__:null,default:Yi,frontmatter:Wi},Symbol.toStringTag,{value:"Module"})),sl={title:"갤럭시 S26 가격 인상, 1TB만 오른 폭이 다릅니다",description:"갤럭시 S26 시리즈 출고가가 2026년 10월 1일부터 올랐습니다. 256GB와 512GB는 모델과 관계없이 149,600원씩, 울트라 1TB만 276,100원이 올랐습니다. 삼성전자 뉴스룸의 출시 가격과 10월 2일 삼성닷컴 기준가를 일곱 가지 모두 맞춰 보고, 삼성닷컴 화면의 기준가·혜택가·카드 결제일 할인가가 각각 무엇인지, 값이 그대로인 S26 FE와 차이가 얼마로 벌어졌는지 정리했습니다.",category:"IT소식",tags:["갤럭시S26","갤럭시S26가격","갤럭시S26가격인상","갤럭시S26울트라","갤럭시S26FE","삼성닷컴","생활IT"],date:"2026-10-02T01:06",draft:!1,cover:"/uploads/itnews-s26-hero.jpg"};function ks(n){const e={a:"a",em:"em",h2:"h2",img:"img",li:"li",p:"p",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-s26-hero.jpg",alt:"책상 위에 엎어 놓은 남색 휴대폰 한 대와 코랄색 끈이 달린 빈 가격표, 작은 메모리 카드가 함께 놓인 그림"})}),`
+`,s.jsx(e.p,{children:"본문 그림 중 출처가 '자체 제작'으로 적힌 것은 필자가 만든 그림입니다."})]})}function Yi(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(ps,{...n})}):ps(n)}const Zi=Object.freeze(Object.defineProperty({__proto__:null,default:Yi,frontmatter:Wi},Symbol.toStringTag,{value:"Module"})),sl={title:"갤럭시 S26 가격 인상, 1TB만 오른 폭이 다릅니다",description:"갤럭시 S26 시리즈 출고가가 2026년 10월 1일부터 올랐습니다. 256GB와 512GB는 모델과 관계없이 149,600원씩, 울트라 1TB만 276,100원이 올랐습니다. 삼성전자 뉴스룸의 출시 가격과 10월 2일 삼성닷컴 기준가를 일곱 가지 모두 맞춰 보고, 삼성닷컴 화면의 기준가·혜택가·카드 결제일 할인가가 각각 무엇인지, 값이 그대로인 S26 FE와 차이가 얼마로 벌어졌는지 정리했습니다.",category:"IT소식",tags:["갤럭시S26","갤럭시S26가격","갤럭시S26가격인상","갤럭시S26울트라","갤럭시S26FE","삼성닷컴","생활IT"],date:"2026-10-02T01:06",draft:!1,cover:"/uploads/itnews-s26-hero.jpg"};function ks(n){const e={a:"a",em:"em",h2:"h2",img:"img",li:"li",p:"p",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-s26-hero.jpg",alt:"책상 위에 엎어 놓은 남색 휴대폰 한 대와 코랄색 끈이 달린 빈 가격표, 작은 메모리 카드가 함께 놓인 그림"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 휴대폰과 빈 가격표, 메모리 카드 (자체 제작)"})}),`
 `,s.jsx(e.p,{children:"갤럭시 S26 시리즈의 출고가가 2026년 10월 1일부터 올랐습니다. 10월 2일 삼성닷컴 자급제 구매 페이지에서 갤럭시 S26 256GB의 기준가는 1,403,600원입니다. 3월 출시 때 1,254,000원이던 모델이라 149,600원이 오른 것입니다. 일곱 가지 모델·용량 가운데 여섯은 오른 금액이 149,600원으로 같고, 갤럭시 S26 울트라 1TB만 276,100원이 올랐습니다."}),`
 `,s.jsx(e.p,{children:"이 글은 삼성전자 뉴스룸이 2026년 2월 26일에 낸 사전 판매 보도자료의 출고가와, 10월 2일 삼성닷컴 구매 페이지에서 모델·용량을 하나씩 골라 읽은 기준가를 맞춘 것입니다. 오른 금액을 표로 놓고, 1TB만 다른 이유가 공식 자료에 있는지, 삼성닷컴 가격 화면의 세 줄이 무엇을 뜻하는지, 값이 오르지 않은 S26 FE와 차이가 얼마가 됐는지를 차례로 봅니다."}),`
