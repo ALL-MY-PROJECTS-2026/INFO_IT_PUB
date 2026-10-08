@@ -364,18 +364,18 @@
       <description>공용 와이파이가 위험하다고 하면 꼭 나오는 VPN. VPN이 대체 뭔지, 어떻게 데이터를 암호화해 지키는지, 언제 쓰면 좋고 무엇을 조심해야 하는지 초보 눈높이로 정리했습니다.</description>
     </item>
     <item>
-      <title>스미싱(smishing)이란 — 문자 한 통으로 계좌가 털리는 수법과 예방법</title>
+      <title>스미싱 문자 눌렀다면 할 일, 신고 번호는 이제 1394</title>
       <link>https://pancoit.site/posts/smishing-scam</link>
       <guid isPermaLink="true">https://pancoit.site/posts/smishing-scam</guid>
       <pubDate>Thu, 30 Jul 2026 11:10:00 GMT</pubDate>
-      <description>택배·부고·기관을 사칭한 문자 사기, 스미싱. 어떤 수법으로 개인정보와 돈을 빼가는지, 정상 문자와 어떻게 구별하는지, 눌렀다면 어떻게 대응하는지 초보 눈높이로 정리했습니다.</description>
+      <description>스미싱은 문자 속 링크로 가짜 사이트에 개인정보를 넣게 하거나 악성 앱을 깔게 하는 사기입니다. 한국인터넷진흥원·금융감독원·경찰청 공식 안내로 요즘 많이 오는 문자 유형, 보호나라 카카오톡 채널로 확인하는 법, 링크만 눌렀을 때와 앱까지 깔았을 때 할 일, 돈이 나갔을 때 지급정지 순서, 갤럭시·아이폰의 차단 설정을 정리했습니다.</description>
     </item>
     <item>
-      <title>2단계 인증(2FA)이란 — 비밀번호가 뚫려도 막는 두 번째 자물쇠</title>
+      <title>2단계 인증 켜는 법, 네이버·카카오·구글 메뉴 그대로</title>
       <link>https://pancoit.site/posts/two-factor-auth</link>
       <guid isPermaLink="true">https://pancoit.site/posts/two-factor-auth</guid>
       <pubDate>Wed, 29 Jul 2026 16:40:00 GMT</pubDate>
-      <description>로그인할 때 문자로 오는 인증번호, 왜 필요할까요. 2단계 인증(2FA)이 무엇인지, 비밀번호만으로 왜 부족한지, SMS·인증앱·보안키 중 뭐가 안전한지 초보 눈높이로 정리했습니다.</description>
+      <description>2단계 인증은 비밀번호를 넣은 뒤 내 휴대폰으로 한 번 더 확인해야 로그인되게 하는 설정입니다. 네이버·카카오·구글 고객센터의 공식 안내로 각각 켜는 메뉴, 로그인할 때 무엇을 누르는지, 휴대폰을 바꾸거나 잃어버렸을 때 다시 들어가는 방법을 정리했습니다.</description>
     </item>
     <item>
       <title>쿠키(cookie)란 무엇인가 — 웹사이트가 나를 기억하는 법</title>
@@ -399,11 +399,11 @@
       <description>요즘 랜섬웨어는 파일을 암호화하지 않고 데이터를 훔쳐 협박합니다. 무엇이 달라졌는지, 백업만으로 왜 부족한지, 지금 뭘 하면 되는지 초보 눈높이로 정리했습니다.</description>
     </item>
     <item>
-      <title>패스키(passkey)란 무엇인가 — 비밀번호가 사라지는 이유</title>
+      <title>패스키 만드는 법, 구글·네이버·카카오·아이폰 메뉴 그대로</title>
       <link>https://pancoit.site/posts/passkey-passwordless-login</link>
       <guid isPermaLink="true">https://pancoit.site/posts/passkey-passwordless-login</guid>
       <pubDate>Sat, 25 Jul 2026 23:25:00 GMT</pubDate>
-      <description>구글·애플·네이버가 밀고 있는 패스키를 초보 눈높이로 정리합니다. 비밀번호와 뭐가 다른지, 왜 피싱에 안 당하는지, 지금 뭘 하면 되는지까지.</description>
+      <description>패스키는 비밀번호 대신 휴대폰의 지문·얼굴 인식이나 화면 잠금으로 로그인하는 방식입니다. 구글·네이버·카카오·애플·삼성의 공식 안내로 패스키를 만드는 메뉴, 컴퓨터에서 휴대폰으로 로그인하는 방법, 휴대폰을 잃어버렸을 때 지우는 곳, 그대로 남는 비밀번호까지 정리했습니다.</description>
     </item>
     <item>
       <title>AI 반도체가 뭐길래 — CPU·GPU·NPU 쉽게 정리</title>
