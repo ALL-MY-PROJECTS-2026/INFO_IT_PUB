@@ -806,7 +806,7 @@ import{r as a,a as Mr,L as Tr,N as Or,u as K,O as qr,R as q,b as pr,c as kr,d as
 `,s.jsx(e.p,{children:"전기통신금융사기 통합대응단의 신고대응센터(1394)는 24시간 운영합니다. 피해 상담과 의심 번호·사이트 제보, 지급정지 지원을 함께 받습니다."}),`
 `,s.jsx(e.h2,{id:"상황별로-할-일을-표-하나로",children:s.jsx(e.a,{href:"#상황별로-할-일을-표-하나로",children:"상황별로 할 일을 표 하나로"})}),`
 `,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"상황"}),s.jsx(e.th,{children:"공식 안내가 말하는 것"}),s.jsx(e.th,{children:"연락처"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"가족 울음소리·납치 전화"}),s.jsx(e.td,{children:"전화를 끊고 가족에게 직접 확인, 끊지 못하게 하면 사기로 의심"}),s.jsx(e.td,{children:"112(통화 중이면 문자로)"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"돈을 보냈다"}),s.jsx(e.td,{children:"즉시 신고하고 계좌 지급정지 요청"}),s.jsx(e.td,{children:"112 · 1332 · 은행 콜센터"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"의심 번호를 받았다"}),s.jsx(e.td,{children:"번호 제보(10분 안에 긴급 차단)"}),s.jsx(e.td,{children:"1394 · 112"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"유명인 얼굴의 투자 광고"}),s.jsx(e.td,{children:"회사 대표번호로 직접 확인, 단톡방 앱 설치 권유는 의심"}),s.jsx(e.td,{children:"금감원 사이버불법금융행위제보"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"내 얼굴·목소리가 도용된 영상"}),s.jsx(e.td,{children:"플랫폼에 사칭 신고·삭제 요청"}),s.jsx(e.td,{children:"유튜브·페이스북·인스타그램 고객센터"})]})]})]}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"2026년 10월 8일 각 기관 공식 안내 기준. 2025~2026년 딥페이크 사기만 따로 센 정부 통계는 이번에 찾지 못했습니다."})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"2026년 10월 8일 각 기관 공식 안내 기준. 2025년과 2026년의 딥페이크 사기만 따로 센 정부 통계는 이번에 찾지 못했습니다."})}),`
 `,s.jsx(e.h2,{id:"참고-자료",children:s.jsx(e.a,{href:"#참고-자료",children:"참고 자료"})}),`
 `,s.jsx(e.p,{children:"이 글은 아래 자료를 2026년 10월 8일에 직접 열어 확인하고 다시 정리한 것입니다. 2026년 7월 27일에 처음 쓴 글을 이날 기준으로 고쳐 썼습니다."}),`
 `,s.jsxs(e.ul,{children:[`
