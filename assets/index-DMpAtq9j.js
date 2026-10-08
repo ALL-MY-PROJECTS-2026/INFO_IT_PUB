@@ -477,56 +477,54 @@ import{r as a,a as Mr,L as Tr,N as Or,u as K,O as qr,R as q,b as pr,c as kr,d as
 `,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://developer.chrome.com/docs/webstore/program-policies",children:"Chrome 웹 스토어 정책"})}),`
 `,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://support.mozilla.org",children:"Mozilla 지원 문서"})}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function Oi(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(ts,{...n})}):ts(n)}const qi=Object.freeze(Object.defineProperty({__proto__:null,default:Oi,frontmatter:Ti},Symbol.toStringTag,{value:"Module"})),Li={title:"내 계정이 털렸는지 확인하는 법 — 개인정보 유출 대응 3단계",date:"2026-08-05T13:00",description:"대형 유출 사고 뉴스, 남 일이 아닙니다. 내 이메일·비밀번호가 유출됐는지 안전하게 확인하는 법과, 털렸을 때 지금 바로 해야 할 대응 3단계를 초보 눈높이로 정리했습니다.",category:"IT소식",tags:["보안","개인정보유출","계정보안","비밀번호"],cover:"/uploads/itnews-breach-hero.png",draft:!1};function os(n){const e={a:"a",blockquote:"blockquote",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",ol:"ol",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-breach-hero.png",alt:"유출된 계정 정보를 확인하고 방패로 지키는 개념 그림"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"내 계정 정보가 유출됐는지 확인하고, 바로 지키는 것이 핵심입니다."})}),`
-`,s.jsxs(e.p,{children:[`"○○ 사이트에서 수백만 건 개인정보 유출"이라는 뉴스, 이제 놀랍지도 않죠. 그런데 그 '수백만 건'에 내 정보가 섞여 있는지, 어떻게 알 수 있을까요. 오늘은 내 계정이 털렸는지 `,s.jsx(e.strong,{children:"안전하게 확인하는 법"}),"과, 털렸다면 지금 해야 할 대응을 정리하겠습니다."]}),`
-`,s.jsx(e.h2,{id:"왜-남-일이-아닌가요",children:s.jsx(e.a,{href:"#왜-남-일이-아닌가요",children:"왜 남 일이 아닌가요?"})}),`
-`,s.jsxs(e.p,{children:["내가 아무리 조심해도, ",s.jsx(e.strong,{children:"내가 가입한 사이트가 해킹당하면"})," 내 아이디·비밀번호가 통째로 새어 나갑니다. 문제는 그다음입니다. 유출된 아이디·비밀번호 목록을 다른 사이트에 ",s.jsx(e.strong,{children:"자동으로 하나씩 대입"}),"해 보는 공격(크리덴셜 스터핑)이 흔합니다. 그래서 같은 비밀번호를 여러 곳에 썼다면, 한 곳의 유출이 다른 계정까지 뚫는 열쇠가 됩니다."]}),`
-`,s.jsxs(e.blockquote,{children:[`
-`,s.jsxs(e.p,{children:["내 집 열쇠의 복사본이 어딘가 돌아다니는 상황과 같습니다. 언제 만들어졌는지 몰라도, ",s.jsx(e.strong,{children:"복사본이 도는지 확인"}),"하고 자물쇠를 바꾸면 됩니다. 계정도 똑같습니다. 유출 여부를 확인하고, 비밀번호를 바꾸면 됩니다."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"유출됐는지-안전하게-확인하는-법",children:s.jsx(e.a,{href:"#유출됐는지-안전하게-확인하는-법",children:"유출됐는지 안전하게 확인하는 법"})}),`
-`,s.jsxs(e.p,{children:["확인 방법은 있습니다. 다만 ",s.jsx(e.strong,{children:"안전한 방법만"})," 써야 합니다."]}),`
-`,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"브라우저·계정의 내장 검사"}),": 크롬·구글 계정의 '비밀번호 검사', 아이폰의 '유출된 암호' 감지 기능은 저장된 비밀번호가 유출 목록에 있는지 알려줍니다. 내 기기 안에서 확인하니 안전합니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"평판 있는 유출 조회 사이트"}),": 이메일 주소를 넣으면 그 이메일이 알려진 유출 사고에 포함됐는지 알려주는 서비스가 있습니다. 단, ",s.jsx(e.strong,{children:"이메일만"})," 넣고 ",s.jsx(e.strong,{children:"비밀번호는 절대 입력하지 마세요."})]}),`
-`]}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function Oi(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(ts,{...n})}):ts(n)}const qi=Object.freeze(Object.defineProperty({__proto__:null,default:Oi,frontmatter:Ti},Symbol.toStringTag,{value:"Module"})),Li={title:"내 계정이 털렸는지 확인하는 법, 정부 무료 조회부터",date:"2026-08-05T13:00",updated:"2026-10-08",description:"내 아이디와 비밀번호가 다크웹에 돌고 있는지는 개인정보보호위원회와 한국인터넷진흥원이 운영하는 '털린 내 정보 찾기'에서 무료로 조회할 수 있습니다. 조회 순서와 입력한 정보가 어떻게 처리되는지, 유출 이력이 나왔을 때 할 일, 내 명의 휴대폰 개통을 확인하는 명의도용 방지서비스까지 공식 화면으로 정리했습니다.",category:"IT소식",tags:["보안","개인정보유출","털린내정보찾기","명의도용방지서비스","계정보안","비밀번호","생활IT"],cover:"/uploads/itnews-breach-hero.png",draft:!1};function os(n){const e={a:"a",em:"em",h2:"h2",img:"img",li:"li",p:"p",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-breach-hero.png",alt:"유출된 계정 정보를 확인하고 방패로 지키는 개념 그림"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 유출 여부를 확인하고 계정을 지키는 순서 (자체 제작)"})}),`
+`,s.jsx(e.p,{children:"내 아이디와 비밀번호가 어딘가에 새어 나가 돌고 있는지는 정부가 운영하는 무료 서비스로 확인할 수 있습니다. 개인정보보호위원회와 한국인터넷진흥원(KISA)이 함께 운영하는 '털린 내 정보 찾기'입니다. 다크웹 같은 불법 사이트에서 유통되는 계정정보 가운데 내 것이 있는지를 조회해 줍니다. 회원가입은 받지 않고, 이메일 인증만 거치면 됩니다."}),`
+`,s.jsx(e.p,{children:"조회 결과가 나오면 할 일도 정해져 있습니다. 유출 이력이 있는 계정의 비밀번호를 바꾸고, 같은 비밀번호를 쓰던 다른 사이트도 바꾸고, 2단계 인증을 켭니다. 휴대폰 번호와 주민등록번호까지 새었을까 걱정되면, 내 명의로 개통된 휴대폰이 있는지 보는 명의도용 방지서비스도 함께 써 볼 수 있습니다. 아래는 2026년 10월 8일에 두 서비스의 공식 화면을 직접 열어 확인한 내용입니다."}),`
+`,s.jsx(e.h2,{id:"털린-내-정보-찾기는-무엇을-조회하나",children:s.jsx(e.a,{href:"#털린-내-정보-찾기는-무엇을-조회하나",children:"털린 내 정보 찾기는 무엇을 조회하나"})}),`
+`,s.jsx(e.p,{children:'서비스 첫 화면은 "다크웹 등에서 내 계정정보(아이디/이메일, 패스워드)가 불법유통되고 있는지 여부를 확인해보세요"라고 소개합니다. 주소는 kidc.eprivacy.go.kr입니다. 이용 안내는 세 단계로 돼 있습니다. 본인 확인을 위한 이메일 인증, 조회할 계정 아이디나 이메일 주소 입력, 결과 확인입니다.'}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-kidc-home.jpg",alt:"털린 내 정보 찾기 서비스 첫 화면 캡처, 개인정보보호위원회 KISA, 다크웹에 유출된 털린 내 정보 찾기 서비스, 다크웹 등에서 내 계정정보 아이디 이메일 패스워드가 불법유통되고 있는지 여부를 확인해보세요, 조회하기 버튼, 내 정보 유출이 불안하다면 3단계 안심 체크, 1단계 유출 확인, 2단계 간편 조회 본인인증 후 아이디 비번 입력"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"털린 내 정보 찾기 서비스 첫 화면 (출처: kidc.eprivacy.go.kr, 2026년 10월 8일 캡처 · 첫 화면에 뜨는 안내 창은 가리고 찍음)"})}),`
+`,s.jsx(e.p,{children:"조회 대상이 되는 자료는 해킹 사고와 개인정보 유출로 다크웹에 퍼진 계정정보입니다. 조회 결과에 유출 이력이 나오지 않아도, 이 서비스가 모은 자료 안에 없다는 뜻입니다. 모든 유출을 다 담은 목록은 아니니, 저장된 비밀번호 전체를 점검하는 일은 아래에서 따로 다룹니다."}),`
+`,s.jsx(e.h2,{id:"조회는-이-순서로-합니다",children:s.jsx(e.a,{href:"#조회는-이-순서로-합니다",children:"조회는 이 순서로 합니다"})}),`
+`,s.jsx(e.p,{children:"첫 화면의 '조회하기'를 누르면 '유출여부 조회하기' 화면이 열립니다. 맨 위에 서비스는 필요한 최소한의 개인정보를 모으고 조회가 끝나면 즉시 파기한다는 안내가 있습니다. 그 아래 개인정보 수집·이용에 동의해야 다음으로 넘어갑니다."}),`
+`,s.jsx(e.p,{children:"다음은 사용자 인증입니다. 1차 인증은 본인 이메일 인증입니다. 이메일 주소를 넣고 인증번호를 받아 확인합니다. 같은 이메일 주소로는 1차 인증을 하루에 최대 3번까지만 할 수 있고, 다음 날 0시부터 다시 쓸 수 있습니다. 이메일 인증을 마치면 2차 인증으로 '로봇이 아닙니다' 확인(리캡차)이 열립니다. 그 뒤에 조회할 아이디와 비밀번호를 넣고 결과를 봅니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-kidc-verify.jpg",alt:"털린 내 정보 찾기 유출여부 조회하기 화면 캡처, 동의 및 이메일 인증, 정보조회 및 결과확인, 유의사항 및 안내 해당 서비스는 필요한 최소한의 개인정보를 수집 이용하며 조회 완료 후 즉시 파기합니다 본 서비스는 회원가입을 받지 않습니다, 개인정보 수집 이용 동의 수집 항목 이메일 인증용 마스킹 처리 아이디 및 패스워드 조회용 일방향 암호화, 사용자 인증 1차 인증 본인 이메일인증 1차 인증을 완료한 동일 이메일 주소는 하루에 최대 3회까지만 사용할 수 있습니다, 2차 인증 서비스 악용 방지 이메일인증 완료 후 리캡챠가 활성화 됩니다"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"'유출여부 조회하기' 화면의 동의와 인증 단계 (출처: kidc.eprivacy.go.kr, 2026년 10월 8일 캡처)"})}),`
+`,s.jsx(e.p,{children:"네이버나 다음 앱 안의 브라우저로 열면 인증번호를 확인하러 메일함에 다녀오는 사이 화면이 새로 고쳐져 진행이 끊길 수 있다는 공지가 있습니다. 휴대폰이라면 크롬이나 삼성 인터넷, 사파리 같은 브라우저 앱으로 여는 편이 낫습니다."}),`
+`,s.jsx(e.h2,{id:"비밀번호를-넣어도-되나",children:s.jsx(e.a,{href:"#비밀번호를-넣어도-되나",children:"비밀번호를 넣어도 되나"})}),`
+`,s.jsx(e.p,{children:"보통은 어떤 조회 사이트에도 비밀번호를 넣지 말라고 합니다. 이 서비스는 정부 기관이 운영하고, 넣은 비밀번호를 어떻게 처리하는지 동의 화면에 적어 두었습니다. 수집 항목은 인증용 이메일(마스킹 처리)과 조회용 아이디·패스워드(일방향 암호화)입니다. 일방향 암호화는 원래 비밀번호로 되돌릴 수 없게 바꿔 비교하는 방식입니다."}),`
+`,s.jsx(e.p,{children:"보관 기간도 적혀 있습니다. 이메일은 서비스 이용을 마친 다음 날 0시까지, 아이디와 패스워드는 홈페이지 이용을 마칠 때까지입니다. 자주 묻는 질문에도 '입력한 이메일주소, 아이디, 패스워드는 안전하게 처리되나요'라는 항목이 따로 있습니다."}),`
+`,s.jsx(e.p,{children:"조심할 것은 가짜 사이트입니다. 주소창이 kidc.eprivacy.go.kr인지 확인하고, 문자나 메신저로 받은 링크를 눌러 들어가지 않습니다. 검색창에 '털린 내 정보 찾기'를 직접 쳐서 들어가는 편이 안전합니다. 정부 서비스를 사칭해 비밀번호를 모으는 수법도 있기 때문입니다."}),`
+`,s.jsx(e.h2,{id:"유출-이력-있음이-나오면",children:s.jsx(e.a,{href:"#유출-이력-있음이-나오면",children:"'유출 이력 있음'이 나오면"})}),`
+`,s.jsx(e.p,{children:'첫 화면의 3단계 안내 마지막 줄은 "유출 이력이 확인되었다면 해당 계정을 사용하는 사이트의 패스워드를 즉시 변경하여 2차 피해를 막아야 합니다"입니다. 할 일은 순서대로 셋입니다.'}),`
 `,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-breach-flow.png",alt:"개인정보 유출 대응 3단계: 확인, 비밀번호 변경, 2단계 인증"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림 1. 확인 → 비밀번호 변경(재사용 끊기) → 2단계 인증. 이 순서면 됩니다."})}),`
-`,s.jsxs(e.p,{children:["여기서 가장 중요한 원칙 하나. ",s.jsx(e.strong,{children:"어떤 확인 사이트에도 비밀번호를 입력하지 않습니다."})," 정상적인 유출 조회는 이메일이나 전화번호까지만 확인하지, 비밀번호를 요구하지 않습니다. 비밀번호를 넣으라는 곳은 그 자체가 함정일 수 있습니다."]}),`
-`,s.jsx(e.h2,{id:"털렸다면--대응-3단계",children:s.jsx(e.a,{href:"#털렸다면--대응-3단계",children:"털렸다면 — 대응 3단계"})}),`
-`,s.jsx(e.p,{children:"유출이 확인됐다면 당황하지 말고 순서대로 대응합니다."}),`
-`,s.jsxs(e.ol,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"비밀번호를 즉시 바꿉니다."})," 유출된 사이트는 물론, ",s.jsx(e.strong,{children:"같은 비밀번호를 쓴 다른 사이트까지"})," 전부 바꿔야 합니다. 이 기회에 사이트마다 다른 비밀번호로 끊어 주세요."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"2단계 인증을 켭니다."})," 비밀번호가 또 새더라도, 두 번째 확인이 있으면 로그인을 막습니다. 특히 이메일·금융 계정은 필수입니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"의심스러운 활동을 확인합니다."})," 로그인 기록, 결제 내역, 낯선 기기 접속이 없는지 봅니다. 이상하면 로그아웃(모든 기기)과 고객센터 문의를 진행합니다."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"유명인이-아니면-노리지-않는다는-착각",children:s.jsx(e.a,{href:"#유명인이-아니면-노리지-않는다는-착각",children:"유명인이 아니면 노리지 않는다는 착각"})}),`
-`,s.jsxs(e.blockquote,{children:[`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:'① "나는 유명인도 아닌데 노릴까?"'})," 유출·공격은 특정인을 노리는 게 아니라, ",s.jsx(e.strong,{children:"유출된 목록 전체를 자동으로"})," 대입합니다. 평범한 계정도 그대로 대상이 됩니다."]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:'② "비밀번호 한 번 바꾸면 끝?"'})," 같은 비밀번호를 ",s.jsx(e.strong,{children:"여러 사이트에 재사용"}),"했다면, 한 곳만 바꿔선 부족합니다. 재사용을 끊는 게 핵심입니다."]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:'③ "확인 사이트에 비밀번호를 넣어야 정확하지 않나?"'})," 아닙니다. 정상 서비스는 비밀번호를 요구하지 않습니다. 비밀번호를 넣으라면 오히려 의심하세요."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"앞으로-피해를-줄이는-습관",children:s.jsx(e.a,{href:"#앞으로-피해를-줄이는-습관",children:"앞으로 피해를 줄이는 습관"})}),`
-`,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"사이트마다 다른 비밀번호."})," 외우기 힘들면 ",s.jsx(e.a,{href:"/posts/password-manager/",children:"비밀번호 관리자"}),"를 쓰면 됩니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"중요한 계정엔 2단계 인증."})," 이메일·금융부터 켜 두세요."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"안 쓰는 계정 정리."})," 오래 방치한 계정은 유출 통로가 되기 쉽습니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"주기적으로 유출 검사."})," 브라우저의 비밀번호 검사 기능을 가끔 돌려 봅니다."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"유출-확인-방법과-대응-순서",children:s.jsx(e.a,{href:"#유출-확인-방법과-대응-순서",children:"유출 확인 방법과 대응 순서"})}),`
-`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"질문"}),s.jsx(e.th,{children:"답"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"왜 위험한가"}),s.jsx(e.td,{children:"유출 목록을 여러 사이트에 자동 대입(크리덴셜 스터핑)"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"어떻게 확인"}),s.jsx(e.td,{children:"브라우저 내장 검사 + 이메일 유출 조회(비번은 입력 금지)"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"털렸다면"}),s.jsx(e.td,{children:"비밀번호 변경(재사용 끊기) → 2단계 인증 → 활동 확인"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"예방"}),s.jsx(e.td,{children:"사이트마다 다른 비번 + 2단계 인증 + 계정 정리"})]})]})]}),`
-`,s.jsxs(e.p,{children:["유출은 특정인을 가리지 않습니다. ",s.jsx(e.strong,{children:"브라우저의 비밀번호 검사로 확인"}),"하고(비밀번호는 어디에도 입력 금지), 털렸다면 **비밀번호를 바꿔 재사용을 끊고 ",s.jsx(e.a,{href:"/posts/two-factor-auth/",children:"2단계 인증"}),"**을 켜면 됩니다. 이 습관 하나가 계정 사고의 대부분을 막습니다."]}),`
-`,s.jsx(e.hr,{}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"기준 시점: 2026년 8월. 유출 조회·대응 방법과 서비스는 계속 바뀌므로, 실제 대응 시에는 KISA·각 서비스의 공식 안내를 확인하시기 바랍니다."})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 확인하고, 비밀번호를 바꾸고, 2단계 인증을 켜는 순서 (자체 제작)"})}),`
+`,s.jsx(e.p,{children:"먼저 그 아이디로 가입한 사이트의 비밀번호를 바꿉니다. 같은 비밀번호를 다른 사이트에도 썼다면 그곳도 모두 바꿉니다. 새어 나간 아이디·비밀번호 조합은 여러 사이트 로그인 창에 차례로 넣어 보는 데 쓰이기 때문입니다. 한 곳만 바꾸면 나머지는 그대로 열려 있습니다."}),`
+`,s.jsxs(e.p,{children:["다음으로 이메일과 금융 계정부터 2단계 인증을 켭니다. 비밀번호가 또 새도 휴대폰 확인을 한 번 더 거쳐야 로그인됩니다. 켜는 방법은 ",s.jsx(e.a,{href:"/posts/two-factor-auth/",children:"2단계 인증 글"}),"에 정리했습니다."]}),`
+`,s.jsx(e.p,{children:"마지막으로 로그인 기록과 결제 내역을 봅니다. 내가 쓰지 않은 기기나 낯선 지역의 접속이 있으면 그 서비스에서 '모든 기기에서 로그아웃'을 하고 고객센터에 알립니다."}),`
+`,s.jsx(e.h2,{id:"저장된-비밀번호-전체는-휴대폰-진단으로",children:s.jsx(e.a,{href:"#저장된-비밀번호-전체는-휴대폰-진단으로",children:"저장된 비밀번호 전체는 휴대폰 진단으로"})}),`
+`,s.jsx(e.p,{children:"털린 내 정보 찾기는 아이디를 하나씩 넣어 조회합니다. 가입한 사이트가 수십 곳이면 하나씩 넣기 어렵습니다. 이때는 휴대폰에 들어 있는 비밀번호 관리자의 진단 기능이 편합니다. 안드로이드폰과 크롬의 Google 비밀번호 진단은 저장된 비밀번호 가운데 노출된 것, 안전하지 않은 것, 여러 계정에서 쓴 것을 한꺼번에 찾아 줍니다. 아이폰의 암호 앱도 데이터 유출에 포함된 암호를 알려 줍니다."}),`
+`,s.jsxs(e.p,{children:["여는 곳과 진단 순서는 ",s.jsx(e.a,{href:"/posts/password-manager/",children:"비밀번호 관리자 글"}),"에 화면과 함께 정리했습니다. 두 가지를 같이 쓰면 됩니다. 중요한 계정 몇 개는 털린 내 정보 찾기로 조회하고, 나머지는 휴대폰 진단으로 한 번에 훑는 방식입니다."]}),`
+`,s.jsx(e.h2,{id:"휴대폰-번호까지-새었다면-명의도용-방지서비스",children:s.jsx(e.a,{href:"#휴대폰-번호까지-새었다면-명의도용-방지서비스",children:"휴대폰 번호까지 새었다면 명의도용 방지서비스"})}),`
+`,s.jsx(e.p,{children:"통신사나 쇼핑몰 유출처럼 이름, 휴대폰 번호, 생년월일이 함께 새어 나간 사고도 있습니다. 이때 걱정되는 것은 내 명의로 휴대폰이 몰래 개통되는 일입니다. 이를 막는 공식 서비스가 명의도용 방지서비스 '엠세이퍼(Msafer)'입니다. 첫 화면은 전기통신사업법 제32조의6에 따라 통신사업자가 제공하는 무료 서비스라고 소개합니다. 주소는 msafer.or.kr입니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-msafer.jpg",alt:"명의도용 방지서비스 Msafer 캡처, Our Service 서비스 이용하기, 가입사실현황조회 서비스 본인 명의의 전기통신서비스 회선 개통 현황 일괄확인, 가입제한 서비스 이동전화 개통 사전 차단, 이메일 안내서비스 본인이 신청한 이메일로 전기통신서비스 개통사실 안내"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"명의도용 방지서비스 Msafer의 세 가지 서비스 (출처: msafer.or.kr, 2026년 10월 8일 캡처 · 화면에 떠 있는 버튼은 가리고 찍음)"})}),`
+`,s.jsx(e.p,{children:"서비스는 세 가지입니다. 가입사실현황조회는 내 명의로 개통된 휴대폰·인터넷 회선을 한 번에 보여 줍니다. 가입제한 서비스는 내 명의의 이동전화 신규 개통을 미리 막아 둡니다. 이메일 안내서비스는 내 명의로 새 회선이 개통되면 신청한 이메일로 알려 줍니다. 상담은 부정가입·명의도용 방지 상담센터 1670-1382에서 평일 오전 9시부터 오후 6시까지 받습니다."}),`
+`,s.jsx(e.p,{children:"가입사실현황조회에서 내가 개통하지 않은 회선이 보이면 그 통신사 고객센터에 바로 알립니다. 당분간 휴대폰을 새로 개통할 계획이 없다면 가입제한 서비스를 켜 두는 것도 방법입니다. 나중에 새 폰을 개통할 때는 제한을 먼저 풀어야 합니다."}),`
+`,s.jsx(e.h2,{id:"무엇을-어디서-확인하나-표-하나로",children:s.jsx(e.a,{href:"#무엇을-어디서-확인하나-표-하나로",children:"무엇을 어디서 확인하나, 표 하나로"})}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"걱정되는 것"}),s.jsx(e.th,{children:"확인하는 곳"}),s.jsx(e.th,{children:"하는 일"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"아이디·비밀번호가 다크웹에 도는지"}),s.jsx(e.td,{children:"털린 내 정보 찾기(kidc.eprivacy.go.kr)"}),s.jsx(e.td,{children:"이메일 인증 → 리캡차 → 아이디·비밀번호 조회"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"저장된 비밀번호 전체가 안전한지"}),s.jsx(e.td,{children:"휴대폰의 Google 비밀번호 진단, 아이폰 암호 앱"}),s.jsx(e.td,{children:"노출·재사용 경고가 뜬 것부터 변경"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"내 명의로 휴대폰이 개통됐는지"}),s.jsx(e.td,{children:"명의도용 방지서비스(msafer.or.kr)"}),s.jsx(e.td,{children:"가입사실현황조회, 가입제한, 이메일 안내"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"유출 이력이 나왔을 때"}),s.jsx(e.td,{children:"해당 사이트와 같은 비밀번호를 쓴 사이트"}),s.jsx(e.td,{children:"비밀번호 변경 → 2단계 인증 → 로그인 기록 확인"})]})]})]}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"2026년 10월 8일 각 서비스 공식 화면 기준. 조회 절차와 인증 방식은 바뀔 수 있으니 이용할 때 화면 안내를 다시 확인하시기 바랍니다."})}),`
 `,s.jsx(e.h2,{id:"참고-자료",children:s.jsx(e.a,{href:"#참고-자료",children:"참고 자료"})}),`
-`,s.jsx(e.p,{children:"개인정보 유출 확인과 대응은 아래 공식·공개 자료를 참고했습니다."}),`
+`,s.jsx(e.p,{children:"이 글은 아래 자료를 2026년 10월 8일에 직접 열어 확인하고 다시 정리한 것입니다. 2026년 8월 5일에 처음 쓴 글을 이날 기준으로 고쳐 썼습니다."}),`
 `,s.jsxs(e.ul,{children:[`
-`,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.boho.or.kr",children:"KISA 보호나라"})}),`
-`,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.privacy.go.kr",children:"개인정보보호위원회"})}),`
-`,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://safety.google/security/",children:"Google 계정 보안"})}),`
+`,s.jsxs(e.li,{children:["개인정보보호위원회·한국인터넷진흥원 「털린 내 정보 찾기 서비스」 — ",s.jsx(e.a,{href:"https://kidc.eprivacy.go.kr/",children:"kidc.eprivacy.go.kr"})]}),`
+`,s.jsxs(e.li,{children:["같은 서비스 「유출여부 조회하기」 동의·인증 화면 — ",s.jsx(e.a,{href:"https://kidc.eprivacy.go.kr/search/issueVerify.do",children:"kidc.eprivacy.go.kr/search/issueVerify.do"})]}),`
+`,s.jsxs(e.li,{children:["같은 서비스 자주 묻는 질문 — ",s.jsx(e.a,{href:"https://kidc.eprivacy.go.kr/faq/faq.do",children:"kidc.eprivacy.go.kr/faq/faq.do"})]}),`
+`,s.jsxs(e.li,{children:["명의도용 방지서비스 Msafer — ",s.jsx(e.a,{href:"https://www.msafer.or.kr/",children:"msafer.or.kr"})]}),`
+`,s.jsxs(e.li,{children:["Google 계정 고객센터 「Google 계정에서 유출된 비밀번호 변경하기」 — ",s.jsx(e.a,{href:"https://support.google.com/accounts/answer/9457609?hl=ko",children:"support.google.com/accounts/answer/9457609"})]}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function Gi(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(os,{...n})}):os(n)}const $i=Object.freeze(Object.defineProperty({__proto__:null,default:Gi,frontmatter:Li},Symbol.toStringTag,{value:"Module"})),Ri={title:"크롬 비밀번호 유출됨 팝업 — 계정이 뚫린 건 아닙니다",date:"2026-09-17T12:33",description:"저장된 비밀번호가 유출됐다는 경고를 보고 검색해 들어오셨다면, 먼저 갈라야 할 것이 있습니다. 이 경고가 무엇을 말하고 무엇을 말하지 않는지, 구글이 어떻게 내 비밀번호를 모른 채 40억 건짜리 유출 목록과 맞춰 보는지, 수십 개가 떴을 때 어느 것부터 바꿔야 하는지 순서대로 적었습니다.",category:"IT소식",tags:["보안","비밀번호유출","크롬","비밀번호관리자","계정보안"],cover:"/uploads/itnews-pwleak-hero.jpg",draft:!1};function as(n){const e={a:"a",blockquote:"blockquote",code:"code",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-pwleak-hero.jpg",alt:"흰 타일 글자들이 PASSWORD라는 단어를 이루고 있는 사진"})}),`
+`,s.jsx(e.p,{children:"본문 그림 중 출처가 '자체 제작'으로 적힌 것은 필자가 만든 그림입니다."})]})}function Gi(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(os,{...n})}):os(n)}const $i=Object.freeze(Object.defineProperty({__proto__:null,default:Gi,frontmatter:Li},Symbol.toStringTag,{value:"Module"})),Ri={title:"크롬 비밀번호 유출됨 팝업 — 계정이 뚫린 건 아닙니다",date:"2026-09-17T12:33",description:"저장된 비밀번호가 유출됐다는 경고를 보고 검색해 들어오셨다면, 먼저 갈라야 할 것이 있습니다. 이 경고가 무엇을 말하고 무엇을 말하지 않는지, 구글이 어떻게 내 비밀번호를 모른 채 40억 건짜리 유출 목록과 맞춰 보는지, 수십 개가 떴을 때 어느 것부터 바꿔야 하는지 순서대로 적었습니다.",category:"IT소식",tags:["보안","비밀번호유출","크롬","비밀번호관리자","계정보안"],cover:"/uploads/itnews-pwleak-hero.jpg",draft:!1};function as(n){const e={a:"a",blockquote:"blockquote",code:"code",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-pwleak-hero.jpg",alt:"흰 타일 글자들이 PASSWORD라는 단어를 이루고 있는 사진"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"이미지 출처: Pexels (pexels.com) · Pexels License"})}),`
 `,s.jsx(e.p,{children:"화면에 이런 문장이 떴을 겁니다."}),`
 `,s.jsxs(e.blockquote,{children:[`
@@ -9043,58 +9041,52 @@ print("합계는", total)`}),`
 `,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.mozilla.org",children:"Mozilla Firefox"})}),`
 `,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.apple.com/safari/",children:"Apple Safari"})}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 공식 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function No(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(Kn,{...n})}):Kn(n)}const Bo=Object.freeze(Object.defineProperty({__proto__:null,default:No,frontmatter:Do},Symbol.toStringTag,{value:"Module"})),_o={title:"클라우드란 무엇인가 — 내 파일이 '어딘가의 컴퓨터'에 저장되는 원리",date:"2026-08-04T17:00",description:"사진 백업도, 구글 드라이브도, 넷플릭스도 다 클라우드입니다. 클라우드가 대체 무엇인지, 내 파일이 어디에 저장되는지, 장단점과 안전하게 쓰는 법까지 초보 눈높이로 정리했습니다.",category:"IT소식",tags:["클라우드","저장","백업","IT기초"],cover:"/uploads/itnews-cloud-hero.png",draft:!1};function Wn(n){const e={a:"a",blockquote:"blockquote",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-cloud-hero.png",alt:"클라우드에 저장된 파일을 폰·노트북·태블릿에서 함께 여는 개념 그림"})}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"클라우드에 저장해 두면, 폰·노트북·태블릿 어디서나 같은 파일을 엽니다."})}),`
-`,s.jsx(e.p,{children:'"사진이 자동으로 클라우드에 백업됐어요", "파일은 클라우드에 있어요"라는 말, 자주 듣습니다. 그런데 클라우드가 대체 어디일까요. 하늘 어딘가일 리는 없고요. 오늘은 이 클라우드를 처음 듣는 분도 이해할 수 있게 정리하겠습니다.'}),`
-`,s.jsx(e.h2,{id:"클라우드가-뭔가요",children:s.jsx(e.a,{href:"#클라우드가-뭔가요",children:"클라우드가 뭔가요?"})}),`
-`,s.jsxs(e.p,{children:["클라우드(Cloud)는 ",s.jsx(e.strong,{children:"내 파일이나 프로그램을 내 기기가 아니라 '인터넷 너머에 있는 다른 컴퓨터'에 저장해 두고, 필요할 때 꺼내 쓰는 방식"}),"입니다. 그 '다른 컴퓨터'는 어느 회사가 운영하는 거대한 서버(데이터센터)입니다."]}),`
-`,s.jsxs(e.blockquote,{children:[`
-`,s.jsxs(e.p,{children:["짐을 집에만 두면 집에서만 쓸 수 있습니다. 그런데 ",s.jsx(e.strong,{children:"창고에 맡겨 두면"}),", 어디에 있든 필요할 때 찾아 쓸 수 있죠. 클라우드가 바로 그 창고입니다. 내 파일을 인터넷 너머 창고에 두고, 폰에서도 노트북에서도 꺼내 쓰는 것입니다."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"어떻게-작동하나요",children:s.jsx(e.a,{href:"#어떻게-작동하나요",children:"어떻게 작동하나요?"})}),`
-`,s.jsxs(e.p,{children:["내가 사진을 클라우드에 올리면, 그 사진은 인터넷을 타고 ",s.jsx(e.strong,{children:"회사의 데이터센터 서버에 저장"}),"됩니다. 그 서버는 24시간 켜져 있고, 전 세계 어디서든 인터넷만 있으면 접속할 수 있습니다."]}),`
-`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-cloud-diagram.png",alt:"내 기기에만 저장할 때와 클라우드에 저장할 때를 비교한 그림"})}),`
-`,s.jsxs(e.p,{children:["그래서 두 가지가 편해집니다. 첫째, ",s.jsx(e.strong,{children:"어느 기기에서나"})," 같은 파일을 봅니다. 폰으로 찍은 사진이 노트북에서도 바로 보이죠. 둘째, ",s.jsx(e.strong,{children:"기기를 잃어도 파일은 안전"}),"합니다. 폰이 고장 나거나 바뀌어도, 클라우드에 있으니 새 기기에서 그대로 불러옵니다. 파일이 '기기'가 아니라 '계정'에 묶이는 셈입니다."]}),`
-`,s.jsx(e.h2,{id:"사실-우리는-이미-쓰고-있습니다",children:s.jsx(e.a,{href:"#사실-우리는-이미-쓰고-있습니다",children:"사실 우리는 이미 쓰고 있습니다"})}),`
-`,s.jsx(e.p,{children:"클라우드는 특별한 게 아니라, 이미 일상에서 쓰고 있습니다."}),`
-`,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"사진 백업"}),": 아이클라우드·구글 포토가 사진을 자동으로 클라우드에 올려 둡니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"문서·파일"}),": 구글 드라이브, 네이버 마이박스에 올린 파일이 클라우드에 있습니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"스트리밍"}),": 넷플릭스·유튜브 영상도 내 기기에 없고, 클라우드 서버에서 그때그때 받아 봅니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"메신저·메일"}),": 카톡 대화 백업이나 웹메일도 서버(클라우드)에 저장됩니다."]}),`
-`]}),`
-`,s.jsx(e.p,{children:"'다운로드해서 내 기기에 두는' 방식에서, '클라우드에 두고 필요할 때 불러 쓰는' 방식으로 넘어온 것입니다."}),`
-`,s.jsx(e.h2,{id:"장점과-단점",children:s.jsx(e.a,{href:"#장점과-단점",children:"장점과 단점"})}),`
-`,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"장점"}),": 어느 기기서나 접근, 자동 백업으로 분실 걱정↓, 저장 용량을 유연하게 늘림, 여러 사람과 공유가 쉬움."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"단점"}),": 인터넷이 없으면 접근이 어렵고, 내 파일을 남의 서버에 맡기니 보안·프라이버시가 중요하며, 용량이 커지면 요금이 들 수 있습니다."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"클라우드는-하늘-어딘가에-있다는-생각",children:s.jsx(e.a,{href:"#클라우드는-하늘-어딘가에-있다는-생각",children:"클라우드는 하늘 어딘가에 있다는 생각"})}),`
-`,s.jsxs(e.blockquote,{children:[`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:'① "클라우드는 하늘 어딘가에 떠 있다"?'})," 아닙니다. 실제로는 어느 회사가 운영하는 **건물 안의 서버(데이터센터)**입니다. '구름'은 비유일 뿐, 물리적인 컴퓨터에 저장됩니다."]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:'② "클라우드에 올리면 내 것이 아니게 되나요?"'})," 소유와 권리는 그대로 내 것입니다. 다만 '보관 장소'가 내 기기에서 회사 서버로 바뀔 뿐입니다. 서비스 약관과 개인정보 처리 방식은 확인하는 게 좋습니다."]}),`
-`,s.jsxs(e.p,{children:[s.jsx(e.strong,{children:'③ "클라우드는 무조건 안전하다"?'})," 대체로 안정적이지만 완벽하진 않습니다. 계정이 뚫리면 클라우드 파일도 노출되니, 비밀번호와 2단계 인증이 중요합니다."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"안전하게-쓰는-법",children:s.jsx(e.a,{href:"#안전하게-쓰는-법",children:"안전하게 쓰는 법"})}),`
-`,s.jsxs(e.ul,{children:[`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"계정에 2단계 인증을 켜세요."})," 클라우드 보안의 핵심은 결국 계정 보안입니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"정말 중요한 파일은 이중 백업."})," 클라우드 하나만 믿기보다, 외장 저장장치에도 사본을 둡니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"민감한 자료는 신중히."})," 신분증·금융 정보 같은 건 올리기 전에 한 번 더 생각합니다."]}),`
-`,s.jsxs(e.li,{children:[s.jsx(e.strong,{children:"공유 링크 관리."})," 파일을 링크로 공유했다면, 필요 없어진 링크는 정리합니다."]}),`
-`]}),`
-`,s.jsx(e.h2,{id:"클라우드-저장-위치와-조심할-점",children:s.jsx(e.a,{href:"#클라우드-저장-위치와-조심할-점",children:"클라우드 저장 위치와 조심할 점"})}),`
-`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"질문"}),s.jsx(e.th,{children:"답"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"클라우드란"}),s.jsx(e.td,{children:"인터넷 너머 서버에 파일을 두고 꺼내 쓰는 방식"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"어디에 저장되나"}),s.jsx(e.td,{children:"회사의 데이터센터 서버(물리적 컴퓨터)"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"왜 편한가"}),s.jsx(e.td,{children:"어디서나 접근 + 기기 잃어도 안전"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"조심할 점"}),s.jsx(e.td,{children:"인터넷 필요, 계정 보안이 곧 파일 보안"})]})]})]}),`
-`,s.jsxs(e.p,{children:["클라우드는 내 파일을 '인터넷 너머의 컴퓨터'에 두고 어디서나 꺼내 쓰는 창고입니다. 사진 백업부터 넷플릭스까지 이미 쓰고 있죠. 편리한 만큼 **계정 보안(비밀번호·",s.jsx(e.a,{href:"/posts/two-factor-auth/",children:"2단계 인증"}),")**이 곧 파일의 안전이라는 점만 챙기면 됩니다."]}),`
-`,s.jsx(e.hr,{}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"기준 시점: 2026년 8월. 서비스별 용량·요금·정책은 계속 바뀌므로, 이용 전 각 서비스의 공식 안내를 확인하시기 바랍니다."})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 공식 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function No(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(Kn,{...n})}):Kn(n)}const Bo=Object.freeze(Object.defineProperty({__proto__:null,default:No,frontmatter:Do},Symbol.toStringTag,{value:"Module"})),_o={title:"클라우드란, 휴대폰 사진이 올라가는 곳과 무료 용량",date:"2026-08-04T17:00",updated:"2026-10-08",description:"클라우드는 내 파일을 회사의 서버에 맡겨 두고 어느 기기에서나 꺼내 쓰는 저장 공간입니다. 구글 15GB, 아이클라우드 5GB, 네이버 MYBOX 30GB처럼 무료로 주는 용량과 그 안에 무엇이 들어가는지, 꽉 찼을 때 생기는 일, 늘릴 때의 한국 요금을 각 회사 공식 안내로 정리했습니다.",category:"IT소식",tags:["클라우드","구글스토리지","아이클라우드","네이버MYBOX","사진백업","생활IT"],cover:"/uploads/itnews-cloud-hero.png",draft:!1};function Wn(n){const e={a:"a",em:"em",h2:"h2",img:"img",li:"li",p:"p",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-cloud-hero.png",alt:"클라우드에 저장된 파일을 폰·노트북·태블릿에서 함께 여는 개념 그림"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"그림. 한곳에 맡긴 파일을 여러 기기에서 여는 클라우드 (자체 제작)"})}),`
+`,s.jsx(e.p,{children:"클라우드는 내 사진과 파일을 휴대폰이 아니라 회사가 운영하는 서버에 저장해 두고, 인터넷만 되면 어느 기기에서나 꺼내 보는 저장 공간입니다. 휴대폰을 잃어버려도 사진이 남아 있는 것, 새 폰에 로그인하자 예전 사진이 그대로 뜨는 것이 클라우드 덕분입니다."}),`
+`,s.jsx(e.p,{children:"대부분은 이미 쓰고 있습니다. 안드로이드폰은 구글 포토와 구글 드라이브, 아이폰은 아이클라우드, 네이버 앱을 쓰는 분은 네이버 MYBOX에 사진이 올라가고 있을 수 있습니다. 무료 용량이 정해져 있어서, 차면 새 사진이 더는 올라가지 않습니다. 아래는 2026년 10월 8일에 Google One 고객센터, Apple 지원, 네이버 MYBOX 앱 소개를 직접 열어 확인한 내용입니다."}),`
+`,s.jsx(e.h2,{id:"무료로-주는-용량은-회사마다-다릅니다",children:s.jsx(e.a,{href:"#무료로-주는-용량은-회사마다-다릅니다",children:"무료로 주는 용량은 회사마다 다릅니다"})}),`
+`,s.jsx(e.p,{children:"구글은 계정 하나에 최대 15GB를 줍니다. 이 15GB를 Gmail, 구글 드라이브, 구글 포토가 함께 씁니다. 사진만 15GB가 아니라 메일과 파일까지 합쳐 15GB라는 점이 중요합니다."}),`
+`,s.jsx(e.p,{children:"애플은 아이클라우드를 설정하면 5GB를 무료로 줍니다. Apple 지원 안내에 따르면 이 5GB를 아이폰 백업, 아이클라우드 사진, 아이클라우드 드라이브가 나눠 씁니다. 사진이 많은 아이폰이라면 금방 찹니다."}),`
+`,s.jsx(e.p,{children:"네이버 MYBOX는 앱 소개에 무료 30GB를 준다고 적어 두었습니다. 사진을 자동으로 올리는 '자동 올리기'가 있고, 원하는 것만 올리도록 조건을 정할 수 있습니다. 용량 나눠 쓰기와 암호 폴더 같은 일부 기능은 유료 사용자만 쓸 수 있다고 함께 적혀 있습니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-g_plans.jpg",alt:"Google One 요금제 페이지 캡처, 나에게 맞는 Google One 요금제 선택하기, 모든 Google 계정에는 최대 15GB의 스토리지가 제공되며, 월간 연간 최대 16% 절약, 15GB 스토리지 15GB, 추천 Basic 100GB 월 2,400원 최대 5명과 스토리지 공유, Google AI Plus 2TB 월 11,900원"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"Google One 요금제 페이지(한국) 첫머리 (출처: one.google.com, 2026년 10월 8일 캡처)"})}),`
+`,s.jsx(e.h2,{id:"구글-15gb에는-무엇이-들어가나",children:s.jsx(e.a,{href:"#구글-15gb에는-무엇이-들어가나",children:"구글 15GB에는 무엇이 들어가나"})}),`
+`,s.jsx(e.p,{children:"Google One 고객센터는 15GB에 포함되는 항목을 하나하나 적어 두었습니다. 구글 포토에 원본 화질로 올린 사진과 동영상이 들어갑니다. 2021년 6월 1일 이후 '저장용량 절약'(예전 이름 고화질) 화질로 올린 사진도 들어갑니다. 그 전에 고화질로 올린 사진은 용량에 넣지 않습니다."}),`
+`,s.jsx(e.p,{children:"Gmail은 받은 메일과 첨부파일만이 아니라 스팸함과 휴지통에 있는 메일까지 셉니다. 구글 드라이브의 PDF·사진·동영상 파일도 들어갑니다. 남이 공유해 준 폴더의 파일은 내 용량이 아니라 원래 올린 사람의 용량을 씁니다."}),`
+`,s.jsx(e.p,{children:"안드로이드폰 백업도 15GB에 들어갑니다. 문자(SMS·MMS), 통화 기록, 기기 설정, 앱 데이터가 여기에 해당합니다. 사진은 몇 장 안 되는데 용량이 찼다면 Gmail 첨부파일이나 휴대폰 백업이 차지하고 있는 경우가 많습니다."}),`
+`,s.jsx(e.h2,{id:"꽉-차면-생기는-일",children:s.jsx(e.a,{href:"#꽉-차면-생기는-일",children:"꽉 차면 생기는 일"})}),`
+`,s.jsx(e.p,{children:"구글은 용량을 넘기면 구글 드라이브에 새 파일을 올릴 수 없고, 구글 포토에 사진을 백업할 수 없다고 안내합니다. Gmail에서 메일을 주고받는 데도 영향이 갈 수 있습니다. 구글 계정 로그인 자체는 계속 됩니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-g_over.jpg",alt:"Google One 고객센터 캡처, 한도를 초과하는 경우 일어나는 일, 새 파일이나 이미지를 Google Drive에 업로드할 수 없습니다, 사진 및 동영상을 Google 포토에 백업할 수 없습니다, Gmail에서 이메일을 주고받는 기능에 영향을 미칠 수 있습니다, 2년 이상 한도를 초과하는 경우 여유 공간을 확보하거나 스토리지를 추가로 구매하여 한도를 초과하지 않도록 조치하지 않으면 Gmail Google 포토 Google Drive 및 Android 기기 백업을 포함한 Google 계정의 모든 콘텐츠가 삭제될 수 있습니다, 콘텐츠가 삭제되기 최소 3개월 전에 Google에서 연락을 드립니다"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"Google One 고객센터 「Google 스토리지 작동 방식」의 한도 초과 안내 (출처: support.google.com/googleone, 2026년 10월 8일 캡처)"})}),`
+`,s.jsx(e.p,{children:"가장 조심할 대목은 2년입니다. 용량을 넘긴 채 2년 이상 그대로 두면 Gmail, 구글 포토, 구글 드라이브, 안드로이드 백업을 포함한 계정의 모든 콘텐츠가 지워질 수 있다고 적혀 있습니다. 지우기 최소 3개월 전에 이메일이나 알림으로 먼저 알린다고 합니다. 오래 안 쓰던 계정에 이런 메일이 오면 사진을 내려받아 두는 것이 먼저입니다."}),`
+`,s.jsx(e.p,{children:"아이클라우드도 차면 비슷합니다. Apple 지원은 저장 공간이 부족하면 아이폰을 아이클라우드에 백업할 수 없고, 새 사진과 동영상을 아이클라우드 사진에 올릴 수 없다고 안내합니다. 아이클라우드 드라이브가 기기끼리 맞춰지지 않고, 아이클라우드 이메일 주소로 메일을 주고받을 수도 없습니다."}),`
+`,s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-official-a_manage.jpg",alt:"Apple 지원 캡처, Apple 기기에서 iCloud 저장 공간 관리하기, iCloud를 설정하면 자동으로 5GB의 저장 공간이 무료로 제공됩니다, iCloud 백업 사진과 비디오 iCloud Drive에 사용, iCloud에서 사용 가능한 공간 늘리기, iCloud 저장 공간이 부족할 경우 기기를 iCloud에 백업할 수 없고 새로운 사진과 비디오를 iCloud 사진에 업로드할 수 없으며"})}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"Apple 지원 「Apple 기기에서 iCloud 저장 공간 관리하기」 (출처: support.apple.com/ko-kr, 2026년 10월 8일 캡처)"})}),`
+`,s.jsx(e.h2,{id:"돈을-쓰기-전에-비우는-법",children:s.jsx(e.a,{href:"#돈을-쓰기-전에-비우는-법",children:"돈을 쓰기 전에 비우는 법"})}),`
+`,s.jsx(e.p,{children:"구글은 Google One 앱이나 웹의 스토리지 관리 도구로 큰 파일과 지워도 되는 항목을 찾아 줍니다. Gmail은 스팸함과 휴지통을 비우는 것만으로도 용량이 돌아옵니다. 고객센터는 파일을 내 기기로 내려받은 뒤 클라우드에서 지우는 방법도 안내합니다. 다만 파일을 많이 지운 뒤 용량 숫자가 바로 바뀌지 않을 수 있다는 질문도 자주 묻는 질문에 올라 있으니, 하루쯤 지나 다시 봅니다."}),`
+`,s.jsx(e.p,{children:"아이폰은 iOS 17부터 '사용자를 위한 추천'이 있습니다. '설정'에서 맨 위 내 이름을 누르고 'iCloud', '사용자를 위한 추천'을 차례로 누르면 공간을 비울 수 있는 항목을 보여 줍니다. Apple은 중복된 사진, 메시지 앱의 문자와 첨부 파일, 아이클라우드 백업 크기 같은 항목을 비울 곳으로 안내합니다."}),`
+`,s.jsxs(e.p,{children:["갤럭시 갤러리와 마이크로소프트 원드라이브의 직접 동기화는 2026년 9월 30일에 끝났습니다. 원드라이브에 올라가 있던 사진은 지워지지 않았고, 원드라이브 무료 용량은 5GB입니다. 자세한 내용은 ",s.jsx(e.a,{href:"/posts/samsung-gallery-onedrive-end/",children:"갤러리 원드라이브 동기화 종료 글"}),"에 정리했습니다."]}),`
+`,s.jsx(e.h2,{id:"늘릴-때의-한국-요금",children:s.jsx(e.a,{href:"#늘릴-때의-한국-요금",children:"늘릴 때의 한국 요금"})}),`
+`,s.jsx(e.p,{children:"비워도 모자라면 유료로 늘립니다. Google One 한국 요금제 페이지 기준으로 Basic 100GB가 월 2,400원, Google AI Plus 2TB가 월 11,900원입니다. 연간으로 내면 최대 16% 싸고, 최대 5명과 용량을 나눠 쓸 수 있습니다."}),`
+`,s.jsx(e.p,{children:"아이클라우드+는 Apple 지원의 국가별 가격표 기준으로 한국에서 50GB 월 1,100원, 200GB 월 4,400원, 2TB 월 14,000원입니다. 6TB와 12TB는 각각 월 44,000원과 88,000원입니다. 이 가격은 2024년 8월 21일 이후 새로 가입한 사람에게 적용되고, 그 전부터 쓰던 요금제는 바꾸거나 해지하지 않는 한 처음 가격으로 계속 낸다고 적혀 있습니다. 아이클라우드+도 최대 5명의 가족과 나눠 쓸 수 있습니다."}),`
+`,s.jsx(e.p,{children:"가족 공유를 쓰면 한 사람이 결제한 용량을 여럿이 씁니다. 부모님 폰 용량이 찼다는 연락을 자주 받는다면, 자녀가 가입한 요금제에 부모님 계정을 가족으로 넣는 방법이 있습니다."}),`
+`,s.jsx(e.h2,{id:"클라우드에-올렸다고-백업이-끝난-것은-아닙니다",children:s.jsx(e.a,{href:"#클라우드에-올렸다고-백업이-끝난-것은-아닙니다",children:"클라우드에 올렸다고 백업이 끝난 것은 아닙니다"})}),`
+`,s.jsxs(e.p,{children:["동기화 방식에서는 휴대폰에서 사진을 지우면 클라우드에서도 지워지는 경우가 있습니다. 클라우드에 올린 사진이 유일한 사본이라면, 계정을 잃거나 실수로 지웠을 때 함께 사라집니다. 중요한 사진은 클라우드 말고 컴퓨터나 외장하드에도 한 벌 더 두는 편이 안전합니다. 사본을 몇 개 어디에 둘지는 ",s.jsx(e.a,{href:"/posts/backup-321-rule/",children:"3-2-1 백업 글"}),"에 정리했습니다."]}),`
+`,s.jsxs(e.p,{children:["클라우드를 지키는 것은 결국 계정입니다. 구글 계정이나 애플 계정이 털리면 그 안의 사진과 메일이 함께 열립니다. 이 계정에는 ",s.jsx(e.a,{href:"/posts/two-factor-auth/",children:"2단계 인증"}),"을 켜 두고, 비밀번호는 다른 사이트와 다르게 씁니다."]}),`
+`,s.jsx(e.h2,{id:"세-서비스를-표-하나로",children:s.jsx(e.a,{href:"#세-서비스를-표-하나로",children:"세 서비스를 표 하나로"})}),`
+`,s.jsxs(e.table,{children:[s.jsx(e.thead,{children:s.jsxs(e.tr,{children:[s.jsx(e.th,{children:"궁금한 것"}),s.jsx(e.th,{children:"구글(Google One)"}),s.jsx(e.th,{children:"아이클라우드"}),s.jsx(e.th,{children:"네이버 MYBOX"})]})}),s.jsxs(e.tbody,{children:[s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"무료 용량"}),s.jsx(e.td,{children:"15GB(Gmail·드라이브·포토 합산)"}),s.jsx(e.td,{children:"5GB(백업·사진·드라이브 합산)"}),s.jsx(e.td,{children:"30GB(앱 소개 기준)"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"차면"}),s.jsx(e.td,{children:"드라이브 업로드·포토 백업 불가, Gmail 영향"}),s.jsx(e.td,{children:"아이폰 백업·사진 업로드 불가, 아이클라우드 메일 불가"}),s.jsx(e.td,{children:"이번에 확인한 범위에서는 안내 없음"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"오래 넘기면"}),s.jsx(e.td,{children:"2년 이상 초과 시 모든 콘텐츠 삭제 가능(3개월 전 알림)"}),s.jsx(e.td,{children:"이번에 확인한 안내에는 없음"}),s.jsx(e.td,{children:"이번에 확인한 범위에서는 안내 없음"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"늘리는 값(한국, 월)"}),s.jsx(e.td,{children:"100GB 2,400원 · 2TB 11,900원"}),s.jsx(e.td,{children:"50GB 1,100원 · 200GB 4,400원 · 2TB 14,000원"}),s.jsx(e.td,{children:"이번 글에서는 다루지 않음"})]}),s.jsxs(e.tr,{children:[s.jsx(e.td,{children:"가족과 나눠 쓰기"}),s.jsx(e.td,{children:"최대 5명"}),s.jsx(e.td,{children:"최대 5명"}),s.jsx(e.td,{children:"일부 기능 유료 사용자만"})]})]})]}),`
+`,s.jsx(e.p,{children:s.jsx(e.em,{children:"2026년 10월 8일 각 회사 공식 안내 기준. 요금과 무료 용량은 바뀔 수 있으니 결제 전에 각 회사 요금 페이지를 다시 확인하시기 바랍니다."})}),`
 `,s.jsx(e.h2,{id:"참고-자료",children:s.jsx(e.a,{href:"#참고-자료",children:"참고 자료"})}),`
-`,s.jsx(e.p,{children:"클라우드의 개념과 저장 방식은 아래 공개 자료를 참고했습니다."}),`
+`,s.jsx(e.p,{children:"이 글은 아래 자료를 2026년 10월 8일에 직접 열어 확인하고 다시 정리한 것입니다. 2026년 8월 4일에 처음 쓴 글을 이날 기준으로 고쳐 썼습니다."}),`
 `,s.jsxs(e.ul,{children:[`
-`,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://support.google.com/drive",children:"Google 드라이브 고객센터"})}),`
-`,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://support.apple.com/icloud/",children:"Apple 지원 — iCloud"})}),`
-`,s.jsx(e.li,{children:s.jsx(e.a,{href:"https://www.cloudflare.com/learning/",children:"Cloudflare Learning Center"})}),`
+`,s.jsxs(e.li,{children:["Google One 고객센터 「Google 스토리지 작동 방식」 — ",s.jsx(e.a,{href:"https://support.google.com/googleone/answer/9312312?hl=ko",children:"support.google.com/googleone/answer/9312312"})]}),`
+`,s.jsxs(e.li,{children:["Google One 「나에게 맞는 Google One 요금제 선택하기」(한국) — ",s.jsx(e.a,{href:"https://one.google.com/about/plans",children:"one.google.com/about/plans"})]}),`
+`,s.jsxs(e.li,{children:["Apple 지원 「Apple 기기에서 iCloud 저장 공간 관리하기」 — ",s.jsx(e.a,{href:"https://support.apple.com/ko-kr/108922",children:"support.apple.com/ko-kr/108922"})]}),`
+`,s.jsxs(e.li,{children:["Apple 지원 「iCloud+ 요금제 및 가격」 — ",s.jsx(e.a,{href:"https://support.apple.com/ko-kr/108047",children:"support.apple.com/ko-kr/108047"})]}),`
+`,s.jsxs(e.li,{children:["네이버 MYBOX 앱 소개(App Store) — ",s.jsx(e.a,{href:"https://apps.apple.com/kr/app/id585173084",children:"apps.apple.com/kr/app/id585173084"})]}),`
 `]}),`
-`,s.jsx(e.p,{children:s.jsx(e.em,{children:"이 글은 위 자료를 바탕으로 직접 작성한 해설이며, 특정 기사·이미지를 복제하지 않았습니다."})})]})}function So(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(Wn,{...n})}):Wn(n)}const vo=Object.freeze(Object.defineProperty({__proto__:null,default:So,frontmatter:_o},Symbol.toStringTag,{value:"Module"})),Io={title:"VPN이란 무엇인가 — 인터넷에 '전용 통로'를 만드는 법",date:"2026-07-31T15:00",description:"공용 와이파이가 위험하다고 하면 꼭 나오는 VPN. VPN이 대체 뭔지, 어떻게 데이터를 암호화해 지키는지, 언제 쓰면 좋고 무엇을 조심해야 하는지 초보 눈높이로 정리했습니다.",category:"IT소식",tags:["보안","VPN","프라이버시","네트워크"],cover:"/uploads/itnews-vpn-hero.png",draft:!1};function Yn(n){const e={a:"a",blockquote:"blockquote",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-vpn-hero.png",alt:"노트북에서 암호화된 통로(자물쇠)를 지나 인터넷으로 연결되는 VPN 개념 그림"})}),`
+`,s.jsx(e.p,{children:"본문 그림 중 출처가 '자체 제작'으로 적힌 것은 필자가 만든 그림입니다."})]})}function So(n={}){const{wrapper:e}={...i(),...n.components};return e?s.jsx(e,{...n,children:s.jsx(Wn,{...n})}):Wn(n)}const vo=Object.freeze(Object.defineProperty({__proto__:null,default:So,frontmatter:_o},Symbol.toStringTag,{value:"Module"})),Io={title:"VPN이란 무엇인가 — 인터넷에 '전용 통로'를 만드는 법",date:"2026-07-31T15:00",description:"공용 와이파이가 위험하다고 하면 꼭 나오는 VPN. VPN이 대체 뭔지, 어떻게 데이터를 암호화해 지키는지, 언제 쓰면 좋고 무엇을 조심해야 하는지 초보 눈높이로 정리했습니다.",category:"IT소식",tags:["보안","VPN","프라이버시","네트워크"],cover:"/uploads/itnews-vpn-hero.png",draft:!1};function Yn(n){const e={a:"a",blockquote:"blockquote",em:"em",h2:"h2",hr:"hr",img:"img",li:"li",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...i(),...n.components};return s.jsxs(s.Fragment,{children:[s.jsx(e.p,{children:s.jsx(e.img,{src:"/uploads/itnews-vpn-hero.png",alt:"노트북에서 암호화된 통로(자물쇠)를 지나 인터넷으로 연결되는 VPN 개념 그림"})}),`
 `,s.jsx(e.p,{children:s.jsx(e.em,{children:"VPN은 인터넷 사이에 암호화된 '전용 통로'를 만들어 데이터를 지킵니다."})}),`
 `,s.jsx(e.p,{children:'카페나 공항의 공용 와이파이를 쓸 때 "VPN을 켜라"는 말을 들어보셨을 겁니다. 광고에도 자주 나오죠. 그런데 VPN이 대체 무엇이고, 정말 필요한 걸까요. 오늘은 이 VPN을 처음 듣는 분도 이해할 수 있게 정리하겠습니다.'}),`
 `,s.jsx(e.h2,{id:"vpn이-뭔가요",children:s.jsx(e.a,{href:"#vpn이-뭔가요",children:"VPN이 뭔가요?"})}),`
