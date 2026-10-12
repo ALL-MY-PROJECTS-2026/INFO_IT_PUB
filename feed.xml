@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>은행 개인정보 유출 조회, 비밀번호·OTP는 안 샜습니다</title>
+      <link>https://pancoit.site/posts/bank-data-leak-2026</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/bank-data-leak-2026</guid>
+      <pubDate>Mon, 12 Oct 2026 00:27:00 GMT</pubDate>
+      <description>9월 말부터 10월 초 사이 신한·KB국민·하나은행과 저축은행 두 곳이 고객 개인정보 유출을 공지했습니다. 금융당국은 비밀번호와 OTP는 새지 않았다고 밝혔습니다. 각 회사 공지에 적힌 유출 규모와 항목, 내가 해당되는지 확인하는 공식 경로, '전액 보상'의 실제 문구, 유출을 핑계로 오는 사기 연락과 미리 막는 방법을 금융위원회 자료로 정리했습니다.</description>
+    </item>
+    <item>
       <title>제미나이 무료는 10월 9일부터 가장 작은 모델만 씁니다</title>
       <link>https://pancoit.site/posts/gemini-free-flash-lite</link>
       <guid isPermaLink="true">https://pancoit.site/posts/gemini-free-flash-lite</guid>
