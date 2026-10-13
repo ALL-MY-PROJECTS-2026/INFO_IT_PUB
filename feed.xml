@@ -3,7 +3,7 @@
   <channel>
     <title>PANCO_IT</title>
     <link>https://pancoit.site/</link>
-    <description>어려운 IT를 누구나 이해할 수 있도록, 그림과 비유로 쉽고 친근하게 풀어주는 블로그입니다. 하나씩 차근차근 함께 배워 나갑니다.</description>
+    <description>휴대폰·PC·가전에서 막히는 설정과 보안 문제를 직접 해 보고, 제조사·기관 공식 자료로 확인해 알려 드립니다.</description>
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
