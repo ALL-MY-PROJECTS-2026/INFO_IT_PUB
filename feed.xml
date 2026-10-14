@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>노트북 배터리 수명 확인, 설계 용량과 지금 용량 두 숫자</title>
+      <link>https://pancoit.site/posts/laptop-battery-health-check</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/laptop-battery-health-check</guid>
+      <pubDate>Wed, 14 Oct 2026 10:37:00 GMT</pubDate>
+      <description>윈도우 노트북 배터리가 얼마나 닳았는지는 명령 한 줄로 만드는 배터리 보고서의 두 숫자로 셉니다. 갤럭시 북3 프로 360에서 실제로 뽑은 값(448회 충전, 96.6%)과 읽는 법, 제조사 안내로 본 교체 판단을 담았습니다.</description>
+    </item>
+    <item>
       <title>보안 부팅 인증서 만료 확인, 10월 19일 전에 볼 문구</title>
       <link>https://pancoit.site/posts/secure-boot-cert-2026</link>
       <guid isPermaLink="true">https://pancoit.site/posts/secure-boot-cert-2026</guid>
