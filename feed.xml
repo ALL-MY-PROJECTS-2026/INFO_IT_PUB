@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>CLAUDE.md 작성법, 63줄에 26KB가 된 이유</title>
+      <link>https://pancoit.site/posts/claude-md-guide</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/claude-md-guide</guid>
+      <pubDate>Wed, 21 Oct 2026 08:44:00 GMT</pubDate>
+      <description>6주 동안 60번 고친 프로젝트 CLAUDE.md는 줄 수로는 공식 권장(200줄) 안쪽인데 크기는 4.7배가 됐습니다. 커밋마다 잰 크기·줄 수·가장 긴 줄과 Claude Code 공식 문서를 나란히 놓고, 파일 위치와 쓰는 법을 정리했습니다.</description>
+    </item>
+    <item>
       <title>노트북 배터리 수명 확인, 설계 용량과 지금 용량 두 숫자</title>
       <link>https://pancoit.site/posts/laptop-battery-health-check</link>
       <guid isPermaLink="true">https://pancoit.site/posts/laptop-battery-health-check</guid>

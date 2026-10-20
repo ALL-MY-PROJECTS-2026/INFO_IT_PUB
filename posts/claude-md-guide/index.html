@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>CLAUDE.md 작성법, 63줄에 26KB가 된 이유 — PANCO_IT</title>
+    <meta name="description" content="6주 동안 60번 고친 프로젝트 CLAUDE.md는 줄 수로는 공식 권장(200줄) 안쪽인데 크기는 4.7배가 됐습니다. 커밋마다 잰 크기·줄 수·가장 긴 줄과 Claude Code 공식 문서를 나란히 놓고, 파일 위치와 쓰는 법을 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/claude-md-guide/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="CLAUDE.md 작성법, 63줄에 26KB가 된 이유 — PANCO_IT" />
+    <meta property="og:description" content="6주 동안 60번 고친 프로젝트 CLAUDE.md는 줄 수로는 공식 권장(200줄) 안쪽인데 크기는 4.7배가 됐습니다. 커밋마다 잰 크기·줄 수·가장 긴 줄과 Claude Code 공식 문서를 나란히 놓고, 파일 위치와 쓰는 법을 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/claude-md-guide/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/claude-md-size-history.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-10-21T08:44" />
+    <meta property="article:modified_time" content="2026-10-21T08:44" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CLAUDE.md 작성법, 63줄에 26KB가 된 이유 — PANCO_IT" />
+    <meta name="twitter:description" content="6주 동안 60번 고친 프로젝트 CLAUDE.md는 줄 수로는 공식 권장(200줄) 안쪽인데 크기는 4.7배가 됐습니다. 커밋마다 잰 크기·줄 수·가장 긴 줄과 Claude Code 공식 문서를 나란히 놓고, 파일 위치와 쓰는 법을 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/claude-md-size-history.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"CLAUDE.md 작성법, 63줄에 26KB가 된 이유","description":"6주 동안 60번 고친 프로젝트 CLAUDE.md는 줄 수로는 공식 권장(200줄) 안쪽인데 크기는 4.7배가 됐습니다. 커밋마다 잰 크기·줄 수·가장 긴 줄과 Claude Code 공식 문서를 나란히 놓고, 파일 위치와 쓰는 법을 정리했습니다.","image":"https://pancoit.site/uploads/claude-md-size-history.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-10-21T08:44","dateModified":"2026-10-21T08:44","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/claude-md-guide/"},"keywords":"CLAUDE.md, 클로드코드, ClaudeCode, CLAUDE.md작성법, AI에이전트"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"AI 에이전트 사용법","item":"https://pancoit.site/category/AI%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95/"},{"@type":"ListItem","position":3,"name":"CLAUDE.md 작성법, 63줄에 26KB가 된 이유","item":"https://pancoit.site/posts/claude-md-guide/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BnDQWbl9.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-B0N4Qx5u.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/AI%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95/">AI 에이전트 사용법</a></li><li><span aria-current="page">CLAUDE.md 작성법, 63줄에 26KB가 된 이유</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/AI%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95/">AI 에이전트 사용법</a><h1 style="margin-top:0.75rem">CLAUDE.md 작성법, 63줄에 26KB가 된 이유</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-10-21T08:44">2026년 10월 21일 08:44</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->CLAUDE.md</span><span class="tag">#<!-- -->클로드코드</span><span class="tag">#<!-- -->ClaudeCode</span><span class="tag">#<!-- -->CLAUDE.md작성법</span><span class="tag">#<!-- -->AI에이전트</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="프로젝트 CLAUDE.md의 크기와 줄 수를 커밋마다 이은 선 그래프, 2026년 9월 7일 5.5KB·40줄에서 10월 19일 26KB·63줄로, 줄 수는 공식 권장 200줄 점선보다 한참 아래" src="/uploads/claude-md-size-history.png" loading="lazy"/></p>
+<p><em>그림 1. 글쓰기 작업 저장소의 CLAUDE.md, 커밋 60번 동안의 크기와 줄 수 (출처: 이 PC의 git 기록을 ECharts로 그림, 2026-10-21)</em></p>
+<p>CLAUDE.md는 Claude Code가 세션을 시작할 때마다 읽는 지시 파일입니다. 공식 문서는 한 파일을 200줄 아래로 두라고 권합니다. 제가 6주 동안 60번 고친 CLAUDE.md는 63줄이라 그 기준 안쪽인데, 크기는 5.6KB에서 26.7KB로 4.7배가 됐습니다. 줄 수만 세면 놓치는 부분입니다.</p>
+<p>2026년 10월 21일, 이 글을 쓰는 PC(윈도우 11, Claude Code 2.1.146)에서 <code>git log --follow -- CLAUDE.md</code>로 커밋마다 크기·줄 수·가장 긴 줄을 쟀습니다. 여러 채널의 글쓰기 작업을 에이전트에게 맡기는 저장소라, 파일에 적힌 계정·주소·채널 이름은 이 글에 옮기지 않았습니다.</p>
+<h2 id="claudemd는-어디에-두나"><a href="#claudemd는-어디에-두나">CLAUDE.md는 어디에 두나</a></h2>
+<p>공식 문서가 정한 위치는 넷입니다. 넓은 범위부터 읽고, 모두 이어 붙여 함께 읽습니다(덮어쓰지 않습니다).</p>
+<table><thead><tr><th>위치</th><th>쓰임</th></tr></thead><tbody><tr><td>관리 정책 — 윈도우 <code>C:\Program Files\ClaudeCode\CLAUDE.md</code></td><td>회사가 모든 사용자에게 거는 지시</td></tr><tr><td>사용자 — <code>~/.claude/CLAUDE.md</code></td><td>내 모든 프로젝트에 적용할 습관</td></tr><tr><td>프로젝트 — <code>./CLAUDE.md</code> 또는 <code>./.claude/CLAUDE.md</code></td><td>저장소에 함께 올리는 팀 공용 지시</td></tr><tr><td>로컬 — <code>./CLAUDE.local.md</code></td><td>나만 쓰는 프로젝트 설정(.gitignore에 넣음)</td></tr></tbody></table>
+<p>Claude Code는 시작한 폴더와 그 위 폴더들의 CLAUDE.md를 모두 읽습니다. 아래 하위 폴더의 CLAUDE.md는 시작할 때가 아니라, 그 폴더의 파일을 읽거나 고칠 때 불러옵니다. 처음 만들 때는 세션에서 <code>/init</code>을 입력하면 저장소를 보고 빌드 명령·테스트 방법 같은 초안을 만들어 줍니다.</p>
+<p>제 저장소는 프로젝트 CLAUDE.md 하나만 씁니다. 사용자 파일(<code>~/.claude/CLAUDE.md</code>)은 이 PC에 없습니다.</p>
+<h2 id="6주-동안-무엇이-늘었나"><a href="#6주-동안-무엇이-늘었나">6주 동안 무엇이 늘었나</a></h2>
+<p>처음 커밋(9월 7일)은 40줄 5,626바이트였습니다. 마지막 커밋(10월 19일)은 63줄 26,651바이트입니다. 줄은 23줄 늘었고 크기는 4.7배가 됐습니다.</p>
+<p>늘어난 이유는 가장 긴 줄을 보면 나옵니다. 처음 410자였던 가장 긴 줄이 지금은 1,055자입니다. 새 지시를 받을 때마다 새 줄을 만들지 않고, 관련된 줄 끝에 &quot;(날짜 · 지시 원문 · 바뀐 규칙)&quot;을 덧붙여 왔기 때문입니다. 줄 수는 그대로 두면서 한 줄이 문단이 됐습니다.</p>
+<p><img alt="같은 CLAUDE.md에서 커밋마다 가장 긴 한 줄의 글자 수를 이은 계단 그래프, 9월 7일 410자에서 9월 17일 970자대, 10월 1,055자" src="/uploads/claude-md-longest-line.png" loading="lazy"/></p>
+<p><em>그림 2. 가장 긴 한 줄의 글자 수 (출처: 이 PC의 git 기록을 ECharts로 그림, 2026-10-21)</em></p>
+<p>공식 문서의 200줄 기준은 &quot;길수록 맥락을 더 쓰고 지시를 덜 따른다&quot;는 이유에서 나옵니다. 한 줄이 1,000자를 넘으면 줄 수로는 그 비용이 보이지 않습니다. 저라면 줄 수와 함께 파일 크기(KB)도 같이 봅니다.</p>
+<p><img alt="Claude Code 공식 문서 How Claude remembers your project 중 Write effective instructions 절, 검증할 수 있을 만큼 구체적으로 쓰라는 예시 세 줄과 Size·Structure 항목, 200줄 아래를 목표로 하라는 문장" src="/uploads/claude-md-docs-effective.png" loading="lazy"/></p>
+<p><em>그림 3. 공식 문서의 &quot;Write effective instructions&quot; 절 (출처: code.claude.com/docs/en/memory, 2026-10-21 캡처)</em></p>
+<h2 id="60번-고치면서-남긴-쓰는-법"><a href="#60번-고치면서-남긴-쓰는-법">60번 고치면서 남긴 쓰는 법</a></h2>
+<h3 id="확인할-수-있는-문장으로-씁니다"><a href="#확인할-수-있는-문장으로-씁니다">확인할 수 있는 문장으로 씁니다</a></h3>
+<p>공식 문서의 예처럼 &quot;코드를 정리하라&quot; 대신 &quot;커밋 전에 <code>npm test</code>를 돌린다&quot;처럼 씁니다. 제 파일에는 시각 계산에 쓸 명령을 이렇게 박아 두었습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span>발행 시각 계산은 date &#x27;+%Y-%m-%dT%H:%M&#x27; 로 한다.</span></span>
+<span class="line"><span>TZ=Asia/Seoul date 는 이 환경에서 UTC를 돌려준다.</span></span></code></pre>
+<p>두 번째 줄은 이 환경에서만 생기는 함정을 그대로 적은 것입니다. &quot;시간대에 주의하라&quot;보다 어느 명령이 틀리는지를 적어야 에이전트가 같은 명령을 다시 쓰지 않습니다.</p>
+<h3 id="맨-위에는-사람이-할-일을-둡니다"><a href="#맨-위에는-사람이-할-일을-둡니다">맨 위에는 사람이 할 일을 둡니다</a></h3>
+<p>파일 첫 절은 &quot;에이전트가 하지 않는 일&quot; 목록입니다. 외부에 올리는 일은 사람이 승인한 뒤에만 하고, 로그인·비밀번호·삭제·계정 설정은 사람이 한다는 줄입니다. 여러 세션이 같은 저장소를 고치므로 작업 전에 최신 상태를 받는다는 줄도 여기 있습니다. 같은 작업이 두 번 실행된 일이 있은 뒤 넣은 줄입니다.</p>
+<h3 id="세부-규칙은-다른-파일로-빼고-가리킵니다"><a href="#세부-규칙은-다른-파일로-빼고-가리킵니다">세부 규칙은 다른 파일로 빼고 가리킵니다</a></h3>
+<p>CLAUDE.md에는 &quot;무엇을 하려면 어느 문서를 읽으라&quot;만 두고, 세부 규칙은 저장소 안 규칙 폴더의 문서 52개로 나눴습니다. <code>@경로</code>로 가져오지(import) 않고 경로만 적었습니다. 공식 문서에 따르면 import한 파일은 시작할 때 함께 읽혀 맥락 비용이 줄지 않습니다. 경로만 적어 두면 에이전트가 그 작업을 할 때 열어 봅니다.</p>
+<p>import를 쓴다면 경로의 빈칸에 주의합니다. 공식 문서는 빈칸 앞에 백슬래시를 붙이라고 하고, 따옴표로 감싼 경로는 아예 가져오지 않는다고 적었습니다. 한국어 윈도우의 <code>바탕 화면</code> 폴더처럼 이름에 빈칸이 있는 경로가 여기에 걸립니다. import는 최대 네 단계까지 이어집니다.</p>
+<h3 id="문장으로-못-막는-일은-검사로-막습니다"><a href="#문장으로-못-막는-일은-검사로-막습니다">문장으로 못 막는 일은 검사로 막습니다</a></h3>
+<p>공식 문서는 CLAUDE.md가 &quot;강제 설정이 아니라 맥락&quot;이라고 적습니다. 반드시 막아야 하는 동작은 훅(PreToolUse hook)으로 막으라고 합니다. 제 저장소는 같은 실수가 두 번 나오면 CLAUDE.md에 한 줄을 더 쓰는 대신 발행 전에 도는 검사 스크립트에 조건을 넣었습니다. CLAUDE.md에는 &quot;이 검사를 통과해야 발행한다&quot;는 한 줄만 남깁니다.</p>
+<h2 id="지금-파일에서-고칠-것"><a href="#지금-파일에서-고칠-것">지금 파일에서 고칠 것</a></h2>
+<p>가장 긴 줄들은 특정 작업에만 필요한 지시입니다. 공식 문서는 이런 지시를 <code>.claude/rules/</code> 폴더의 규칙 파일로 옮기고, 파일 앞머리 <code>paths</code>에 경로를 적으면 그 경로의 파일을 다룰 때만 읽힌다고 안내합니다. 1,000자 가까운 줄부터 이렇게 옮길 생각입니다.</p>
+<p>지시끼리 어긋나는지 점검해 주는 <code>/doctor prompt-audit</code>도 문서에 있지만, Claude Code v2.1.283 이상에서만 됩니다. 이 PC는 2.1.146이라 아직 쓸 수 없었습니다.</p>
+<h2 id="참고-자료"><a href="#참고-자료">참고 자료</a></h2>
+<ul>
+<li>Claude Code 공식 문서 「How Claude remembers your project」 — <a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener noreferrer">https://code.claude.com/docs/en/memory</a> (2026-10-21 확인)</li>
+</ul></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">휴대폰·PC·가전 문제를 직접 확인해 씁니다</p></div></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/gemini-free-flash-lite/"><span class="tag" style="align-self:flex-start">휴대폰</span><h3 style="margin-top:0.75rem">제미나이 무료는 10월 9일부터 가장 작은 모델만 씁니다</h3><p>AI 요금제를 구독하지 않은 Gemini 개인 계정은 10월 9일부터 Flash-Lite 모델만 씁니다. 월 11,900원인 AI Plus에서는 Pro 모델이 빠집니다. 무료, AI Plus, AI Pro의 모델과 사용량 한도, 가격을 공식 표로 비교했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-07T00:03">2026년 10월 7일 00:03</time><span>· <!-- -->제미나이, 제미나이무료, Gemini</span></div></a><a class="post-card " href="/posts/iphone-update-stuck-ios27/"><span class="tag" style="align-self:flex-start">휴대폰</span><h3 style="margin-top:0.75rem">아이폰 업데이트 요청함 멈춤, 애플이 적은 원인 다섯</h3><p>iOS 27 업데이트가 &#x27;요청함&#x27;이나 다운로드 중에 멈췄다면 애플이 지원 문서에 적은 원인은 다섯 가지입니다. 호환 기종과 저장 공간 확인부터 업데이트 파일 삭제 뒤 다시 받기, 컴퓨터로 업데이트하기까지 해 볼 순서를 적었습니다.</p><div class="post-card__meta"><time dateTime="2026-09-27T21:53">2026년 9월 27일 21:53</time><span>· <!-- -->아이폰업데이트, 아이폰업데이트요청함, iOS27</span></div></a><a class="post-card " href="/posts/bank-data-leak-2026/"><span class="tag" style="align-self:flex-start">계정·사기 예방</span><h3 style="margin-top:0.75rem">은행 개인정보 유출 조회, 비밀번호·OTP는 안 샜습니다</h3><p>신한·KB국민·하나은행과 저축은행 두 곳이 9월 말부터 10월 초 사이 고객 정보 유출을 공지했습니다. 비밀번호와 OTP는 유출되지 않았습니다. 내 정보가 포함됐는지 조회하는 공식 경로와 사기 연락을 미리 막는 방법을 안내합니다.</p><div class="post-card__meta"><time dateTime="2026-10-12T00:27">2026년 10월 12일 00:27</time><span>· <!-- -->은행개인정보유출, 신한은행개인정보유출, 국민은행개인정보유출</span></div></a><a class="post-card " href="/posts/youtube-account-sharing-damage/"><span class="tag" style="align-self:flex-start">계정·사기 예방</span><h3 style="margin-top:0.75rem">유튜브 계정공유 업체가 갑자기 끊긴 이유와 환불 상담처</h3><p>유튜브 프리미엄 계정공유 업체가 갑자기 끊겼다면 해외 가족 요금제 끼워 넣기나 VPN 가입이 막힌 경우입니다. 올해 1월부터 8월까지 서울시에 접수된 피해 상담은 202건입니다. 환불 상담 창구와 국내 공식 요금제 두 가지를 확인하세요.</p><div class="post-card__meta"><time dateTime="2026-10-05T02:05">2026년 10월 5일 02:05</time><span>· <!-- -->유튜브계정공유, 유튜브프리미엄, 계정공유피해</span></div></a><a class="post-card " href="/posts/office-license-kb5002907/"><span class="tag" style="align-self:flex-start">PC·인터넷·가전</span><h3 style="margin-top:0.75rem">오피스 정품인증 풀림, 원인은 KB5002907 업데이트</h3><p>워드나 엑셀에 &#x27;사용 허가되지 않은 제품&#x27;이 뜨거나 오피스가 사라졌다면 9월에 배포가 중단된 KB5002907 업데이트가 원인일 수 있습니다. 영향받는 PC 조건과 정품 인증을 되살리는 순서, 다시 설치하는 방법을 마이크로소프트 문서로 안내합니다.</p><div class="post-card__meta"><time dateTime="2026-09-29T01:15">2026년 9월 29일 01:15</time><span>· <!-- -->오피스정품인증, 오피스정품인증풀림, KB5002907</span></div></a><a class="post-card " href="/posts/boiler-error-code-first-check/"><span class="tag" style="align-self:flex-start">PC·인터넷·가전</span><h3 style="margin-top:0.75rem">보일러 점검 표시, 숫자만 검색하면 틀립니다 — 세 회사 공식 순서</h3><p>보일러 점검 숫자는 회사마다 뜻이 다릅니다. 경동나비엔·귀뚜라미·린나이 공식 자가진단을 대조해 리셋으로 풀리는 코드, 물과 연통을 볼 코드, 바로 점검을 불러야 하는 코드를 나눴습니다.</p><div class="post-card__meta"><time dateTime="2026-09-24T11:25">2026년 9월 24일 11:25</time><span>· <!-- -->보일러점검표시, 보일러에러코드, 경동나비엔</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">휴대폰·PC·가전 문제를 직접 해 보고 공식 자료로 확인해 알려 드립니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
