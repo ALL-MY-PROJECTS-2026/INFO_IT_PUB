@@ -73,14 +73,17 @@ import{r as h,a as ke,L as Ee,N as Le,u as Y,O as Oe,b as de,R as z,c as he,d as
 `]}),`
 `,e.jsx(t.h2,{id:"9-개인정보처리방침의-변경",children:e.jsx(t.a,{href:"#9-개인정보처리방침의-변경",children:"9. 개인정보처리방침의 변경"})}),`
 `,e.jsx(t.p,{children:"본 방침의 내용이 추가·삭제·수정되는 경우, 시행 전에 본 페이지를 통해 고지합니다."})]})}function Ht(s={}){const{wrapper:t}={...M(),...s.components};return t?e.jsx(t,{...s,children:e.jsx(le,{...s})}):le(s)}const Xt=Object.freeze(Object.defineProperty({__proto__:null,default:Ht,frontmatter:Wt},Symbol.toStringTag,{value:"Module"})),Vt={title:"이용약관",description:"PANCO_IT 이용약관"};function oe(s){const t={a:"a",h1:"h1",h2:"h2",p:"p",...M(),...s.components};return e.jsxs(e.Fragment,{children:[e.jsx(t.h1,{id:"이용약관",children:e.jsx(t.a,{href:"#이용약관",children:"이용약관"})}),`
-`,e.jsx("p",{className:"muted",children:"최종 개정일: 2026년 7월 22일"}),`
+`,e.jsx("p",{className:"muted",children:"최종 개정일: 2026년 10월 29일"}),`
 `,e.jsx(t.h2,{id:"1-목적",children:e.jsx(t.a,{href:"#1-목적",children:"1. 목적"})}),`
 `,e.jsx(t.p,{children:'본 약관은 PANCO_IT(이하 "사이트")가 제공하는 콘텐츠 및 서비스의 이용 조건을 규정합니다.'}),`
 `,e.jsx(t.h2,{id:"2-콘텐츠-저작권",children:e.jsx(t.a,{href:"#2-콘텐츠-저작권",children:"2. 콘텐츠 저작권"})}),`
-`,e.jsx(t.p,{children:"사이트에 게시된 모든 글·이미지·코드의 저작권은 저작자에게 있습니다. 무단 복제·배포를 금하며, 인용 시 출처를 명확히 표기해 주시기 바랍니다."}),`
-`,e.jsx(t.h2,{id:"3-면책-조항",children:e.jsx(t.a,{href:"#3-면책-조항",children:"3. 면책 조항"})}),`
+`,e.jsx(t.p,{children:"사이트에 게시된 글과 이미지의 저작권은 저작자에게 있습니다. 무단 복제·배포를 금하며, 인용 시 출처를 명확히 표기해 주시기 바랍니다. 다른 사람이 찍은 사진은 각 사진에 적힌 출처와 그 사진의 라이선스를 따릅니다."}),`
+`,e.jsx(t.h2,{id:"3-코드-사용",children:e.jsx(t.a,{href:"#3-코드-사용",children:"3. 코드 사용"})}),`
+`,e.jsx(t.p,{children:"글에 실린 코드는 개인·업무 용도로 자유롭게 가져다 쓰고 고쳐 써도 됩니다. 다만 글이나 코드를 통째로 다른 사이트에 다시 게시하는 것은 2항을 따릅니다."}),`
+`,e.jsx(t.p,{children:"코드를 써서 생긴 결과(파일 손상, 데이터 손실 등)에 대한 책임은 이용자에게 있습니다. 중요한 파일은 복사본으로 먼저 시험해 보시기 바랍니다."}),`
+`,e.jsx(t.h2,{id:"4-면책-조항",children:e.jsx(t.a,{href:"#4-면책-조항",children:"4. 면책 조항"})}),`
 `,e.jsx(t.p,{children:"본 사이트의 콘텐츠는 정보 제공을 목적으로 하며, 정확성·완전성을 보장하지 않습니다. 콘텐츠를 활용한 결과에 대한 책임은 이용자 본인에게 있습니다."}),`
-`,e.jsx(t.h2,{id:"4-외부-링크-및-광고",children:e.jsx(t.a,{href:"#4-외부-링크-및-광고",children:"4. 외부 링크 및 광고"})}),`
+`,e.jsx(t.h2,{id:"5-외부-링크-및-광고",children:e.jsx(t.a,{href:"#5-외부-링크-및-광고",children:"5. 외부 링크 및 광고"})}),`
 `,e.jsx(t.p,{children:"본 사이트는 제3자 광고 및 외부 링크를 포함할 수 있으며, 외부 사이트의 콘텐츠·정책에 대해서는 책임지지 않습니다."}),`
-`,e.jsx(t.h2,{id:"5-약관의-변경",children:e.jsx(t.a,{href:"#5-약관의-변경",children:"5. 약관의 변경"})}),`
+`,e.jsx(t.h2,{id:"6-약관의-변경",children:e.jsx(t.a,{href:"#6-약관의-변경",children:"6. 약관의 변경"})}),`
 `,e.jsx(t.p,{children:"본 약관은 필요 시 개정될 수 있으며, 변경 시 본 페이지를 통해 공지합니다."})]})}function Yt(s={}){const{wrapper:t}={...M(),...s.components};return t?e.jsx(t,{...s,children:e.jsx(oe,{...s})}):oe(s)}const Kt=Object.freeze(Object.defineProperty({__proto__:null,default:Yt,frontmatter:Vt},Symbol.toStringTag,{value:"Module"})),Jt=Object.assign({"../content/pages/about.mdx":qt,"../content/pages/contact.mdx":Gt,"../content/pages/privacy.mdx":Xt,"../content/pages/terms.mdx":Kt}),Pe={};for(const[s,t]of Object.entries(Jt)){const n=s.split("/").pop().replace(/\.mdx$/,"");Pe[n]={slug:n,Component:t.default,frontmatter:t.frontmatter}}function Zt(s){return Pe[s]}function D({slug:s,path:t}){const n=Zt(s);if(!n)return e.jsxs("div",{className:"page",children:[e.jsx("h1",{children:"페이지를 찾을 수 없습니다"}),e.jsxs("p",{className:"muted",children:["content/pages/",s,".mdx 파일이 없습니다."]})]});const{Component:r,frontmatter:a}=n;return e.jsxs("div",{className:"page",children:[e.jsx(I,{title:a.title,path:t,description:a.description}),!1,e.jsx(we,{components:Te,children:e.jsx(r,{})})]})}function Qt(){return e.jsx(D,{slug:"about",path:"/about"})}function es(){return e.jsx(D,{slug:"contact",path:"/contact"})}function ts(){return e.jsx(D,{slug:"privacy",path:"/privacy"})}function ss(){return e.jsx(D,{slug:"terms",path:"/terms"})}function ns(){return e.jsx(Ae,{children:e.jsxs($,{path:"/",element:e.jsx(lt,{}),children:[e.jsx($,{index:!0,element:e.jsx(vt,{})}),e.jsx($,{path:"posts",element:e.jsx(yt,{})}),e.jsx($,{path:"posts/:slug",element:e.jsx(Rt,{})}),e.jsx($,{path:"category/:name",element:e.jsx(zt,{})}),e.jsx($,{path:"about",element:e.jsx(Qt,{})}),e.jsx($,{path:"contact",element:e.jsx(es,{})}),e.jsx($,{path:"privacy",element:e.jsx(ts,{})}),e.jsx($,{path:"terms",element:e.jsx(ss,{})}),!1,e.jsx($,{path:"*",element:e.jsx(Me,{})})]})})}const rs="/".replace(/\/$/,"")||"/",W=document.getElementById("root"),ce=e.jsx(Re,{basename:rs,children:e.jsx(ns,{})});W.firstElementChild?xe(W,ce):pe(W).render(ce);
