@@ -3,7 +3,7 @@
   <channel>
     <title>PANCO_IT</title>
     <link>https://pancoit.site/</link>
-    <description>Claude Code 같은 AI 에이전트를 운영자 PC에서 직접 써 보고, 같은 과제를 시험한 결과로 사용법을 정리합니다.</description>
+    <description>일하면서 귀찮았던 일을 작은 프로그램으로 직접 만들어 해결하고, 그 과정을 처음부터 끝까지 기록합니다.</description>
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
 
