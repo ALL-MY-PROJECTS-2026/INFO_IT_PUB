@@ -6,6 +6,12 @@
     <description>필요한 프로그램을 직접 만들고, 만드는 과정을 순서대로 적는 블로그입니다.</description>
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
-
+    <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 1편 요구사항 정리</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-01-requirements</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-01-requirements</guid>
+      <pubDate>Thu, 29 Oct 2026 18:20:00 GMT</pubDate>
+      <description>PDF 합치기 프로그램을 파이썬으로 만들기 전에, 평소 PDF 때문에 귀찮았던 일에서 요구사항 정의서를 뽑고 유스케이스 다이어그램과 범위, 일정을 정했습니다.</description>
+    </item>
   </channel>
 </rss>
