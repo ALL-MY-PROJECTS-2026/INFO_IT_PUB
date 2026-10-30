@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-02-design</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-02-design</guid>
+      <pubDate>Fri, 30 Oct 2026 09:59:00 GMT</pubDate>
+      <description>1편 요구사항을 바탕으로 처리 흐름도, 화면 설계, 모듈 나누기, 예외 처리, 테스트 계획을 정리했습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 1편 요구사항 정리</title>
       <link>https://pancoit.site/posts/python-pdf-tool-01-requirements</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-01-requirements</guid>

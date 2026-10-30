@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계 — PANCO_IT</title>
+    <meta name="description" content="1편 요구사항을 바탕으로 처리 흐름도, 화면 설계, 모듈 나누기, 예외 처리, 테스트 계획을 정리했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-pdf-tool-02-design/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계 — PANCO_IT" />
+    <meta property="og:description" content="1편 요구사항을 바탕으로 처리 흐름도, 화면 설계, 모듈 나누기, 예외 처리, 테스트 계획을 정리했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-pdf-tool-02-design/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/pdftool-02-01.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-10-30T09:59" />
+    <meta property="article:modified_time" content="2026-10-30T09:59" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계 — PANCO_IT" />
+    <meta name="twitter:description" content="1편 요구사항을 바탕으로 처리 흐름도, 화면 설계, 모듈 나누기, 예외 처리, 테스트 계획을 정리했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/pdftool-02-01.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계","description":"1편 요구사항을 바탕으로 처리 흐름도, 화면 설계, 모듈 나누기, 예외 처리, 테스트 계획을 정리했습니다.","image":"https://pancoit.site/uploads/pdftool-02-01.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-10-30T09:59","dateModified":"2026-10-30T09:59","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-pdf-tool-02-design/"},"keywords":"파이썬, PDF 합치기, 흐름도, 화면 설계, 테스트 계획"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PDF 도구","item":"https://pancoit.site/category/PDF%20%EB%8F%84%EA%B5%AC/"},{"@type":"ListItem","position":3,"name":"파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계","item":"https://pancoit.site/posts/python-pdf-tool-02-design/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BfTIAZK0.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CWzf-AGh.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PDF%20%EB%8F%84%EA%B5%AC/">PDF 도구</a></li><li><span aria-current="page">파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PDF%20%EB%8F%84%EA%B5%AC/">PDF 도구</a><h1 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-10-30T09:59">2026년 10월 30일 09:59</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->PDF 합치기</span><span class="tag">#<!-- -->흐름도</span><span class="tag">#<!-- -->화면 설계</span><span class="tag">#<!-- -->테스트 계획</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p>1편에서 무엇을 만들지는 정했습니다. 그런데 막상 코드를 짜려고 하니, 버튼을 눌렀을 때 무엇부터 해야 하는지가 머릿속에서 잘 그려지지 않았습니다.</p>
+<p>그래서 코드 대신 흐름도부터 그렸습니다. 그림은 1편과 마찬가지로 draw.io로 그렸습니다.</p>
+<h2 id="처리-흐름도"><a href="#처리-흐름도">처리 흐름도</a></h2>
+<p>파일을 고르는 데서 시작해 결과 파일이 나올 때까지를 순서도로 그려 보니 이렇게 됐습니다.</p>
+<p><img alt="draw.io에서 그린 처리 흐름도" src="/uploads/pdftool-02-01.png" loading="lazy"/></p>
+<p>그리다 보니 결과를 어디에 저장할지부터 걸렸습니다. 원본 위에 덮어쓰는 건 생각만 해도 불안해서, 결과는 무조건 새 파일로 저장하기로 했습니다.</p>
+<p>처음 그린 흐름도에서는 PDF를 합치든 사진을 묶든 저장한 다음에 용량을 확인하게 해 두었습니다. 1편 요구사항을 다시 읽어 보니 용량은 사진을 묶을 때만 줄이기로 정해 놓았는데, 이대로면 PDF를 합칠 때도 용량 제한 칸이 열려 있게 됩니다. 그래서 용량 확인은 사진을 PDF로 바꾼 뒤에만 하고, PDF 합치기는 저장하면 바로 끝나게 고쳤습니다.</p>
+<p>용량을 줄이는 방법도 흐름도를 그리면서 정했습니다. 사진을 PDF에 넣을 때는 화질을 0~100 사이 숫자로 정할 수 있어서, 화질부터 낮추는 게 가장 손쉽습니다.</p>
+<p>다만 화질만 계속 내리면 서류 사진 속 글자가 뭉개질 것 같았습니다. 그래서 화질은 50 밑으로 내리지 않고, 그래도 정한 용량보다 크면 그때부터 사진 가로세로를 80%씩 줄이기로 했습니다.</p>
+<p>화질을 한 번에 10씩 내리는 것과 사진을 80%씩 줄이는 것은 아직 실제 사진으로 재 보지 않고 정한 숫자입니다. 사진을 묶는 코드를 짤 때 직접 돌려 보고 맞는지 다시 보겠습니다.</p>
+<h2 id="화면-설계"><a href="#화면-설계">화면 설계</a></h2>
+<p>창 화면도 코드로 바로 짜면 버튼 자리를 몇 번이고 옮기게 될 것 같아서, 먼저 그림으로 그려 봤습니다.</p>
+<p>실무에서는 이런 그림을 와이어프레임이라고 합니다. 색이나 글꼴은 신경 쓰지 않고 무엇을 어디에 둘지만 정합니다.</p>
+<p><img alt="draw.io에서 그린 화면 설계" src="/uploads/pdftool-02-02.png" loading="lazy"/></p>
+<p>화면에 있는 것들이 각각 무슨 일을 하는지도 적어 뒀습니다.</p>
+<table><thead><tr><th>번호</th><th>화면 요소</th><th>하는 일</th></tr></thead><tbody><tr><td>1</td><td>할 일 고르기</td><td>PDF 합치기와 사진 → PDF 중에서 고름</td></tr><tr><td>2</td><td>파일 목록</td><td>합쳐질 순서대로 보임</td></tr><tr><td>3</td><td>버튼들</td><td>파일·폴더 추가, 위로·아래로, 빼기</td></tr><tr><td>4</td><td>용량 제한</td><td>사진 → PDF일 때만 켜짐. 체크하고 MB 숫자를 넣음</td></tr><tr><td>5</td><td>저장 위치</td><td>같은 이름 파일이 있으면 물어봄</td></tr><tr><td>6</td><td>만들기</td><td>목록이 비어 있으면 안 눌림</td></tr><tr><td>7</td><td>상태줄</td><td>끝나면 쪽수와 용량을 보여 줌</td></tr></tbody></table>
+<p>같은 이름 파일이 있으면 물어보게 한 건 화면 설명을 적다가 생각났습니다. 말없이 덮어썼는데 그게 지난번에 만들어 둔 파일이면 되돌릴 방법이 없습니다.</p>
+<h2 id="모듈-나누기"><a href="#모듈-나누기">모듈 나누기</a></h2>
+<p>화면과 기능을 한 파일에 섞어 두면 버튼 하나 옮기다가 합치기 코드까지 건드리게 될 것 같았습니다.</p>
+<p>그래서 파일을 둘로 나눴습니다. 창은 <code>pdf_tool_ui.py</code>, 실제로 PDF를 다루는 함수는 <code>pdf_core.py</code>에 두고, 창 쪽에서는 함수를 부르기만 합니다.</p>
+<p><img alt="draw.io에서 그린 모듈 구조" src="/uploads/pdftool-02-03.png" loading="lazy"/></p>
+<p><code>번호순</code>은 처음에 <code>pdf_합치기</code> 안에 넣어 둘 생각이었습니다. 그런데 휴대폰 사진도 이름 끝에 번호가 붙어서, 사진을 묶을 때도 같은 순서 문제가 날 수 있었습니다. 그래서 따로 떼어 내 두 함수가 같이 쓰게 했습니다.</p>
+<p>함수마다 무엇을 넣으면 무엇이 나오는지, 잘못된 파일이 들어오면 어떻게 할지도 미리 적어 뒀습니다. 이걸 정해 두면 창을 만들 때 기능 코드를 다시 열어 보지 않아도 됩니다.</p>
+<table><thead><tr><th>함수</th><th>넣는 것</th><th>나오는 것</th><th>잘못됐을 때</th></tr></thead><tbody><tr><td><code>번호순</code></td><td>파일 경로</td><td>번호 순서로 정렬할 기준</td><td>-</td></tr><tr><td><code>pdf_합치기</code></td><td>PDF 목록, 저장 경로</td><td>쪽수</td><td>암호·깨진 파일 이름을 알려 줌</td></tr><tr><td><code>사진_pdf</code></td><td>사진 목록, 저장 경로, 화질, 크기</td><td>쪽수</td><td>안 열리는 사진 이름을 알려 줌</td></tr><tr><td><code>용량_맞추기</code></td><td>사진 목록, 저장 경로, 제한 MB</td><td>최종 용량</td><td>끝까지 줄여도 안 되면 알려 줌</td></tr></tbody></table>
+<p>창은 tkinter로 만들 생각입니다. 파이썬을 깔면 같이 들어와서 따로 설치할 게 없습니다. 이미 pypdf와 Pillow를 깔아야 하는데, 화면 때문에 하나 더 늘리고 싶지는 않았습니다.</p>
+<h2 id="예외-처리"><a href="#예외-처리">예외 처리</a></h2>
+<p>흐름도는 잘 될 때만 그린 거라, 이상한 파일이 들어오면 어떻게 할지도 따로 적었습니다. 아무 처리도 안 하면 프로그램이 오류를 내고 꺼져 버리고, 쓰는 사람은 왜 안 되는지 모릅니다.</p>
+<table><thead><tr><th>이럴 때</th><th>이렇게</th></tr></thead><tbody><tr><td>암호 걸린 PDF</td><td>&quot;암호가 걸린 파일은 넣을 수 없습니다&quot; 안내</td></tr><tr><td>깨진 PDF</td><td>어느 파일인지 이름을 보여 줌</td></tr><tr><td>목록이 비어 있음</td><td>만들기 버튼이 안 눌림</td></tr><tr><td>용량 칸에 숫자가 아닌 값</td><td>만들기를 막고 안내</td></tr><tr><td>같은 이름 파일이 있음</td><td>덮어쓸지 물어봄</td></tr><tr><td>저장할 권한이 없는 폴더</td><td>다른 위치를 고르라고 안내</td></tr></tbody></table>
+<h2 id="테스트-계획"><a href="#테스트-계획">테스트 계획</a></h2>
+<p>1편에서 요구사항마다 적어 둔 확인 방법을 시험 항목으로 바꿨습니다.</p>
+<p>항목마다 어떤 요구사항을 확인하는지 붙여 두면, 나중에 빠뜨린 요구사항이 없는지 한 번에 볼 수 있습니다. 실무에서는 이걸 요구사항 추적표라고 부릅니다.</p>
+<table><thead><tr><th>TC</th><th>요구사항</th><th>해 볼 것</th><th>이렇게 나와야 함</th></tr></thead><tbody><tr><td>TC-01</td><td>FR-01</td><td>2쪽 PDF + 1쪽 PDF</td><td>3쪽 파일</td></tr><tr><td>TC-02</td><td>FR-02</td><td>&#x27;스캔 (1)&#x27;~&#x27;스캔 (11)&#x27; 폴더</td><td>1~11 순서대로</td></tr><tr><td>TC-03</td><td>FR-03</td><td>사진 5장</td><td>5쪽 파일</td></tr><tr><td>TC-04</td><td>FR-04</td><td>사진 5장, 제한 1MB</td><td>결과 1MB 이하</td></tr><tr><td>TC-05</td><td>FR-05</td><td>3번째 파일을 맨 위로</td><td>첫 쪽이 그 파일</td></tr><tr><td>TC-06</td><td>FR-06</td><td>TC-01 실행</td><td>상태줄에 쪽수와 용량</td></tr><tr><td>TC-07</td><td>NFR-01</td><td>와이파이를 끄고 TC-01</td><td>똑같이 됨</td></tr><tr><td>TC-08</td><td>NFR-02</td><td>TC-01 전후 원본 비교</td><td>원본 그대로</td></tr><tr><td>TC-09</td><td>NFR-03</td><td>한글 이름 폴더에서 TC-02</td><td>똑같이 됨</td></tr><tr><td>TC-10</td><td>NFR-04</td><td>더블클릭으로 TC-01</td><td>끝까지 됨</td></tr><tr><td>TC-11</td><td>예외</td><td>암호 걸린 PDF를 섞어서 TC-01</td><td>안내가 뜨고 꺼지지 않음</td></tr></tbody></table>
+<p>시험은 기능을 다 만들고 창까지 붙인 뒤에 이 표 순서대로 처음부터 돌려 보겠습니다.</p>
+<p>다음 편부터는 코드를 짜 보겠습니다. pypdf와 Pillow를 설치하고, PDF 두 개를 합치는 것부터 해 보겠습니다.</p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">필요한 프로그램을 직접 만들고 그 과정을 적습니다</p></div><nav class="post-nav" aria-label="이전 글 다음 글"><a class="post-nav__item" href="/posts/python-pdf-tool-01-requirements/"><span class="post-nav__label">이전 글</span><span class="post-nav__title">파이썬으로 PDF 합치기 프로그램 만들기 1편 요구사항 정리</span></a><span></span></nav></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-pdf-tool-01-requirements/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 1편 요구사항 정리</h3><p>PDF 합치기 프로그램을 파이썬으로 만들기 전에, 평소 PDF를 다루며 불편했던 점을 바탕으로 요구사항 정의서와 유스케이스 명세, 범위, 일정을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-29T18:20">2026년 10월 29일 18:20</time><span>· <!-- -->파이썬, PDF 합치기, 요구사항 정의서</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem;max-width:48ch">필요한 프로그램을 직접 만들고, 만든 과정을 적습니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
