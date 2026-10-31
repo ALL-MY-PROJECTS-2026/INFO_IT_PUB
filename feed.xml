@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-03-install-merge</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-03-install-merge</guid>
+      <pubDate>Sat, 31 Oct 2026 14:35:00 GMT</pubDate>
+      <description>pypdf와 Pillow를 설치하다 나온 pip 캐시 경고의 원인을 확인하고, 연습용 PDF 두 개를 만들어 처음으로 합쳐 봤습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계</title>
       <link>https://pancoit.site/posts/python-pdf-tool-02-design</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-02-design</guid>

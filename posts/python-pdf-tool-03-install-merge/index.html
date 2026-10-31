@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기 — PANCO_IT</title>
+    <meta name="description" content="pypdf와 Pillow를 설치하다 나온 pip 캐시 경고의 원인을 확인하고, 연습용 PDF 두 개를 만들어 처음으로 합쳐 봤습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-pdf-tool-03-install-merge/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기 — PANCO_IT" />
+    <meta property="og:description" content="pypdf와 Pillow를 설치하다 나온 pip 캐시 경고의 원인을 확인하고, 연습용 PDF 두 개를 만들어 처음으로 합쳐 봤습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-pdf-tool-03-install-merge/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/pdftool-03-01.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-10-31T14:35" />
+    <meta property="article:modified_time" content="2026-10-31T14:35" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기 — PANCO_IT" />
+    <meta name="twitter:description" content="pypdf와 Pillow를 설치하다 나온 pip 캐시 경고의 원인을 확인하고, 연습용 PDF 두 개를 만들어 처음으로 합쳐 봤습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/pdftool-03-01.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기","description":"pypdf와 Pillow를 설치하다 나온 pip 캐시 경고의 원인을 확인하고, 연습용 PDF 두 개를 만들어 처음으로 합쳐 봤습니다.","image":"https://pancoit.site/uploads/pdftool-03-01.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-10-31T14:35","dateModified":"2026-10-31T14:35","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-pdf-tool-03-install-merge/"},"keywords":"파이썬, PDF 합치기, pypdf, Pillow, pip"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PDF 도구","item":"https://pancoit.site/category/PDF%20%EB%8F%84%EA%B5%AC/"},{"@type":"ListItem","position":3,"name":"파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기","item":"https://pancoit.site/posts/python-pdf-tool-03-install-merge/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-zksFDrPw.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-0DGBLkgr.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PDF%20%EB%8F%84%EA%B5%AC/">PDF 도구</a></li><li><span aria-current="page">파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PDF%20%EB%8F%84%EA%B5%AC/">PDF 도구</a><h1 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-10-31T14:35">2026년 10월 31일 14:35</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->PDF 합치기</span><span class="tag">#<!-- -->pypdf</span><span class="tag">#<!-- -->Pillow</span><span class="tag">#<!-- -->pip</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="합친파일.pdf를 크롬으로 연 화면" src="/uploads/pdftool-03-01.png" loading="lazy"/></p>
+<p>2편까지 요구사항과 설계를 정리했으니 이제 코드를 짭니다. 처음부터 창까지 한꺼번에 만들지 않고, 2편에서 나눈 기능을 하나씩 명령어로 돌려 본 다음 마지막에 창에 붙이기로 했습니다.</p>
+<p>첫 순서는 라이브러리 설치와 PDF 두 개 합치기입니다. 라이브러리 두 개 설치하고 파일 두 개 합치는 일인데도 생각보다 손이 많이 갔습니다.</p>
+<h2 id="1-파이썬-버전-확인"><a href="#1-파이썬-버전-확인">1. 파이썬 버전 확인</a></h2>
+<p>설치 전에 파이썬부터 확인했습니다. pip는 파이썬 버전마다 따로 있어서, 다른 버전 쪽에 라이브러리를 깔아 두면 나중에 코드를 돌릴 때 <code>ModuleNotFoundError</code>가 납니다.</p>
+<p><code>python --version</code>을 치니 3.14.9가 나왔고, 혹시 몰라 <code>py -0</code>으로 깔려 있는 파이썬 목록을 봤더니 3.14 말고 3.12도 하나 더 있었습니다. 그냥 <code>python</code>이라고 치면 별표가 붙은 3.14가 실행됩니다.</p>
+<p><img alt="python --version과 py -0 결과" src="/uploads/pdftool-03-02.png" loading="lazy"/></p>
+<h2 id="2-pypdf와-pillow"><a href="#2-pypdf와-pillow">2. pypdf와 Pillow</a></h2>
+<p>파이썬에는 PDF를 다루는 기능이 기본으로 들어 있지 않아서, 라이브러리를 따로 설치해야 합니다. 이번에 쓸 라이브러리는 pypdf와 Pillow 두 개입니다.</p>
+<p>pypdf는 PDF 파일을 열어서 쪽을 읽고, 여러 파일의 쪽을 이어 붙이거나 일부만 떼어 내서 새 PDF로 저장하는 라이브러리입니다. PDF 합치기는 이걸로 합니다.</p>
+<p>Pillow는 JPG, PNG 같은 사진 파일을 열고, 크기를 줄이거나 화질을 바꿔서 다시 저장하는 라이브러리입니다. 사진을 PDF로 저장하는 기능도 있어서, 휴대폰으로 찍은 서류 사진을 PDF로 묶을 때 씁니다.</p>
+<table><thead><tr><th>라이브러리</th><th>하는 일</th><th>이 프로그램에서 쓰는 곳</th><th>라이선스</th></tr></thead><tbody><tr><td>pypdf</td><td>PDF 읽기, 쪽 이어 붙이기, 저장</td><td>PDF 합치기</td><td>BSD</td></tr><tr><td>Pillow</td><td>사진 열기, 크기·화질 바꾸기, PDF로 저장</td><td>사진 묶기, 용량 줄이기</td><td>MIT-CMU</td></tr></tbody></table>
+<p>PDF 라이브러리를 찾아보면 PyMuPDF도 많이 나옵니다. 그런데 라이선스가 AGPL이라 그걸 쓴 코드를 공개할 때 지켜야 할 조건이 까다로워서 쓰지 않았습니다. pypdf는 파이썬으로만 짜여 있어서 다른 프로그램을 따로 깔지 않아도 되는 점도 편했습니다.</p>
+<p>사진을 PDF로 묶는 건 5편에서 할 일이지만, Pillow도 이번에 같이 설치해 두었습니다.</p>
+<p>설치하기 전에 <code>pip --version</code>으로 이 pip가 어느 버전 파이썬 것인지부터 봤습니다. 줄 끝에 <code>(python 3.14)</code>라고 나와서, 기본으로 실행되는 3.14 쪽에 깔린다는 걸 확인하고 넘어갔습니다. 경로 중간에 나오는 윈도우 계정 폴더 이름은 캡처에서 회색으로 가렸습니다.</p>
+<h2 id="3-pip-install로-설치"><a href="#3-pip-install로-설치">3. pip install로 설치</a></h2>
+<pre><code>pip install pypdf pillow
+</code></pre>
+<p>엔터를 누르자마자 <code>WARNING: Cache entry deserialization failed, entry ignored</code>라는 노란 줄이 네 줄 올라왔습니다.</p>
+<p>설치가 안 된 건가 싶어서 맨 아래 줄부터 봤는데, 거기에는 <code>Successfully installed pillow-13.0.0 pypdf-6.21.4</code>가 찍혀 있었습니다.</p>
+<p><img alt="pip install 결과. 노란 경고 뒤에 Successfully installed" src="/uploads/pdftool-03-03.png" loading="lazy"/></p>
+<p>찾아보니 이 경고는 pip가 예전에 받아 둔 파일(캐시) 가운데 하나를 읽지 못해서 그건 안 쓰고 넘어갔다는 말이었습니다.</p>
+<p>화면을 다시 보니 pypdf는 410kB짜리 파일을 새로 내려받았고, Pillow는 캐시에 남아 있던 7.3MB짜리 파일을 그대로 썼습니다. 못 읽은 캐시는 건너뛰고 필요한 건 새로 받아서 설치를 끝낸 거였습니다.</p>
+<p>설치됐다는 문장만 믿고 넘어가기는 찜찜해서 두 라이브러리를 실제로 불러와 버전을 찍어 봤습니다.</p>
+<pre><code>python -c &quot;import pypdf, PIL; print(pypdf.__version__, PIL.__version__)&quot;
+</code></pre>
+<p><img alt="설치 확인 결과" src="/uploads/pdftool-03-04.png" loading="lazy"/></p>
+<p><code>6.21.4 13.0.0</code>이 나왔고 오류는 없었습니다. 참고로 Pillow는 설치할 땐 <code>pillow</code>라고 치지만 코드에서는 <code>PIL</code>로 불러옵니다. 옛날 PIL이라는 라이브러리를 이어받은 거라 이름이 그렇게 남았다고 합니다.</p>
+<h2 id="4-경고-원인-확인"><a href="#4-경고-원인-확인">4. 경고 원인 확인</a></h2>
+<p>설치는 됐지만 경고가 왜 떴는지는 알고 넘어가고 싶었습니다. 앞에서 파이썬이 두 개라는 것을 봤으니 그쪽부터 의심했고, pip가 받아 둔 파일을 모아 두는 폴더와 3.12 쪽 pip의 버전을 확인했습니다.</p>
+<pre><code>pip cache dir
+py -3.12 -m pip --version
+</code></pre>
+<p><img alt="pip cache dir와 3.12 쪽 pip 버전" src="/uploads/pdftool-03-05.png" loading="lazy"/></p>
+<p>캐시 폴더는 하나였고, 3.12 쪽 pip는 25.0.1, 기본인 3.14 쪽 pip는 26.2.2였습니다.</p>
+<p>두 파이썬이 캐시 폴더 하나를 같이 쓰는데 pip 버전이 서로 다르니, 3.12 쪽 pip가 저장해 둔 파일을 3.14 쪽 pip가 읽지 못해서 버리고 새로 받은 것 같습니다. 그림으로 그려 보면 이런 상황입니다.</p>
+<p><img alt="파이썬 두 개가 pip 캐시 폴더 하나를 같이 쓰는 구조" src="/uploads/pdftool-03-06.png" loading="lazy"/></p>
+<p>불러오기와 버전 확인이 모두 정상이어서 경고는 그대로 두었습니다.</p>
+<p>경고 자체를 없애고 싶다면 <code>pip cache purge</code>로 캐시를 비우는 방법이 있는데, 비우면 다음 설치 때 파일을 전부 다시 받아야 해서 저는 비우지 않았습니다.</p>
+<h2 id="5-연습용-pdf-만들기"><a href="#5-연습용-pdf-만들기">5. 연습용 PDF 만들기</a></h2>
+<p>합칠 PDF가 있어야 시험을 해 볼 수 있는데, 제 서류를 예제로 쓸 수는 없어서 연습용 PDF를 파이썬으로 따로 만들었습니다.</p>
+<p>방금 설치한 Pillow로 흰 A4 크기 그림에 글자 한 줄을 쓰고 PDF로 저장하는 방식이라, 두 번째 라이브러리가 제대로 깔렸는지도 같이 보게 됩니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> PIL</span><span style="color:#D73A49;--shiki-dark:#F97583"> import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Image, ImageDraw, ImageFont</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">font </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ImageFont.truetype(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;malgun.ttf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">60</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> make_page</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(text):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    page </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Image.new(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;RGB&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, (</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1240</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">1754</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;white&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)  </span><span style="color:#6A737D;--shiki-dark:#6A737D"># A4를 150dpi로</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ImageDraw.Draw(page).text((</span><span style="color:#005CC5;--shiki-dark:#79B8FF">120</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">150</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), text, </span><span style="color:#E36209;--shiki-dark:#FFAB70">font</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">font, </span><span style="color:#E36209;--shiki-dark:#FFAB70">fill</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;black&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> page</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 연습1.pdf는 2쪽, 연습2.pdf는 1쪽</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">pages </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [make_page(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연습용 문서 1 - 1쪽&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), make_page(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연습용 문서 1 - 2쪽&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)]</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">pages[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">].save(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연습1.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">save_all</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">True</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">append_images</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">pages[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:])</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">make_page(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연습용 문서 2 - 1쪽&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).save(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연습2.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연습1.pdf, 연습2.pdf 만들었음&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<p>글꼴을 먼저 불러 두고, 쪽 한 장을 그리는 함수를 만든 다음, 그 쪽들을 PDF로 저장했습니다.</p>
+<ul>
+<li><strong>글꼴 불러오기</strong> (<code>ImageFont.truetype</code>): 윈도우에 들어 있는 맑은 고딕(<code>malgun.ttf</code>)을 60 크기로 불러옵니다. Pillow 기본 글꼴에는 한글이 없어서, 이걸 안 하면 한글이 제대로 안 나옵니다.</li>
+<li><strong>쪽 한 장 만들기</strong> (<code>make_page</code>): 가로 1240, 세로 1754픽셀짜리 흰 그림을 만들고 왼쪽 위에 글자를 한 줄 씁니다. 이 크기가 A4 용지를 150dpi로 스캔했을 때와 같습니다.</li>
+<li><strong>PDF로 저장하기</strong> (<code>save</code>): 쪽이 두 장 이상이면 첫 장을 저장하면서 <code>save_all=True</code>와 <code>append_images</code>로 나머지 장을 같이 넘겨야 한 파일에 여러 쪽이 들어갑니다. 한 장짜리는 그냥 <code>save</code>만 하면 됩니다.</li>
+</ul>
+<p>합친 뒤에 쪽수가 맞는지 바로 알 수 있도록 하나는 2쪽, 하나는 1쪽으로 만들었습니다. 실행하자 83,607바이트짜리 <code>연습1.pdf</code>와 42,011바이트짜리 <code>연습2.pdf</code>가 생겼습니다.</p>
+<p><img alt="연습용 PDF 두 개를 만든 결과" src="/uploads/pdftool-03-07.png" loading="lazy"/></p>
+<p>크롬으로 연 두 파일에는 글자가 제대로 들어가 있었습니다. 연습1.pdf는 왼쪽에 쪽이 2개 보입니다.</p>
+<p><img alt="연습1.pdf를 크롬으로 연 화면" src="/uploads/pdftool-03-08.png" loading="lazy"/></p>
+<h2 id="6-pdf-두-개-합치기"><a href="#6-pdf-두-개-합치기">6. PDF 두 개 합치기</a></h2>
+<p>첫 버전은 돌아가는지만 보려고 파일 이름 두 개를 코드 안에 그대로 적었습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> pypdf </span><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> PdfWriter</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">writer </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> PdfWriter()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">writer.append(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연습1.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">writer.append(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연습2.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">writer.write(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;합친파일.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;합친파일.pdf 저장&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
+<ul>
+<li><strong>빈 PDF 만들기</strong> (<code>PdfWriter()</code>): 아직 쪽이 하나도 없는 새 PDF를 만듭니다.</li>
+<li><strong>쪽 붙이기</strong> (<code>append</code>): 파일 이름을 넣으면 그 파일의 모든 쪽을 뒤에 붙입니다. <code>append</code>를 부른 순서가 그대로 쪽 순서가 됩니다.</li>
+<li><strong>저장하기</strong> (<code>write</code>): 지금까지 붙인 쪽을 <code>합친파일.pdf</code>라는 새 파일로 저장합니다. 원래 파일 두 개는 그대로 남습니다.</li>
+</ul>
+<p>실행하자 <code>합친파일.pdf 저장</code>이 찍혔고, 합친 파일은 3쪽이었습니다. 2쪽짜리 뒤에 1쪽짜리가 그대로 붙었습니다.</p>
+<p>파일 크기는 125,215바이트로, 두 파일 크기를 더한 125,618바이트보다 조금 작았습니다.</p>
+<p><img alt="합치기 코드 실행 결과" src="/uploads/pdftool-03-09.png" loading="lazy"/></p>
+<p>크롬으로 연 합친파일.pdf에는 연습1의 두 쪽 뒤에 연습2가 3쪽으로 붙어 있었습니다.</p>
+<p>합친 파일이 몇 쪽인지는 열지 않아도 pypdf의 <code>PdfReader</code>로 알 수 있습니다. 파일을 열어 보는 것보다 빨라서, 앞으로 쪽수 확인은 <code>PdfReader</code>로 하려고 합니다.</p>
+<pre><code>python -c &quot;from pypdf import PdfReader; print(len(PdfReader(&#x27;합친파일.pdf&#x27;).pages))&quot;
+</code></pre>
+<h2 id="남은-문제"><a href="#남은-문제">남은 문제</a></h2>
+<p>지금 코드는 파일 이름이 코드 안에 적혀 있어서, 다른 PDF를 합치려면 그때마다 코드를 고쳐야 합니다.</p>
+<p>4편에서는 폴더 하나를 정해 두고, 그 안의 PDF를 번호 순서대로 찾아 합치게 바꿔 보겠습니다.</p>
+<p>제가 쓴 환경은 Windows 11, Python 3.14.9, pip 26.2.2, pypdf 6.21.4, Pillow 13.0.0입니다.</p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">필요한 프로그램을 직접 만들고 그 과정을 적습니다</p></div><nav class="post-nav" aria-label="이전 글 다음 글"><a class="post-nav__item" href="/posts/python-pdf-tool-02-design/"><span class="post-nav__label">이전 글</span><span class="post-nav__title">파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계</span></a><span></span></nav></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-pdf-tool-02-design/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계</h3><p>1편 요구사항을 바탕으로 처리 흐름도, 화면 설계, 모듈 나누기, 예외 처리, 테스트 계획을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-30T09:59">2026년 10월 30일 09:59</time><span>· <!-- -->파이썬, PDF 합치기, 흐름도</span></div></a><a class="post-card " href="/posts/python-pdf-tool-01-requirements/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 1편 요구사항 정리</h3><p>PDF 합치기 프로그램을 파이썬으로 만들기 전에, 평소 PDF를 다루며 불편했던 점을 바탕으로 요구사항 정의서와 유스케이스 명세, 범위, 일정을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-29T18:20">2026년 10월 29일 18:20</time><span>· <!-- -->파이썬, PDF 합치기, 요구사항 정의서</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem">필요한 프로그램을 직접 만들고, 만든 과정을 적습니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>
