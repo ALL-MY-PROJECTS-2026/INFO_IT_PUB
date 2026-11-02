@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 4편 폴더 속 PDF 번호순 합치기</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-04-folder-merge</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-04-folder-merge</guid>
+      <pubDate>Mon, 02 Nov 2026 10:38:00 GMT</pubDate>
+      <description>폴더 안 스캔 PDF 11개를 한 번에 합치는 코드를 짜고, 1 다음에 10이 붙던 순서를 숫자 순서로 고쳤습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기</title>
       <link>https://pancoit.site/posts/python-pdf-tool-03-install-merge</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-03-install-merge</guid>
