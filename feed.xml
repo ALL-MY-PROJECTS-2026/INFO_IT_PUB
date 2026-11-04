@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 5편 사진 묶기와 용량 줄이기</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-05-photo-size</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-05-photo-size</guid>
+      <pubDate>Wed, 04 Nov 2026 14:58:00 GMT</pubDate>
+      <description>휴대폰 사진 5장을 PDF로 묶어 1MB 아래로 줄이고, 화질 단계 오류와 옆으로 누운 쪽을 고쳤습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 4편 폴더 속 PDF 번호순 합치기</title>
       <link>https://pancoit.site/posts/python-pdf-tool-04-folder-merge</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-04-folder-merge</guid>
