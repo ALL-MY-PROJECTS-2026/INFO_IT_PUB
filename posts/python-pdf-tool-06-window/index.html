@@ -60,7 +60,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-BFxGfD6A.js"></script>
+    <script type="module" crossorigin src="/assets/index-Bz8TyjAO.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
     <link rel="stylesheet" crossorigin href="/assets/index-0DGBLkgr.css">
   </head>
@@ -150,6 +150,8 @@
 <p>파일을 넣고 빼고 순서를 바꾸는 버튼이 모두 끝에 이 함수를 부르게 되어 있어서, 한 곳만 고치면 됐습니다. 목록이 비면 만들기 버튼을 끄는 것도 이 함수에서 같이 합니다.</p>
 <p><img alt="고친 뒤 폴더를 넣은 화면. 상태줄에 11개를 넣었다고 나옴" src="/uploads/pdftool-06-05.png" loading="lazy"/></p>
 <p>만들기를 누르니 1초가 안 걸려 상태줄에 &#x27;11쪽 · 0.40MB로 저장했습니다 (원본 파일은 그대로)&#x27;가 나왔습니다.</p>
+<p>합친 파일은 스캔 순서 그대로 1쪽부터 11쪽까지 이어집니다. 마지막 쪽이 11쪽입니다.</p>
+<p><img alt="창에서 합친 PDF를 열어 마지막 11쪽을 띄운 화면. 왼쪽에 쪽 목록, 위에 11 / 11" src="/uploads/pdftool-06-06.png" loading="lazy"/></p>
 <h2 id="사진-묶기와-기다리는-동안의-표시"><a href="#사진-묶기와-기다리는-동안의-표시">사진 묶기와 기다리는 동안의 표시</a></h2>
 <p>사진 → PDF를 고르면 용량 제한 칸이 켜집니다. 2편에서 용량 확인은 사진을 PDF로 묶을 때만 하기로 해서, PDF 합치기에서는 칸이 꺼져 있게 했습니다.</p>
 <p>사진은 5편에서 쓴 휴대폰 사진 다섯 장(공개 라이선스 CC0)을 그대로 넣었습니다. 1판에서는 1MB로 정해 만들기를 누르면 결과가 나올 때까지 창에 아무 변화가 없었습니다. 눌렸는지 화면으로는 알 수 없었습니다.</p>
@@ -185,13 +187,16 @@
 <li><strong>안내 보여 주기</strong> (<code>except</code>): <code>pdf_core</code>가 보낸 안내 문장이나 저장 권한 오류를 받으면 상태줄에 빨간 글자로 보여 주고 멈춥니다. 프로그램이 꺼지지 않습니다.</li>
 <li><strong>커서 되돌리기</strong> (<code>finally</code>): 잘 끝나든 중간에 멈추든 마지막에 커서를 원래대로 돌립니다.</li>
 </ul>
-<p><img alt="사진을 묶는 동안 상태줄에 만드는 중입니다가 나온 화면" src="/uploads/pdftool-06-06.png" loading="lazy"/></p>
+<p><img alt="사진을 묶는 동안 상태줄에 만드는 중입니다가 나온 화면" src="/uploads/pdftool-06-07.png" loading="lazy"/></p>
 <p>다 끝나자 &#x27;5쪽 · 0.93MB로 저장했습니다 (원본 파일은 그대로)&#x27;가 나왔습니다. 5편에서 같은 사진을 명령어로 묶은 결과와 같은 0.93MB입니다.</p>
-<p><img alt="사진 5장을 1MB 아래로 묶은 결과" src="/uploads/pdftool-06-07.png" loading="lazy"/></p>
+<p><img alt="사진 5장을 1MB 아래로 묶은 결과" src="/uploads/pdftool-06-08.png" loading="lazy"/></p>
+<p>묶인 PDF는 5쪽이고, 세로로 찍은 책 사진도 옆으로 눕지 않고 바로 선 채로 들어갔습니다.</p>
+<p><img alt="창에서 묶은 사진 PDF의 첫 쪽. 세로로 찍은 책 사진이 바로 서 있고 왼쪽에 다섯 쪽 목록" src="/uploads/pdftool-06-09.png" loading="lazy"/></p>
+<p class="muted">사진: Randal Oulton, 위키미디어 공용 CC0</p>
 <h2 id="잘못-넣었을-때의-안내"><a href="#잘못-넣었을-때의-안내">잘못 넣었을 때의 안내</a></h2>
 <p>2편에서 정한 오류 상황 가운데 용량 칸을 잘못 채운 경우와 암호 걸린 PDF를 넣은 경우를 해 봤습니다.</p>
 <p>용량 칸에 &#x27;1MB&#x27;처럼 단위까지 적으면 숫자로 바꿀 수 없어서, 만들기를 막고 숫자만 넣으라는 안내를 띄웁니다.</p>
-<p><img alt="용량 칸에 1MB를 넣었을 때 안내" src="/uploads/pdftool-06-08.png" loading="lazy"/></p>
+<p><img alt="용량 칸에 1MB를 넣었을 때 안내" src="/uploads/pdftool-06-10.png" loading="lazy"/></p>
 <p>암호 걸린 PDF는 연습용으로 하나 만들어서 시험했습니다. 3편에서 만든 연습2.pdf에 pypdf로 열기 암호를 걸었습니다.</p>
 <pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> pypdf </span><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> PdfReader, PdfWriter</span></span>
 <span class="line"></span>
@@ -201,7 +206,7 @@
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">writer.write(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;암호연습.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
 <span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">print</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;암호연습.pdf 만들었음&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre>
 <p>연습1, 암호연습, 연습2 순서로 넣고 만들기를 누르니 상태줄에 어느 파일이 문제인지 이름이 나왔고, 결과 파일은 생기지 않았습니다.</p>
-<p><img alt="암호 걸린 파일을 섞었을 때 안내" src="/uploads/pdftool-06-09.png" loading="lazy"/></p>
+<p><img alt="암호 걸린 파일을 섞었을 때 안내" src="/uploads/pdftool-06-11.png" loading="lazy"/></p>
 <p>같은 이름의 결과 파일이 이미 있으면 덮어쓸지 묻는 창과 위로·아래로·빼기 버튼은 코드에만 넣어 두었습니다.</p>
 <p>다음 편에서는 이 창을 더블클릭으로 켜는 방법을 만들고, 2편에서 정한 시험 11가지를 처음부터 해 보겠습니다.</p>
 <p>제가 쓴 환경은 Windows 11, Python 3.14.9, tkinter 9.0, pypdf 6.21.4, Pillow 13.0.0입니다.</p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">필요한 프로그램을 직접 만들고 그 과정을 적습니다</p></div><nav class="post-nav" aria-label="이전 글 다음 글"><a class="post-nav__item" href="/posts/python-pdf-tool-05-photo-size/"><span class="post-nav__label">이전 글</span><span class="post-nav__title">파이썬으로 PDF 합치기 프로그램 만들기 5편 사진 묶기와 용량 줄이기</span></a><span></span></nav></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-pdf-tool-05-photo-size/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 5편 사진 묶기와 용량 줄이기</h3><p>휴대폰 사진 5장을 PDF로 묶어 1MB 아래로 줄이고, 화질 단계 오류와 옆으로 누운 쪽을 고쳤습니다.</p><div class="post-card__meta"><time dateTime="2026-11-04T14:58">2026년 11월 4일 14:58</time><span>· <!-- -->파이썬, PDF 합치기, Pillow</span></div></a><a class="post-card " href="/posts/python-pdf-tool-04-folder-merge/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 4편 폴더 속 PDF 번호순 합치기</h3><p>폴더 안 스캔 PDF 11개를 한 번에 합치는 코드를 짜고, 1 다음에 10이 붙던 순서를 숫자 순서로 고쳤습니다.</p><div class="post-card__meta"><time dateTime="2026-11-02T10:38">2026년 11월 2일 10:38</time><span>· <!-- -->파이썬, PDF 합치기, pypdf</span></div></a><a class="post-card " href="/posts/python-pdf-tool-03-install-merge/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기</h3><p>pypdf와 Pillow를 설치하다 나온 pip 캐시 경고의 원인을 확인하고, 연습용 PDF 두 개를 만들어 처음으로 합쳐 봤습니다.</p><div class="post-card__meta"><time dateTime="2026-10-31T14:35">2026년 10월 31일 14:35</time><span>· <!-- -->파이썬, PDF 합치기, pypdf</span></div></a><a class="post-card " href="/posts/python-pdf-tool-02-design/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계</h3><p>1편 요구사항을 바탕으로 처리 흐름도, 화면 설계, 모듈 나누기, 예외 처리, 테스트 계획을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-30T09:59">2026년 10월 30일 09:59</time><span>· <!-- -->파이썬, PDF 합치기, 흐름도</span></div></a><a class="post-card " href="/posts/python-pdf-tool-01-requirements/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 1편 요구사항 정리</h3><p>PDF 합치기 프로그램을 파이썬으로 만들기 전에, 평소 PDF를 다루며 불편했던 점을 바탕으로 요구사항 정의서와 유스케이스 명세, 범위, 일정을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-29T18:20">2026년 10월 29일 18:20</time><span>· <!-- -->파이썬, PDF 합치기, 요구사항 정의서</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem">필요한 프로그램을 직접 만들고, 만든 과정을 적습니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
