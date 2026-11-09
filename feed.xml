@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 6편 tkinter로 창 만들기</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-06-window</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-06-window</guid>
+      <pubDate>Mon, 09 Nov 2026 13:10:00 GMT</pubDate>
+      <description>명령어로 돌리던 PDF 합치기와 사진 묶기를 tkinter 창 하나로 모으고, 상태줄 문구와 만드는 동안의 표시를 고쳤습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 5편 사진 묶기와 용량 줄이기</title>
       <link>https://pancoit.site/posts/python-pdf-tool-05-photo-size</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-05-photo-size</guid>
