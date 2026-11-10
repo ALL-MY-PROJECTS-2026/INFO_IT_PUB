@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험 — PANCO_IT</title>
+    <meta name="description" content="bat 파일로 PDF 도구를 더블클릭해 켜고, 2편에서 만든 시험 11가지와 덮어쓰기 확인을 처음부터 돌려 12개 모두 통과했습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-pdf-tool-07-run-test/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험 — PANCO_IT" />
+    <meta property="og:description" content="bat 파일로 PDF 도구를 더블클릭해 켜고, 2편에서 만든 시험 11가지와 덮어쓰기 확인을 처음부터 돌려 12개 모두 통과했습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-pdf-tool-07-run-test/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/pdftool-07-01.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-11-10T15:04" />
+    <meta property="article:modified_time" content="2026-11-10T15:04" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험 — PANCO_IT" />
+    <meta name="twitter:description" content="bat 파일로 PDF 도구를 더블클릭해 켜고, 2편에서 만든 시험 11가지와 덮어쓰기 확인을 처음부터 돌려 12개 모두 통과했습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/pdftool-07-01.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험","description":"bat 파일로 PDF 도구를 더블클릭해 켜고, 2편에서 만든 시험 11가지와 덮어쓰기 확인을 처음부터 돌려 12개 모두 통과했습니다.","image":"https://pancoit.site/uploads/pdftool-07-01.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-11-10T15:04","dateModified":"2026-11-10T15:04","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-pdf-tool-07-run-test/"},"keywords":"파이썬, bat 파일, 배치 파일, PDF 합치기, 소프트웨어 시험"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PDF 도구","item":"https://pancoit.site/category/PDF%20%EB%8F%84%EA%B5%AC/"},{"@type":"ListItem","position":3,"name":"파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험","item":"https://pancoit.site/posts/python-pdf-tool-07-run-test/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-Bl6DSl18.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-0DGBLkgr.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PDF%20%EB%8F%84%EA%B5%AC/">PDF 도구</a></li><li><span aria-current="page">파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PDF%20%EB%8F%84%EA%B5%AC/">PDF 도구</a><h1 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-11-10T15:04">2026년 11월 10일 15:04</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->bat 파일</span><span class="tag">#<!-- -->배치 파일</span><span class="tag">#<!-- -->PDF 합치기</span><span class="tag">#<!-- -->소프트웨어 시험</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><img alt="탐색기에서 PDF도구.bat를 열어 띄운 PDF 도구 창" src="/uploads/pdftool-07-01.png" loading="lazy"/></p>
+<p>6편에서 창을 만들었지만, 켤 때는 여전히 명령어 창을 열고 <code>python pdf_tool_ui.py</code>를 쳐야 했습니다. 1편 요구사항 NFR-04는 &#x27;명령어 없이 창에서 쓴다&#x27;였고, 확인 방법은 &#x27;더블클릭으로 켜서 끝까지 해 본다&#x27;였습니다.</p>
+<p>이번 편에서는 더블클릭으로 켜는 파일을 만들고, 2편에서 만든 시험표 11가지를 처음부터 돌려 보겠습니다. 이걸로 1편 일정표의 마지막 단계인 마무리를 끝냅니다.</p>
+<h2 id="bat-파일로-더블클릭-실행하기"><a href="#bat-파일로-더블클릭-실행하기">bat 파일로 더블클릭 실행하기</a></h2>
+<p>윈도우에서는 명령어를 적어 둔 텍스트 파일의 확장자를 <code>.bat</code>로 바꾸면 더블클릭으로 그 명령이 실행됩니다. 이런 파일을 배치 파일이라고 합니다. 명령어 창에서 치던 실행 명령을 그대로 적어 두면 됩니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">@echo</span><span style="color:#D73A49;--shiki-dark:#F97583"> off</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">cd</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /d </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">%~dp0</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">start</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> pyw pdf_tool_ui.py</span></span></code></pre>
+<ul>
+<li><strong>명령 줄 숨기기</strong> (<code>@echo off</code>): 실행되는 명령을 한 줄씩 화면에 찍지 않게 합니다.</li>
+<li><strong>bat가 있는 폴더로 옮기기</strong> (<code>cd /d &quot;%~dp0&quot;</code>): <code>%~dp0</code>은 이 bat 파일이 들어 있는 폴더입니다. 바탕화면 바로가기처럼 다른 위치에서 열어도 <code>pdf_tool_ui.py</code>를 찾을 수 있습니다.</li>
+<li><strong>검은 창 없이 켜기</strong> (<code>start &quot;&quot; pyw</code>): <code>pyw</code>는 명령어 창을 띄우지 않는 파이썬 실행기입니다. <code>start</code>로 실행하면 bat는 바로 끝나고 PDF 도구 창만 남습니다.</li>
+</ul>
+<h3 id="처음-만든-bat가-돌지-않은-이유"><a href="#처음-만든-bat가-돌지-않은-이유">처음 만든 bat가 돌지 않은 이유</a></h3>
+<p>10월 말 사진 묶기 명령으로 bat를 처음 만들었을 때는 명령이 반쯤 잘려서 실행됐습니다. <code>/d</code>와 <code>hon</code>을 명령으로 알아듣지 못한다는 오류가 나왔고, <code>python</code>의 앞 글자들이 떨어져 나간 상태였습니다.</p>
+<p><img alt="처음 만든 bat 실행 결과. &#x27;/d&#x27;은(는) 내부 또는 외부 명령이 아닙니다, &#x27;hon&#x27;은(는) 내부 또는 외부 명령이 아닙니다" src="/uploads/pdftool-07-02.png" loading="lazy"/></p>
+<p>원인은 줄바꿈입니다. 파일이 리눅스 방식(LF)으로만 저장돼 있었습니다. 제가 쓰는 편집기는 기본으로 LF로 저장합니다. 윈도우의 명령어 창은 줄바꿈을 CR과 LF 두 글자(CRLF)로 읽기 때문에, 줄 경계를 잘못 잡으면서 명령이 잘렸습니다.</p>
+<p>줄바꿈만 CRLF로 바꾸고 UTF-8로 저장했을 때는 다른 문제가 났습니다. 첫 줄 <code>@echo off</code> 앞에 글자 몇 개가 깨져 붙었고, 한글로 된 파일 이름도 깨졌습니다. 이 노트북의 명령어 창은 한글을 CP949로 읽어서, 결국 CRLF 줄바꿈에 ANSI(CP949) 인코딩으로 저장해야 돌았습니다.</p>
+<p>이번 <code>PDF도구.bat</code>도 처음부터 CRLF와 CP949로 저장했습니다. 파일 크기는 55바이트, 줄바꿈 CRLF는 세 번입니다.</p>
+<p><img alt="PDF도구.bat가 들어 있는 연습 폴더. pdf_core.py, pdf_tool_ui.py, PDF도구.bat, 연습 PDF, 사진 폴더, 합칠것 폴더" src="/uploads/pdftool-07-03.png" loading="lazy"/></p>
+<p>탐색기에서 이 파일을 열자 검은 창 없이 PDF 도구 창이 떴습니다. 처음 실행할 때는 창이 뜨기까지 1분 가까이 걸렸고, 두 번째부터는 7.5초였습니다. 처음 실행한 뒤 폴더에 <code>__pycache__</code> 폴더가 생겼는데, 파이썬이 <code>pdf_core.py</code>를 읽기 쉬운 형태로 바꿔 저장해 두는 곳입니다.</p>
+<h2 id="시험-코드로-2편-시험표-돌리기"><a href="#시험-코드로-2편-시험표-돌리기">시험 코드로 2편 시험표 돌리기</a></h2>
+<p>2편 시험표에는 11가지가 있습니다. 창에서 손으로 하나씩 해도 되지만, 고칠 때마다 다시 하려면 번거로워서 시험 코드를 따로 만들었습니다. 창 코드 <code>pdf_tool_ui.py</code>를 그대로 불러와, 버튼이 부르는 함수를 같은 순서로 부릅니다.</p>
+<p>다만 &#x27;파일 추가&#x27; 버튼이 띄우는 파일 고르는 창은 사람이 눌러야 해서 건너뛰었습니다. 그 대신 목록을 직접 채우거나, &#x27;폴더 추가&#x27; 버튼의 함수에 폴더를 넘겼습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">root </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tk.Tk()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">app </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> pdf_tool_ui.PdfToolApp(root)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># TC-01 · TC-06</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">app.mode.set(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">); app.모드_바뀜()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">app.files </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#005CC5;--shiki-dark:#79B8FF">str</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">HERE</span><span style="color:#D73A49;--shiki-dark:#F97583"> /</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;연습1.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">), </span><span style="color:#005CC5;--shiki-dark:#79B8FF">str</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">HERE</span><span style="color:#D73A49;--shiki-dark:#F97583"> /</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;연습2.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)]; app.목록_새로고침()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">app.out_path.set(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">str</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">HERE</span><span style="color:#D73A49;--shiki-dark:#F97583"> /</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;TC01_합친파일.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">app.만들기(</span><span style="color:#E36209;--shiki-dark:#FFAB70">ask</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF">False</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">n </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> len</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(PdfReader(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">HERE</span><span style="color:#D73A49;--shiki-dark:#F97583"> /</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;TC01_합친파일.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).pages)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">기록(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;TC-01&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">f</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;연습1(2쪽)+연습2(1쪽) → </span><span style="color:#005CC5;--shiki-dark:#79B8FF">{</span><span style="color:#24292E;--shiki-dark:#E1E4E8">n</span><span style="color:#005CC5;--shiki-dark:#79B8FF">}</span><span style="color:#032F62;--shiki-dark:#9ECBFF">쪽&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, n </span><span style="color:#D73A49;--shiki-dark:#F97583">==</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">상태 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> app.status.get()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">기록(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;TC-06&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">f</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;상태줄 &#x27;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">{</span><span style="color:#24292E;--shiki-dark:#E1E4E8">상태</span><span style="color:#005CC5;--shiki-dark:#79B8FF">}</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;3쪽&quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> 상태 </span><span style="color:#D73A49;--shiki-dark:#F97583">and</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;MB&quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> 상태)</span></span></code></pre>
+<ul>
+<li><strong>창을 그대로 만들기</strong> (<code>PdfToolApp(root)</code>): 6편의 창을 띄우고, 사람이 누르는 대신 코드에서 함수를 부릅니다.</li>
+<li><strong>만들기 누르기</strong> (<code>만들기(ask=False)</code>): 만들기 버튼이 부르는 함수입니다. <code>ask=False</code>는 같은 이름 파일이 있어도 묻지 않게 하는 값으로, 시험 중간에 확인 창이 떠서 멈추지 않게 했습니다.</li>
+<li><strong>결과 적기</strong> (<code>기록</code>): 시험 번호와 실제 결과, 통과 여부를 한 줄로 출력합니다.</li>
+</ul>
+<p>시험표 11가지에 6편에서 코드만 넣고 확인하지 못한 덮어쓰기 확인을 더해 12가지를 돌렸고, 모두 통과했습니다.</p>
+<table><thead><tr><th>시험</th><th>한 일</th><th>결과</th></tr></thead><tbody><tr><td>TC-01</td><td>2쪽 PDF와 1쪽 PDF 합치기</td><td>3쪽</td></tr><tr><td>TC-02</td><td>&#x27;스캔 (1)&#x27;~&#x27;스캔 (11)&#x27; 폴더 넣기</td><td>1번부터 11번 순서</td></tr><tr><td>TC-03</td><td>사진 5장 묶기</td><td>5쪽</td></tr><tr><td>TC-04</td><td>사진 5장, 1MB 제한</td><td>0.93MB, 8.7초</td></tr><tr><td>TC-05</td><td>3번째 파일을 맨 위로, 하나 빼기</td><td>첫 쪽이 3번, 빼기 정상</td></tr><tr><td>TC-06</td><td>끝난 뒤 상태줄</td><td>&#x27;3쪽 · 0.12MB로 저장했습니다&#x27;</td></tr><tr><td>TC-07</td><td>인터넷 사용</td><td>네트워크 연결 0개</td></tr><tr><td>TC-08</td><td>입력 파일 19개 전후 비교</td><td>바뀐 것 0개</td></tr><tr><td>TC-09</td><td>한글 이름 폴더</td><td>11쪽 정상</td></tr><tr><td>TC-10</td><td>더블클릭 실행</td><td>7.5초 만에 창이 뜸</td></tr><tr><td>TC-11</td><td>암호 걸린 PDF 섞기</td><td>안내가 뜨고 결과 파일 없음</td></tr><tr><td>덮어쓰기</td><td>같은 이름 파일이 있을 때</td><td>&#x27;아니요&#x27;면 그대로, &#x27;예&#x27;면 새 파일</td></tr></tbody></table>
+<p><img alt="폴더 추가로 스캔 11개를 넣은 창. 스캔 (1).pdf부터 스캔 (11).pdf까지 번호 순서, 상태줄에 11개를 넣었습니다" src="/uploads/pdftool-07-04.png" loading="lazy"/></p>
+<p>합친 파일은 11쪽이고, 마지막 쪽에 &#x27;11쪽&#x27;이 찍혀 있습니다.</p>
+<p><img alt="합친 PDF를 열어 마지막 쪽을 띄운 화면. 11 / 11, 마지막 쪽 11쪽" src="/uploads/pdftool-07-05.png" loading="lazy"/></p>
+<h2 id="순서-확인-방법-고치기"><a href="#순서-확인-방법-고치기">순서 확인 방법 고치기</a></h2>
+<p>처음 돌렸을 때는 TC-02와 TC-05가 실패로 나왔습니다. 목록 순서는 맞았는데 결과 쪽의 순서를 확인하는 부분이 빈 글자를 돌려줬기 때문입니다.</p>
+<p>처음 시험 코드는 결과 PDF의 쪽마다 글자를 뽑아 &#x27;1쪽&#x27;, &#x27;2쪽&#x27;과 맞는지 봤습니다. 그런데 4편에서 만든 연습용 스캔 PDF는 실제 스캔처럼 쪽마다 그림 한 장만 들어 있어서, 뽑을 글자가 없었습니다. 프로그램이 아니라 시험 코드가 틀린 것입니다.</p>
+<p>그래서 결과 쪽의 그림 데이터를 원본 스캔 파일의 그림과 맞춰, 그 쪽이 몇 번 파일에서 왔는지 찾게 바꿨습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> 쪽출처</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(pdf):</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    # 스캔 연습 파일은 쪽마다 그림 한 장이라, 그림 데이터를 견준다</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    def</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> 열쇠</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(p):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> hashlib.sha256(</span><span style="color:#D73A49;--shiki-dark:#F97583">b</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.join(i.data </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> i </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p.images) </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p.get_contents().get_data()).hexdigest()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    원본 </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {}</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> f </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> sorted</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#005CC5;--shiki-dark:#79B8FF">HERE</span><span style="color:#D73A49;--shiki-dark:#F97583"> /</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;합칠것&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).glob(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;*.pdf&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        원본[열쇠(PdfReader(f).pages[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">])] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> f.stem.replace(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;스캔 (&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).replace(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;)&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;번&quot;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [원본.get(열쇠(p), </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;?&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> p </span><span style="color:#D73A49;--shiki-dark:#F97583">in</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> PdfReader(pdf).pages]</span></span></code></pre>
+<ul>
+<li><strong>쪽마다 지문 만들기</strong> (<code>hashlib.sha256</code>): 쪽에 든 그림 데이터와 그리기 명령을 이어 붙여 짧은 지문으로 바꿉니다. 그림이 같으면 지문도 같습니다.</li>
+<li><strong>원본 지문 모으기</strong> (<code>원본</code>): 스캔 11개 파일의 첫 쪽 지문을 &#x27;1번&#x27;부터 &#x27;11번&#x27;까지 이름과 짝지어 둡니다.</li>
+<li><strong>결과 쪽 찾기</strong> (<code>원본.get</code>): 결과 PDF의 쪽마다 지문을 찾아 번호를 돌려줍니다. 원본에 없는 쪽이면 &#x27;?&#x27;가 나옵니다.</li>
+</ul>
+<p>고친 뒤 TC-02는 결과 쪽이 &#x27;1번 2번 … 11번&#x27; 순서로, TC-05는 &#x27;3번 1번 2번&#x27;으로 나와 둘 다 통과했습니다.</p>
+<p><img alt="스캔 3개 중 3번째를 위로 두 번 옮긴 창. 스캔 (3).pdf가 맨 위" src="/uploads/pdftool-07-06.png" loading="lazy"/></p>
+<p><img alt="순서를 바꿔 합친 PDF의 첫 쪽. 1 / 3, 첫 쪽 3쪽" src="/uploads/pdftool-07-07.png" loading="lazy"/></p>
+<h2 id="인터넷-사용과-원본-확인"><a href="#인터넷-사용과-원본-확인">인터넷 사용과 원본 확인</a></h2>
+<p>TC-07은 원래 와이파이를 끄고 똑같이 되는지 보는 시험입니다. 이번에는 와이파이를 끄는 대신, 시험이 끝난 시점에 이 프로그램이 불러온 모듈과 열어 둔 네트워크 연결을 확인했습니다. 인터넷에 쓰는 <code>socket</code>, <code>http</code> 같은 모듈은 하나도 불러오지 않았고, 이 프로그램이 연 TCP 연결은 0개였습니다.</p>
+<p>TC-08은 시험 전후로 입력 파일 19개의 내용 지문과 수정 시각을 비교했습니다. 연습 PDF 3개, 스캔 11개, 사진 5장 가운데 바뀐 파일은 없었습니다. 결과는 늘 새 파일로만 저장됩니다.</p>
+<h2 id="암호-파일과-덮어쓰기-확인"><a href="#암호-파일과-덮어쓰기-확인">암호 파일과 덮어쓰기 확인</a></h2>
+<p>TC-11은 연습1, 암호연습, 연습2 순서로 넣고 만들기를 눌렀습니다. 상태줄에 빨간 글씨로 &#x27;암호가 걸린 파일은 넣을 수 없습니다: 암호연습.pdf&#x27;가 나왔고, 결과 파일은 만들어지지 않았습니다. 창도 꺼지지 않았습니다.</p>
+<p><img alt="암호 걸린 파일을 섞었을 때. 상태줄에 빨간 글씨로 암호가 걸린 파일은 넣을 수 없습니다: 암호연습.pdf" src="/uploads/pdftool-07-08.png" loading="lazy"/></p>
+<p>덮어쓰기 확인은 같은 이름의 결과 파일이 이미 있을 때 &#x27;덮어쓸까요?&#x27;라고 묻는 창입니다. 이 창은 사람이 눌러야 닫혀서, 시험 코드에서는 묻는 함수를 잠깐 바꿔 &#x27;아니요&#x27;와 &#x27;예&#x27;를 차례로 넣었습니다. 창이 묻는 문장은 &#x27;TC01_합친파일.pdf 이(가) 이미 있습니다. 덮어쓸까요?&#x27;입니다. &#x27;아니요&#x27;를 넣으면 파일 크기가 그대로였고, &#x27;예&#x27;를 넣으면 새로 합친 1쪽짜리 파일로 바뀌었습니다.</p>
+<h2 id="라이선스-확인"><a href="#라이선스-확인">라이선스 확인</a></h2>
+<p>1편 요구사항 NFR-05는 &#x27;코드를 공개할 수 있는 라이브러리만 쓴다&#x27;였습니다. pypdf 6.21.4의 라이선스는 BSD-3-Clause, Pillow 13.0.0은 MIT-CMU입니다. 둘 다 코드를 공개하거나 고쳐 써도 되는 라이선스입니다. tkinter는 파이썬에 들어 있는 모듈이라 따로 설치하지 않았습니다.</p>
+<h2 id="1편-요구사항과-대조하기"><a href="#1편-요구사항과-대조하기">1편 요구사항과 대조하기</a></h2>
+<p>1편에서 적은 요구사항 11개를 이번 시험까지 모두 확인했습니다. 일정표로는 10월 마지막 주에 분석과 설계, 11월 첫째 주부터 둘째 주에 걸쳐 구현과 마무리를 했습니다.</p>
+<p>1편에서 &#x27;나중에&#x27;로 미뤄 둔 것은 이번 연재에서 만들지 않았습니다. 쪽 나누기·돌리기·지우기, 아이폰 사진 형식(HEIC), PDF끼리 합친 파일의 용량 줄이기, 글자 인식(OCR), 설치 프로그램(.exe), 맥·리눅스, 암호 풀기입니다.</p>
+<p>다음에는 다른 프로그램을 같은 순서로 요구사항부터 만들어 보겠습니다.</p>
+<p>제가 쓴 환경은 Windows 11, Python 3.14.9, tkinter 9.0, pypdf 6.21.4, Pillow 13.0.0입니다.</p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">필요한 프로그램을 직접 만들고 그 과정을 적습니다</p></div><nav class="post-nav" aria-label="이전 글 다음 글"><a class="post-nav__item" href="/posts/python-pdf-tool-06-window/"><span class="post-nav__label">이전 글</span><span class="post-nav__title">파이썬으로 PDF 합치기 프로그램 만들기 6편 tkinter로 창 만들기</span></a><span></span></nav></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-pdf-tool-04-folder-merge/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 4편 폴더 속 PDF 번호순 합치기</h3><p>폴더 안 스캔 PDF 11개를 한 번에 합치는 코드를 짜고, 1 다음에 10이 붙던 순서를 숫자 순서로 고쳤습니다.</p><div class="post-card__meta"><time dateTime="2026-11-02T10:38">2026년 11월 2일 10:38</time><span>· <!-- -->파이썬, PDF 합치기, pypdf</span></div></a><a class="post-card " href="/posts/python-pdf-tool-06-window/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 6편 tkinter로 창 만들기</h3><p>명령어로 돌리던 PDF 합치기와 사진 묶기를 tkinter 창 하나로 모으고, 상태줄 문구와 만드는 동안의 표시를 고쳤습니다.</p><div class="post-card__meta"><time dateTime="2026-11-09T13:10">2026년 11월 9일 13:10</time><span>· <!-- -->파이썬, tkinter, PDF 합치기</span></div></a><a class="post-card " href="/posts/python-pdf-tool-05-photo-size/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 5편 사진 묶기와 용량 줄이기</h3><p>휴대폰 사진 5장을 PDF로 묶어 1MB 아래로 줄이고, 화질 단계 오류와 옆으로 누운 쪽을 고쳤습니다.</p><div class="post-card__meta"><time dateTime="2026-11-04T14:58">2026년 11월 4일 14:58</time><span>· <!-- -->파이썬, PDF 합치기, Pillow</span></div></a><a class="post-card " href="/posts/python-pdf-tool-03-install-merge/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기</h3><p>pypdf와 Pillow를 설치하다 나온 pip 캐시 경고의 원인을 확인하고, 연습용 PDF 두 개를 만들어 처음으로 합쳐 봤습니다.</p><div class="post-card__meta"><time dateTime="2026-10-31T14:35">2026년 10월 31일 14:35</time><span>· <!-- -->파이썬, PDF 합치기, pypdf</span></div></a><a class="post-card " href="/posts/python-pdf-tool-02-design/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계</h3><p>1편 요구사항을 바탕으로 처리 흐름도, 화면 설계, 모듈 나누기, 예외 처리, 테스트 계획을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-30T09:59">2026년 10월 30일 09:59</time><span>· <!-- -->파이썬, PDF 합치기, 흐름도</span></div></a><a class="post-card " href="/posts/python-pdf-tool-01-requirements/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 1편 요구사항 정리</h3><p>PDF 합치기 프로그램을 파이썬으로 만들기 전에, 평소 PDF를 다루며 불편했던 점을 바탕으로 요구사항 정의서와 유스케이스 명세, 범위, 일정을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-29T18:20">2026년 10월 29일 18:20</time><span>· <!-- -->파이썬, PDF 합치기, 요구사항 정의서</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem">필요한 프로그램을 직접 만들고, 만든 과정을 적습니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

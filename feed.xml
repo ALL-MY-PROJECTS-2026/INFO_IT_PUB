@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-07-run-test</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-07-run-test</guid>
+      <pubDate>Tue, 10 Nov 2026 15:04:00 GMT</pubDate>
+      <description>bat 파일로 PDF 도구를 더블클릭해 켜고, 2편에서 만든 시험 11가지와 덮어쓰기 확인을 처음부터 돌려 12개 모두 통과했습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 6편 tkinter로 창 만들기</title>
       <link>https://pancoit.site/posts/python-pdf-tool-06-window</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-06-window</guid>
