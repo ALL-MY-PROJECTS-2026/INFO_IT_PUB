@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+    <!-- 친근한 웹폰트: Do Hyeon(제목) · Gowun Dodum(본문) — 렌더 비차단 로드
+         (한글은 Google 의 unicode-range 서브셋이 효율적이라 유지하고, CSS 만 비차단으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap"
+      />
+    </noscript>
+    <meta name="naver-site-verification" content="55ea6272593a6f382821e6df3932406d6ad42d7b" />
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z15X9WDPP7');(function(){function l(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=G-Z15X9WDPP7';document.head.appendChild(s);}if('requestIdleCallback'in window){requestIdleCallback(l,{timeout:4000});}else{window.addEventListener('load',function(){setTimeout(l,1500);});}})();</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8566399635146227" crossorigin="anonymous"></script>
+    <link rel="alternate" type="application/rss+xml" title="PANCO_IT RSS" href="https://pancoit.site/feed.xml" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"PANCO_IT","url":"https://pancoit.site/","logo":"https://pancoit.site/og-default.png"}</script>
+    <title>파이썬으로 PDF 합치기 프로그램 만들기 8편 브라우저에서 같은 코드 돌려 보기 — PANCO_IT</title>
+    <meta name="description" content="PDF 도구를 회사 동료들과 써 볼 사내 시제품으로 웹에 옮기려고 세 방법을 비교하고, Pyodide로 7편 코드를 브라우저에서 그대로 실행해 데스크톱과 같은 결과(16쪽 중 16쪽 일치)를 얻었습니다." />
+    <link rel="canonical" href="https://pancoit.site/posts/python-pdf-tool-08-browser/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PANCO_IT" />
+    <meta property="og:title" content="파이썬으로 PDF 합치기 프로그램 만들기 8편 브라우저에서 같은 코드 돌려 보기 — PANCO_IT" />
+    <meta property="og:description" content="PDF 도구를 회사 동료들과 써 볼 사내 시제품으로 웹에 옮기려고 세 방법을 비교하고, Pyodide로 7편 코드를 브라우저에서 그대로 실행해 데스크톱과 같은 결과(16쪽 중 16쪽 일치)를 얻었습니다." />
+    <meta property="og:url" content="https://pancoit.site/posts/python-pdf-tool-08-browser/" />
+    <meta property="og:image" content="https://pancoit.site/uploads/pdftool-08-01.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="article:published_time" content="2026-11-11T17:14" />
+    <meta property="article:modified_time" content="2026-11-11T17:14" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="파이썬으로 PDF 합치기 프로그램 만들기 8편 브라우저에서 같은 코드 돌려 보기 — PANCO_IT" />
+    <meta name="twitter:description" content="PDF 도구를 회사 동료들과 써 볼 사내 시제품으로 웹에 옮기려고 세 방법을 비교하고, Pyodide로 7편 코드를 브라우저에서 그대로 실행해 데스크톱과 같은 결과(16쪽 중 16쪽 일치)를 얻었습니다." />
+    <meta name="twitter:image" content="https://pancoit.site/uploads/pdftool-08-01.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"파이썬으로 PDF 합치기 프로그램 만들기 8편 브라우저에서 같은 코드 돌려 보기","description":"PDF 도구를 회사 동료들과 써 볼 사내 시제품으로 웹에 옮기려고 세 방법을 비교하고, Pyodide로 7편 코드를 브라우저에서 그대로 실행해 데스크톱과 같은 결과(16쪽 중 16쪽 일치)를 얻었습니다.","image":"https://pancoit.site/uploads/pdftool-08-01.png","author":{"@type":"Person","name":"PANCO_IT"},"publisher":{"@type":"Organization","name":"PANCO_IT"},"datePublished":"2026-11-11T17:14","dateModified":"2026-11-11T17:14","mainEntityOfPage":{"@type":"WebPage","@id":"https://pancoit.site/posts/python-pdf-tool-08-browser/"},"keywords":"파이썬, Pyodide, 웹어셈블리, PDF 합치기, 브라우저"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://pancoit.site/"},{"@type":"ListItem","position":2,"name":"PDF 도구","item":"https://pancoit.site/category/PDF%20%EB%8F%84%EA%B5%AC/"},{"@type":"ListItem","position":3,"name":"파이썬으로 PDF 합치기 프로그램 만들기 8편 브라우저에서 같은 코드 돌려 보기","item":"https://pancoit.site/posts/python-pdf-tool-08-browser/"}]}</script>
+    <!-- FOUC 방지: 기본은 라이트 모드, 사용자가 토글로 바꾼 경우만 그 값 사용 -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-C3soWcCu.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-BCrAd34n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-0DGBLkgr.css">
+  </head>
+  <body>
+    <div id="root"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header"><div class="container site-header__inner"><a class="brand" href="/">PANCO<span>_</span>IT</a><nav class="nav" aria-label="주요 메뉴"><a href="/">홈</a><a aria-current="page" class="active" href="/posts/">전체 글</a><a href="/about/">소개</a><a href="/contact/">문의</a><button class="theme-toggle" aria-label="화면 테마: 라이트 — 누르면 보호" title="테마: 라이트 → 보호"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg></button></nav></div></header><main id="main" class="container"><div class="reading-progress" style="width:0%" aria-hidden="true"></div><div class="post-layout"><article><nav class="breadcrumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/category/PDF%20%EB%8F%84%EA%B5%AC/">PDF 도구</a></li><li><span aria-current="page">파이썬으로 PDF 합치기 프로그램 만들기 8편 브라우저에서 같은 코드 돌려 보기</span></li></ol></nav><header class="post-header"><a class="tag" href="/category/PDF%20%EB%8F%84%EA%B5%AC/">PDF 도구</a><h1 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 8편 브라우저에서 같은 코드 돌려 보기</h1><div class="post-header__meta"><span>PANCO_IT</span><time dateTime="2026-11-11T17:14">2026년 11월 11일 17:14</time></div><div class="tag-row" style="margin-top:1rem"><span class="tag">#<!-- -->파이썬</span><span class="tag">#<!-- -->Pyodide</span><span class="tag">#<!-- -->웹어셈블리</span><span class="tag">#<!-- -->PDF 합치기</span><span class="tag">#<!-- -->브라우저</span></div></header><div id="article-body" class="prose" style="margin-top:2rem"><p><a href="https://pancoit.site/posts/python-pdf-tool-07-run-test/" target="_blank" rel="noopener noreferrer">7편</a>에서 PDF 도구를 완성했지만, 지금은 제 노트북에서만 쓸 수 있습니다. <code>PDF도구.bat</code>를 더블클릭하면 창이 뜨지만, 노트북에 파이썬과 pypdf, Pillow가 설치돼 있어야 열립니다.</p>
+<p>이번 편에서는 웹으로 옮기는 방법 세 가지를 비교하고, 7편 코드를 그대로 브라우저에서 실행해 보겠습니다. 데스크톱에서 나온 결과와도 비교합니다.</p>
+<h2 id="1-웹에서-쓰려는-이유"><a href="#1-웹에서-쓰려는-이유">1. 웹에서 쓰려는 이유</a></h2>
+<p>회사에서도 스캔한 서류나 휴대폰으로 찍은 증빙 사진을 PDF 한 파일로 묶어 올리는 일이 자주 있습니다. 이 도구를 같은 팀 사람들과 써 보고 싶었는데, 회사 PC에는 파이썬을 마음대로 설치할 수 없습니다. 사람마다 설치 방법을 알려 주는 것도 현실적이지 않았습니다.</p>
+<p>그래서 사내에서 시험 삼아 써 볼 웹 시제품(프로토타입)부터 만들기로 했습니다. 동료들이 주소 하나만 열면 쓸 수 있게 하고, 써 본 반응을 보고 계속 쓸지 정할 수 있게 처음에는 가볍게 만듭니다.</p>
+<table><thead><tr><th>시제품에 필요한 것</th><th>이유</th></tr></thead><tbody><tr><td>설치 없이 주소 하나로 열림</td><td>회사 PC에는 프로그램을 마음대로 설치할 수 없어서</td></tr><tr><td>PDF가 각자 PC 밖으로 나가지 않음</td><td>회사 서류를 다른 서버에 올릴 수 없어서</td></tr><tr><td>1~7편의 <code>pdf_core.py</code>를 그대로 씀</td><td>7편에서 시험 12개를 통과한 코드를 다시 짜지 않으려고</td></tr><tr><td>서버를 따로 두지 않음</td><td>시험 삼아 써 보는 단계라 서버 신청과 관리까지 맡기는 부담스러워서</td></tr></tbody></table>
+<h2 id="2-웹으로-옮길-방법-비교"><a href="#2-웹으로-옮길-방법-비교">2. 웹으로 옮길 방법 비교</a></h2>
+<p><img alt="세 가지 방법에서 PDF가 지나가는 자리. 서버에서 파이썬을 돌리면 PDF가 빌린 서버로 가고, 브라우저 안 파이썬과 자바스크립트는 내 PC 브라우저 안에서 끝난다" src="/uploads/pdftool-08-01.png" loading="lazy"/></p>
+<table><thead><tr><th></th><th>서버에서 파이썬</th><th>브라우저 안 파이썬</th><th>자바스크립트로 새로</th></tr></thead><tbody><tr><td>7편 <code>pdf_core.py</code></td><td>그대로</td><td>그대로</td><td>다시 짬</td></tr><tr><td>서버</td><td>빌려서 계속 켜 둠</td><td>없음</td><td>없음</td></tr><tr><td>PDF가 가는 곳</td><td>빌린 서버</td><td>내 PC 안</td><td>내 PC 안</td></tr><tr><td>지금 사이트(GitHub Pages)에 올리기</td><td>안 됨, 서버 따로</td><td>파일만 올리면 됨</td><td>파일만 올리면 됨</td></tr><tr><td>처음 열 때</td><td>바로</td><td>파이썬 실행기를 받는 시간</td><td>바로</td></tr></tbody></table>
+<p>서버에서 파이썬을 돌리면 코드는 그대로 쓰지만, 서류가 서버로 올라가고 서버 비용과 관리가 계속 듭니다. 자바스크립트로 새로 짜면 1편부터 7편까지 시험해 온 코드를 버리고 처음부터 다시 시험해야 합니다.</p>
+<p>브라우저 안 파이썬은 처음 열 때 기다리는 시간이 생기지만, <code>pdf_core.py</code>를 그대로 쓰면서 PDF가 각자 PC 밖으로 나가지 않습니다. 기다리는 시간이 얼마인지는 직접 재 봐야 알 수 있어서, 이 방법부터 시험하기로 했습니다.</p>
+<h2 id="3-pyodide와-버전"><a href="#3-pyodide와-버전">3. Pyodide와 버전</a></h2>
+<p>Pyodide는 파이썬 실행기를 브라우저가 돌릴 수 있는 형태(웹어셈블리)로 바꿔 둔 공개 프로젝트입니다. 웹 페이지에 스크립트 한 줄을 넣어 불러오면, 그 페이지 안에서 파이썬 코드가 실행됩니다. 이 도구에서는 <code>pdf_core.py</code>를 실행하는 자리에 씁니다.</p>
+<p>Pillow처럼 C로 만든 부분이 있는 라이브러리는 Pyodide가 브라우저용으로 미리 맞춰 둔 꾸러미가 있어서 이름만 적으면 받아집니다. pypdf는 파이썬으로만 된 라이브러리라서, 데스크톱에서 쓰던 설치 파일(.whl)을 그대로 설치할 수 있습니다. 라이선스는 MPL-2.0입니다. 파일 단위로 걸리는 라이선스라, Pyodide 파일을 고치지 않고 불러 쓰는 이 페이지의 코드에는 조건이 붙지 않습니다.</p>
+<table><thead><tr><th></th><th>데스크톱(7편)</th><th>브라우저(Pyodide 0.26.4)</th></tr></thead><tbody><tr><td>파이썬</td><td>3.14.9</td><td>3.12.1</td></tr><tr><td>Pillow</td><td>13.0.0</td><td>10.2.0</td></tr><tr><td>pypdf</td><td>6.21.4</td><td>6.21.4(같은 설치 파일)</td></tr></tbody></table>
+<h2 id="4-시험-파일-네-개-준비"><a href="#4-시험-파일-네-개-준비">4. 시험 파일 네 개 준비</a></h2>
+<p>합치다가 잃기 쉬운 것을 하나씩 담은 PDF를 만들었습니다. 1~7편의 연습 PDF는 글자만 들어간 짧은 파일이라, 목차나 링크가 남는지는 볼 수 없었습니다.</p>
+<table><thead><tr><th>파일</th><th>만든 방법</th><th>보려는 것</th></tr></thead><tbody><tr><td>01_계약서.pdf</td><td>한글 HTML을 크롬에서 PDF로 인쇄, 3쪽</td><td>목차 3개·링크 1개·한글 글자</td></tr><tr><td>02_견적서_가로.pdf</td><td>같은 방법, A4 가로 1쪽</td><td>쪽 크기가 섞여도 그대로인지</td></tr><tr><td>03_스캔_12쪽.pdf</td><td>Pillow로 3000×4000 점무늬 그림 12장을 PDF로 저장, 59.18MB</td><td>큰 파일도 브라우저에서 되는지</td></tr><tr><td>04_암호.pdf</td><td>02번에 암호를 걸어 저장</td><td>6편에서 넣은 암호 안내가 그대로 나오는지</td></tr></tbody></table>
+<h2 id="5-시험-페이지-만들기"><a href="#5-시험-페이지-만들기">5. 시험 페이지 만들기</a></h2>
+<p><img alt="VS Code에서 연 시험 페이지 index.html. 왼쪽에 pdf_core.py, check.py, pypdf 설치 파일, 시험파일 폴더" src="/uploads/pdftool-08-02.png" loading="lazy"/></p>
+<p>연습 폴더에 7편의 <code>pdf_core.py</code>를 그대로 복사하고, 합친 파일을 다시 열어 결과를 적는 <code>check.py</code>를 따로 만들었습니다. <code>check.py</code>는 쪽수, 쪽 크기, 목차, 링크, 첫 쪽 글자, 쪽마다 원본과 내용이 같은지, 암호 파일을 막는지를 적습니다. 데스크톱과 브라우저에서 이 파일을 똑같이 돌립니다.</p>
+<p>브라우저 쪽은 VS Code에서 <code>index.html</code> 하나로 만들었습니다.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">async</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> 시작</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> py</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#D73A49;--shiki-dark:#F97583"> await</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> loadPyodide</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  적기</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;파이썬 준비&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  await</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> py.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">loadPackage</span><span style="color:#24292E;--shiki-dark:#E1E4E8">([</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;micropip&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;pillow&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">]);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  적기</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;Pillow 준비&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  await</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> py.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">pyimport</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;micropip&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">install</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(location.origin </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x27;/pypdf-6.21.4-py3-none-any.whl&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  적기</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;pypdf 준비&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  // 데스크톱에서 쓰던 파이썬 파일과 시험 PDF를 브라우저 안 파일 공간에 넣는다</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 이름</span><span style="color:#D73A49;--shiki-dark:#F97583"> of</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;pdf_core.py&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;check.py&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">])</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    py.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">FS</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">writeFile</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">`/home/pyodide/${</span><span style="color:#24292E;--shiki-dark:#E1E4E8">이름</span><span style="color:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Uint8Array</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">await</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">await</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fetch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(이름)).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">arrayBuffer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  py.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">FS</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">mkdir</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;/t&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 이름</span><span style="color:#D73A49;--shiki-dark:#F97583"> of</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;01_계약서.pdf&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;02_견적서_가로.pdf&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;03_스캔_12쪽.pdf&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;04_암호.pdf&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">])</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    py.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">FS</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">writeFile</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">`/t/${</span><span style="color:#24292E;--shiki-dark:#E1E4E8">이름</span><span style="color:#032F62;--shiki-dark:#9ECBFF">}`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Uint8Array</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">await</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="color:#D73A49;--shiki-dark:#F97583">await</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fetch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;시험파일/&#x27;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> encodeURIComponent</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(이름))).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">arrayBuffer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()));</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  적기</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;시험 파일 넣음&#x27;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 결과</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> py.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">runPython</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">`</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">import sys, json, PIL, pypdf, check</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">r = check.재기(&#x27;/t&#x27;, &#x27;/out.pdf&#x27;)</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">r[&#x27;버전&#x27;] = f&quot;Python {sys.version.split()[0]} · Pillow {PIL.__version__} · pypdf {pypdf.__version__}&quot;</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">json.dumps(r, ensure_ascii=False, indent=1)`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">  적기</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;합치기와 검사 끝</span><span style="color:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&#x27;</span><span style="color:#D73A49;--shiki-dark:#F97583"> +</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> 결과);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li><strong>파이썬 준비</strong> (<code>loadPyodide</code>, <code>loadPackage</code>, <code>micropip.install</code>): 파이썬 실행기를 받고, Pillow는 Pyodide 꾸러미에서, pypdf는 연습 폴더에 둔 설치 파일에서 설치합니다. 단계마다 <code>적기</code>로 걸린 시간을 화면에 남깁니다.</li>
+<li><strong>파일 넣기</strong> (<code>py.FS.writeFile</code>): 브라우저 안의 파이썬은 노트북 폴더를 직접 열 수 없습니다. 그래서 페이지가 파일을 받아, 브라우저 안에만 있는 파일 공간에 넣어 줍니다.</li>
+<li><strong>합치기와 검사</strong> (<code>check.재기</code>): 이 안에서 7편의 <code>pdf_core.pdf_합치기</code>를 그대로 부릅니다. 결과는 JSON 글자로 받아 화면에 찍습니다.</li>
+</ul>
+<p>페이지는 연습 폴더에서 <code>py -m http.server</code>로 띄워 크롬에서 열었습니다. 탐색기에서 <code>index.html</code>을 더블클릭해 열면 크롬이 로컬 파일을 <code>fetch</code>로 읽지 못하게 막아서, pypdf 설치 파일을 읽는 단계에서 <code>Failed to fetch</code> 오류로 멈춥니다.</p>
+<h2 id="6-데스크톱-결과와-비교"><a href="#6-데스크톱-결과와-비교">6. 데스크톱 결과와 비교</a></h2>
+<p><img alt="브라우저 시험 페이지. 3.91초 파이썬 준비, 5.43초 pypdf 준비, 7.59초 합치기와 검사 끝, 쪽수 16, 쪽_내용_일치 16, 버전 Python 3.12.1 · Pillow 10.2.0 · pypdf 6.21.4" src="/uploads/pdftool-08-03.png" loading="lazy"/></p>
+<p><img alt="같은 check.py를 데스크톱 명령어 창에서 돌린 결과. 쪽수 16, 출력 59.22MB, 목차 3개, 링크 1개, 쪽_내용_일치 16" src="/uploads/pdftool-08-04.png" loading="lazy"/></p>
+<table><thead><tr><th></th><th>데스크톱</th><th>브라우저</th></tr></thead><tbody><tr><td>합친 쪽수</td><td>16쪽</td><td>16쪽</td></tr><tr><td>결과 크기</td><td>59.22MB</td><td>59.22MB</td></tr><tr><td>쪽 크기</td><td>3000×4000 · 612×792 · 842×595</td><td>같음</td></tr><tr><td>목차</td><td>1장 계약 조건 · 2장 일정 · 3장 서명</td><td>같음</td></tr><tr><td>링크</td><td>1개</td><td>1개</td></tr><tr><td>쪽마다 원본과 같은 내용</td><td>16쪽 중 16쪽</td><td>16쪽 중 16쪽</td></tr><tr><td>암호 파일</td><td>암호가 걸린 파일은 넣을 수 없습니다: 04_암호.pdf</td><td>같은 문장</td></tr></tbody></table>
+<p>두 결과가 모든 항목에서 같았습니다. 파이썬 버전이 3.14에서 3.12로 내려갔지만, 합치기에 쓰는 pypdf는 같은 버전이라 결과도 같았습니다.</p>
+<p><img alt="브라우저에서 내려받은 합친 파일을 크롬에서 연 화면. 4 / 16쪽, 계약서 3쪽 다음에 가로 견적서, 그 뒤로 스캔 쪽" src="/uploads/pdftool-08-05.png" loading="lazy"/></p>
+<p>브라우저에서 만든 파일을 내려받아 크롬으로 열었습니다. 계약서 3쪽 다음 4쪽에 가로 견적서가 있고, 그 뒤로 큰 스캔 12쪽이 이어집니다.</p>
+<h2 id="7-처음-열-때-걸리는-시간"><a href="#7-처음-열-때-걸리는-시간">7. 처음 열 때 걸리는 시간</a></h2>
+<p>크롬 창을 새로 열 때마다 받아 둔 파일이 없는 상태에서 다섯 번 쟀습니다.</p>
+<table><thead><tr><th></th><th>파이썬 준비</th><th>pypdf까지 준비</th><th>합치기(59MB 포함)</th></tr></thead><tbody><tr><td>1회</td><td>7.27초</td><td>10.75초</td><td>0.82초</td></tr><tr><td>2회</td><td>3.91초</td><td>5.43초</td><td>0.38초</td></tr><tr><td>3회</td><td>6.85초</td><td>9.92초</td><td>0.72초</td></tr><tr><td>4회</td><td>5.82초</td><td>8.26초</td><td>0.67초</td></tr><tr><td>5회</td><td>6.04초</td><td>7.27초</td><td>0.22초</td></tr></tbody></table>
+<p>합치기는 다섯 번 모두 1초가 걸리지 않았습니다. 기다리는 시간은 거의 다 파이썬 실행기와 라이브러리를 받는 데 들었습니다. 1회 때 인터넷에서 받은 파이썬 실행기와 Pillow가 6.3MB였습니다. 같은 창에서 새로고침해 다시 열어도 pypdf까지 준비하는 데 6~7초가 걸렸습니다.</p>
+<p>59MB 파일은 노트북에서는 다섯 번 모두 합쳐졌지만, 휴대폰에서 같은 파일이 되는지는 아직 재 보지 않았습니다.</p>
+<p>이번 시험 페이지는 정해 둔 시험 파일 네 개만 합칩니다. 내 파일을 넣는 화면은 아직 없습니다.</p>
+<p>다음 편에서는 PDF 합치기를 해 주는 다른 사이트들에 같은 시험 파일을 넣어 보겠습니다.</p>
+<p>제가 쓴 환경은 Windows 11, 크롬, Pyodide 0.26.4(Python 3.12.1, Pillow 10.2.0), pypdf 6.21.4입니다.</p></div><div style="margin-top:3rem;padding:1.4rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.35rem">필요한 프로그램을 직접 만들고 그 과정을 적습니다</p></div><nav class="post-nav" aria-label="이전 글 다음 글"><a class="post-nav__item" href="/posts/python-pdf-tool-07-run-test/"><span class="post-nav__label">이전 글</span><span class="post-nav__title">파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험</span></a><span></span></nav></article></div><section><div class="section-title"><h2>관련 글</h2></div><div class="bento"><a class="post-card " href="/posts/python-pdf-tool-07-run-test/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험</h3><p>bat 파일로 PDF 도구를 더블클릭해 켜고, 2편에서 만든 시험 11가지와 덮어쓰기 확인을 처음부터 돌려 12개 모두 통과했습니다.</p><div class="post-card__meta"><time dateTime="2026-11-10T15:04">2026년 11월 10일 15:04</time><span>· <!-- -->파이썬, bat 파일, 배치 파일</span></div></a><a class="post-card " href="/posts/python-pdf-tool-04-folder-merge/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 4편 폴더 속 PDF 번호순 합치기</h3><p>폴더 안 스캔 PDF 11개를 한 번에 합치는 코드를 짜고, 1 다음에 10이 붙던 순서를 숫자 순서로 고쳤습니다.</p><div class="post-card__meta"><time dateTime="2026-11-02T10:38">2026년 11월 2일 10:38</time><span>· <!-- -->파이썬, PDF 합치기, pypdf</span></div></a><a class="post-card " href="/posts/python-pdf-tool-06-window/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 6편 tkinter로 창 만들기</h3><p>명령어로 돌리던 PDF 합치기와 사진 묶기를 tkinter 창 하나로 모으고, 상태줄 문구와 만드는 동안의 표시를 고쳤습니다.</p><div class="post-card__meta"><time dateTime="2026-11-09T13:10">2026년 11월 9일 13:10</time><span>· <!-- -->파이썬, tkinter, PDF 합치기</span></div></a><a class="post-card " href="/posts/python-pdf-tool-05-photo-size/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 5편 사진 묶기와 용량 줄이기</h3><p>휴대폰 사진 5장을 PDF로 묶어 1MB 아래로 줄이고, 화질 단계 오류와 옆으로 누운 쪽을 고쳤습니다.</p><div class="post-card__meta"><time dateTime="2026-11-04T14:58">2026년 11월 4일 14:58</time><span>· <!-- -->파이썬, PDF 합치기, Pillow</span></div></a><a class="post-card " href="/posts/python-pdf-tool-03-install-merge/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 3편 pypdf 설치와 첫 합치기</h3><p>pypdf와 Pillow를 설치하다 나온 pip 캐시 경고의 원인을 확인하고, 연습용 PDF 두 개를 만들어 처음으로 합쳐 봤습니다.</p><div class="post-card__meta"><time dateTime="2026-10-31T14:35">2026년 10월 31일 14:35</time><span>· <!-- -->파이썬, PDF 합치기, pypdf</span></div></a><a class="post-card " href="/posts/python-pdf-tool-02-design/"><span class="tag" style="align-self:flex-start">PDF 도구</span><h3 style="margin-top:0.75rem">파이썬으로 PDF 합치기 프로그램 만들기 2편 흐름도와 화면 설계</h3><p>1편 요구사항을 바탕으로 처리 흐름도, 화면 설계, 모듈 나누기, 예외 처리, 테스트 계획을 정리했습니다.</p><div class="post-card__meta"><time dateTime="2026-10-30T09:59">2026년 10월 30일 09:59</time><span>· <!-- -->파이썬, PDF 합치기, 흐름도</span></div></a></div></section></main><footer class="site-footer"><div class="container"><strong>PANCO_IT</strong><p class="muted" style="margin-top:0.4rem">필요한 프로그램을 직접 만들고, 만든 과정을 적습니다.</p><nav class="site-footer__links" aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav><p class="muted" style="margin-top:1.25rem;font-size:0.82rem">© 2026 PANCO_IT. All rights reserved.</p></div></footer></div>
+    <!--
+      Google AdSense / 사이트 소유확인:
+      이제 코드를 직접 넣지 않습니다. src/site.config.ts 에서
+        adsense.client = 실제 ca-pub-XXXX,  adsense.review = true (심사) / enabled = true (운영)
+        verification.google = Search Console 인증 코드
+      로 설정하면 빌드 시 모든 페이지 <head> 에 자동 삽입됩니다 (src/lib/head.tsx).
+    -->
+  </body>
+</html>

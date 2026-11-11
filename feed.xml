@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 8편 브라우저에서 같은 코드 돌려 보기</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-08-browser</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-08-browser</guid>
+      <pubDate>Wed, 11 Nov 2026 17:14:00 GMT</pubDate>
+      <description>PDF 도구를 회사 동료들과 써 볼 사내 시제품으로 웹에 옮기려고 세 방법을 비교하고, Pyodide로 7편 코드를 브라우저에서 그대로 실행해 데스크톱과 같은 결과(16쪽 중 16쪽 일치)를 얻었습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 7편 더블클릭 실행과 시험</title>
       <link>https://pancoit.site/posts/python-pdf-tool-07-run-test</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-07-run-test</guid>
