@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 9편 무료 PDF 합치기 사이트 다섯 곳 써 보기</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-09-pdf-sites</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-09-pdf-sites</guid>
+      <pubDate>Thu, 12 Nov 2026 10:26:00 GMT</pubDate>
+      <description>회사 동료들과 쓸 사내 시제품을 만들기 전에 무료 PDF 합치기 사이트 다섯 곳에 같은 파일을 넣어 써 보고, 목차가 사라지거나 사진이 눕는 등 불편했던 점과 시제품 요구사항을 정리했습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 8편 브라우저에서 같은 코드 돌려 보기</title>
       <link>https://pancoit.site/posts/python-pdf-tool-08-browser</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-08-browser</guid>
