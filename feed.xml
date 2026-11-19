@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 12편 웹 화면 만들고 코드 붙이기</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-12-web-screen</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-12-web-screen</guid>
+      <pubDate>Thu, 19 Nov 2026 11:57:00 GMT</pubDate>
+      <description>10편 스케치대로 웹 화면을 만들고 11편 pdf_core.py를 붙여 브라우저에서 돌렸습니다. pdf.js로 쪽 그림을 그리고, 만드는 동안 화면이 멈추던 문제를 작업 스레드로 옮겨 고친 뒤 걸린 시간과 결과 파일을 확인했습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 11편 사진 섞어 합치기와 용량 맞추기</title>
       <link>https://pancoit.site/posts/python-pdf-tool-11-mixed-merge-size</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-11-mixed-merge-size</guid>
