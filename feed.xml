@@ -7,6 +7,13 @@
     <language>ko</language>
     <atom:link href="https://pancoit.site/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>파이썬으로 PDF 합치기 프로그램 만들기 13편 웹 버전 시험과 고치기</title>
+      <link>https://pancoit.site/posts/python-pdf-tool-13-web-test</link>
+      <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-13-web-test</guid>
+      <pubDate>Mon, 23 Nov 2026 15:47:00 GMT</pubDate>
+      <description>7편 시험표에 9편 웹 요구사항을 더한 14가지 시험을 PC 폭과 휴대폰 폭에서 해 보고, 빼기 버튼·끌어서 순서 바꾸기·깨진 파일 안내·내려받기 버튼 옆 만들기 버튼을 고친 뒤 다시 시험했습니다.</description>
+    </item>
+    <item>
       <title>파이썬으로 PDF 합치기 프로그램 만들기 12편 웹 화면 만들고 코드 붙이기</title>
       <link>https://pancoit.site/posts/python-pdf-tool-12-web-screen</link>
       <guid isPermaLink="true">https://pancoit.site/posts/python-pdf-tool-12-web-screen</guid>
