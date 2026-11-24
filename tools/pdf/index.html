@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF와 사진 합치기 (PDF 도구 웹 버전) | PANCO_IT</title>
+<meta name="description" content="PDF와 휴대폰 사진을 순서대로 합치고 5·10·20MB 이하로 맞추는 도구입니다. 파일은 브라우저 안에서만 처리합니다.">
+<link rel="canonical" href="https://pancoit.site/tools/pdf/">
+<meta property="og:title" content="PDF와 사진 합치기 (PDF 도구 웹 버전)">
+<meta property="og:description" content="PDF와 휴대폰 사진을 순서대로 합치고 정한 용량 이하로 맞추는 도구">
+<meta property="og:url" content="https://pancoit.site/tools/pdf/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://pancoit.site/og-default.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="fonts/gowun-dodum-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="app.css">
+<script>
+(function () { try { document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light'; } catch (e) { document.documentElement.dataset.theme = 'light'; } })();
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/">PANCO<span>_</span>IT</a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="/">홈</a>
+      <a href="/posts/">전체 글</a>
+      <a href="/tools/pdf/" class="active" aria-current="page">만든 도구</a>
+      <a href="/about/">소개</a>
+      <a href="/contact/">문의</a>
+      <button type="button" class="theme-toggle" id="theme" aria-label="화면 테마 바꾸기"></button>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="crumbs" aria-label="현재 위치"><a href="/">홈</a><span aria-hidden="true">›</span><span>만든 도구</span><span aria-hidden="true">›</span><span aria-current="page">PDF와 사진 합치기</span></nav>
+  <h1>PDF와 사진 합치기</h1>
+  <p class="lead">PDF 합치기 프로그램 만들기 연재에서 만든 도구입니다. 파일은 이 기기 안에서만 처리하고 서버로 보내지 않습니다.</p>
+
+  <div class="layout">
+    <section class="tool" aria-label="도구">
+      <div id="status" class="status" role="status">파이썬 준비 중 · 0초</div>
+
+      <h2 class="step"><b>1</b>파일 넣기</h2>
+      <button type="button" id="drop" class="drop"><strong class="only-wide">PDF와 사진을 여기에 끌어다 놓기</strong><span class="only-wide">또는 눌러서 파일 선택 · PDF, JPG, PNG</span><strong class="only-narrow">눌러서 PDF와 사진 고르기</strong><span class="only-narrow">PDF, JPG, PNG</span></button>
+      <input id="pick" type="file" multiple accept=".pdf,.jpg,.jpeg,.png" hidden aria-label="파일 고르기">
+      <ul id="list" aria-label="넣은 파일"></ul>
+
+      <h2 class="step"><b>2</b>순서와 용량</h2>
+      <div class="pair">
+        <label>순서
+          <select id="order"><option value="name">파일 이름 숫자순(1, 2, 10)</option><option value="list">넣은 순서(목록에서 직접 바꾸기)</option></select>
+        </label>
+        <label>결과 용량
+          <select id="limit"><option value="5">5MB 이하</option><option value="10" selected>10MB 이하</option><option value="20">20MB 이하</option><option value="0">제한 없음</option></select>
+        </label>
+      </div>
+      <p class="note">줄이는 것은 사진과 스캔 쪽만입니다. 글자 PDF는 그대로 둡니다.</p>
+
+      <h2 class="step"><b>3</b>만들기</h2>
+      <div id="area" aria-live="polite"></div>
+      <button type="button" id="make" class="make" disabled>PDF 한 파일로 만들기</button>
+    </section>
+
+    <aside class="side">
+      <div class="box box--soft">
+        <h2>이 도구에 대해</h2>
+        <dl>
+          <dt>처리 위치</dt><dd>이 기기 안. 서버로 보내지 않음</dd>
+          <dt>넣는 파일</dt><dd>PDF, JPG, PNG</dd>
+          <dt>결과 용량</dt><dd>5·10·20MB 이하, 제한 없음</dd>
+          <dt>인터넷</dt><dd>한 번 열어 두면 끊겨도 사용</dd>
+          <dt>쓰는 것</dt><dd>Pyodide, pypdf, Pillow, pdf.js</dd>
+        </dl>
+      </div>
+      <div class="box">
+        <h2>만든 과정</h2>
+        <p>요구사항부터 시험까지 순서대로 적은 연재입니다.</p>
+        <a href="/category/PDF%20%EB%8F%84%EA%B5%AC/">PDF 합치기 프로그램 만들기 전체 편 보기</a>
+      </div>
+    </aside>
+  </div>
+
+  <article class="doc">
+    <h2>쓰는 법</h2>
+    <ol>
+      <li>PDF와 사진을 끌어다 놓거나 눌러서 고릅니다. 파일 이름의 숫자 순서대로 정렬됩니다.</li>
+      <li>순서를 바꾸려면 줄 왼쪽 손잡이를 잡고 끌거나 위아래 버튼을 누릅니다. 필요 없는 파일은 빼기로 뺍니다.</li>
+      <li>결과 용량을 정하고 만들기를 누른 뒤, 다 되면 내려받기를 누릅니다.</li>
+    </ol>
+
+    <h2>만든 이유</h2>
+    <p>거래처에 서류를 한 파일로 보내거나 10MB 제한이 있는 곳에 올릴 때마다 무료 PDF 사이트를 찾았습니다. 사업자등록증이나 등본을 잘 모르는 사이트에 올리는 것이 마음에 걸려 파이썬으로 프로그램을 만들었고, 다른 컴퓨터에서도 쓰려고 브라우저로 옮겼습니다.</p>
+
+    <h2>알아 둘 것</h2>
+    <ul>
+      <li>처음 열 때는 파이썬과 라이브러리 약 18MB를 받습니다. 기다리는 동안 파일을 먼저 넣어 둘 수 있습니다.</li>
+      <li>스캔 쪽이 많은 파일을 작은 용량으로 맞추면 오래 걸립니다. 제 노트북에서 25쪽짜리를 5MB로 만들 때 PC 폭은 75~102초, 휴대폰 폭은 110~151초였습니다.</li>
+      <li>암호 걸린 PDF와 깨진 PDF는 빨간 줄로 표시하고 그 파일만 빼고 합칩니다.</li>
+      <li>넣은 파일이 크면 휴대폰에서는 메모리가 모자랄 수 있습니다. 그때는 파일을 나눠 넣어 주세요.</li>
+    </ul>
+
+    <h2>만들지 않은 기능</h2>
+    <p>암호 풀기, 쪽 나누기와 쪽 삭제, 글자 인식(OCR)은 없습니다. 합치기와 용량 맞추기만 합니다.</p>
+
+    <h2>파일 처리</h2>
+    <p>합치기와 용량 줄이기는 모두 브라우저 안에서 합니다. 이 페이지에는 광고와 방문 통계 코드를 넣지 않았고, 파이썬 실행기와 글꼴도 이 사이트에 두었습니다. 인터넷 없이 다시 열 수 있도록 도구 파일만 브라우저에 저장하고, 넣은 PDF와 사진은 저장하지 않습니다.</p>
+
+    <h2>연재</h2>
+    <ol class="series">
+      <li><a href="/posts/python-pdf-tool-01-requirements/">요구사항 정리</a></li>
+      <li><a href="/posts/python-pdf-tool-02-design/">흐름도와 화면 설계</a></li>
+      <li><a href="/posts/python-pdf-tool-03-install-merge/">pypdf 설치와 첫 합치기</a></li>
+      <li><a href="/posts/python-pdf-tool-04-folder-merge/">폴더 속 PDF 번호순 합치기</a></li>
+      <li><a href="/posts/python-pdf-tool-05-photo-size/">사진 묶기와 용량 줄이기</a></li>
+      <li><a href="/posts/python-pdf-tool-06-window/">tkinter로 창 만들기</a></li>
+      <li><a href="/posts/python-pdf-tool-07-run-test/">더블클릭 실행과 시험</a></li>
+      <li><a href="/posts/python-pdf-tool-08-browser/">브라우저에서 같은 코드 돌려 보기</a></li>
+      <li><a href="/posts/python-pdf-tool-09-pdf-sites/">무료 PDF 합치기 사이트 다섯 곳 써 보기</a></li>
+      <li><a href="/posts/python-pdf-tool-10-screen-design/">화면 흐름과 디자인 시안</a></li>
+      <li><a href="/posts/python-pdf-tool-11-mixed-merge-size/">사진 섞어 합치기와 용량 맞추기</a></li>
+      <li><a href="/posts/python-pdf-tool-12-web-screen/">웹 화면 만들고 코드 붙이기</a></li>
+      <li><a href="/posts/python-pdf-tool-13-web-test/">웹 버전 시험과 고치기</a></li>
+    </ol>
+    <p class="note">쓴 라이브러리와 글꼴의 라이선스는 <a href="licenses.txt">licenses.txt</a>에 있습니다.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <strong>PANCO_IT</strong>
+    <p>필요한 프로그램을 직접 만들고, 만든 과정을 적습니다.</p>
+    <nav aria-label="푸터 메뉴"><a href="/about/">소개</a><a href="/contact/">문의</a><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a></nav>
+  </div>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

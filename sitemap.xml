@@ -31,6 +31,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://pancoit.site/tools/pdf/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://pancoit.site/posts/python-pdf-tool-01-requirements/</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
